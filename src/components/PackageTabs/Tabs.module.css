@@ -1,0 +1,16 @@
+.tab {
+  &[data-active] {
+    z-index: 1;
+    border-color: transparent;
+    background-color: var(--mantine-color-dark-7);
+    color: var(--mantine-color-white);
+  }
+}
+
+.list {
+  overflow: scroll;
+  flex-wrap: nowrap;
+  &:before {
+    border-color: transparent;
+  }
+}
