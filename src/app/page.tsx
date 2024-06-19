@@ -6,7 +6,7 @@ import Favicon from "../assets/logos/icon.png";
 export default function Home() {
   return (
     <PageLayout hideLayout={true} disableSpotlight={true}>
-      <Center h="100vh">
+      <Center mah="100vh" mih="100vh">
         <Container ta="center" size="sm">
           <Center mb={30}>
             <Image
