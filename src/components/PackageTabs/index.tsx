@@ -1,35 +1,50 @@
 "use client";
 
 import { Suspense } from "react";
-import { Tabs, Container, Box } from "@mantine/core";
-import MDX from "../mdx";
-import Security from "../Security";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Tabs, Container } from "@mantine/core";
+import Overview from "../Tabs/Overview";
+import Security from "../Tabs/Security";
 import classes from "./Tabs.module.css";
 import "../PackageContainer/Container.module.css";
 
 const PageTabs = ({ pacakgeInfo }: any) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const search = searchParams.get("t") || "overview";
   const { gitHub, securityScore } = pacakgeInfo;
+
   return (
     <Container className="responsiveContainer" mt={-35}>
-      <Tabs variant="outline" defaultValue="gallery" classNames={classes}>
+      <Tabs
+        variant="outline"
+        keepMounted={false}
+        classNames={classes}
+        value={search as string}
+        defaultValue="overview"
+        onChange={(value) => router.push(`?t=${value}`)}
+      >
         <Tabs.List>
-          <Tabs.Tab value="gallery">Overview</Tabs.Tab>
+          <Tabs.Tab value="overview">Overview</Tabs.Tab>
           <Tabs.Tab value="downloads">Downloads</Tabs.Tab>
           <Tabs.Tab value="dependencies">Dependencies</Tabs.Tab>
-          <Tabs.Tab value="scorecard">Scorecard</Tabs.Tab>
+          <Tabs.Tab value="scorecard">Security Scorecard</Tabs.Tab>
           <Tabs.Tab value="versions">Versions</Tabs.Tab>
+          <Tabs.Tab value="readme">Readme</Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="gallery" py={20}>
-            <MDX content={gitHub?.data?.readMe} />
+        <Tabs.Panel value="overview" py={20}>
+          hello World!
+        </Tabs.Panel>
+
+        <Tabs.Panel value="readme" py={20}>
+          <Overview data={gitHub?.data?.readMe} />
         </Tabs.Panel>
 
         <Tabs.Panel value="messages">Messages tab content</Tabs.Panel>
 
         <Tabs.Panel value="scorecard" py={20}>
-          <Suspense fallback={<>loading...</>}>
-            <Security packageInfo={securityScore?.data} />
-          </Suspense>
+          <Security packageInfo={securityScore?.data} />
         </Tabs.Panel>
       </Tabs>
     </Container>

@@ -28,8 +28,8 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const data = await getPackageData(name);
   return (
     <Box>
-      <PackageContainer packageInfo={data}/>
-      <PageTabs pacakgeInfo={data}/>
+      <PackageContainer packageInfo={data} />
+      <PageTabs pacakgeInfo={data} />
     </Box>
   );
 }

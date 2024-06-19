@@ -16,7 +16,7 @@ export async function getPackageData(packageName: string) {
   const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-    options
+    options,
   );
 
   if (!res.ok) {
@@ -39,12 +39,12 @@ export async function getPackageData(packageName: string) {
  */
 export async function getPackageSecurityScore(
   packageName: string,
-  owner: string
+  owner: string,
 ) {
   const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
-    options
+    options,
   );
 
   if (!res.ok) {

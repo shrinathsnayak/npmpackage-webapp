@@ -1,0 +1,58 @@
+import React, { Suspense } from "react";
+import { Box, Title, Flex, Text, Paper, Anchor, Group } from "@mantine/core";
+import SecurityAccordin from "../shared/security/SecurityAccordin";
+import { getScoreTextColor } from "@/utils";
+
+const Security = ({ packageInfo }: any) => {
+  const { overallScore, score, lastScanned, checks } = packageInfo || {};
+  return (
+    <Suspense fallback={<>loading...</>}>
+      <Flex
+        direction={{ base: "column-reverse", sm: "row" }}
+        gap={{ base: "sm", sm: "sm" }}
+      >
+        <SecurityAccordin checks={checks} />
+        <Paper
+          p="lg"
+          top="70px"
+          withBorder
+          shadow="xs"
+          h="fit-content"
+          w={{ base: "100%", sm: "500" }}
+          pos={{ base: "static", sm: "sticky" }}
+        >
+          <Text fw="500">Score</Text>
+          <Flex my={5} align="flex-end">
+            <Title order={1} size="h1" c={getScoreTextColor(score)}>
+              {score}
+            </Title>
+            <Title order={3} mb={4}>
+              / {overallScore}
+            </Title>
+          </Flex>
+
+          <Text size="sm" c="dimmed" fw={400} mt={3}>
+            Last Scanned on {lastScanned}
+          </Text>
+
+          <Text fz="sm" my={10}>
+            The Open Source Security Foundation is a cross-industry
+            collaboration to improve the security of open source software (OSS).
+            The Scorecard provides security health metrics for open source
+            projects.
+          </Text>
+
+          <Anchor
+            fz="sm"
+            href="https://github.com/ossf/scorecard/blob/main/docs/checks.md"
+            target="_blank"
+          >
+            Learn More
+          </Anchor>
+        </Paper>
+      </Flex>
+    </Suspense>
+  );
+};
+
+export default Security;

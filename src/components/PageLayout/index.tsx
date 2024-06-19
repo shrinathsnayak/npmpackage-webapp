@@ -4,7 +4,11 @@ import { useDisclosure } from "@mantine/hooks";
 import { Search } from "@/components/Search";
 import classes from "./Layout.module.css";
 
-const PageLayout = ({ children, hideLayout }: any) => {
+const PageLayout = ({
+  children,
+  hideLayout,
+  disableSpotlight = false,
+}: any) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -43,7 +47,7 @@ const PageLayout = ({ children, hideLayout }: any) => {
       </AppShell.Navbar>
 
       <AppShell.Main>
-        <Search />
+        {!disableSpotlight && <Search />}
         {children}
       </AppShell.Main>
     </AppShell>
