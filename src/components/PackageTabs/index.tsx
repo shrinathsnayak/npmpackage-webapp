@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container } from "@mantine/core";
 import Overview from "../Tabs/Overview";
@@ -15,22 +14,34 @@ const PageTabs = ({ pacakgeInfo }: any) => {
   const { gitHub, securityScore } = pacakgeInfo;
 
   return (
-    <Container className="responsiveContainer" mt={-35}>
+    <Container className="responsiveContainer" mt={-48}>
       <Tabs
         variant="outline"
-        keepMounted={false}
+        // keepMounted={false}
         classNames={classes}
         value={search as string}
         defaultValue="overview"
         onChange={(value) => router.push(`?t=${value}`)}
       >
         <Tabs.List>
-          <Tabs.Tab value="overview">Overview</Tabs.Tab>
-          <Tabs.Tab value="downloads">Downloads</Tabs.Tab>
-          <Tabs.Tab value="dependencies">Dependencies</Tabs.Tab>
-          <Tabs.Tab value="scorecard">Security Scorecard</Tabs.Tab>
-          <Tabs.Tab value="versions">Versions</Tabs.Tab>
-          <Tabs.Tab value="readme">Readme</Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="overview">
+            Overview
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="downloads">
+            Downloads
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="dependencies">
+            Dependencies
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="scorecard">
+            Security Scorecard
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="versions">
+            Versions
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="readme">
+            Readme
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="overview" py={20}>
