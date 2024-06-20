@@ -65,16 +65,18 @@ function AccordionContent({ reason, details }: any) {
 
 const SecurityAccordin = ({ checks = [] }: any) => {
   const [value, setValue] = useState<string[]>([]);
-  const items = checks?.map((item: any) => (
-    <Accordion.Item value={item.name} key={item.name}>
-      <Accordion.Control>
-        <AccordionLabel {...item} />
-      </Accordion.Control>
-      <Accordion.Panel>
-        <AccordionContent {...item} />
-      </Accordion.Panel>
-    </Accordion.Item>
-  ));
+  const items = checks
+    ?.sort((a: any, b: any) => b.score - a.score)
+    ?.map((item: any) => (
+      <Accordion.Item value={item.name} key={item.name}>
+        <Accordion.Control>
+          <AccordionLabel {...item} />
+        </Accordion.Control>
+        <Accordion.Panel>
+          <AccordionContent {...item} />
+        </Accordion.Panel>
+      </Accordion.Item>
+    ));
 
   return (
     <Box w="100%">

@@ -10,6 +10,7 @@ export async function generateMetadata({
   params: { package: [] };
 }) {
   const name = genereatePackageName(params.package);
+  console.log(params, "name");
   const { npm, gitHub } = await getPackageData(name);
   return {
     title: npm?.data?.name,

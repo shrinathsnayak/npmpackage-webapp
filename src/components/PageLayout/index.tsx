@@ -73,8 +73,12 @@ const PageLayout = ({
               </Flex>
             </Anchor>
             <Group ml="xl" gap={0} visibleFrom="sm">
-              <UnstyledButton className={classes.control} disabled>Package</UnstyledButton>
-              <UnstyledButton className={classes.control} disabled>Downloads</UnstyledButton>
+              <UnstyledButton className={classes.control} disabled>
+                Package
+              </UnstyledButton>
+              <UnstyledButton className={classes.control} disabled>
+                Downloads
+              </UnstyledButton>
               <UnstyledButton className={classes.control} disabled>
                 Compare
               </UnstyledButton>
