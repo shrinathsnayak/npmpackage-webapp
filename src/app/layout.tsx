@@ -4,9 +4,10 @@ import "@mantine/code-highlight/styles.css";
 
 import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import theme from "./theme";
-import Favicon from "../assets/logos/icon.png";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
+import Metrics from "@/observability";
+import Favicon from "../assets/logos/icon.png";
+import theme from "./theme";
 
 export const metadata: Metadata = {
   title: {
@@ -30,8 +31,9 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="dark" />
         <ColorSchemeScript forceColorScheme="dark" defaultColorScheme="dark" />
+        <Metrics />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <MantineProvider
           theme={theme}
           forceColorScheme="dark"

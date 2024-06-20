@@ -1,8 +1,8 @@
-import NextImage from "next/image";
 import { Center, Container, Image, Title, Text } from "@mantine/core";
 import PageLayout from "@/components/PageLayout";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
-import Favicon from "../assets/logos/icon.png";
+import Favicon from "@/assets/logos/icon.png";
+
 export default function Home() {
   return (
     <PageLayout hideLayout={true} disableSpotlight={true}>

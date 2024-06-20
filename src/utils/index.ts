@@ -1,4 +1,5 @@
 import { DEVELOPMENT } from "@/constants";
+import { npmFacts } from "@/constants/npmfacts";
 
 export const isDevelopment: boolean = !!process.env[DEVELOPMENT];
 
@@ -19,4 +20,15 @@ export const getScoreTextColor = (score: number): string => {
     default:
       throw new Error("Unexpected score value");
   }
+};
+
+/**
+ * This TypeScript function generates a random fact about NPM by selecting a random index from an array
+ * of NPM facts.
+ * @returns A random fact about NPM from the `npmFacts` array.
+ */
+export const generateRandomNPMFact = () => {
+  const allData = npmFacts;
+  const randomIndex = Math.floor(Math.random() * allData.length);
+  return allData[randomIndex];
 };

@@ -1,12 +1,12 @@
-import { Skeleton } from "@mantine/core";
+import { Center, Container } from "@mantine/core";
+import { generateRandomNPMFact } from "@/utils";
 
-export default function Home() {
+export default function Loading() {
   return (
-    <>
-      <Skeleton height={50} circle mb="xl" />
-      <Skeleton height={8} radius="xl" />
-      <Skeleton height={8} mt={6} radius="xl" />
-      <Skeleton height={8} mt={6} width="70%" radius="xl" />
-    </>
+    <Center mih="100vh">
+      <Container size="xs" ta="center">
+        {generateRandomNPMFact()}
+      </Container>
+    </Center>
   );
 }
