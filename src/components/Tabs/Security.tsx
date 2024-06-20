@@ -14,7 +14,7 @@ const Security = ({ packageInfo }: any) => {
         <SecurityAccordin checks={checks} />
         <Paper
           p="lg"
-          top="70px"
+          top="75px"
           withBorder
           shadow="xs"
           h="fit-content"
@@ -27,7 +27,7 @@ const Security = ({ packageInfo }: any) => {
               {score}
             </Title>
             <Title order={3} mb={4}>
-              / {overallScore}
+              /{overallScore}
             </Title>
           </Flex>
 

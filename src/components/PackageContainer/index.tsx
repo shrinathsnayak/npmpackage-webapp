@@ -16,7 +16,7 @@ import "./Container.module.css";
 const PackageContainer = ({ packageInfo }: any) => {
   const { data } = packageInfo?.gitHub || {};
   return (
-    <Box w="100%" bg="dark.9" pb={50}>
+    <Box w="100%" bg="dark.9" pb={60}>
       <Container className="responsiveContainer" py={30}>
         <Flex align="center" justify="space-between">
           <Group align="center">

@@ -1,6 +1,7 @@
 import "@mantine/core/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantine/code-highlight/styles.css";
+import "@/global.module.css";
 
 import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";

@@ -13,7 +13,7 @@ import { isDevelopment } from "@/utils";
  * fetch data" is thrown.
  */
 export async function getPackageData(packageName: string) {
-  const options = isDevelopment ? {} : generateAPIOptions(packageName);
+  const options = generateAPIOptions(packageName); //isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?q=${packageName}`,
     options,
@@ -41,7 +41,7 @@ export async function getPackageSecurityScore(
   packageName: string,
   owner: string,
 ) {
-  const options = isDevelopment ? {} : generateAPIOptions(packageName);
+  const options = generateAPIOptions(packageName); //isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
     options,
