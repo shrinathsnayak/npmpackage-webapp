@@ -24,7 +24,7 @@ const PageTabs = ({ pacakgeInfo }: any) => {
         onChange={(value) => router.push(`?t=${value}`)}
       >
         <Tabs.List>
-          <Tabs.Tab py="md" px="lg" value="overview">
+          {/* <Tabs.Tab py="md" px="lg" value="overview">
             Overview
           </Tabs.Tab>
           <Tabs.Tab py="md" px="lg" value="downloads">
@@ -32,13 +32,13 @@ const PageTabs = ({ pacakgeInfo }: any) => {
           </Tabs.Tab>
           <Tabs.Tab py="md" px="lg" value="dependencies">
             Dependencies
-          </Tabs.Tab>
+          </Tabs.Tab> */}
           <Tabs.Tab py="md" px="lg" value="scorecard">
             Security Scorecard
           </Tabs.Tab>
-          <Tabs.Tab py="md" px="lg" value="versions">
+          {/* <Tabs.Tab py="md" px="lg" value="versions">
             Versions
-          </Tabs.Tab>
+          </Tabs.Tab> */}
           <Tabs.Tab py="md" px="lg" value="readme">
             Readme
           </Tabs.Tab>
