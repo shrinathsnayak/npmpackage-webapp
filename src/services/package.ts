@@ -13,7 +13,7 @@ import { isDevelopment } from "@/utils";
  * fetch data" is thrown.
  */
 export async function getPackageData(packageName: string) {
-  const options = generateAPIOptions(packageName); //isDevelopment ? {} : generateAPIOptions(packageName);
+  const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?q=${packageName}`,
     options,
@@ -41,7 +41,7 @@ export async function getPackageSecurityScore(
   packageName: string,
   owner: string,
 ) {
-  const options = generateAPIOptions(packageName); //isDevelopment ? {} : generateAPIOptions(packageName);
+  const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
     options,
@@ -52,4 +52,20 @@ export async function getPackageSecurityScore(
   }
 
   return res.json();
+}
+
+export async function searchPackage(packageName: string) {
+  if (packageName) {
+    const options = isDevelopment ? {} : generateAPIOptions(packageName);
+    const res = await fetch(
+      `${process.env.API_ENDPOINT}/search?q=${packageName}`,
+      options,
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  }
 }

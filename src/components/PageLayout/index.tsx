@@ -17,6 +17,7 @@ import { Search } from "@/components/Search";
 import classes from "./Layout.module.css";
 import Icon from "@/assets/logos/icon.svg";
 import { NPMPACKAGE_TITLE } from "@/constants";
+import { Suspense } from "react";
 
 const PageLayout = ({
   children,
@@ -98,7 +99,11 @@ const PageLayout = ({
       </AppShell.Navbar>
 
       <AppShell.Main>
-        {!disableSpotlight && <Search />}
+        {!disableSpotlight && (
+          <Suspense fallback={<>loading...</>}>
+            <Search />
+          </Suspense>
+        )}
         {children}
       </AppShell.Main>
     </AppShell>

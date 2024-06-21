@@ -1,55 +1,90 @@
 "use client";
 
+import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { IconSearch } from "@tabler/icons-react";
-import { rem } from "@mantine/core";
-import {
-  createSpotlight,
-  Spotlight,
-  SpotlightActionData,
-} from "@mantine/spotlight";
+import { Badge, Group, Text } from "@mantine/core";
+import { useDebouncedCallback } from "@mantine/hooks";
+import { createSpotlight, Spotlight } from "@mantine/spotlight";
+import { formatDate } from "@/utils";
+import { searchPackage } from "@/services/package";
 
 export const [searchStore, searchHandlers] = createSpotlight();
 
 export function Search() {
   const router = useRouter();
+  const [query, setQuery] = useState<string>("");
+  const [data, setData] = useState<any[]>([]);
 
-  const actions: SpotlightActionData[] = [
-    {
-      id: "home",
-      label: "Home",
-      description: "Get to home page",
-      onClick: () => console.log("Home"),
-    },
-    {
-      id: "dashboard",
-      label: "Dashboard",
-      description: "Get full information about current system status",
-      onClick: () => console.log("Dashboard"),
-    },
-    {
-      id: "documentation",
-      label: "Documentation",
-      description: "Visit documentation to lean more about all features",
-      onClick: () => console.log("Documentation"),
-    },
-  ];
+  const handleClick = useCallback((name: string) => {
+    router.push(`/package/${name}`);
+  }, []);
+
+  const handleSearch = useDebouncedCallback(async (query: string) => {
+    const { status, data } = (await searchPackage(query)) || {};
+    if (status === 200) {
+      setData(data);
+    }
+  }, 500);
+
+  const handleChange = (value: string) => {
+    setQuery(value);
+    handleSearch(value);
+  };
+
+  const items = useMemo(
+    () =>
+      data.map((item) => (
+        <Spotlight.Action
+          key={item.name}
+          onClick={() => handleClick(item.name)}
+        >
+          <Group wrap="nowrap" w="100%" p={2}>
+            <div style={{ flex: 1 }}>
+              <Group align="center" gap={5}>
+                <Text fz="lg" fw="bold">
+                  {item.name}
+                </Text>
+                <Badge color="gray" variant="light">
+                  {item.version}
+                </Badge>
+              </Group>
+
+              {item.description && (
+                <Text opacity={0.6} size="sm" mt={3}>
+                  {item.description}
+                </Text>
+              )}
+
+              <Text opacity={0.9} size="xs" mt={5}>
+                Published on {formatDate(new Date(item.date))}
+              </Text>
+            </div>
+          </Group>
+        </Spotlight.Action>
+      )),
+    [data],
+  );
 
   return (
-    <Spotlight
-      store={searchStore}
+    <Spotlight.Root
+      scrollable
+      query={query}
+      maxHeight={500}
+      onQueryChange={handleChange}
       shortcut={["mod + K", "mod + P", "/"]}
-      actions={actions}
-      tagsToIgnore={[]}
-      highlightQuery
-      clearQueryOnClose
-      radius="md"
-      limit={7}
-      nothingFound="Nothing found..."
-      searchProps={{
-        leftSection: <IconSearch style={{ width: rem(20), height: rem(20) }} />,
-        placeholder: "Search documentation...",
-      }}
-    />
+    >
+      <Spotlight.Search
+        placeholder="Search Package Name"
+        leftSection={<IconSearch stroke={1.5} />}
+      />
+      <Spotlight.ActionsList>
+        {items.length > 0 ? (
+          items
+        ) : (
+          <Spotlight.Empty>Nothing found...</Spotlight.Empty>
+        )}
+      </Spotlight.ActionsList>
+    </Spotlight.Root>
   );
 }

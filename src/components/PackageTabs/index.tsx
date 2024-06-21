@@ -1,7 +1,10 @@
 "use client";
 
+import { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container } from "@mantine/core";
+import { DEFAULT_TAB, TABS } from "@/constants";
+import { calculateOverallCount } from "@/utils";
 import Overview from "../Tabs/Overview";
 import Security from "../Tabs/Security";
 import classes from "./Tabs.module.css";
@@ -10,51 +13,61 @@ import "../PackageContainer/Container.module.css";
 const PageTabs = ({ pacakgeInfo }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const search = searchParams.get("t") || "overview";
-  const { gitHub, securityScore } = pacakgeInfo;
+  const search = searchParams.get("t") || DEFAULT_TAB;
+  const { gitHub, securityScore, npm } = pacakgeInfo;
+  const dependenciesCount = useMemo(
+    () => calculateOverallCount(npm?.data?.dependencies),
+    [npm?.data],
+  );
 
   return (
     <Container className="responsiveContainer" mt={-48}>
       <Tabs
+        value={search}
         variant="outline"
-        // keepMounted={false}
         classNames={classes}
-        value={search as string}
-        defaultValue="overview"
+        defaultValue={DEFAULT_TAB}
         onChange={(value) => router.push(`?t=${value}`)}
       >
         <Tabs.List>
-          {/* <Tabs.Tab py="md" px="lg" value="overview">
-            Overview
-          </Tabs.Tab>
-          <Tabs.Tab py="md" px="lg" value="downloads">
-            Downloads
-          </Tabs.Tab>
-          <Tabs.Tab py="md" px="lg" value="dependencies">
-            Dependencies
-          </Tabs.Tab> */}
-          <Tabs.Tab py="md" px="lg" value="scorecard">
-            Security Scorecard
-          </Tabs.Tab>
-          {/* <Tabs.Tab py="md" px="lg" value="versions">
-            Versions
-          </Tabs.Tab> */}
-          <Tabs.Tab py="md" px="lg" value="readme">
-            Readme
-          </Tabs.Tab>
+          {Object.keys(TABS).map((item: any) => {
+            return (
+              <Tabs.Tab
+                py="md"
+                px="lg"
+                key={TABS[item].value}
+                value={TABS[item].value}
+              >
+                {TABS[item].name}{" "}
+                {TABS[item].value === TABS.dependencies.value &&
+                  npm?.data?.dependencies &&
+                  `(${dependenciesCount})`}
+              </Tabs.Tab>
+            );
+          })}
         </Tabs.List>
 
-        <Tabs.Panel value="overview" py={20}>
+        <Tabs.Panel value={TABS.overview.value} py={20}>
           hello World!
         </Tabs.Panel>
 
-        <Tabs.Panel value="readme" py={20}>
+        <Tabs.Panel value={TABS.downloads.value} py={20}>
+          {TABS.downloads.name}
+        </Tabs.Panel>
+
+        <Tabs.Panel value={TABS.dependencies.value} py={20}>
+          {TABS.dependencies.name}
+        </Tabs.Panel>
+
+        <Tabs.Panel value={TABS.versions.value} py={20}>
+          {TABS.versions.name}
+        </Tabs.Panel>
+
+        <Tabs.Panel value={TABS.readme.value} py={20}>
           <Overview data={gitHub?.data?.readMe} />
         </Tabs.Panel>
 
-        <Tabs.Panel value="messages">Messages tab content</Tabs.Panel>
-
-        <Tabs.Panel value="scorecard" py={20}>
+        <Tabs.Panel value={TABS.scorecard.value} py={20}>
           <Security packageInfo={securityScore?.data} />
         </Tabs.Panel>
       </Tabs>

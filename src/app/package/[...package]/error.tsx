@@ -2,7 +2,15 @@
 
 import NextImage from "next/image";
 import { useEffect } from "react";
-import { Box, Center, Image, Paper, Text } from "@mantine/core";
+import {
+  Box,
+  Center,
+  Container,
+  Image,
+  Paper,
+  Text,
+  Title,
+} from "@mantine/core";
 import ErrorImage from "@/assets/error.webp";
 
 export default function Error({
@@ -19,7 +27,7 @@ export default function Error({
   return (
     <Center mih="100vh">
       <Paper ta="center">
-        <Center mb={20}>
+        <Center mb={30}>
           <Image
             w="150"
             h="150"
@@ -28,10 +36,12 @@ export default function Error({
             alt="Something went wrong!"
           />
         </Center>
-        <Text>
-          Oops! Our website is taking a breather. Hang tight while we fix things
-          up!
-        </Text>
+        <Container size="sm">
+          <Title size="h2">
+            Oops! Our website is taking a breather. Hang tight while we fix
+            things up!
+          </Title>
+        </Container>
       </Paper>
     </Center>
   );
