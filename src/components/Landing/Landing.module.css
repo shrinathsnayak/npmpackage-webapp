@@ -1,0 +1,30 @@
+.searchRoot {
+  width: 100%;
+  height: 3.8rem;
+  padding-left: var(--mantine-spacing-lg);
+  padding-right: 4px;
+  border-radius: var(--mantine-radius-lg);
+  color: var(--mantine-color-placeholder);
+  border: 1px solid;
+  margin: var(--mantine-spacing-xl) 0;
+
+  @mixin dark {
+    border-color: var(--mantine-color-dark-4);
+    background-color: var(--mantine-color-dark-6);
+  }
+}
+
+.shortcut {
+  font-size: 11px;
+  line-height: 1;
+  padding: 4px 7px;
+  border-radius: var(--mantine-radius-sm);
+  border: 1px solid;
+  font-weight: bold;
+
+  @mixin dark {
+    color: var(--mantine-color-dark-0);
+    border-color: var(--mantine-color-dark-7);
+    background-color: var(--mantine-color-dark-7);
+  }
+}

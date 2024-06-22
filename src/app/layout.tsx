@@ -1,13 +1,15 @@
 import "@mantine/core/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantine/code-highlight/styles.css";
+import "@mantinex/shiki/styles.css";
 import "@/global.module.css";
 
 import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
 import Metrics from "@/observability";
-import Favicon from "../assets/logos/icon.png";
+import Favicon from "@/assets/logos/icon.png";
+import ShikiLoader from "@/components/shared/CodeWrapper";
 import theme from "./theme";
 
 export const metadata: Metadata = {
@@ -40,7 +42,7 @@ export default function RootLayout({
           forceColorScheme="dark"
           defaultColorScheme="dark"
         >
-          {children}
+          <ShikiLoader>{children}</ShikiLoader>
         </MantineProvider>
       </body>
     </html>

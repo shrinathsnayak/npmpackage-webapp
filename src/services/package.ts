@@ -54,6 +54,13 @@ export async function getPackageSecurityScore(
   return res.json();
 }
 
+/**
+ * The function `searchPackage` asynchronously fetches package data based on the provided package name.
+ * @param {string} packageName - The `packageName` parameter is a string that represents the name of
+ * the package being searched for.
+ * @returns The `searchPackage` function returns a Promise that resolves to the JSON data fetched from
+ * the API endpoint for the specified package name.
+ */
 export async function searchPackage(packageName: string) {
   if (packageName) {
     const options = isDevelopment ? {} : generateAPIOptions(packageName);

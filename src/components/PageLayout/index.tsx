@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { Suspense } from "react";
 import {
   AppShell,
   Burger,
@@ -9,19 +10,20 @@ import {
   Title,
   Flex,
   Anchor,
-  Button,
   Text,
+  rem,
 } from "@mantine/core";
+import { IconSearch } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
-import { Search } from "@/components/Search";
+import { Search, searchHandlers } from "@/components/Search";
 import classes from "./Layout.module.css";
-import Icon from "@/assets/logos/icon.svg";
+import Icon from "@/assets/logos/icon.png";
 import { NPMPACKAGE_TITLE } from "@/constants";
-import { Suspense } from "react";
 
 const PageLayout = ({
   children,
   hideLayout,
+  hideSearch = false,
   disableSpotlight = false,
 }: any) => {
   const [opened, { toggle }] = useDisclosure();
@@ -73,10 +75,39 @@ const PageLayout = ({
                 </Title>
               </Flex>
             </Anchor>
+            {!hideSearch && (
+              <>
+                <UnstyledButton
+                  onClick={() => searchHandlers.open()}
+                  className={classes.searchRoot}
+                  data-desktop
+                >
+                  <Group gap="xs">
+                    <IconSearch
+                      style={{ width: rem(15), height: rem(15) }}
+                      stroke={1.5}
+                    />
+                    <Text fz="sm" c="dimmed" pr={80}>
+                      Search
+                    </Text>
+                    <Text fw={700} className={classes.shortcut}>
+                      Ctrl + K
+                    </Text>
+                  </Group>
+                </UnstyledButton>
+                <UnstyledButton
+                  onClick={() => searchHandlers.open()}
+                  className={classes.mobilecontrol}
+                  data-mobile
+                >
+                  <IconSearch
+                    style={{ width: rem(22), height: rem(22) }}
+                    stroke={2}
+                  />
+                </UnstyledButton>
+              </>
+            )}
             <Group ml="xl" gap={0} visibleFrom="sm">
-              <UnstyledButton className={classes.control} disabled>
-                Package
-              </UnstyledButton>
               <UnstyledButton className={classes.control} disabled>
                 Downloads
               </UnstyledButton>
@@ -92,10 +123,9 @@ const PageLayout = ({
       </AppShell.Header>
 
       <AppShell.Navbar py="md" px={4}>
-        <UnstyledButton className={classes.control}>Home</UnstyledButton>
-        <UnstyledButton className={classes.control}>Blog</UnstyledButton>
-        <UnstyledButton className={classes.control}>Contacts</UnstyledButton>
-        <UnstyledButton className={classes.control}>Support</UnstyledButton>
+        <UnstyledButton className={classes.control}>Downloads</UnstyledButton>
+        <UnstyledButton className={classes.control}>Compare</UnstyledButton>
+        <UnstyledButton className={classes.control}>About</UnstyledButton>
       </AppShell.Navbar>
 
       <AppShell.Main>

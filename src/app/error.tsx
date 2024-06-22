@@ -25,7 +25,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <Center mih="100vh">
+    <Center mih="calc(100vh - 65px)">
       <Paper ta="center">
         <Center mb={30}>
           <Image

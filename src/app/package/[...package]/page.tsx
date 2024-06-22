@@ -29,7 +29,7 @@ export default async function Package({ params }: { params: { package: [] } }) {
   return (
     <Box>
       <PackageContainer packageInfo={data} />
-      <PageTabs pacakgeInfo={data} />
+      <PageTabs packageInfo={data} />
     </Box>
   );
 }

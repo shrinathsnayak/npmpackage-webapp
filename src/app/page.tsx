@@ -1,25 +1,19 @@
 import { Center, Container, Image, Title, Text } from "@mantine/core";
 import PageLayout from "@/components/PageLayout";
-import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
-import Favicon from "@/assets/logos/icon.png";
+import { NPMPACKAGE_TITLE } from "@/constants";
+import SearchBar from "@/components/Landing/LandingSearch";
 
 export default function Home() {
   return (
-    <PageLayout hideLayout={true} disableSpotlight={true}>
-      <Center mah="100vh" mih="100vh">
-        <Container ta="center" size="sm">
-          <Center mb={30}>
-            <Image
-              ta="center"
-              src={Favicon.src}
-              alt={NPMPACKAGE_TITLE}
-              w={100}
-              h={100}
-            />
-          </Center>
+    <PageLayout hideSearch={true}>
+      <Center mah="calc(100vh - 65px)" mih="calc(100vh - 65px)" w="100%">
+        <Container
+          ta="center"
+          w={{ base: "100%", sm: "50%" }}
+          mt={{ base: "-20%", sm: 0 }}
+        >
           <Title>{NPMPACKAGE_TITLE}</Title>
-          <Text my={20}>{NPMPACKAGE_DESCRIPTION}</Text>
-          <Text>Stay tuned for more!</Text>
+          <SearchBar />
         </Container>
       </Center>
     </PageLayout>

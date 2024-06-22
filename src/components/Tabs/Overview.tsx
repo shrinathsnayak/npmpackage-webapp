@@ -1,11 +1,15 @@
+import { Box } from "@mantine/core";
 import React, { Suspense } from "react";
-import MDX from "../mdx";
+import Installations from "./components/Installations";
 
-const Overview = ({ data }: any) => {
+const Overview = ({ packageInfo }: any) => {
+  const { npm } = packageInfo || {};
   return (
-    <Suspense fallback={<>loading...</>}>
-      <MDX content={data} />
-    </Suspense>
+    <Box>
+      <Suspense>
+        <Installations packageName={npm?.data?.name} />
+      </Suspense>
+    </Box>
   );
 };
 

@@ -1,4 +1,4 @@
-import { getScoreTextColor } from "@/utils";
+import { formatBytes, getScoreTextColor } from "@/utils";
 import { Badge, Flex, Group, NumberFormatter, Tooltip } from "@mantine/core";
 import {
   IconCode,
@@ -6,6 +6,7 @@ import {
   IconLicense,
   IconShieldLock,
   IconStar,
+  IconZip,
 } from "@tabler/icons-react";
 import React from "react";
 
@@ -26,7 +27,8 @@ const CustomTags = ({ icon, value, color = "gray", tooltip }: any) => {
 };
 
 const Tags = ({ data }: any) => {
-  const { stars, commits, license, security, language } = data || {};
+  const { stars, commits, license, security, language, size } = data || {};
+
   return (
     <Flex
       gap={10}
@@ -60,6 +62,13 @@ const Tags = ({ data }: any) => {
           tooltip="Primary Language"
           icon={<IconCode size={12} />}
           value={language.name}
+        />
+      )}
+      {size && (
+        <CustomTags
+          tooltip="gzip size"
+          icon={<IconZip size={12} />}
+          value={formatBytes(size)}
         />
       )}
       {security && (

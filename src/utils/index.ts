@@ -29,7 +29,7 @@ export const getScoreTextColor = (score: number): string => {
     case score <= 10:
       return "green.8";
     default:
-      throw new Error("Unexpected score value");
+      return "white";
   }
 };
 
@@ -71,8 +71,34 @@ export const formatDate = (date: Date): string =>
 export const calculateOverallCount = (
   data: Record<string, { totalCount?: number }>,
 ) => {
-  return Object.values(data).reduce(
-    (sum, item) => sum + (item.totalCount ?? 0),
-    0,
-  );
+  if (data) {
+    return Object.values(data).reduce(
+      (sum, item) => sum + (item?.totalCount ?? 0),
+      0,
+    );
+  }
 };
+
+/**
+ * The `formatBytes` function in TypeScript converts a given number of bytes into a human-readable
+ * format with appropriate units (Bytes, KB, MB, GB).
+ * @param {number} bytes - The `bytes` parameter in the `formatBytes` function represents the size of a
+ * file or data in bytes that you want to format into a human-readable format (e.g., KB, MB, GB).
+ * @returns The function `formatBytes` returns a formatted string representing the input `bytes` value
+ * converted to the appropriate size unit (Bytes, KB, MB, GB).
+ */
+export const formatBytes = (bytes: number): string => {
+  const sizes = ["Bytes", "KB", "MB", "GB"];
+  if (bytes === 0) return "0 Bytes";
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
+};
+
+export const getHighestSizePercentage = (data: any[]) =>
+  data?.reduce(
+    (max, lang) =>
+      parseFloat(lang.sizePercentage) > parseFloat(max.sizePercentage)
+        ? lang
+        : max,
+    data[0],
+  );

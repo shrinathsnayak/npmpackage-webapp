@@ -25,7 +25,7 @@ export function Search() {
     if (status === 200) {
       setData(data);
     }
-  }, 500);
+  }, 100);
 
   const handleChange = (value: string) => {
     setQuery(value);
@@ -71,6 +71,7 @@ export function Search() {
       scrollable
       query={query}
       maxHeight={500}
+      store={searchStore}
       onQueryChange={handleChange}
       shortcut={["mod + K", "mod + P", "/"]}
     >

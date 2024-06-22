@@ -11,13 +11,16 @@ import {
   Group,
   Tooltip,
 } from "@mantine/core";
-import { IconStar, IconHistory } from "@tabler/icons-react";
 import "./Container.module.css";
 import Tags from "./Tags";
+import { getHighestSizePercentage } from "@/utils";
 
 const PackageContainer = ({ packageInfo }: any) => {
+  const { data: npm } = packageInfo?.npm || {};
   const { data: github } = packageInfo?.gitHub || {};
+  const { data: bundle } = packageInfo?.bundle || {};
   const { data: security } = packageInfo?.securityScore || {};
+
   return (
     <Box w="100%" bg="dark.9" pb={60}>
       <Container className="responsiveContainer" py={30}>
@@ -28,12 +31,12 @@ const PackageContainer = ({ packageInfo }: any) => {
         >
           <Group align="center">
             <Title order={1} size="2.3rem" fw={800}>
-              {github?.name}
+              {github?.name || npm?.name}
             </Title>
-            {github?.latestRelease && (
+            {(github?.latestRelease || npm?.version) && (
               <Tooltip label="Latest Release" position="right">
                 <Pill radius={5} size="md" mt={10}>
-                  {github?.latestRelease}
+                  {github?.latestRelease || `v${npm?.version}`}
                 </Pill>
               </Tooltip>
             )}
@@ -50,7 +53,7 @@ const PackageContainer = ({ packageInfo }: any) => {
               radius="sm"
               src={github?.avatar}
               component={NextImage}
-              alt={`${github.name} logo`}
+              alt={`${github?.name} logo`}
             />
             <Title order={5} fw={500}>
               {github?.owner}
@@ -66,7 +69,8 @@ const PackageContainer = ({ packageInfo }: any) => {
             commits: github?.commits,
             license: github?.license,
             security: security?.score,
-            language: github?.languages?.[0],
+            language: getHighestSizePercentage(github?.languages),
+            size: bundle?.gzip,
           }}
         />
       </Container>

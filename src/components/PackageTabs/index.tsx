@@ -5,16 +5,18 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
-import Overview from "../Tabs/Overview";
+import ReadMe from "../Tabs/ReadMe";
 import Security from "../Tabs/Security";
 import classes from "./Tabs.module.css";
 import "../PackageContainer/Container.module.css";
+import Dependencies from "../Tabs/Dependencies";
+import Overview from "../Tabs/Overview";
 
-const PageTabs = ({ pacakgeInfo }: any) => {
+const PageTabs = ({ packageInfo }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("t") || DEFAULT_TAB;
-  const { gitHub, securityScore, npm } = pacakgeInfo;
+  const { gitHub, securityScore, npm } = packageInfo;
   const dependenciesCount = useMemo(
     () => calculateOverallCount(npm?.data?.dependencies),
     [npm?.data],
@@ -31,6 +33,9 @@ const PageTabs = ({ pacakgeInfo }: any) => {
       >
         <Tabs.List>
           {Object.keys(TABS).map((item: any) => {
+            if (!TABS[item].visible) {
+              return null;
+            }
             return (
               <Tabs.Tab
                 py="md"
@@ -48,7 +53,7 @@ const PageTabs = ({ pacakgeInfo }: any) => {
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
-          hello World!
+          <Overview packageInfo={packageInfo} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
@@ -56,7 +61,7 @@ const PageTabs = ({ pacakgeInfo }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
-          {TABS.dependencies.name}
+          <Dependencies data={npm?.data?.dependencies} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.versions.value} py={20}>
@@ -64,7 +69,7 @@ const PageTabs = ({ pacakgeInfo }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <Overview data={gitHub?.data?.readMe} />
+          <ReadMe data={gitHub?.data?.readMe} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>

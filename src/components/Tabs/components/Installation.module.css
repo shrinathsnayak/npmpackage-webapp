@@ -1,0 +1,28 @@
+.root {
+  border: 1px solid;
+  border-radius: var(--mantine-radius-md);
+  overflow: hidden;
+  margin-bottom: var(--mantine-spacing-xl);
+
+  & pre,
+  & code,
+  & :global(.mantine-CodeHighlightTabs-header) {
+    background-color: var(--mantine-color-dark-9);
+    overflow: hidden;
+    font-size: var(--mantine-font-size-sm);
+    font-weight: var(--mantine-h3-font-weight);
+  }
+
+  @mixin dark {
+    border-color: var(--mantine-color-dark-5);
+  }
+}
+
+.icon {
+  margin-right: 5px;
+
+  @mixin rtl {
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
