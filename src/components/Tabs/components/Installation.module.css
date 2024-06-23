@@ -1,8 +1,8 @@
 .root {
   border: 1px solid;
   border-radius: var(--mantine-radius-md);
+  box-shadow: var(--mantine-shadow-md);
   overflow: hidden;
-  margin-bottom: var(--mantine-spacing-xl);
 
   & pre,
   & code,

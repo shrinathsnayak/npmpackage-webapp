@@ -34,7 +34,7 @@ export function Search() {
 
   const items = useMemo(
     () =>
-      data.map((item) => (
+      data?.map((item) => (
         <Spotlight.Action
           key={`${item.name}${item.version}`}
           onClick={() => handleClick(item.name)}

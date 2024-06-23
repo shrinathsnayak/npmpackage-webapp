@@ -23,7 +23,7 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
       <Text fw={500} mb={5}>
         {label}
       </Text>
-      {getFilteredChartTooltipPayload(payload).map((item: any) => (
+      {getFilteredChartTooltipPayload(payload)?.map((item: any) => (
         <Group key={item.name} gap={4}>
           <Text fz="sm" c="dimmed">
             {item.name}:

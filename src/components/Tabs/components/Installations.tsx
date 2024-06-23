@@ -1,17 +1,14 @@
 "use client";
 
 import React from "react";
-import { Box, Title } from "@mantine/core";
-import { CodeHighlightTabs, ShikiProvider } from "@mantinex/shiki";
+import { CodeHighlightTabs } from "@mantinex/shiki";
 import { NpmIcon, YarnIcon } from "@mantinex/dev-icons";
 import classes from "./Installation.module.css";
+import OverviewCard from "@/components/shared/OverviewCard";
 
 const Installations = ({ packageName }: any) => {
   return (
-    <Box>
-      <Title order={5} mb={7}>
-        Installations
-      </Title>
+    <OverviewCard title="Installations">
       <CodeHighlightTabs
         classNames={{ root: classes.root }}
         code={[
@@ -29,7 +26,7 @@ const Installations = ({ packageName }: any) => {
           },
         ]}
       />
-    </Box>
+    </OverviewCard>
   );
 };
 

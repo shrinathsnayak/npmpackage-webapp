@@ -5,11 +5,11 @@ export const NPMPACKAGE_DESCRIPTION: string =
 
 export const TABS: any = {
   overview: { name: "Overview", value: "overview", visible: true },
+  readme: { name: "Readme", value: "readme", visible: true },
   downloads: { name: "Downloads", value: "downloads", visible: true },
   dependencies: { name: "Dependencies", value: "dependencies", visible: true },
   scorecard: { name: "Security Scorecard", value: "scorecard", visible: true },
   versions: { name: "Versions", value: "versions", visible: false },
-  readme: { name: "Readme", value: "readme", visible: true },
 };
 
 export const DEFAULT_TAB = TABS.overview.value;

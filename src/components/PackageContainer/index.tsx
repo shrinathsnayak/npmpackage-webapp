@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import "./Container.module.css";
 import Tags from "./Tags";
-import { getHighestSizePercentage } from "@/utils";
+import { LinksContainer } from "./LinksContainer";
 
 const PackageContainer = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -41,37 +41,42 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
               </Tooltip>
             )}
           </Group>
-          <Flex
-            gap={10}
-            align="center"
-            mt={10}
-            display={{ base: "none", sm: "flex" }}
-          >
-            <Image
-              width={20}
-              height={20}
-              radius="sm"
-              src={github?.avatar}
-              component={NextImage}
-              alt={`${github?.name} logo`}
+          <Box mt={10}>
+            <Flex
+              gap={10}
+              align="center"
+              display={{ base: "none", sm: "flex" }}
+            >
+              <Image
+                width={20}
+                height={20}
+                radius="sm"
+                src={github?.avatar}
+                component={NextImage}
+                alt={`${github?.name} logo`}
+              />
+              <Title order={5} fw={500}>
+                {github?.owner}
+              </Title>
+            </Flex>
+            <LinksContainer
+              homePage={github?.homepageUrl}
+              github={github?.repositoryUrl}
+              npm={`https://www.npmjs.com/package/${npm?.name}`}
             />
-            <Title order={5} fw={500}>
-              {github?.owner}
-            </Title>
-          </Flex>
+          </Box>
         </Flex>
         <Text size="md" mt={10} c="dimmed" ta={{ base: "center", sm: "left" }}>
           {github?.description}
         </Text>
         <Tags
           data={{
+            size: bundle?.gzip,
             stars: github?.stars,
-            commits: github?.commits,
+            downloads: downloads,
             license: github?.license,
             security: security?.score,
-            language: getHighestSizePercentage(github?.languages),
-            size: bundle?.gzip,
-            downloads: downloads,
+            language: github?.primaryLanguage,
           }}
         />
       </Container>

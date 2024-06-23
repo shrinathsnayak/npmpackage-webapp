@@ -80,25 +80,48 @@ export const calculateOverallCount = (
 };
 
 /**
- * The `formatBytes` function in TypeScript converts a given number of bytes into a human-readable
- * format with appropriate units (Bytes, KB, MB, GB).
- * @param {number} bytes - The `bytes` parameter in the `formatBytes` function represents the size of a
- * file or data in bytes that you want to format into a human-readable format (e.g., KB, MB, GB).
- * @returns The function `formatBytes` returns a formatted string representing the input `bytes` value
- * converted to the appropriate size unit (Bytes, KB, MB, GB).
+ * The `formatSize` function in TypeScript converts a given number of bytes into a human-readable
+ * format with appropriate units (B, kB, MB, GB) based on the size.
+ * @param {number} bytes - The `formatSize` function takes a number of bytes as input and converts it
+ * into a human-readable string representation with the appropriate unit (B, kB, MB, GB).
+ * @returns The `formatSize` function returns a formatted string representing the input `bytes` value
+ * converted to a human-readable format with appropriate units (B, kB, MB, GB) based on the size of the
+ * input.
  */
-export const formatBytes = (bytes: number): string => {
-  const sizes = ["Bytes", "KB", "MB", "GB"];
-  if (bytes === 0) return "0 Bytes";
-  const i = Math.floor(Math.log(bytes) / Math.log(1024));
-  return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
+export const formatSize = (bytes: number): string => {
+  let unit, size;
+
+  if (Math.log10(bytes) < 3) {
+    unit = "B";
+    size = bytes.toFixed(2);
+  } else if (Math.log10(bytes) < 6) {
+    unit = "kB";
+    size = (bytes / 1024).toFixed(2);
+  } else if (Math.log10(bytes) < 9) {
+    unit = "MB";
+    size = (bytes / 1024 / 1024).toFixed(2);
+  } else {
+    unit = "GB";
+    size = (bytes / 1024 / 1024 / 1024).toFixed(2);
+  }
+
+  return `${size} ${unit}`;
 };
 
-export const getHighestSizePercentage = (data: any[]) =>
-  data?.reduce(
-    (max, lang) =>
-      parseFloat(lang.sizePercentage) > parseFloat(max.sizePercentage)
-        ? lang
-        : max,
-    data[0],
-  );
+/**
+ * The `formatLanguagesData` function takes an array of data objects, extracts specific properties, and
+ * returns a new array with a modified structure.
+ * @param {any[]} data - The `data` parameter is an array of objects containing information about
+ * different languages. Each object has the following properties:
+ * @returns The `formatLanguagesData` function takes an array of data as input and maps over each item
+ * in the array to extract the `name`, `sizePercentage`, and `color` properties from each item. It then
+ * returns a new array of objects with the extracted properties renamed as `name`, `value`, and `color`
+ * respectively.
+ */
+export const formatLanguagesData = (data: any[]) => {
+  return data?.map((item: any) => ({
+    name: item.name,
+    value: Number(item.sizePercentage),
+    color: item.color,
+  }));
+};

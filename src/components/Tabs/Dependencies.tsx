@@ -20,7 +20,7 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
         </Text>
       </Flex>
       <Group my={5} gap={5}>
-        {Object.keys(data).map((item) => {
+        {Object.keys(data)?.map((item) => {
           return (
             <Anchor
               p={5}

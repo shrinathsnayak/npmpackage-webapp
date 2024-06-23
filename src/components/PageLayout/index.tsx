@@ -47,13 +47,13 @@ const PageLayout = ({
             justify="space-between"
             align="center"
           >
-            <Burger
+            {/* <Burger
               opened={opened}
               onClick={toggle}
               hiddenFrom="sm"
               size="sm"
               mr={10}
-            />
+            /> */}
             <Group
               justify="space-between"
               align="center"
@@ -69,7 +69,7 @@ const PageLayout = ({
                     h={30}
                   />
                   <Title
-                    display={{ base: "none", sm: "block" }}
+                    // display={{ base: "none", sm: "block" }}
                     order={3}
                     c="white"
                   >
