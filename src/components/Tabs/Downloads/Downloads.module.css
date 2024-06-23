@@ -1,0 +1,20 @@
+.analyticsCardValue {
+  font-size: rem(24px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.analyticsCardDiff {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.analyticsCardIcon {
+  color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-3));
+}
+
+.analyticsCardTitle {
+  font-weight: 700;
+  text-transform: uppercase;
+}

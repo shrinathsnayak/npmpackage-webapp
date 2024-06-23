@@ -2,6 +2,7 @@ import { formatBytes, getScoreTextColor } from "@/utils";
 import { Badge, Flex, Group, NumberFormatter, Tooltip } from "@mantine/core";
 import {
   IconCode,
+  IconDownload,
   IconHistory,
   IconLicense,
   IconShieldLock,
@@ -27,7 +28,8 @@ const CustomTags = ({ icon, value, color = "gray", tooltip }: any) => {
 };
 
 const Tags = ({ data }: any) => {
-  const { stars, commits, license, security, language, size } = data || {};
+  const { stars, commits, license, security, language, size, downloads } =
+    data || {};
 
   return (
     <Flex
@@ -69,6 +71,13 @@ const Tags = ({ data }: any) => {
           tooltip="gzip size"
           icon={<IconZip size={12} />}
           value={formatBytes(size)}
+        />
+      )}
+      {downloads && (
+        <CustomTags
+          tooltip="Total Downloads"
+          icon={<IconDownload size={12} />}
+          value={<NumberFormatter thousandSeparator value={downloads} />}
         />
       )}
       {security && (

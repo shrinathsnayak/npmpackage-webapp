@@ -11,8 +11,9 @@ import classes from "./Tabs.module.css";
 import "../PackageContainer/Container.module.css";
 import Dependencies from "../Tabs/Dependencies";
 import Overview from "../Tabs/Overview";
+import Downloads from "../Tabs/Downloads";
 
-const PageTabs = ({ packageInfo }: any) => {
+const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("t") || DEFAULT_TAB;
@@ -57,7 +58,7 @@ const PageTabs = ({ packageInfo }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          {TABS.downloads.name}
+          <Downloads downloads={downloads} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>

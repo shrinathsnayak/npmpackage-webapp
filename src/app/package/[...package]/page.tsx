@@ -1,5 +1,5 @@
 import { Box } from "@mantine/core";
-import { getPackageData } from "@/services/package";
+import { getPackageData, getPackageDownloads } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
 import PackageContainer from "@/components/PackageContainer";
 import PageTabs from "@/components/PackageTabs";
@@ -26,10 +26,11 @@ export async function generateMetadata({
 export default async function Package({ params }: { params: { package: [] } }) {
   const name = await genereatePackageName(params.package);
   const data = await getPackageData(name);
+  const downloads = await getPackageDownloads(name);
   return (
     <Box>
-      <PackageContainer packageInfo={data} />
-      <PageTabs packageInfo={data} />
+      <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
+      <PageTabs packageInfo={data} downloads={downloads} />
     </Box>
   );
 }

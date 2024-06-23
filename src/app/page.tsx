@@ -5,8 +5,8 @@ import SearchBar from "@/components/Landing/LandingSearch";
 
 export default function Home() {
   return (
-    <PageLayout hideSearch={true}>
-      <Center mah="calc(100vh - 65px)" mih="calc(100vh - 65px)" w="100%">
+    <PageLayout hideHeader={true}>
+      <Center mah="calc(80vh - 65px)" mih="calc(80vh - 65px)" w="100%">
         <Container
           ta="center"
           w={{ base: "100%", sm: "50%" }}

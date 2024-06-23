@@ -42,7 +42,9 @@ export default function RootLayout({
           forceColorScheme="dark"
           defaultColorScheme="dark"
         >
-          <ShikiLoader>{children}</ShikiLoader>
+          <ShikiLoader>
+            <main>{children}</main>
+          </ShikiLoader>
         </MantineProvider>
       </body>
     </html>

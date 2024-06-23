@@ -25,7 +25,7 @@ export function Search() {
     if (status === 200) {
       setData(data);
     }
-  }, 100);
+  }, 10);
 
   const handleChange = (value: string) => {
     setQuery(value);
@@ -36,7 +36,7 @@ export function Search() {
     () =>
       data.map((item) => (
         <Spotlight.Action
-          key={item.name}
+          key={`${item.name}${item.version}`}
           onClick={() => handleClick(item.name)}
         >
           <Group wrap="nowrap" w="100%" p={2}>

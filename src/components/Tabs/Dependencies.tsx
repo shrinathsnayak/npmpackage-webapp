@@ -22,7 +22,12 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
       <Group my={5} gap={5}>
         {Object.keys(data).map((item) => {
           return (
-            <Anchor component={Link} href={`/package/${item}`} key={item} p={5}>
+            <Anchor
+              p={5}
+              component={Link}
+              href={`/package/${item}`}
+              key={`${item}${data[item]}`}
+            >
               {item}
             </Anchor>
           );

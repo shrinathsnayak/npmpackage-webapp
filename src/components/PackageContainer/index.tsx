@@ -15,7 +15,7 @@ import "./Container.module.css";
 import Tags from "./Tags";
 import { getHighestSizePercentage } from "@/utils";
 
-const PackageContainer = ({ packageInfo }: any) => {
+const PackageContainer = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
   const { data: github } = packageInfo?.gitHub || {};
   const { data: bundle } = packageInfo?.bundle || {};
@@ -71,6 +71,7 @@ const PackageContainer = ({ packageInfo }: any) => {
             security: security?.score,
             language: getHighestSizePercentage(github?.languages),
             size: bundle?.gzip,
+            downloads: downloads,
           }}
         />
       </Container>

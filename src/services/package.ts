@@ -76,3 +76,19 @@ export async function searchPackage(packageName: string) {
     return res.json();
   }
 }
+
+export async function getPackageDownloads(packageName: string) {
+  if (packageName) {
+    const options = isDevelopment ? {} : generateAPIOptions(packageName);
+    const res = await fetch(
+      `${process.env.API_ENDPOINT}/downloads?package=${packageName}`,
+      options,
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  }
+}
