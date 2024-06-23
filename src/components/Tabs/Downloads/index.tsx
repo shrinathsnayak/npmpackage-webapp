@@ -19,12 +19,17 @@ const Downloads = ({ downloads }: any) => {
         <Flex
           align="center"
           justify="space-between"
-          direction={{ base: "column-reverse", sm: "row" }}
+          direction={{ base: "column", sm: "row" }}
         >
           <Box display={{ base: "none", sm: "block" }}>
             <Title order={3}>Total Downloads</Title>
             <Text fz="sm" c="dimmed" mt={5}>
               Cumulative downloads over the years
+            </Text>
+          </Box>
+          <Box display={{ base: "block", sm: "none" }}>
+            <Text fz="md" c="dimmed" mb={5}>
+              Total Downloads
             </Text>
           </Box>
           <Title order={1}>
