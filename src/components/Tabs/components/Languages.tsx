@@ -27,9 +27,9 @@ const Languages = ({ languages }: any) => {
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
         <PieChart data={languagesData} mx="auto" size={180} h={200} />
         <Group gap={2} mt={10}>
-          {languagesData?.map((item: any) => (
-            <LanguageLegend key={item.name} {...item} />
-          ))}
+          {languagesData
+            ?.sort((a: any, b: any) => b.value - a.value)
+            ?.map((item: any) => <LanguageLegend key={item.name} {...item} />)}
         </Group>
       </Paper>
     </OverviewCard>

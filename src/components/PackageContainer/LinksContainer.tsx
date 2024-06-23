@@ -6,27 +6,43 @@ import Conditional from "../shared/Conditional";
 
 export const LinksContainer = ({ homePage, github, npm }: any) => {
   return (
-    <Group gap={10} mt={10} mb={{ base: 5, sm: 0 }}>
+    <Group gap={15} mt={10} mb={{ base: 5, sm: 0 }}>
       <Conditional if={homePage}>
         <ActionIcon
+          size="lg"
           variant="light"
           color="gray"
           component={Link}
           href={homePage}
+          target="_blank"
         >
-          <IconWorld size={16} />
+          <IconWorld size={18} />
         </ActionIcon>
       </Conditional>
 
       <Conditional if={github}>
-        <ActionIcon variant="light" color="gray" component={Link} href={github}>
-          <IconBrandGithub size={16} />
+        <ActionIcon
+          variant="light"
+          size="lg"
+          color="gray"
+          component={Link}
+          href={github}
+          target="_blank"
+        >
+          <IconBrandGithub size={18} />
         </ActionIcon>
       </Conditional>
 
       <Conditional if={npm}>
-        <ActionIcon variant="light" color="gray" component={Link} href={npm}>
-          <IconBrandNpm size={16} />
+        <ActionIcon
+          variant="light"
+          size="lg"
+          color="gray"
+          component={Link}
+          href={npm}
+          target="_blank"
+        >
+          <IconBrandNpm size={18} />
         </ActionIcon>
       </Conditional>
     </Group>

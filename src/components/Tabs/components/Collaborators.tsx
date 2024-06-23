@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import OverviewCard from "@/components/shared/OverviewCard";
 import {
   Anchor,
   Avatar,
@@ -10,6 +9,7 @@ import {
   Text,
   Tooltip,
 } from "@mantine/core";
+import OverviewCard from "@/components/shared/OverviewCard";
 
 const Collaborators = ({
   contributorsCount,
