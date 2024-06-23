@@ -17,7 +17,7 @@ const Overview = ({ packageInfo }: any) => {
     <Flex
       gap={{ base: 5, sm: 20 }}
       direction={{
-        base: "column",
+        base: "column-reverse",
         sm: "row",
       }}
     >
