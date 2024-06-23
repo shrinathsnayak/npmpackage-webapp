@@ -8,6 +8,7 @@ import Size from "./components/Size";
 import Actions from "./components/Actions";
 import Statistics from "./components/Statistics";
 import Conditional from "../shared/Conditional";
+import Developer from "./components/Developer";
 
 const Overview = ({ packageInfo }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -47,6 +48,9 @@ const Overview = ({ packageInfo }: any) => {
         </Conditional>
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
+        <Conditional if={gitHub?.avatar && gitHub?.owner}>
+          <Developer avatar={gitHub?.avatar} owner={gitHub?.owner} />
+        </Conditional>
         <Conditional if={gitHub}>
           <Statistics
             data={{

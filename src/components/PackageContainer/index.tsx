@@ -1,5 +1,4 @@
 import React from "react";
-import NextImage from "next/image";
 import {
   Container,
   Box,
@@ -42,23 +41,6 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             )}
           </Group>
           <Box mt={10}>
-            <Flex
-              gap={10}
-              align="center"
-              display={{ base: "none", sm: "flex" }}
-            >
-              <Image
-                width={20}
-                height={20}
-                radius="sm"
-                src={github?.avatar}
-                component={NextImage}
-                alt={`${github?.name} logo`}
-              />
-              <Title order={5} fw={500}>
-                {github?.owner}
-              </Title>
-            </Flex>
             <LinksContainer
               homePage={github?.homepageUrl}
               github={github?.repositoryUrl}
