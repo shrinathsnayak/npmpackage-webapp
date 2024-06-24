@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { IconSearch } from "@tabler/icons-react";
 import { Badge, Group, Text } from "@mantine/core";
-import { useDebouncedCallback } from "@mantine/hooks";
+import { useThrottledCallback } from "@mantine/hooks";
 import { createSpotlight, Spotlight } from "@mantine/spotlight";
 import { formatDate } from "@/utils";
 import { searchPackage } from "@/services/package";
@@ -20,12 +20,17 @@ export function Search() {
     router.push(`/package/${name}`);
   }, []);
 
-  const handleSearch = useDebouncedCallback(async (query: string) => {
-    const { status, data } = (await searchPackage(query)) || {};
+  const searchPackageName = async (packageName: any) => {
+    const { status, data } =
+      ((await searchPackage(packageName)) as any) || ({} as any);
     if (status === 200) {
       setData(data);
     }
-  }, 10);
+  };
+
+  const handleSearch = useThrottledCallback((query: string) => {
+    searchPackageName(query);
+  }, 1000);
 
   const handleChange = (value: string) => {
     setQuery(value);

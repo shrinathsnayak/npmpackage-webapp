@@ -1,13 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import {
-  Center,
-  Container,
-  Image,
-  Paper,
-  Title,
-} from "@mantine/core";
+import { Center, Container, Image, Paper, Title } from "@mantine/core";
 import ErrorImage from "@/assets/error.webp";
 import { captureException } from "@/utils/error";
 

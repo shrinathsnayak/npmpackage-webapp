@@ -22,9 +22,12 @@ const withMDX = createMDX({
   },
 });
 
-export default withSentryConfig(withMDX(nextConfig, {
-  org: "kickstart-ab",
-  project: "npmpackage.info",
-  authToken: process.env.SENTRY_AUTH_TOKEN,
-  silent: false,
-}));
+export default withSentryConfig(
+  withMDX(nextConfig, {
+    org: "kickstart-ab",
+    project: "npmpackage.info",
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    silent: false,
+    disableLogger: true,
+  }),
+);
