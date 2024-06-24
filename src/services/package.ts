@@ -13,18 +13,22 @@ import { isDevelopment } from "@/utils";
  * fetch data" is thrown.
  */
 export async function getPackageData(packageName: string) {
-  if (packageName) {
-    const options = isDevelopment ? {} : generateAPIOptions(packageName);
-    const res = await fetch(
-      `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-      options,
-    );
+  try {
+    if (packageName) {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const res = await fetch(
+        `${process.env.API_ENDPOINT}/package?q=${packageName}`,
+        options,
+      );
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      return res.json();
     }
-
-    return res.json();
+  } catch (err) {
+    console.error(err);
   }
 }
 
@@ -64,33 +68,41 @@ export async function getPackageSecurityScore(
  * the API endpoint for the specified package name.
  */
 export async function searchPackage(packageName: string) {
-  if (packageName) {
-    const options = isDevelopment ? {} : generateAPIOptions(packageName);
-    const res = await fetch(
-      `${process.env.API_ENDPOINT}/search?q=${packageName}`,
-      options,
-    );
+  try {
+    if (packageName) {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const res = await fetch(
+        `${process.env.API_ENDPOINT}/search?q=${packageName}`,
+        options,
+      );
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      return res.json();
     }
-
-    return res.json();
+  } catch (err) {
+    console.error(err);
   }
 }
 
 export async function getPackageDownloads(packageName: string) {
-  if (packageName) {
-    const options = isDevelopment ? {} : generateAPIOptions(packageName);
-    const res = await fetch(
-      `${process.env.API_ENDPOINT}/downloads?package=${packageName}`,
-      options,
-    );
+  try {
+    if (packageName) {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const res = await fetch(
+        `${process.env.API_ENDPOINT}/downloads?package=${packageName}`,
+        options,
+      );
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      return res.json();
     }
-
-    return res.json();
+  } catch (err) {
+    console.error(err);
   }
 }
