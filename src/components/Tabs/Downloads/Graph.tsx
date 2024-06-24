@@ -51,7 +51,7 @@ const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
         strokeWidth={2}
         withDots={false}
         curveType="linear"
-        gridColor="gray.2"
+        gridColor="gray.1"
         fillOpacity={0.51}
         tooltipAnimationDuration={200}
         legendProps={{ verticalAlign: "bottom" }}

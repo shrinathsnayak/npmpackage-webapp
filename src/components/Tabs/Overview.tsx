@@ -33,7 +33,7 @@ const Overview = ({ packageInfo }: any) => {
             repositoryUrl={gitHub?.repositoryUrl}
           />
         </Conditional>
-        <Conditional if={gitHub?.releases && gitHub?.repositoryUrl}>
+        <Conditional if={gitHub?.releases?.length > 0 && gitHub?.repositoryUrl}>
           <Releases
             releases={gitHub?.releases}
             repositoryUrl={gitHub?.repositoryUrl}

@@ -6,7 +6,7 @@ import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import styles from "./mdx.module.css";
 
-const MDX = async ({ content }: any) => {
+const MDX = ({ content }: any) => {
   return (
     <Suspense fallback={<>loading...</>}>
       <Markdown

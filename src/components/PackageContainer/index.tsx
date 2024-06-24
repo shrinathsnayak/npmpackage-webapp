@@ -40,7 +40,12 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
               </Tooltip>
             )}
           </Group>
-          <Box mt={10}>
+          <Box
+            mb={{
+              base: 15,
+              sm: 0,
+            }}
+          >
             <LinksContainer
               homePage={github?.homepageUrl}
               github={github?.repositoryUrl}

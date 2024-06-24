@@ -13,17 +13,19 @@ import { isDevelopment } from "@/utils";
  * fetch data" is thrown.
  */
 export async function getPackageData(packageName: string) {
-  const options = isDevelopment ? {} : generateAPIOptions(packageName);
-  const res = await fetch(
-    `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-    options,
-  );
+  if (packageName) {
+    const options = isDevelopment ? {} : generateAPIOptions(packageName);
+    const res = await fetch(
+      `${process.env.API_ENDPOINT}/package?q=${packageName}`,
+      options,
+    );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
   }
-
-  return res.json();
 }
 
 /**
