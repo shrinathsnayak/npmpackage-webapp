@@ -26,11 +26,13 @@ const PageLayout = ({
   hideSearch = false,
   disableSpotlight = false,
   hideHeader = false,
+  fixedFooter = false,
 }: any) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
     <AppShell
+      layout="alt"
       header={{ height: 65 }}
       navbar={{
         width: 300,
@@ -68,11 +70,7 @@ const PageLayout = ({
                     w={30}
                     h={30}
                   />
-                  <Title
-                    // display={{ base: "none", sm: "block" }}
-                    order={3}
-                    c="white"
-                  >
+                  <Title order={3} c="white">
                     {NPMPACKAGE_TITLE}
                   </Title>
                 </Flex>
@@ -130,7 +128,7 @@ const PageLayout = ({
         <UnstyledButton className={classes.control}>About</UnstyledButton>
       </AppShell.Navbar> */}
 
-      <AppShell.Main>
+      <AppShell.Main bg="dark.7">
         {!disableSpotlight && (
           <Suspense fallback={<>loading...</>}>
             <Search />
@@ -138,6 +136,26 @@ const PageLayout = ({
         )}
         {children}
       </AppShell.Main>
+      <AppShell.Footer
+        fz="sm"
+        ta="center"
+        bg="dark.9"
+        withBorder
+        pos={fixedFooter ? "fixed" : "static"}
+        p={{ base: "md", sm: "lg" }}
+      >
+        This is a weekend project by{" "}
+        <Anchor
+          fz="sm"
+          component={Link}
+          href="https://snayak.dev"
+          target="blank"
+          underline="never"
+        >
+          Shrinath Nayak
+        </Anchor>{" "}
+        and is currently under development.
+      </AppShell.Footer>
     </AppShell>
   );
 };

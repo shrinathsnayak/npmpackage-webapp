@@ -25,8 +25,8 @@ export async function generateMetadata({
 
 export default async function Package({ params }: { params: { package: [] } }) {
   const name = genereatePackageName(params.package);
-  const data = name && await getPackageData(name);
-  const downloads = name && await getPackageDownloads(name);
+  const data = name && (await getPackageData(name));
+  const downloads = name && (await getPackageDownloads(name));
   return (
     <Box>
       <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />

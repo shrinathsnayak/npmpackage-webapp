@@ -55,7 +55,7 @@ const Overview = ({ packageInfo }: any) => {
           <Statistics
             data={{
               commits: gitHub?.commits,
-              license: gitHub?.license,
+              // license: gitHub?.license,
               stars: gitHub?.stars,
               forks: gitHub?.forks,
               branches: gitHub?.branches,
