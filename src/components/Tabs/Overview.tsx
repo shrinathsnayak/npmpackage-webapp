@@ -66,7 +66,13 @@ const Overview = ({ packageInfo }: any) => {
           />
         </Conditional>
         <Conditional if={bundle}>
-          <Size bundleSize={bundle?.assets?.[0]} packageName={npm?.name} />
+          <Size
+            bundleSize={{
+              size: bundle?.size,
+              gzip: bundle?.gzip,
+            }}
+            packageName={npm?.name}
+          />
         </Conditional>
         <Conditional if={gitHub}>
           <Languages languages={gitHub?.languages} />

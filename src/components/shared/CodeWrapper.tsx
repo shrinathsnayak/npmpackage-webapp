@@ -3,7 +3,7 @@
 import { ShikiProvider } from "@mantinex/shiki";
 
 async function loadShiki() {
-  const { getHighlighter } = await import("shiki") || {};
+  const { getHighlighter } = (await import("shiki")) || {};
   const shiki = await getHighlighter({
     langs: ["tsx", "scss", "html", "bash", "json"],
     themes: [],
