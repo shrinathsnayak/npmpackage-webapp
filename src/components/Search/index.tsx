@@ -30,7 +30,7 @@ export function Search() {
 
   const handleSearch = useThrottledCallback((query: string) => {
     searchPackageName(query);
-  }, 200);
+  }, 500);
 
   const handleChange = (value: string) => {
     setQuery(value);
