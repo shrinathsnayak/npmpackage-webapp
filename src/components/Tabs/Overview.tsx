@@ -39,7 +39,9 @@ const Overview = ({ packageInfo }: any) => {
             repositoryUrl={gitHub?.repositoryUrl}
           />
         </Conditional>
-        <Conditional if={gitHub?.contributors}>
+        <Conditional
+          if={gitHub?.contributors?.length > 0 && gitHub?.contributorsCount > 0}
+        >
           <Collaborators
             contributorsCount={gitHub?.contributorsCount}
             contributors={gitHub?.contributors}
