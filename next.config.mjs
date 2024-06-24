@@ -1,3 +1,4 @@
+import { withSentryConfig } from "@sentry/nextjs";
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 
@@ -5,6 +6,7 @@ import remarkGfm from "remark-gfm";
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -20,4 +22,9 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(nextConfig);
+export default withSentryConfig(withMDX(nextConfig, {
+  org: "kickstart-ab",
+  project: "npmpackage.info",
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: false,
+}));

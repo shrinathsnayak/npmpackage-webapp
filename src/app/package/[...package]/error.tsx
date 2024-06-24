@@ -1,6 +1,5 @@
 "use client";
 
-import NextImage from "next/image";
 import { useEffect } from "react";
 import {
   Box,
@@ -11,6 +10,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { captureException } from "@/utils/error";
 import ErrorImage from "@/assets/error.webp";
 
 export default function Error({
@@ -21,7 +21,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error);
+    captureException(error);
   }, [error]);
 
   return (
