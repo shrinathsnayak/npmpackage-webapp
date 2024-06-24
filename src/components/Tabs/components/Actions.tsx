@@ -15,7 +15,7 @@ import OverviewCard from "@/components/shared/OverviewCard";
 import { IconExternalLink } from "@tabler/icons-react";
 
 const ActionsCard = ({ data, link }: any) => {
-  const { total, open, closed, merged } = data;
+  const { total, open, closed, merged } = data || {};
   return (
     <Box>
       <Flex p="md" px="lg" justify="space-between">

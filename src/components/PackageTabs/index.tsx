@@ -17,7 +17,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("t") || DEFAULT_TAB;
-  const { gitHub, securityScore, npm } = packageInfo;
+  const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
     () => calculateOverallCount(npm?.data?.dependencies),
     [npm?.data],

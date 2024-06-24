@@ -5,7 +5,7 @@ import { formatSize } from "@/utils";
 import Link from "next/link";
 
 const Size = ({ bundleSize, packageName }: any) => {
-  const { gzip, size } = bundleSize;
+  const { gzip, size } = bundleSize || {};
   return (
     <OverviewCard title="Bundle Size">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
