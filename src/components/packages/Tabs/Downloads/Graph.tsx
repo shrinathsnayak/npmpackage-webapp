@@ -5,6 +5,7 @@ import {
   getFilteredChartTooltipPayload,
 } from "@mantine/charts";
 import { Group, NumberFormatter, Paper, Text, Title } from "@mantine/core";
+import { formatDate } from "@/utils";
 
 interface ChartTooltipProps {
   label: string;
@@ -20,7 +21,7 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
 
   return (
     <Paper px="md" py="sm" withBorder shadow="md" radius="md">
-      <Text fw={500} mb={5}>
+      <Text fw={500} mb={5} fz="lg">
         {label}
       </Text>
       {getFilteredChartTooltipPayload(payload)?.map((item: any) => (
@@ -56,6 +57,16 @@ const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
         tooltipAnimationDuration={200}
         legendProps={{ verticalAlign: "bottom" }}
         series={[{ name: "downloads", color: "red.8" }]}
+        yAxisProps={{
+          tickFormatter: (value: number) =>
+            new Intl.NumberFormat("en-US", {
+              notation: "compact",
+              compactDisplay: "short",
+            }).format(value),
+        }}
+        xAxisProps={{
+          tickFormatter: (value: any) => formatDate(new Date(value)),
+        }}
         tooltipProps={{
           content: ({ label, payload }: any) => (
             <ChartTooltip label={label} payload={payload} />
