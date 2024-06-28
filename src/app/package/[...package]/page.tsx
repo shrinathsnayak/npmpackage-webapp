@@ -18,7 +18,7 @@ export async function generateMetadata({
       images: [gitHub?.data?.avatar],
     },
     alternates: {
-      canonical: `${process.env.SITE_URL}/package/${params.package}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${params.package}`,
     },
   };
 }
