@@ -25,9 +25,11 @@ const withMDX = createMDX({
 export default withSentryConfig(
   withMDX(nextConfig, {
     org: "kickstart-ab",
-    project: "npmpackage.info",
-    authToken: process.env.SENTRY_AUTH_TOKEN,
-    silent: false,
+    project: "npmpackageinfo",
+    silent: !process.env.CI,
+    widenClientFileUpload: true,
+    hideSourceMaps: true,
     disableLogger: true,
+    automaticVercelMonitors: true,
   }),
 );
