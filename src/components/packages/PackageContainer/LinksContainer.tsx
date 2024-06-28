@@ -2,7 +2,7 @@ import { ActionIcon, Group } from "@mantine/core";
 import { IconBrandGithub, IconBrandNpm, IconWorld } from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
-import Conditional from "../shared/Conditional";
+import Conditional from "@/components/shared/Conditional";
 
 export const LinksContainer = ({ homePage, github, npm }: any) => {
   return (

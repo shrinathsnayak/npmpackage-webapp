@@ -1,24 +1,19 @@
 import React from "react";
 import Link from "next/link";
-import { Anchor, Box, Flex, Group, Text, Title } from "@mantine/core";
+import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
 
 const DependenciesRenderer = ({ dependency, name }: any) => {
   const { data, totalCount } = dependency || {};
   return (
     <Box mb={10}>
-      <Flex
-        align="center"
-        justify="space-between"
-        p={8}
-        px={20}
-        bg="gray.8"
-        style={{ borderRadius: 5 }}
-      >
-        <Title order={5}>{name}</Title>
-        <Text fs="lg" fw="bolder">
-          {totalCount}
-        </Text>
-      </Flex>
+      <Paper bg="dark.9" p={8} px={20} withBorder>
+        <Flex align="center" justify="space-between">
+          <Title order={5}>{name}</Title>
+          <Text fs="lg" fw="bolder">
+            {totalCount}
+          </Text>
+        </Flex>
+      </Paper>
       <Group my={5} gap={5}>
         {Object.keys(data)?.map((item) => {
           return (

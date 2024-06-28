@@ -1,14 +1,14 @@
 import React from "react";
 import { Box, Flex } from "@mantine/core";
-import Installations from "./components/Installations";
-import Collaborators from "./components/Collaborators";
-import Languages from "./components/Languages";
-import Releases from "./components/Releases";
-import Size from "./components/Size";
-import Actions from "./components/Actions";
-import Statistics from "./components/Statistics";
-import Conditional from "../shared/Conditional";
-import Developer from "./components/Developer";
+import Installations from "@/components/packages/Tabs/components/Installations";
+import Collaborators from "@/components/packages/Tabs/components/Collaborators";
+import Languages from "@/components/packages/Tabs/components/Languages";
+import Releases from "@/components/packages/Tabs/components/Releases";
+import Size from "@/components/packages/Tabs/components/Size";
+import Actions from "@/components/packages/Tabs/components/Actions";
+import Statistics from "@/components/packages/Tabs/components/Statistics";
+import Conditional from "@/components/shared/Conditional";
+import Developer from "@/components/packages/Tabs/components/Developer";
 
 const Overview = ({ packageInfo }: any) => {
   const { data: npm } = packageInfo?.npm || {};

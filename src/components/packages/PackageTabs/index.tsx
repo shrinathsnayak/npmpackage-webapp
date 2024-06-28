@@ -5,13 +5,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
-import ReadMe from "../Tabs/ReadMe";
-import Security from "../Tabs/Security";
+import ReadMe from "@/components/packages/Tabs/ReadMe";
+import Security from "@/components/packages/Tabs/Security";
+import Dependencies from "@/components/packages/Tabs/Dependencies";
+import Overview from "@/components/packages/Tabs/Overview";
+import Downloads from "@/components/packages/Tabs/Downloads";
 import classes from "./Tabs.module.css";
 import "../PackageContainer/Container.module.css";
-import Dependencies from "../Tabs/Dependencies";
-import Overview from "../Tabs/Overview";
-import Downloads from "../Tabs/Downloads";
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();

@@ -1,8 +1,8 @@
 import { Box } from "@mantine/core";
 import { getPackageData, getPackageDownloads } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
-import PackageContainer from "@/components/PackageContainer";
-import PageTabs from "@/components/PackageTabs";
+import PackageContainer from "@/components/packages/PackageContainer";
+import PageTabs from "@/components/packages/PackageTabs";
 
 export async function generateMetadata({
   params,

@@ -3,7 +3,7 @@
 import React from "react";
 import { Group, rem, Text, UnstyledButton } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
-import { searchHandlers } from "../Search";
+import { searchHandlers } from "../shared/Search";
 import classes from "./Landing.module.css";
 
 const SearchBar = () => {

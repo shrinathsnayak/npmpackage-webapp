@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import MDX from "../mdx";
+import MDX from "@/components/shared/mdx";
 
 const ReadMe = ({ data }: any) => {
   return (

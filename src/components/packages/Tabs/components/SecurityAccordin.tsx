@@ -1,18 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Box,
-  Group,
-  List,
-  Text,
-  Accordion,
-  Title,
-  ThemeIcon,
-  rem,
-} from "@mantine/core";
+import { Box, Group, List, Text, Accordion, Title } from "@mantine/core";
 import { getScoreTextColor } from "@/utils";
-import { IconAlertCircle } from "@tabler/icons-react";
 
 function AccordionLabel({ score, name, description }: any) {
   return (
@@ -36,7 +26,7 @@ function AccordionLabel({ score, name, description }: any) {
 
 function AccordionContent({ reason, details }: any) {
   return (
-    <Box>
+    <div>
       <Box my={10} mb={15}>
         <Text size="sm" c="dimmed" fw={400} mb={5}>
           Reason
@@ -59,7 +49,7 @@ function AccordionContent({ reason, details }: any) {
           </List>
         </Box>
       )}
-    </Box>
+    </div>
   );
 }
 
@@ -84,6 +74,9 @@ const SecurityAccordin = ({ checks = [] }: any) => {
         variant="contained"
         onChange={setValue}
         chevronPosition="right"
+        bg="dark.9"
+        radius="md"
+        style={{ overflow: "hidden", borderRadius: "0.5rem" }}
       >
         {items}
       </Accordion>

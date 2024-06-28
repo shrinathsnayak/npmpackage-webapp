@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
-import { Search, searchHandlers } from "@/components/Search";
+import { Search, searchHandlers } from "@/components/shared/Search";
 import classes from "./Layout.module.css";
 import Icon from "@/assets/logos/icon.png";
 import { NPMPACKAGE_TITLE } from "@/constants";

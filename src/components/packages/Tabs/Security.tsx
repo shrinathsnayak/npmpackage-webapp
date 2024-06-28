@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { Box, Title, Flex, Text, Paper, Anchor, Group } from "@mantine/core";
-import SecurityAccordin from "../shared/security/SecurityAccordin";
+import { Title, Flex, Text, Paper, Anchor } from "@mantine/core";
+import SecurityAccordin from "@/components/packages/Tabs/components/SecurityAccordin";
 import { getScoreTextColor } from "@/utils";
 
 const Security = ({ packageInfo }: any) => {
@@ -25,8 +25,10 @@ const Security = ({ packageInfo }: any) => {
           p="lg"
           top="75px"
           withBorder
-          shadow="xs"
+          shadow="sm"
           h="fit-content"
+          radius="md"
+          bg="dark.9"
           w={{ base: "100%", sm: "500" }}
           pos={{ base: "static", sm: "sticky" }}
         >
