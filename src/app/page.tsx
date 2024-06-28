@@ -1,5 +1,5 @@
 import { Center, Container, Image, Title, Text } from "@mantine/core";
-import PageLayout from "@/components/PageLayout";
+import PageLayout from "@/components/shared/PageLayout";
 import { NPMPACKAGE_TITLE } from "@/constants";
 import SearchBar from "@/components/Landing/LandingSearch";
 

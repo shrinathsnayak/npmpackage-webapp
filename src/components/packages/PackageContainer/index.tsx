@@ -10,7 +10,6 @@ import {
   Group,
   Tooltip,
 } from "@mantine/core";
-import "./Container.module.css";
 import Tags from "./Tags";
 import { LinksContainer } from "./LinksContainer";
 
@@ -50,6 +49,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
               homePage={github?.homepageUrl}
               github={github?.repositoryUrl}
               npm={`https://www.npmjs.com/package/${npm?.name}`}
+              typesLink={npm?.types && `https://tsdocs.dev/docs/${npm?.name}`}
             />
           </Box>
         </Flex>

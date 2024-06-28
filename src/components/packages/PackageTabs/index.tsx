@@ -11,7 +11,6 @@ import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Overview from "@/components/packages/Tabs/Overview";
 import Downloads from "@/components/packages/Tabs/Downloads";
 import classes from "./Tabs.module.css";
-import "../PackageContainer/Container.module.css";
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();

@@ -36,7 +36,7 @@ export default function RootLayout({
         <ColorSchemeScript forceColorScheme="dark" defaultColorScheme="dark" />
         <Metrics />
       </head>
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true} className="root">
         <MantineProvider
           theme={theme}
           forceColorScheme="dark"

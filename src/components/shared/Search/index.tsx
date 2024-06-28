@@ -17,6 +17,7 @@ export function Search() {
   const [data, setData] = useState<any[]>([]);
 
   const handleClick = useCallback((name: string) => {
+    setQuery("");
     router.push(`/package/${name}`);
   }, []);
 
@@ -30,7 +31,7 @@ export function Search() {
 
   const handleSearch = useThrottledCallback((query: string) => {
     searchPackageName(query);
-  }, 500);
+  }, 1000);
 
   const handleChange = (value: string) => {
     setQuery(value);

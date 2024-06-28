@@ -1,10 +1,15 @@
 import { ActionIcon, Group } from "@mantine/core";
-import { IconBrandGithub, IconBrandNpm, IconWorld } from "@tabler/icons-react";
+import {
+  IconBrandGithub,
+  IconBrandNpm,
+  IconWorld,
+  IconBrandTypescript,
+} from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
 import Conditional from "@/components/shared/Conditional";
 
-export const LinksContainer = ({ homePage, github, npm }: any) => {
+export const LinksContainer = ({ homePage, github, npm, typesLink }: any) => {
   return (
     <Group gap={15} mt={10} mb={{ base: 5, sm: 0 }}>
       <Conditional if={homePage}>
@@ -43,6 +48,19 @@ export const LinksContainer = ({ homePage, github, npm }: any) => {
           target="_blank"
         >
           <IconBrandNpm size={18} />
+        </ActionIcon>
+      </Conditional>
+
+      <Conditional if={typesLink}>
+        <ActionIcon
+          variant="light"
+          size="lg"
+          color="gray"
+          component={Link}
+          href={typesLink}
+          target="_blank"
+        >
+          <IconBrandTypescript size={18} />
         </ActionIcon>
       </Conditional>
     </Group>
