@@ -10,7 +10,7 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
     <Anchor href={url} component={Link} target="_blank" underline="never">
       <Paper p="sm" radius="md">
         <Text fz="sm" fw="500">
-          {name}
+          {name || tag?.name}
         </Text>
         <Badge
           variant="outline"
