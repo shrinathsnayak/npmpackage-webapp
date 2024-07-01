@@ -2,10 +2,11 @@ import { Center, Container, Image, Title, Text } from "@mantine/core";
 import PageLayout from "@/components/shared/PageLayout";
 import { NPMPACKAGE_TITLE } from "@/constants";
 import SearchBar from "@/components/Landing/LandingSearch";
+import PopularPackages from "@/components/Landing/PopularPackages";
 
 export default function Home() {
   return (
-    <PageLayout hideHeader={true} fixedFooter={true}>
+    <PageLayout hideHeader={true} fixedFooter={true} hideFooter={true}>
       <Center mah="calc(80vh - 65px)" mih="calc(80vh - 65px)" w="100%">
         <Container
           ta="center"
@@ -13,7 +14,11 @@ export default function Home() {
           mt={{ base: "-20%", sm: 0 }}
         >
           <Title>{NPMPACKAGE_TITLE}</Title>
+          <Text mt={10} c="dimmed" fz="sm">
+            Discover detailed information about npm packages.
+          </Text>
           <SearchBar />
+          <PopularPackages />
         </Container>
       </Center>
     </PageLayout>

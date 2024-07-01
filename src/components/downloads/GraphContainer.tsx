@@ -11,7 +11,5 @@ export default async function GraphContainer({
   const name = packageName && genereatePackageName([packageName] as any);
   const downloads =
     (name && (await packageDownloadStats(name, startDate, endDate))) || {};
-  return (
-    <ClientGraphContainer downloads={downloads} />
-  );
+  return <ClientGraphContainer downloads={downloads} />;
 }

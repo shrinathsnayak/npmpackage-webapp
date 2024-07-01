@@ -12,10 +12,21 @@ const SearchBar = () => {
       onClick={() => searchHandlers.open()}
       className={classes.searchRoot}
     >
-      <Group gap="md">
-        <IconSearch style={{ width: rem(20), height: rem(20) }} stroke={2} />
-        <Text fz="lg" c="dimmed" pr={80}>
-          Search Package
+      <Group justify="space-between">
+        <Group gap="md">
+          <IconSearch style={{ width: rem(20), height: rem(20) }} stroke={2} />
+          <Text fz="lg" c="dimmed" pr={{ base: 0, sm: 80 }}>
+            Search Package
+          </Text>
+        </Group>
+        <Text
+          p={8}
+          px={10}
+          fw={700}
+          display={{ base: "none", md: "block" }}
+          className={classes.shortcut}
+        >
+          Ctrl + K
         </Text>
       </Group>
     </UnstyledButton>

@@ -47,7 +47,7 @@ const ActionsCard = ({ data, link }: any) => {
             Total
           </Text>
           <Title order={4}>
-          <NumberFormatter thousandSeparator value={Number(total)} />
+            <NumberFormatter thousandSeparator value={Number(total)} />
           </Title>
         </Box>
         <Divider orientation="vertical" />

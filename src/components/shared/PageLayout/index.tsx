@@ -6,6 +6,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { Search } from "@/components/shared/Search";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Conditional from "../Conditional";
 
 const PageLayout = ({
   children,
@@ -14,6 +15,7 @@ const PageLayout = ({
   disableSpotlight = false,
   hideHeader = false,
   fixedFooter = false,
+  hideFooter = false,
 }: any) => {
   const [opened, { toggle }] = useDisclosure();
 
@@ -28,17 +30,21 @@ const PageLayout = ({
       }}
       disabled={hideLayout}
     >
-      {!hideHeader && <Header hideSearch={hideSearch} />}
+      <Conditional if={!hideHeader}>
+        <Header hideSearch={hideSearch} />
+      </Conditional>
 
       <AppShell.Main bg="dark.7">
-        {!disableSpotlight && (
+        <Conditional if={!disableSpotlight}>
           <Suspense fallback={<>loading...</>}>
             <Search />
           </Suspense>
-        )}
+        </Conditional>
         {children}
       </AppShell.Main>
-      <Footer fixedFooter={fixedFooter} />
+      <Conditional if={!hideFooter}>
+        <Footer fixedFooter={fixedFooter} />
+      </Conditional>
     </AppShell>
   );
 };
