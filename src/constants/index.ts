@@ -8,7 +8,7 @@ export const TABS: any = {
   readme: { name: "Readme", value: "readme", visible: true },
   downloads: { name: "Downloads", value: "downloads", visible: true },
   dependencies: { name: "Dependencies", value: "dependencies", visible: true },
-  scorecard: { name: "Security Scorecard", value: "scorecard", visible: true },
+  scorecard: { name: "OpenSSF Scorecard", value: "scorecard", visible: true },
   versions: { name: "Versions", value: "versions", visible: false },
 };
 

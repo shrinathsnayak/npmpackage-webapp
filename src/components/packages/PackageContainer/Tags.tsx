@@ -37,7 +37,7 @@ const Tags = ({ data }: any) => {
       justify={{ base: "center", sm: "flex-start" }}
       wrap="wrap"
     >
-      {stars && (
+      {stars > 0 && (
         <CustomTags
           tooltip="Stars"
           icon={<IconStar size={12} />}

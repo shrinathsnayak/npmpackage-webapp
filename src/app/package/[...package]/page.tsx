@@ -24,13 +24,13 @@ export async function generateMetadata({
 }
 
 export default async function Package({ params }: { params: { package: [] } }) {
-  const name = genereatePackageName(params.package);
-  const data = name && (await getPackageData(name));
-  const downloads = name && (await getPackageDownloads(name));
+  const packageName = genereatePackageName(params.package);
+  const data = packageName && (await getPackageData(packageName));
+  const downloads = packageName && (await getPackageDownloads(packageName));
   return (
-    <Box>
+    <div>
       <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
       <PageTabs packageInfo={data} downloads={downloads} />
-    </Box>
+    </div>
   );
 }

@@ -45,42 +45,42 @@ const Statistics = ({ data }: any) => {
             value={license}
           />
         )}
-        {stars && (
+        {stars > 0 && (
           <Stat
             tooltip="Stars"
             icon={<IconStar size={16} color="#828282" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={stars} />}
           />
         )}
-        {commits && (
+        {commits > 0 && (
           <Stat
             tooltip="Commits"
             icon={<IconHistory size={16} color="#828282" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={commits} />}
           />
         )}
-        {forks && (
+        {forks > 0 && (
           <Stat
             tooltip="Forks"
             icon={<IconGitFork size={16} color="#828282" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={forks} />}
           />
         )}
-        {watchers && (
+        {watchers > 0 && (
           <Stat
             tooltip="Watching"
             icon={<IconEye size={16} color="#828282" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={watchers} />}
           />
         )}
-        {branches && (
+        {branches > 0 && (
           <Stat
             tooltip="Branches"
             icon={<IconGitBranch size={16} color="#828282" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={branches} />}
           />
         )}
-        {contributors && (
+        {contributors > 0 && (
           <Stat
             tooltip="Contributors"
             icon={<IconUsers size={16} color="#828282" stroke={2} />}

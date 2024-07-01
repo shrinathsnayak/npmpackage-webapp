@@ -8,7 +8,7 @@ export const EIGHT_HOUR_API_CACHE: number = 60 * 60 * 8;
  * slash ("/").
  */
 export const genereatePackageName = (packageName: []): string =>
-  packageName?.map(decodeURIComponent).join("/");
+  packageName && packageName?.map(decodeURIComponent).join("/");
 
 /**
  * The function `generateAPIOptions` returns an object with caching options for an API request based on

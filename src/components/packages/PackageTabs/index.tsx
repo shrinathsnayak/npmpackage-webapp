@@ -9,7 +9,7 @@ import ReadMe from "@/components/packages/Tabs/ReadMe";
 import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Overview from "@/components/packages/Tabs/Overview";
-import Downloads from "@/components/packages/Tabs/Downloads";
+import Downloads from "@/components/shared/Downloads";
 import classes from "./Tabs.module.css";
 
 const PageTabs = ({ packageInfo, downloads }: any) => {

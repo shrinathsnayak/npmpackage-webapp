@@ -24,7 +24,7 @@ const Downloads = ({ downloads }: any) => {
           <Box display={{ base: "none", sm: "block" }}>
             <Title order={3}>Total Downloads</Title>
             <Text fz="sm" c="dimmed" mt={5}>
-              Cumulative downloads over the years
+              Cumulative downloads
             </Text>
           </Box>
           <Box display={{ base: "block", sm: "none" }}>

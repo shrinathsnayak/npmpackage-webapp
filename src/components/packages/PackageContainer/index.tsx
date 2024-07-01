@@ -4,7 +4,6 @@ import {
   Box,
   Title,
   Flex,
-  Image,
   Text,
   Pill,
   Group,
@@ -29,7 +28,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
         >
           <Group align="center">
             <Title order={1} size="2.3rem" fw={800}>
-              {github?.name || npm?.name}
+              {npm?.name || github?.name}
             </Title>
             {(github?.latestRelease || npm?.version) && (
               <Tooltip label="Latest Release" position="right">

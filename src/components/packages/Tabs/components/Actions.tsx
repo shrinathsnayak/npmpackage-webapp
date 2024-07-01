@@ -21,10 +21,10 @@ const ActionsCard = ({ data, link }: any) => {
       <Flex p="md" px="lg" justify="space-between">
         <Box>
           <Text fz="xs" c="dimmed" mb={1}>
-            Total
+            Open
           </Text>
-          <Title order={2}>
-            <NumberFormatter thousandSeparator value={Number(total)} />
+          <Title order={2} c="green.6">
+            <NumberFormatter thousandSeparator value={Number(open)} />
           </Title>
         </Box>
         <ActionIcon
@@ -44,10 +44,10 @@ const ActionsCard = ({ data, link }: any) => {
       <Flex align="center" justify="space-around">
         <Box p="xs" ta="center">
           <Text fz="sm" c="dimmed">
-            Open
+            Total
           </Text>
-          <Title order={4} c="green.6">
-            <NumberFormatter thousandSeparator value={Number(open)} />
+          <Title order={4}>
+          <NumberFormatter thousandSeparator value={Number(total)} />
           </Title>
         </Box>
         <Divider orientation="vertical" />
@@ -59,7 +59,7 @@ const ActionsCard = ({ data, link }: any) => {
             <NumberFormatter thousandSeparator value={Number(closed)} />
           </Title>
         </Box>
-        {merged && (
+        {merged > 0 && (
           <>
             <Divider orientation="vertical" />
             <Box p="xs" ta="center">

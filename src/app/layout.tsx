@@ -2,6 +2,7 @@ import "@mantine/core/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantinex/shiki/styles.css";
+import "@mantine/dates/styles.css";
 import "@/global.module.css";
 
 import type { Metadata } from "next";

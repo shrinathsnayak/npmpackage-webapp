@@ -87,12 +87,21 @@ export async function searchPackage(packageName: string) {
   }
 }
 
+/**
+ * The function `getPackageDownloads` fetches download data for a specified package name using an API
+ * endpoint.
+ * @param {string} packageName - The `packageName` parameter is a string that represents the name of
+ * the package for which you want to retrieve download information.
+ * @returns The function `getPackageDownloads` is returning the result of the `fetch` call in the form
+ * of JSON data if the request is successful. If there is an error during the fetch operation or if the
+ * package name is not provided, the function will log the error to the console.
+ */
 export async function getPackageDownloads(packageName: string) {
   try {
     if (packageName) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
-        `${process.env.API_ENDPOINT}/downloads?package=${packageName}`,
+        `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}`,
         options,
       );
 
@@ -104,5 +113,52 @@ export async function getPackageDownloads(packageName: string) {
     }
   } catch (err) {
     console.error(err);
+  }
+}
+
+/**
+ * This TypeScript function fetches download statistics for a specified package within a given date
+ * range from an API endpoint.
+ * @param {string} packageName - The `packageName` parameter is a string that represents the name of
+ * the package for which you want to retrieve download statistics.
+ * @param {string} [startDate] - The `startDate` parameter in the `packageDownloadStats` function is an
+ * optional parameter that specifies the start date for the package download statistics query. If
+ * provided, the function will include this start date in the API request to fetch download statistics
+ * for the specified package. The format of the `startDate` parameter
+ * @param {string} [endDate] - The `endDate` parameter in the `packageDownloadStats` function is an
+ * optional parameter that specifies the end date for the package download statistics query. If
+ * provided, the function will include download statistics up to this end date. If not provided, the
+ * function will retrieve download statistics up to the current date or
+ * @returns The `packageDownloadStats` function returns the JSON response from the API endpoint that
+ * provides download statistics for a given package name within the specified date range. If there is
+ * an error during the fetch operation, an error message is logged to the console.
+ */
+export async function packageDownloadStats(
+  packageName: string,
+  startDate?: string,
+  endDate?: string,
+) {
+  if (!packageName) return;
+
+  try {
+    const options = isDevelopment ? {} : generateAPIOptions(packageName);
+    const requestObj: Record<string, string> = { packageName };
+
+    if (startDate) requestObj.startDate = startDate;
+    if (endDate) requestObj.endDate = endDate;
+
+    const searchQuery = new URLSearchParams(requestObj);
+    const response = await fetch(
+      `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
+      options,
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching package download stats:", error);
   }
 }
