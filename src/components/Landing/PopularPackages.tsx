@@ -7,15 +7,14 @@ import { IconTrendingUp } from "@tabler/icons-react";
 const PopularPackages = () => {
   return (
     <Center>
-      <Group gap={3}>
-        <Group gap={3}>
+      <Group gap={2} align="center">
+        <Group gap={3} align="center">
           <IconTrendingUp
-            stroke={2}
-            style={{ width: rem(18), height: rem(18) }}
+            style={{ width: rem(19), height: rem(19) }}
             color="var(--mantine-color-red-8)"
           />
           <Text c="dimmed" fz="sm">
-            Popular Packages
+            Popular Packages -
           </Text>
         </Group>
         {popularPackages.map((item: string) => (

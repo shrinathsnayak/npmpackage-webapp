@@ -6,7 +6,7 @@
   border-radius: var(--mantine-radius-lg);
   color: var(--mantine-color-placeholder);
   border: 1px solid;
-  margin: var(--mantine-spacing-xl) 0;
+  margin: var(--mantine-spacing-xl) 0 var(--mantine-spacing-lg) 0;
 
   @mixin dark {
     border-color: var(--mantine-color-dark-4);

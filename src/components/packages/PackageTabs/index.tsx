@@ -29,7 +29,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         variant="outline"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
-        onChange={(value) => router.replace(`?t=${value}`)}
+        onChange={(value) => router.push(`?t=${value}`)}
       >
         <Tabs.List>
           {Object.keys(TABS).map((item: any) => {

@@ -1,4 +1,4 @@
-import { Center, Container, Image, Title, Text } from "@mantine/core";
+import { Center, Container, Image, Title, Text, rem } from "@mantine/core";
 import PageLayout from "@/components/shared/PageLayout";
 import { NPMPACKAGE_TITLE } from "@/constants";
 import SearchBar from "@/components/Landing/LandingSearch";
@@ -13,7 +13,7 @@ export default function Home() {
           w={{ base: "100%", sm: "50%" }}
           mt={{ base: "-20%", sm: 0 }}
         >
-          <Title>{NPMPACKAGE_TITLE}</Title>
+          <Title size={rem(40)}>{NPMPACKAGE_TITLE}</Title>
           <Text mt={10} c="dimmed" fz="sm">
             Discover detailed information about npm packages.
           </Text>

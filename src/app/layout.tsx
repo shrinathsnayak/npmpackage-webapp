@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: [Favicon.src],
   },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+  },
 };
 
 export default function RootLayout({
