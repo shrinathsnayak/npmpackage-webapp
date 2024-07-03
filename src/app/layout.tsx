@@ -10,6 +10,7 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
 import Metrics from "@/observability";
 import Favicon from "@/assets/logos/icon.png";
+import OGImage from "@/assets/og.png";
 import ShikiLoader from "@/components/shared/CodeWrapper";
 import theme from "./theme";
 
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   description: NPMPACKAGE_DESCRIPTION,
   icons: [{ rel: "icon", url: Favicon.src }],
   openGraph: {
-    images: [Favicon.src],
+    images: [OGImage.src],
   },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,

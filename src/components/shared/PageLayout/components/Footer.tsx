@@ -1,28 +1,40 @@
-import { Anchor, AppShell } from "@mantine/core";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import { Anchor, AppShell, Container, Flex, Image, Text } from "@mantine/core";
+import IndiaFlag from "@/assets/india-flag.svg";
 
 const Footer = ({ fixedFooter }: boolean | any) => {
   return (
     <AppShell.Footer
       fz="sm"
-      ta="center"
       bg="dark.9"
       withBorder
       pos={fixedFooter ? "fixed" : "static"}
       p={{ base: "md", sm: "lg" }}
     >
-      This is a weekend project by{" "}
-      <Anchor
-        fz="sm"
-        component={Link}
-        href="https://snayak.dev"
-        target="blank"
-        underline="never"
-      >
-        Shrinath Nayak
-      </Anchor>{" "}
-      and is currently under development.
+      <Container className="responsiveContainer">
+        <Flex
+          align="center"
+          justify="space-between"
+          direction={{ base: "column", sm: "row" }}
+        >
+          <Text fz="sm" c="dimmed">
+            Project by{" "}
+            <Anchor
+              fz="sm"
+              component={Link}
+              href="https://snayak.dev"
+              target="blank"
+              underline="never"
+            >
+              Shrinath Nayak
+            </Anchor>{" "}
+          </Text>
+          <Text fz="sm" c="dimmed" ta="center" mt={{ base: 10, sm: 0 }}>
+            We do not own or store any data displayed on the website.
+          </Text>
+        </Flex>
+      </Container>
     </AppShell.Footer>
   );
 };
