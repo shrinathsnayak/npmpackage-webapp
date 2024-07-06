@@ -1,0 +1,1733 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://npmpackage.info/</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/react</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/next</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/vue</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/svelte</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/solid-js</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/loose-envify</loc>
+	<lastmod>2024-07-06T23:02:42+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/LICENSE</loc>
+	<lastmod>2024-07-06T23:02:42+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/busboy</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/styled-jsx</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/graceful-fs</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/caniuse-lite</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/sass</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/react-dom</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/ws</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/arg</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/msw</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/ora</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tar</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/zod</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/conf</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/glob</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/send</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/util</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/uuid</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/acorn</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/anser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/bytes</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/debug</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/fresh</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/json5</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/taskr</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/assert</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/buffer</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/cookie</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/events</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/is-wsl</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/nanoid</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/semver</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/terser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/ci-info</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/devalue</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/find-up</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/p-limit</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/process</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/webpack</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/platform</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/punycode</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/raw-body</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/react-is</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/unistore</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/ws</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/commander</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/gzip-size</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/is-docker</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/lru-cache</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/neo-async</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/picomatch</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/watchpack</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/tar</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/async-sema</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/cli-select</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/css.escape</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/http-proxy</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/icss-utils</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/image-size</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/native-url</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/source-map</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/strip-ansi</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/text-table</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/web-vitals</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@jest/types</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/glob</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/send</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/uuid</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vercel/ncc</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vercel/nft</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/async-retry</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/client-only</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/compression</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/cross-spawn</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/jest-worker</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/sass-loader</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/server-only</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/shell-quote</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/stream-http</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/string-hash</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/superstruct</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/types</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@hapi/accept</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@taskr/clear</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/bytes</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/debug</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/fresh</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/browserslist</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/comment-json</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/content-type</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/edge-runtime</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/jsonwebtoken</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/lodash.curry</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-scss</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/setimmediate</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/source-map08</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/ua-parser-js</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@taskr/esnext</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/cookie</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/semver</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/ignore-loader</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/loader-runner</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/loader-utils2</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/loader-utils3</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/os-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/react-refresh</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/schema-utils2</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/schema-utils3</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/vm-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/runtime</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/domain-browser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/path-to-regexp</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/string_decoder</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tty-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/traverse</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@jest/transform</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/platform</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/react-is</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/browserify-zlib</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/get-orientation</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/path-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/querystring-es3</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/generator</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@napi-rs/triples</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/picomatch</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/react-dom</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/http-proxy-agent</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/https-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/node-html-parser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/webpack-sources1</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/webpack-sources3</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/code-frame</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/text-table</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/amphtml-validator</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/crypto-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/https-proxy-agent</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/stacktrace-parser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/stream-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/timers-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/babel__core</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/compression</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/cross-spawn</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/graceful-fs</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/shell-quote</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/data-uri-to-buffer</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-preset-env</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/preset-react</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@capsizecss/metrics</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@mswjs/interceptors</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/content-type</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/jsonwebtoken</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/lodash.curry</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/ua-parser-js</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/content-disposition</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-safe-parser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/regenerator-runtime</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/eslint-parser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/constants-browserify</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-value-parser</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/strict-event-emitter</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@edge-runtime/cookies</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/polyfill-module</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-modules-scope</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/terser-webpack-plugin</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@edge-runtime/ponyfill</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/babel__template</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/babel__traverse</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/cssnano-preset-default</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-flexbugs-fixes</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-modules-values</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/polyfill-nomodule</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/babel__generator</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/mini-css-extract-plugin</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-syntax-jsx</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@edge-runtime/primitives</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/amphtml-validator</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/babel__code-frame</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/react-refresh-utils</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/content-disposition</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-syntax-bigint</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@ampproject/toolbox-optimizer</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/babel-plugin-transform-define</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-transform-runtime</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-modules-extract-imports</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types/express-serve-static-core</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/postcss-modules-local-by-default</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-syntax-import-assertions</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-proposal-numeric-separator</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-transform-modules-commonjs</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-proposal-object-rest-spread</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel/plugin-proposal-export-namespace-from</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/babel-plugin-transform-react-remove-prop-types</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-darwin-x64</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-darwin-arm64</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-linux-x64-gnu</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-linux-x64-musl</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-win32-x64-msvc</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-linux-arm64-gnu</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-win32-ia32-msvc</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-linux-arm64-musl</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next/swc-win32-arm64-msvc</loc>
+	<lastmod>2024-07-06T23:02:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vue/server-renderer</loc>
+	<lastmod>2024-07-06T23:02:45+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/typescript</loc>
+	<lastmod>2024-07-06T23:02:45+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/code-red</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/css-tree</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/aria-query</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/periscopic</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/is-reference</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/magic-string</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/estree-walker</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/axobject-query</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/locate-character</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/jsdom</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/kleur</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/agadoo</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/rollup</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/vitest</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/esbuild</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/dts-buddy</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/happy-dom</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tiny-glob</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint-plugin-lube</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/LICENSE.md</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/CONTRIBUTING.md</loc>
+	<lastmod>2024-07-06T23:02:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/csstype</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/seroval</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/seroval-plugins</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@mantine,core</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/js-tokens</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/browserify</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/envify</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tap</loc>
+	<lastmod>2024-07-06T23:02:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@swc,helpers</loc>
+	<lastmod>2024-07-06T23:02:51+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next,env</loc>
+	<lastmod>2024-07-06T23:02:51+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@playwright,test</loc>
+	<lastmod>2024-07-06T23:02:52+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@opentelemetry,api</loc>
+	<lastmod>2024-07-06T23:02:52+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/foreground-child</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/jackspeak</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/minimatch</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/minipass</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/package-json-from-dist</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/path-scurry</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/memfs</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/mkdirp</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/prettier</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/rimraf</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/sync-content</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tshy</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/typedoc</loc>
+	<lastmod>2024-07-06T23:02:55+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint</loc>
+	<lastmod>2024-07-06T23:02:56+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint-plugin-markdown</loc>
+	<lastmod>2024-07-06T23:02:56+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/mocha</loc>
+	<lastmod>2024-07-06T23:02:56+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/nyc</loc>
+	<lastmod>2024-07-06T23:02:56+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/benchmark</loc>
+	<lastmod>2024-07-06T23:03:00+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@next,swc</loc>
+	<lastmod>2024-07-06T23:03:04+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel,core</loc>
+	<lastmod>2024-07-06T23:03:08+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,react</loc>
+	<lastmod>2024-07-06T23:03:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,lodash</loc>
+	<lastmod>2024-07-06T23:03:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,ci-info</loc>
+	<lastmod>2024-07-06T23:03:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,lru-cache</loc>
+	<lastmod>2024-07-06T23:03:20+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel,preset-env</loc>
+	<lastmod>2024-07-06T23:03:22+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,path-to-regexp</loc>
+	<lastmod>2024-07-06T23:03:27+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,webpack-sources1</loc>
+	<lastmod>2024-07-06T23:03:29+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel,preset-typescript</loc>
+	<lastmod>2024-07-06T23:03:29+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel,plugin-syntax-dynamic-import</loc>
+	<lastmod>2024-07-06T23:03:32+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vercel,turbopack-ecmascript-runtime</loc>
+	<lastmod>2024-07-06T23:03:33+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@babel,plugin-proposal-class-properties</loc>
+	<lastmod>2024-07-06T23:03:33+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vue,shared</loc>
+	<lastmod>2024-07-06T23:03:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vue,compiler-dom</loc>
+	<lastmod>2024-07-06T23:03:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vue,compiler-sfc</loc>
+	<lastmod>2024-07-06T23:03:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@vue,runtime-dom</loc>
+	<lastmod>2024-07-06T23:03:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/c8</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/ms</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/chai</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/diff</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/chalk</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tslib</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/which</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/dprint</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/hereby</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/chokidar</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/minimist</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/node-fetch</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/playwright</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/jsonc-parser</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/fast-xml-parser</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/source-map-support</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint-plugin-local</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/azure-devops-node-api</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/mocha-fivemat-progress-reporter</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint-formatter-autolinkable-stylish</loc>
+	<lastmod>2024-07-06T23:03:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@types,estree</loc>
+	<lastmod>2024-07-06T23:03:40+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@jridgewell,trace-mapping</loc>
+	<lastmod>2024-07-06T23:03:41+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@ampproject,remapping</loc>
+	<lastmod>2024-07-06T23:03:41+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@jridgewell,sourcemap-codec</loc>
+	<lastmod>2024-07-06T23:03:42+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/esm</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/uvu</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/cssstyle</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/data-urls</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/form-data</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/html-encoding-sniffer</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/is-potential-custom-element-name</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/nwsapi</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/parse5</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/rrweb-cssom</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/saxes</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/symbol-tree</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tough-cookie</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/w3c-xmlserializer</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/webidl-conversions</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/whatwg-encoding</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/whatwg-mimetype</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/whatwg-url</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/xml-name-validator</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/canvas</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint-plugin-html</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/eslint-plugin-jsdom-internal</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/js-yaml</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/mocha-sugar-free</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/pngjs</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/server-destroy</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/webidl2js</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/yargs</loc>
+	<lastmod>2024-07-06T23:03:43+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/vite</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/execa</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/pathe</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/tinypool</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/local-pkg</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/vite-node</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/picocolors</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/strip-literal</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/why-is-node-running</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/@edge-runtime/vm</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/cac</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/birpc</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/log-update</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/expect-type</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://npmpackage.info/package/get-tsconfig</loc>
+	<lastmod>2024-07-06T23:03:44+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+</urlset>

@@ -27,6 +27,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
   },
+  keywords: [
+    "npmjs.org",
+    "npmjs.com",
+    "npm insights",
+    "npm downloads",
+    "npm history",
+    "github",
+    "react",
+    "mextjs",
+    "npminsights"
+  ],
 };
 
 export default function RootLayout({
