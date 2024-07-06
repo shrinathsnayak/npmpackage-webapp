@@ -54,7 +54,6 @@ const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
         curveType="linear"
         gridColor="gray.1"
         fillOpacity={0.51}
-        rightYAxisProps={{ width: 0 }}
         tooltipAnimationDuration={200}
         legendProps={{ verticalAlign: "bottom" }}
         series={[{ name: "downloads", color: "red.8" }]}
