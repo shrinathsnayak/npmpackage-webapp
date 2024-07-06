@@ -28,6 +28,7 @@ const Collaborators = ({
                     component={Link}
                     href={item?.profile_url}
                     target="_blank"
+                    prefetch
                   >
                     <Avatar
                       size="md"
@@ -44,6 +45,7 @@ const Collaborators = ({
           <Anchor
             display="inline-block"
             component={Link}
+            prefetch
             href={`${repositoryUrl}/graph/contributors`}
             target="_blank"
           >

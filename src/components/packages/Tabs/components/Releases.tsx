@@ -7,7 +7,13 @@ import { formatDate } from "@/utils";
 
 const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
   return (
-    <Anchor href={url} component={Link} target="_blank" underline="never">
+    <Anchor
+      href={url}
+      component={Link}
+      target="_blank"
+      underline="never"
+      prefetch
+    >
       <Paper p="sm" radius="md">
         <Text fz="sm" fw="500">
           {name || tag?.name}
@@ -47,6 +53,7 @@ const Releases = ({ releases, repositoryUrl }: any) => {
             component={Link}
             href={`${repositoryUrl}/releases`}
             target="_blank"
+            prefetch
           >
             <Text fz="sm">View all {total} releases</Text>
           </Anchor>

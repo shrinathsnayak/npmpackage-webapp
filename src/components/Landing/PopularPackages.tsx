@@ -21,6 +21,7 @@ const PopularPackages = () => {
           <Anchor
             p={5}
             key={item}
+            prefetch
             component={Link}
             underline="hover"
             href={`${process.env.NEXT_PUBLIC_SITE_URL}/package/${item}`}

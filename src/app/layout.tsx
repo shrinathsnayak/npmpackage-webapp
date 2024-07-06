@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "github",
     "react",
     "mextjs",
-    "npminsights"
+    "npminsights",
   ],
 };
 
@@ -49,6 +49,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="color-scheme" content="dark" />
+        <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+        <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <ColorSchemeScript forceColorScheme="dark" defaultColorScheme="dark" />
         <Metrics />
       </head>

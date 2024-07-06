@@ -39,7 +39,7 @@ const Header = ({ hideSearch }: any) => {
           style={{ flex: 1 }}
           py="xs"
         >
-          <Anchor component={Link} href="/" underline="never">
+          <Anchor component={Link} href="/" underline="never" prefetch>
             <Flex gap={6} justify="space-between" align="center">
               <Image src={Icon.src} alt="npmpackage.info logo" w={30} h={30} />
               <Title order={3} c="white">

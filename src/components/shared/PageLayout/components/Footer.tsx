@@ -26,6 +26,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
               href="https://snayak.dev"
               target="blank"
               underline="never"
+              prefetch
             >
               Shrinath Nayak
             </Anchor>{" "}

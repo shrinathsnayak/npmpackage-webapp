@@ -19,6 +19,7 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
           return (
             <Anchor
               p={5}
+              prefetch
               component={Link}
               href={`/package/${item}`}
               key={`${item}${data[item]}`}

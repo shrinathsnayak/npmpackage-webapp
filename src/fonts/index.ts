@@ -48,4 +48,5 @@ export const Lexend = localFont({
       style: "normal",
     },
   ],
+  display: "swap",
 });
