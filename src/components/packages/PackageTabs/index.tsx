@@ -8,6 +8,7 @@ import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
 import Overview from "@/components/packages/Tabs/Overview";
 import classes from "./Tabs.module.css";
+import Conditional from "@/components/shared/Conditional";
 
 const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"));
 const Security = dynamic(() => import("@/components/packages/Tabs/Security"));
@@ -37,24 +38,25 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         onChange={(value) => router.push(`?t=${value}`)}
       >
         <Tabs.List>
-          {Object.keys(TABS).map((item: any) => {
-            if (!TABS[item].visible) {
-              return null;
-            }
-            return (
-              <Tabs.Tab
-                py="md"
-                px="lg"
-                key={TABS[item].value}
-                value={TABS[item].value}
-              >
-                {TABS[item].name}{" "}
-                {TABS[item].value === TABS.dependencies.value &&
-                  npm?.data?.dependencies &&
-                  `(${dependenciesCount})`}
-              </Tabs.Tab>
-            );
-          })}
+          <Tabs.Tab py="md" px="lg" value="overview">
+            Overview
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="readme">
+            Readme
+          </Tabs.Tab>
+          <Tabs.Tab py="md" px="lg" value="downloads">
+            Downloads
+          </Tabs.Tab>
+          <Conditional if={(dependenciesCount || 0) > 0}>
+            <Tabs.Tab py="md" px="lg" value="dependencies">
+              Dependencies ({dependenciesCount})
+            </Tabs.Tab>
+          </Conditional>
+          <Conditional if={securityScore?.data?.score}>
+            <Tabs.Tab py="md" px="lg" value="scorecard">
+              OpenSSF Scorecard
+            </Tabs.Tab>
+          </Conditional>
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>

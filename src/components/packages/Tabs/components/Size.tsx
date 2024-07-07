@@ -11,15 +11,15 @@ const Size = ({ bundleSize, packageName }: any) => {
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
         <Flex gap="xs" align="center" justify="space-between">
           <Box>
-            <Title order={3}>{formatSize(gzip)}</Title>
-            <Text fz="xs" c="dimmed">
-              Minified + Gzipped
-            </Text>
-          </Box>
-          <Box>
             <Title order={3}>{formatSize(size)}</Title>
             <Text fz="xs" c="dimmed">
               Minified
+            </Text>
+          </Box>
+          <Box>
+            <Title order={3}>{formatSize(gzip)}</Title>
+            <Text fz="xs" c="dimmed">
+              Minified + Gzipped
             </Text>
           </Box>
         </Flex>

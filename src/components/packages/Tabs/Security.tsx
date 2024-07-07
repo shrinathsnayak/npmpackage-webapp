@@ -6,14 +6,6 @@ import { getScoreTextColor } from "@/utils";
 const Security = ({ packageInfo }: any) => {
   const { overallScore, score, lastScanned, checks } = packageInfo || {};
 
-  if (!score) {
-    return (
-      <Paper radius="md" bg="dark.9" p="xl" shadow="sm" withBorder ta="center">
-        <Title order={4}>Security Score not available for this package</Title>
-      </Paper>
-    );
-  }
-
   return (
     <Suspense fallback={<>loading...</>}>
       <Flex

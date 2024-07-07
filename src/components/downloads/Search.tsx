@@ -29,12 +29,12 @@ export function Search({ form }: any) {
 
   const handleSearch = useThrottledCallback((query: string) => {
     searchPackageName(query);
-  }, 100);
+  }, 500);
 
   const handleChange = (event: any) => {
     const packageName = event.currentTarget.value;
     if (packageName) {
-      handleSearch(event.currentTarget.value);
+      handleSearch(packageName);
     }
     setValue(packageName);
     combobox.resetSelectedOption();
@@ -42,7 +42,7 @@ export function Search({ form }: any) {
     combobox.updateSelectedOptionIndex();
   };
 
-  const options = (data || []).map((item: any) => (
+  const options = (data || [])?.map((item: any) => (
     <Combobox.Option value={item?.name} key={item?.name}>
       <Group align="center" justify="space-between">
         <Text>{item?.name}</Text>
