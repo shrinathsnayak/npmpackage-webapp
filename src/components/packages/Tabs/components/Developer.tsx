@@ -13,7 +13,7 @@ const Developer = ({ avatar, owner }: any) => {
             height={20}
             radius="sm"
             src={avatar}
-            loading="lazy"
+            priority={true}
             component={NextImage}
             alt={`${owner} logo`}
           />

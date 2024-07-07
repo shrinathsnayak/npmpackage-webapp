@@ -35,6 +35,9 @@ const Collaborators = ({
                       src={item.url}
                       radius="xl"
                       alt={item.name}
+                      imageProps={{
+                        loading: "lazy",
+                      }}
                     />
                   </Anchor>
                 </Tooltip>
