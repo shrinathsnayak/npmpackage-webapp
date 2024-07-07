@@ -43,11 +43,12 @@ const Header = ({ hideSearch }: any) => {
           <Anchor component={Link} href="/" underline="never" prefetch>
             <Flex gap={6} justify="space-between" align="center">
               <Image
-                src={Icon.src}
-                alt="npmpackage.info logo"
                 width={30}
                 height={30}
+                src={Icon.src}
+                priority={true}
                 component={NextImage}
+                alt="npmpackage.info logo"
               />
               <Title order={3} c="white">
                 {NPMPACKAGE_TITLE}
