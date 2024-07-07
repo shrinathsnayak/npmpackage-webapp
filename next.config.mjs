@@ -10,6 +10,8 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    nextScriptWorkers: true,
+    webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
       "@mantine/core",
       "@mantine/charts",
@@ -21,20 +23,16 @@ const nextConfig = {
       "@mantine/dates",
     ],
   },
-  transpilePackages: [
-    "@mantine/core",
-    "@mantine/charts",
-    "@mantine/spotlight",
-    "@mantinex/shiki",
-    "@mantine/hooks",
-    "@mantine/form",
-    "@mantine/code-highlight",
-    "@mantine/dates",
-  ],
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   images: {
     unoptimized: true,
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/",
+      },
       {
         protocol: "https",
         hostname: "**",

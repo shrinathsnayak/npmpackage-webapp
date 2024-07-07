@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import {
   Anchor,
   AppShell,
@@ -41,7 +42,13 @@ const Header = ({ hideSearch }: any) => {
         >
           <Anchor component={Link} href="/" underline="never" prefetch>
             <Flex gap={6} justify="space-between" align="center">
-              <Image src={Icon.src} alt="npmpackage.info logo" w={30} h={30} />
+              <Image
+                src={Icon.src}
+                alt="npmpackage.info logo"
+                width={30}
+                height={30}
+                component={NextImage}
+              />
               <Title order={3} c="white">
                 {NPMPACKAGE_TITLE}
               </Title>

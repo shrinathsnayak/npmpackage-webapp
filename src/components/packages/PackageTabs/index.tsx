@@ -1,16 +1,20 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
-import ReadMe from "@/components/packages/Tabs/ReadMe";
-import Security from "@/components/packages/Tabs/Security";
-import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Overview from "@/components/packages/Tabs/Overview";
-import Downloads from "@/components/shared/Downloads";
 import classes from "./Tabs.module.css";
+
+const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"));
+const Security = dynamic(() => import("@/components/packages/Tabs/Security"));
+const Dependencies = dynamic(
+  () => import("@/components/packages/Tabs/Dependencies"),
+);
+const Downloads = dynamic(() => import("@/components/shared/Downloads"));
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
@@ -27,6 +31,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
       <Tabs
         value={search}
         variant="outline"
+        keepMounted={false}
         classNames={classes}
         defaultValue={DEFAULT_TAB}
         onChange={(value) => router.push(`?t=${value}`)}

@@ -1,8 +1,13 @@
-import { Box } from "@mantine/core";
+import dynamic from "next/dynamic";
 import { getPackageData, getPackageDownloads } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
-import PackageContainer from "@/components/packages/PackageContainer";
-import PageTabs from "@/components/packages/PackageTabs";
+// import PackageContainer from "@/components/packages/PackageContainer";
+// import PageTabs from "@/components/packages/PackageTabs";
+
+const PackageContainer = dynamic(
+  () => import("@/components/packages/PackageContainer"),
+);
+const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"));
 
 export async function generateMetadata({
   params,
