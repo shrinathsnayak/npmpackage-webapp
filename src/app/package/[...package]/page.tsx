@@ -1,13 +1,14 @@
 import dynamic from "next/dynamic";
 import { getPackageData, getPackageDownloads } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
-// import PackageContainer from "@/components/packages/PackageContainer";
-// import PageTabs from "@/components/packages/PackageTabs";
 
 const PackageContainer = dynamic(
   () => import("@/components/packages/PackageContainer"),
+  { ssr: true },
 );
-const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"));
+const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"), {
+  ssr: true,
+});
 
 export async function generateMetadata({
   params,

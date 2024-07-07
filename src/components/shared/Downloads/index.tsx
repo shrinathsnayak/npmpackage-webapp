@@ -10,8 +10,8 @@ import {
 } from "@mantine/core";
 import React from "react";
 
-const AnalyticsCard = dynamic(() => import("./AnalyticsCard"));
-const DownloadGraph = dynamic(() => import("./Graph"));
+const AnalyticsCard = dynamic(() => import("./AnalyticsCard"), { ssr: true });
+const DownloadGraph = dynamic(() => import("./Graph"), { ssr: true });
 
 const Downloads = ({ downloads }: any) => {
   const { data } = downloads || {};
