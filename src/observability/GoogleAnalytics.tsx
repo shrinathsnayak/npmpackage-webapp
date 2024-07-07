@@ -1,7 +1,29 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+"use client";
 
-const GA = () => (
-  <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
-);
+import Script from "next/script";
 
-export default GA;
+const GoogleAnalytics = () => {
+  return (
+    <>
+      <Script
+        strategy="worker"
+        id="google-analytics-script"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+      <Script
+        id="google-analytics-init"
+        strategy="worker"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+          `,
+        }}
+      />
+    </>
+  );
+};
+
+export default GoogleAnalytics;
