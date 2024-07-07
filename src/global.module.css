@@ -1,25 +1,39 @@
 .responsiveContainer {
   max-width: 300px;
+}
 
-  @media (min-width: em(400px)) {
+@media (min-width: 400px) {
+  .responsiveContainer {
     max-width: 400px;
   }
+}
 
-  @media (min-width: em(600px)) {
+@media (min-width: 600px) {
+  .responsiveContainer {
     max-width: 600px;
   }
 }
 
-.root {
-  &[data-desktop] {
-    @media (max-width: 47.5em) {
-      display: none;
-    }
+.root[data-desktop] {
+  display: none;
+}
+
+@media (min-width: 47.5625em) {
+  .root[data-desktop] {
+    display: block;
   }
 
-  &[data-mobile] {
-    @media (min-width: 47.5625em) {
-      display: none;
-    }
+  .root[data-mobile] {
+    display: none;
+  }
+}
+
+@media (max-width: 47.5em) {
+  .root[data-desktop] {
+    display: none;
+  }
+
+  .root[data-mobile] {
+    display: block;
   }
 }

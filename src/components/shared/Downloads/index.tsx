@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import {
   Box,
   Flex,
@@ -8,11 +9,12 @@ import {
   Title,
 } from "@mantine/core";
 import React from "react";
-import AnalyticsCard from "./AnalyticsCard";
-import DownloadGraph from "./Graph";
+
+const AnalyticsCard = dynamic(() => import("./AnalyticsCard"));
+const DownloadGraph = dynamic(() => import("./Graph"));
 
 const Downloads = ({ downloads }: any) => {
-  const { status, data } = downloads || {};
+  const { data } = downloads || {};
   return (
     <Box>
       <Paper withBorder p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>

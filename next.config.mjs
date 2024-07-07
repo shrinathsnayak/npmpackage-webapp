@@ -10,6 +10,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    optimizeCss: true,
     nextScriptWorkers: true,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
@@ -23,6 +24,7 @@ const nextConfig = {
       "@mantine/dates",
     ],
   },
+  poweredByHeader: false,
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   images: {
     unoptimized: true,
@@ -30,8 +32,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "avatars.githubusercontent.com",
-        port: "",
-        pathname: "/",
       },
       {
         protocol: "https",
@@ -43,6 +43,15 @@ const nextConfig = {
     removeConsole: {
       exclude: ["error"],
     },
+  },
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        maxSize: 20000,
+      };
+    }
+    return config;
   },
 };
 const withMDX = createMDX({

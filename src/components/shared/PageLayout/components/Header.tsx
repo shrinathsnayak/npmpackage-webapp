@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import NextImage from "next/image";
 import {
   Anchor,
@@ -27,13 +28,6 @@ const Header = ({ hideSearch }: any) => {
         justify="space-between"
         align="center"
       >
-        {/* <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="sm"
-              size="sm"
-              mr={10}
-            /> */}
         <Group
           justify="space-between"
           align="center"
