@@ -10,6 +10,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
+    optimizeCss: true,
     nextScriptWorkers: true,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [

@@ -3,15 +3,12 @@
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
   border-radius: var(--mantine-radius-md);
   font-weight: 500;
-}
 
-.control:hover {
-  background-color: var(--mantine-color-gray-0);
-}
-
-@media (prefers-color-scheme: dark) {
-  .control:hover {
-    background-color: var(--mantine-color-dark-6);
+  @mixin hover {
+    background-color: light-dark(
+      var(--mantine-color-gray-0),
+      var(--mantine-color-dark-6)
+    );
   }
 }
 
@@ -22,26 +19,22 @@
   border-radius: var(--mantine-radius-md);
   color: var(--mantine-color-placeholder);
   border: 1px solid;
-}
 
-@media (prefers-color-scheme: dark) {
-  .searchRoot {
+  @mixin dark {
     border-color: var(--mantine-color-dark-4);
     background-color: var(--mantine-color-dark-6);
   }
-}
 
-.searchRoot[data-desktop] {
-  display: none;
-}
-
-@media (min-width: 47.5625em) {
-  .searchRoot[data-mobile] {
-    display: none;
+  &[data-desktop] {
+    @media (max-width: 47.5em) {
+      display: none;
+    }
   }
 
-  .searchRoot[data-desktop] {
-    display: block;
+  &[data-mobile] {
+    @media (min-width: 47.5625em) {
+      display: none;
+    }
   }
 }
 
@@ -52,10 +45,8 @@
   border-radius: var(--mantine-radius-sm);
   border: 1px solid;
   font-weight: bold;
-}
 
-@media (prefers-color-scheme: dark) {
-  .shortcut {
+  @mixin dark {
     color: var(--mantine-color-dark-0);
     border-color: var(--mantine-color-dark-7);
     background-color: var(--mantine-color-dark-7);
@@ -70,30 +61,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-@media (prefers-color-scheme: dark) {
-  .mobilecontrol {
+  @mixin dark {
     border-color: var(--mantine-color-dark-4);
     color: var(--mantine-color-white);
     background-color: var(--mantine-color-dark-6);
+
+    @mixin hover {
+      background-color: var(--mantine-color-dark-5);
+    }
   }
 
-  .mobilecontrol:hover {
-    background-color: var(--mantine-color-dark-5);
-  }
-}
-
-.mobilecontrol[data-desktop] {
-  display: none;
-}
-
-@media (min-width: 47.5625em) {
-  .mobilecontrol[data-mobile] {
-    display: none;
+  &[data-desktop] {
+    @media (max-width: 47.5em) {
+      display: none;
+    }
   }
 
-  .mobilecontrol[data-desktop] {
-    display: flex;
+  &[data-mobile] {
+    @media (min-width: 47.5625em) {
+      display: none;
+    }
   }
 }
