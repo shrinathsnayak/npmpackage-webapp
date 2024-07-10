@@ -11,7 +11,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 const nextConfig = {
   experimental: {
     optimizeCss: true,
-    nextScriptWorkers: true,
+    nextScriptWorkers: false,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
       "@mantine/core",
