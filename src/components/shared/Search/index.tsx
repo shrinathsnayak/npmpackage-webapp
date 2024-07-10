@@ -29,13 +29,13 @@ export function Search() {
     }
   };
 
-  const handleSearch = useDebouncedCallback((query: string) => {
-    searchPackageName(query);
-  }, 100);
+  // const handleSearch = useDebouncedCallback((query: string) => {
+  //   searchPackageName(query);
+  // }, );
 
   const handleChange = (value: string) => {
     setQuery(value);
-    handleSearch(value);
+    searchPackageName(value);
   };
 
   const items = useMemo(

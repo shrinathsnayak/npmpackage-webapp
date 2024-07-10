@@ -6,7 +6,7 @@ const GoogleAnalytics = () => {
   return (
     <>
       <Script
-        strategy="worker"
+        strategy="afterInteractive"
         id="google-analytics-script"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
