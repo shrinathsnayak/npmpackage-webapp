@@ -6,6 +6,11 @@
 	<priority>1.0</priority>
 </url>
 <url>
+	<loc>https://npmpackage.info/downloads</loc>
+	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
 	<loc>https://npmpackage.info/package/react</loc>
 	<lastmod>2024-07-06T23:02:39+01:00</lastmod>
 	<priority>0.8</priority>

@@ -65,9 +65,13 @@ const Downloads = ({ downloads }: any) => {
           type="year"
         />
       </SimpleGrid>
-      <DownloadGraph data={data?.weekly} type="Weekly" />
-      <DownloadGraph data={data?.monthly} type="Monthly" chartType="bar" />
-      <DownloadGraph data={data?.yearly} type="Yearly" chartType="bar" />
+      <DownloadGraph data={data?.weekly ?? []} type="Weekly" />
+      <DownloadGraph
+        data={data?.monthly ?? []}
+        type="Monthly"
+        chartType="bar"
+      />
+      <DownloadGraph data={data?.yearly ?? []} type="Yearly" chartType="bar" />
     </Box>
   );
 };

@@ -13,3 +13,4 @@ export const TABS: any = {
 };
 
 export const DEFAULT_TAB = TABS.overview.value;
+export const FIRST_AVAILABLE_DATE = "2015-01-01";

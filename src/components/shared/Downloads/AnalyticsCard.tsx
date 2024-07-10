@@ -23,7 +23,10 @@ const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
             className={classes.analyticsCardDiff}
           >
             <span>
-              {difference.toLocaleString("en", { maximumFractionDigits: 1 })}%
+              {(difference || 0).toLocaleString("en", {
+                maximumFractionDigits: 1,
+              })}
+              %
             </span>
             <DiffIcon size="1rem" stroke={1.5} />
           </Text>

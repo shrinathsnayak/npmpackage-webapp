@@ -146,8 +146,8 @@ export async function packageDownloadStats(
 
     if (startDate) requestObj.startDate = startDate;
     if (endDate) requestObj.endDate = endDate;
-
     const searchQuery = new URLSearchParams(requestObj);
+    console.log(`${process.env.API_ENDPOINT}/downloads?${searchQuery}`);
     const response = await fetch(
       `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
       options,

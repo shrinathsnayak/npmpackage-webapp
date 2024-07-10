@@ -39,11 +39,11 @@ const nextConfig = {
       },
     ],
   },
-  compiler: {
-    removeConsole: {
-      exclude: ["error"],
-    },
-  },
+  // compiler: {
+  //   removeConsole: {
+  //     exclude: ["error"],
+  //   },
+  // },
   webpack(config, { isServer }) {
     if (!isServer) {
       config.optimization.splitChunks = {

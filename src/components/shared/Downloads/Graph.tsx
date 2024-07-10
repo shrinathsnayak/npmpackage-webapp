@@ -30,7 +30,7 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
             {item.name}:
           </Text>
           <Text fz="sm" c={item.color} fw="bold">
-            <NumberFormatter thousandSeparator value={item.value} />
+            <NumberFormatter thousandSeparator value={item?.value} />
           </Text>
         </Group>
       ))}
@@ -62,7 +62,7 @@ const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
             new Intl.NumberFormat("en-US", {
               notation: "compact",
               compactDisplay: "short",
-            }).format(value),
+            }).format(value || 0),
         }}
         xAxisProps={{
           minTickGap: 8,
@@ -75,7 +75,7 @@ const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
           ),
         }}
         valueFormatter={(value: any) =>
-          new Intl.NumberFormat("en-US").format(value)
+          new Intl.NumberFormat("en-US").format(value || 0)
         }
       />
     </Paper>

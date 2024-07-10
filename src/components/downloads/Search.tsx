@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Badge,
+  CloseButton,
   Combobox,
   Group,
   Text,
@@ -19,6 +20,12 @@ export function Search({ form }: any) {
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
 
+  useEffect(() => {
+    if (!form.getValues()?.packageName) {
+      setValue("");
+    }
+  }, [form.getValues()?.packageName]);
+
   const searchPackageName = async (packageName: any) => {
     const { status, data } =
       ((await searchPackage(packageName)) as any) || ({} as any);
@@ -29,7 +36,7 @@ export function Search({ form }: any) {
 
   const handleSearch = useThrottledCallback((query: string) => {
     searchPackageName(query);
-  }, 500);
+  }, 1000);
 
   const handleChange = (event: any) => {
     const packageName = event.currentTarget.value;
@@ -64,10 +71,10 @@ export function Search({ form }: any) {
     >
       <Combobox.Target>
         <TextInput
-          w="50%"
           size="md"
           value={value}
           onChange={handleChange}
+          w={{ base: "100%", sm: "50%" }}
           placeholder="Search Package Name"
           onClick={() => combobox.openDropdown()}
           onBlur={() => combobox.closeDropdown()}

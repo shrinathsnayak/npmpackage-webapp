@@ -12,7 +12,7 @@ import {
   Title,
   UnstyledButton,
 } from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
+import { IconSearch, IconDownload } from "@tabler/icons-react";
 import { NPMPACKAGE_TITLE } from "@/constants";
 import { searchHandlers } from "@/components/shared/Search";
 import Icon from "@/assets/logos/icon.png";
@@ -43,54 +43,59 @@ const Header = ({ hideSearch }: any) => {
                 component={NextImage}
                 alt="npmpackage.info logo"
               />
-              <Title order={3} c="white">
+              <Title
+                order={3}
+                c="white"
+                display={{ base: "none", sm: "block" }}
+              >
                 {NPMPACKAGE_TITLE}
               </Title>
             </Flex>
           </Anchor>
-          {!hideSearch && (
-            <>
-              <UnstyledButton
-                onClick={() => searchHandlers.open()}
-                className={classes.searchRoot}
-                data-desktop
-              >
-                <Group gap="xs">
+          <Group>
+            {!hideSearch && (
+              <>
+                <UnstyledButton
+                  onClick={() => searchHandlers.open()}
+                  className={classes.searchRoot}
+                  data-desktop
+                >
+                  <Group gap="xs">
+                    <IconSearch
+                      style={{ width: rem(15), height: rem(15) }}
+                      stroke={1.5}
+                    />
+                    <Text fz="sm" c="dimmed" pr={80}>
+                      Search
+                    </Text>
+                    <Text fw={700} className={classes.shortcut}>
+                      Ctrl + K
+                    </Text>
+                  </Group>
+                </UnstyledButton>
+                <UnstyledButton
+                  onClick={() => searchHandlers.open()}
+                  className={classes.mobilecontrol}
+                  data-mobile
+                >
                   <IconSearch
-                    style={{ width: rem(15), height: rem(15) }}
-                    stroke={1.5}
+                    style={{ width: rem(22), height: rem(22) }}
+                    stroke={2}
                   />
-                  <Text fz="sm" c="dimmed" pr={80}>
-                    Search
-                  </Text>
-                  <Text fw={700} className={classes.shortcut}>
-                    Ctrl + K
-                  </Text>
-                </Group>
-              </UnstyledButton>
-              <UnstyledButton
-                onClick={() => searchHandlers.open()}
-                className={classes.mobilecontrol}
-                data-mobile
-              >
-                <IconSearch
-                  style={{ width: rem(22), height: rem(22) }}
-                  stroke={2}
-                />
-              </UnstyledButton>
-            </>
-          )}
-          {/* <Group ml="xl" gap={0} visibleFrom="sm">
-              <UnstyledButton className={classes.control} disabled>
-                Downloads
-              </UnstyledButton>
-              <UnstyledButton className={classes.control} disabled>
-                Compare
-              </UnstyledButton>
-              <UnstyledButton className={classes.control} disabled>
-                About
-              </UnstyledButton>
-            </Group> */}
+                </UnstyledButton>
+              </>
+            )}
+            <UnstyledButton
+              component={Link}
+              href="/downloads"
+              className={classes.mobilecontrol}
+            >
+              <IconDownload
+                style={{ width: rem(22), height: rem(22) }}
+                stroke={2}
+              />
+            </UnstyledButton>
+          </Group>
         </Group>
       </Group>
     </AppShell.Header>
