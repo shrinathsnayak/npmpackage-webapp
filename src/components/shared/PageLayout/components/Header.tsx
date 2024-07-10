@@ -32,9 +32,10 @@ const Header = ({ hideSearch }: any) => {
           align="center"
           style={{ flex: 1 }}
           py="xs"
+          gap={1}
         >
           <Anchor component={Link} href="/" underline="never" prefetch>
-            <Flex gap={6} justify="space-between" align="center">
+            <Flex gap={4} justify="space-between" align="center">
               <Image
                 width={30}
                 height={30}
@@ -43,16 +44,12 @@ const Header = ({ hideSearch }: any) => {
                 component={NextImage}
                 alt="npmpackage.info logo"
               />
-              <Title
-                order={3}
-                c="white"
-                display={{ base: "none", sm: "block" }}
-              >
+              <Title order={3} c="white">
                 {NPMPACKAGE_TITLE}
               </Title>
             </Flex>
           </Anchor>
-          <Group>
+          <Group gap={6} align="center">
             {!hideSearch && (
               <>
                 <UnstyledButton
