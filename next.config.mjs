@@ -10,7 +10,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    nextScriptWorkers: false,
+    optimizeCss: true,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
       "@mantine/core",
