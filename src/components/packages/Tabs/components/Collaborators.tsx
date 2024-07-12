@@ -49,7 +49,7 @@ const Collaborators = ({
             display="inline-block"
             component={Link}
             prefetch
-            href={`${repositoryUrl}/graph/contributors`}
+            href={`${repositoryUrl}/contributors`}
             target="_blank"
           >
             <Text fz="sm">View all {contributorsCount} contributors</Text>
