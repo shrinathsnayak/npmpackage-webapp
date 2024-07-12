@@ -1,4 +1,4 @@
-export const EIGHT_HOUR_API_CACHE: number = 60 * 60 * 8;
+export const ONE_HOUR_API_CACHE: number = 60 * 60 * 1;
 
 /**
  * The function `genereatePackageName` takes an array of strings, decodes each string using
@@ -21,7 +21,7 @@ export const genereatePackageName = (packageName: []): string =>
 export const generateAPIOptions = (tagName: string): object => {
   return {
     next: {
-      revalidate: EIGHT_HOUR_API_CACHE,
+      revalidate: ONE_HOUR_API_CACHE,
       tags: [tagName],
     },
   };
