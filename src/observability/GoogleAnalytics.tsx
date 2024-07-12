@@ -12,7 +12,7 @@ const GoogleAnalytics = () => {
       />
       <Script
         id="google-analytics-init"
-        strategy="worker"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

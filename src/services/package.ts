@@ -4,13 +4,15 @@ import { generateAPIOptions } from "@/constants/services.constants";
 import { isDevelopment } from "@/utils";
 
 /**
- * This TypeScript React function fetches package data from a specified URL and returns it as JSON.
- * @param {string} packageName - The `packageName` parameter is a string that represents the name of
- * the package for which you want to fetch data.
- * @returns The `getPackageData` function is returning the JSON data fetched from the specified URL
- * after making a request with the provided `packageName`. If the request is successful (status code
- * 200), the function returns the JSON data. If the request fails, an error with the message "Failed to
- * fetch data" is thrown.
+ * The function `getPackageData` fetches package data from an API endpoint based on the provided
+ * package name.
+ * @param {string} packageName - The `getPackageData` function is an asynchronous function that fetches
+ * package data from an API based on the provided `packageName`. Here's a breakdown of the parameters
+ * used in the function:
+ * @returns The `getPackageData` function returns the JSON data fetched from the API endpoint for the
+ * specified package name. If the response is not valid JSON, it throws an error indicating that the
+ * response is not valid JSON. If there is an error during the fetch process or if the package name is
+ * not provided, it throws an error with the corresponding message.
  */
 export async function getPackageData(packageName: string) {
   try {
@@ -18,17 +20,26 @@ export async function getPackageData(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-        options,
+        options
       );
 
       if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        throw new Error(`Failed to fetch data: ${res.statusText}`);
       }
 
-      return res.json();
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return await res.json();
+      } else {
+        const text = await res.text();
+        throw new Error(`Response is not valid JSON: ${text}`);
+      }
+    } else {
+      throw new Error("Package name is required");
     }
   } catch (err) {
-    console.error(err);
+    console.error("Error fetching package data:", err);
+    throw err;
   }
 }
 
@@ -45,12 +56,12 @@ export async function getPackageData(packageName: string) {
  */
 export async function getPackageSecurityScore(
   packageName: string,
-  owner: string,
+  owner: string
 ) {
   const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
-    options,
+    options
   );
 
   if (!res.ok) {
@@ -73,7 +84,7 @@ export async function searchPackage(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/search?q=${packageName}`,
-        options,
+        options
       );
 
       if (!res.ok) {
@@ -102,7 +113,7 @@ export async function getPackageDownloads(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}`,
-        options,
+        options
       );
 
       if (!res.ok) {
@@ -136,7 +147,7 @@ export async function getPackageDownloads(packageName: string) {
 export async function packageDownloadStats(
   packageName: string,
   startDate?: string,
-  endDate?: string,
+  endDate?: string
 ) {
   if (!packageName) return;
 
@@ -150,7 +161,7 @@ export async function packageDownloadStats(
 
     const response = await fetch(
       `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
-      options,
+      options
     );
 
     if (!response.ok) {
