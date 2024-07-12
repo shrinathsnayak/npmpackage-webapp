@@ -4,7 +4,7 @@ import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { IconSearch } from "@tabler/icons-react";
 import { Badge, Group, Text } from "@mantine/core";
-import { useDebouncedCallback } from "@mantine/hooks";
+import { useThrottledCallback } from "@mantine/hooks";
 import { createSpotlight, Spotlight } from "@mantine/spotlight";
 import { formatDate } from "@/utils";
 import { searchPackage } from "@/services/package";
@@ -29,13 +29,13 @@ export function Search() {
     }
   };
 
-  // const handleSearch = useDebouncedCallback((query: string) => {
-  //   searchPackageName(query);
-  // }, );
+  const handleSearch = useThrottledCallback((query: string) => {
+    searchPackageName(query);
+  }, 1000);
 
   const handleChange = (value: string) => {
     setQuery(value);
-    searchPackageName(value);
+    handleSearch(value);
   };
 
   const items = useMemo(

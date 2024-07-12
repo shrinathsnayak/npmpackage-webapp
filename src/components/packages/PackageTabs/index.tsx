@@ -32,7 +32,6 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
       <Tabs
         value={search}
         variant="outline"
-        keepMounted={false}
         classNames={classes}
         defaultValue={DEFAULT_TAB}
         onChange={(value) => router.push(`?t=${value}`)}
