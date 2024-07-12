@@ -10,7 +10,6 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizeCss: true,
     nextScriptWorkers: false,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
@@ -39,11 +38,6 @@ const nextConfig = {
       },
     ],
   },
-  // compiler: {
-  //   removeConsole: {
-  //     exclude: ["error"],
-  //   },
-  // },
   webpack(config, { isServer }) {
     if (!isServer) {
       config.optimization.splitChunks = {

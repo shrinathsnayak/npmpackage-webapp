@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev  -p 3005",
+    "dev": "next dev -p 3005",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -42,7 +42,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "critters": "^0.0.24",
     "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",

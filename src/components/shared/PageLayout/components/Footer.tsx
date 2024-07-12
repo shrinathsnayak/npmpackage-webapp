@@ -18,7 +18,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           justify="space-between"
           direction={{ base: "column", sm: "row" }}
         >
-          <Text fz="sm" c="dimmed">
+          <Text fz="sm" c="dimmed" fw={300}>
             Project by{" "}
             <Anchor
               fz="sm"
@@ -31,7 +31,13 @@ const Footer = ({ fixedFooter }: boolean | any) => {
               Shrinath Nayak
             </Anchor>{" "}
           </Text>
-          <Text fz="sm" c="dimmed" ta="center" mt={{ base: 10, sm: 0 }}>
+          <Text
+            fw={300}
+            fz="sm"
+            c="dimmed"
+            ta="center"
+            mt={{ base: 10, sm: 0 }}
+          >
             We do not own or store any data displayed on the website.
           </Text>
         </Flex>

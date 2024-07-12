@@ -1,8 +1,9 @@
 import React from "react";
-import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
+import Link from "next/link";
+import { IconExternalLink } from "@tabler/icons-react";
+import { Anchor, Box, Flex, Paper, Text, Title } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { formatSize } from "@/utils";
-import Link from "next/link";
 
 const Size = ({ bundleSize, packageName }: any) => {
   const { gzip, size } = bundleSize || {};
@@ -23,7 +24,7 @@ const Size = ({ bundleSize, packageName }: any) => {
             </Text>
           </Box>
         </Flex>
-        <Box mt={5}>
+        <Box mt={6} mb={0}>
           <Anchor
             display="inline-block"
             component={Link}
@@ -31,7 +32,15 @@ const Size = ({ bundleSize, packageName }: any) => {
             href={`https://bundlephobia.com/package/${packageName}`}
             target="_blank"
           >
-            <Text fz="sm">View on Bundlephobia</Text>
+            <Flex align="center" gap={8}>
+              <Text fz="sm" fw={400}>
+                Bundlephobia
+              </Text>
+              <IconExternalLink
+                style={{ width: 18, height: 18 }}
+                stroke={1.5}
+              />
+            </Flex>
           </Anchor>
         </Box>
       </Paper>

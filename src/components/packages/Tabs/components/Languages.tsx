@@ -6,15 +6,17 @@ import OverviewCard from "@/components/shared/OverviewCard";
 import { IconPointFilled } from "@tabler/icons-react";
 
 export const LanguageLegend = ({ name, color, value }: any) => {
-  return (
-    <Flex align="center">
-      <IconPointFilled fill={color} />
-      <Text fz="xs">
-        {name}
-        <span> ({value}%)</span>
-      </Text>
-    </Flex>
-  );
+  if (value) {
+    return (
+      <Flex align="center">
+        <IconPointFilled fill={color} />
+        <Text fz="xs">
+          {name}
+          <span> ({value}%)</span>
+        </Text>
+      </Flex>
+    );
+  }
 };
 
 const Languages = ({ languages }: any) => {

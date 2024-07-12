@@ -38,7 +38,7 @@ const Security = ({ packageInfo }: any) => {
             Last Scanned on {lastScanned}
           </Text>
 
-          <Text fz="sm" my={10}>
+          <Text fz="sm" my={10} fw={400}>
             The Open Source Security Foundation is a cross-industry
             collaboration to improve the security of open source software (OSS).
             The Scorecard provides security health metrics for open source
