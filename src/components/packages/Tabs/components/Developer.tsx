@@ -1,9 +1,11 @@
 import React from "react";
 import NextImage from "next/image";
-import { Flex, Image, Paper, Title } from "@mantine/core";
+import { Anchor, Flex, Image, Paper, Title } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
+import Link from "next/link";
+import Conditional from "@/components/shared/Conditional";
 
-const Developer = ({ avatar, owner }: any) => {
+const Developer = ({ avatar, owner, developerUrl }: any) => {
   return (
     <OverviewCard title="Developer">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
@@ -17,9 +19,15 @@ const Developer = ({ avatar, owner }: any) => {
             component={NextImage}
             alt={`${owner} logo`}
           />
-          <Title order={5} fw={500}>
+          <Anchor
+            component={Link}
+            fw={500}
+            c="white"
+            href={developerUrl ?? ""}
+            underline="never"
+          >
             {owner}
-          </Title>
+          </Anchor>
         </Flex>
       </Paper>
     </OverviewCard>

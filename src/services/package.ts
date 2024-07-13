@@ -20,7 +20,7 @@ export async function getPackageData(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-        options
+        options,
       );
 
       if (!res.ok) {
@@ -56,12 +56,12 @@ export async function getPackageData(packageName: string) {
  */
 export async function getPackageSecurityScore(
   packageName: string,
-  owner: string
+  owner: string,
 ) {
   const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
-    options
+    options,
   );
 
   if (!res.ok) {
@@ -84,7 +84,7 @@ export async function searchPackage(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/search?q=${packageName}`,
-        options
+        options,
       );
 
       if (!res.ok) {
@@ -113,7 +113,7 @@ export async function getPackageDownloads(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}`,
-        options
+        options,
       );
 
       if (!res.ok) {
@@ -147,7 +147,7 @@ export async function getPackageDownloads(packageName: string) {
 export async function packageDownloadStats(
   packageName: string,
   startDate?: string,
-  endDate?: string
+  endDate?: string,
 ) {
   if (!packageName) return;
 
@@ -161,7 +161,7 @@ export async function packageDownloadStats(
 
     const response = await fetch(
       `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
-      options
+      options,
     );
 
     if (!response.ok) {

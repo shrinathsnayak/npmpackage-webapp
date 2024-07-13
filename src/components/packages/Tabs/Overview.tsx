@@ -52,7 +52,11 @@ const Overview = ({ packageInfo }: any) => {
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
         <Conditional if={gitHub?.avatar && gitHub?.owner}>
-          <Developer avatar={gitHub?.avatar} owner={gitHub?.owner} />
+          <Developer
+            avatar={gitHub?.avatar}
+            owner={gitHub?.owner}
+            developerUrl={gitHub?.homepageUrl}
+          />
         </Conditional>
         <Conditional if={gitHub}>
           <Statistics
