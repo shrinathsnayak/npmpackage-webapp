@@ -54,7 +54,7 @@ export const LinksContainer = ({ homePage, github, npm, typesLink }: any) => {
         </ActionIcon>
       </Conditional>
 
-      <Conditional if={typesLink}>
+      <Conditional if={false}>
         <ActionIcon
           variant="light"
           size="lg"
