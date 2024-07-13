@@ -13,7 +13,7 @@ import React from "react";
 const AnalyticsCard = dynamic(() => import("./AnalyticsCard"), { ssr: true });
 const DownloadGraph = dynamic(() => import("./Graph"), { ssr: true });
 
-const Downloads = ({ downloads }: any) => {
+const Downloads = ({ downloads, showDailyDownloads = false }: any) => {
   const { data } = downloads || {};
   return (
     <Box>
@@ -65,6 +65,9 @@ const Downloads = ({ downloads }: any) => {
           type="year"
         />
       </SimpleGrid>
+      {showDailyDownloads && (
+        <DownloadGraph data={data?.allDailyDownloads ?? []} type="Daily" />
+      )}
       <DownloadGraph data={data?.weekly ?? []} type="Weekly" />
       <DownloadGraph
         data={data?.monthly ?? []}

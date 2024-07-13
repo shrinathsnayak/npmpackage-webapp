@@ -6,7 +6,7 @@ import Downloads from "../shared/Downloads";
 export default function ClientGraphContainer({ downloads }: any) {
   return (
     <Container className="responsiveContainer" mt={-50}>
-      <Downloads downloads={downloads} />
+      <Downloads downloads={downloads} showDailyDownloads={true} />
     </Container>
   );
 }

@@ -12,12 +12,14 @@ import {
   Text,
   Paper,
   CloseButton,
+  rem,
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { Search } from "./Search";
 import { FIRST_AVAILABLE_DATE } from "@/constants";
 import Conditional from "../shared/Conditional";
+import { IconArrowRight } from "@tabler/icons-react";
 
 const SearchContainer = () => {
   const pathname = usePathname();
@@ -67,16 +69,21 @@ const SearchContainer = () => {
         : null,
     };
     return (
-      <Paper p="xs" px="lg" radius="sm" bg="dark.7" shadow="sm" withBorder>
+      <Paper p="xs" px="md" radius="sm" bg="dark.7" shadow="sm" withBorder>
         <Flex gap={10} align="center">
           <Conditional if={packageName}>
-            <Text>{packageName}</Text>
+            <Text fz="sm" ml={1}>
+              {packageName}
+            </Text>
           </Conditional>
           <Conditional if={startDate}>
-            <Text>{dayjs(startDate).format("YYYY-MM-DD")}</Text>
+            <Text fz="sm">{dayjs(startDate).format("YYYY-MM-DD")}</Text>
+          </Conditional>
+          <Conditional if={startDate && endDate}>
+            <IconArrowRight style={{ width: rem(20), height: rem(20) }} />
           </Conditional>
           <Conditional if={endDate}>
-            <Text>{dayjs(endDate).format("YYYY-MM-DD")}</Text>
+            <Text fz="sm">{dayjs(endDate).format("YYYY-MM-DD")}</Text>
           </Conditional>
           <CloseButton
             onClick={() => {
@@ -104,27 +111,29 @@ const SearchContainer = () => {
             direction={{ base: "column", sm: "row" }}
           >
             <Search form={form} />
-            <DatePickerInput
-              size="md"
-              dropdownType="modal"
-              maxDate={new Date()}
-              valueFormat="YYYY MMM DD"
-              key={form.key("startDate")}
-              placeholder="Pick start date"
-              w={{ base: "100%", sm: "18%" }}
-              {...form.getInputProps("startDate")}
-              minDate={new Date(FIRST_AVAILABLE_DATE)}
-            />
-            <DatePickerInput
-              size="md"
-              dropdownType="modal"
-              maxDate={new Date()}
-              key={form.key("endDate")}
-              valueFormat="YYYY MMM DD"
-              placeholder="Pick end date"
-              w={{ base: "100%", sm: "18%" }}
-              {...form.getInputProps("endDate")}
-            />
+            <Flex align="center" gap={10} w={{ base: "100%", sm: "36%" }}>
+              <DatePickerInput
+                w="100%"
+                size="md"
+                dropdownType="modal"
+                maxDate={new Date()}
+                valueFormat="YYYY MMM DD"
+                key={form.key("startDate")}
+                placeholder="Pick start date"
+                {...form.getInputProps("startDate")}
+                minDate={new Date(FIRST_AVAILABLE_DATE)}
+              />
+              <DatePickerInput
+                w="100%"
+                size="md"
+                dropdownType="modal"
+                maxDate={new Date()}
+                key={form.key("endDate")}
+                valueFormat="YYYY MMM DD"
+                placeholder="Pick end date"
+                {...form.getInputProps("endDate")}
+              />
+            </Flex>
             <Button
               size="md"
               bg="red.8"
