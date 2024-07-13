@@ -19,16 +19,23 @@ const Developer = ({ avatar, owner, developerUrl }: any) => {
             component={NextImage}
             alt={`${owner} logo`}
           />
-          <Anchor
-            component={Link}
-            fw={500}
-            c="white"
-            target="_blank"
-            href={developerUrl ?? ""}
-            underline="never"
-          >
-            {owner}
-          </Anchor>
+          <Conditional if={developerUrl}>
+            <Anchor
+              component={Link}
+              fw={500}
+              c="white"
+              target="_blank"
+              href={developerUrl}
+              underline="hover"
+            >
+              {owner}
+            </Anchor>
+          </Conditional>
+          <Conditional if={!developerUrl}>
+            <Title order={5} fw={500} c="white">
+              {owner}
+            </Title>
+          </Conditional>
         </Flex>
       </Paper>
     </OverviewCard>
