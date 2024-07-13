@@ -21,7 +21,7 @@ import Conditional from "../shared/Conditional";
 
 const SearchContainer = () => {
   const pathname = usePathname();
-  const { replace, refresh } = useRouter();
+  const { replace } = useRouter();
   const searchParams = useSearchParams();
 
   const form = useForm({

@@ -1,9 +1,15 @@
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
 
 const DependenciesRenderer = ({ dependency, name }: any) => {
+  const { replace } = useRouter();
   const { data, totalCount } = dependency || {};
+
+  const handleRouteChange = (item: string) => {
+    replace(`/package/${item}`);
+  };
+
   return (
     <Box mb={10}>
       <Paper bg="dark.9" p={8} px={20} withBorder>
@@ -19,10 +25,8 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
           return (
             <Anchor
               p={5}
-              prefetch
-              component={Link}
-              href={`/package/${item}`}
               key={`${item}${data[item]}`}
+              onClick={() => handleRouteChange(item)}
             >
               {item}
             </Anchor>

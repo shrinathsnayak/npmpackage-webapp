@@ -1,8 +1,8 @@
 import React from "react";
+import Link from "next/link";
 import NextImage from "next/image";
 import { Anchor, Flex, Image, Paper, Title } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
-import Link from "next/link";
 import Conditional from "@/components/shared/Conditional";
 
 const Developer = ({ avatar, owner, developerUrl }: any) => {
