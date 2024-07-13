@@ -23,6 +23,7 @@ const Developer = ({ avatar, owner, developerUrl }: any) => {
             component={Link}
             fw={500}
             c="white"
+            target="_blank"
             href={developerUrl ?? ""}
             underline="never"
           >
