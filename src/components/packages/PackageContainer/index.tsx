@@ -47,8 +47,9 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             <LinksContainer
               homePage={github?.homepageUrl}
               github={github?.repositoryUrl}
-              npm={`https://www.npmjs.com/package/${npm?.name}`}
+              npm={npm?.name && `https://www.npmjs.com/package/${npm?.name}`}
               typesLink={npm?.types && `https://tsdocs.dev/docs/${npm?.name}/`}
+              runKit={npm?.name && `https://npm.runkit.com/${npm?.name}`}
             />
           </Box>
         </Flex>
