@@ -16,10 +16,13 @@ export function Search() {
   const [query, setQuery] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
 
-  const handleClick = useCallback((name: string) => {
-    router.replace(`/package/${name}`);
-    setQuery("");
-  }, []);
+  const handleClick = (event: any, packageName: string) => {
+    if (packageName) {
+      event.preventDefault();
+      router.push(`/package/${packageName}`);
+      setQuery("");
+    }
+  };
 
   const searchPackageName = async (packageName: any) => {
     const { status, data } =
@@ -43,7 +46,7 @@ export function Search() {
       data?.map((item) => (
         <Spotlight.Action
           key={`${item.name}${item.version}`}
-          onClick={() => handleClick(item.name)}
+          onClick={(event: any) => handleClick(event, item.name)}
         >
           <Group wrap="nowrap" w="100%" p={2}>
             <div style={{ flex: 1 }}>
@@ -69,7 +72,7 @@ export function Search() {
           </Group>
         </Spotlight.Action>
       )),
-    [data],
+    [data]
   );
 
   return (

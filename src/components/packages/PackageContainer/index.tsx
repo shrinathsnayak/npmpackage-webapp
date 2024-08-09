@@ -1,4 +1,5 @@
 import React from "react";
+import { emojify } from "node-emoji";
 import {
   Container,
   Box,
@@ -27,7 +28,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
           direction={{ base: "column-reverse", sm: "row" }}
         >
           <Group align="center">
-            <Title order={1} size="2.3rem" fw={800}>
+            <Title order={1} size="2.3rem" fw={800} c="white">
               {npm?.name || github?.name}
             </Title>
             {(github?.latestRelease || npm?.version) && (
@@ -53,8 +54,9 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             />
           </Box>
         </Flex>
-        <Text size="md" mt={10} c="dimmed" ta={{ base: "center", sm: "left" }}>
-          {github?.description}
+        <Text size="md" mt={10} c="gray.5" ta={{ base: "center", sm: "left" }}>
+          {github?.description &&
+            emojify(github?.description, { fallback: github?.description })}
         </Text>
         <Tags
           data={{

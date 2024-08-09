@@ -13,8 +13,8 @@ const PopularPackages = () => {
             style={{ width: rem(19), height: rem(19) }}
             color="var(--mantine-color-red-8)"
           />
-          <Text c="dimmed" fz="sm">
-            Popular Packages -
+          <Text c="gray.4" fz="sm">
+            Popular Packages
           </Text>
         </Group>
         {popularPackages.map((item: string) => (

@@ -13,8 +13,10 @@ export default function Home() {
           w={{ base: "100%", sm: "50%" }}
           mt={{ base: "-20%", sm: 0 }}
         >
-          <Title size={rem(40)}>{NPMPACKAGE_TITLE}</Title>
-          <Text mt={10} c="dimmed" fz="sm">
+          <Title size={rem(40)} c="white">
+            {NPMPACKAGE_TITLE}
+          </Title>
+          <Text mt={10} c="gray.4" fz="sm">
             Discover detailed information about npm packages.
           </Text>
           <SearchBar />
