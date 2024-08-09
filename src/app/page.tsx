@@ -1,18 +1,21 @@
-import { Center, Container, Image, Title, Text, rem } from "@mantine/core";
+import { Center, Title, Text, rem, Flex } from "@mantine/core";
 import PageLayout from "@/components/shared/PageLayout";
 import { NPMPACKAGE_TITLE } from "@/constants";
 import SearchBar from "@/components/Landing/LandingSearch";
 import PopularPackages from "@/components/Landing/PopularPackages";
+import ProductHuntLaunch from "@/components/shared/ProductHuntLaunch";
 
 export default function Home() {
   return (
     <PageLayout hideHeader={true} fixedFooter={true} hideFooter={true}>
       <Center mah="calc(80vh - 65px)" mih="calc(80vh - 65px)" w="100%">
-        <Container
-          ta="center"
-          w={{ base: "100%", sm: "50%" }}
+        <Flex
+          direction="column"
+          align="center"
+          w={{ base: "90%", sm: "50%" }}
           mt={{ base: "-20%", sm: 0 }}
         >
+          <ProductHuntLaunch />
           <Title size={rem(40)} c="white">
             {NPMPACKAGE_TITLE}
           </Title>
@@ -21,7 +24,7 @@ export default function Home() {
           </Text>
           <SearchBar />
           <PopularPackages />
-        </Container>
+        </Flex>
       </Center>
     </PageLayout>
   );

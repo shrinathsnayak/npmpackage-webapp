@@ -1,0 +1,1 @@
+export { default as ProductHuntIcon } from './ProductHunt.Icon';
