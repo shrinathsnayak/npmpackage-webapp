@@ -4,29 +4,30 @@ import { npmFacts } from "@/constants/npmfacts";
 export const isDevelopment: boolean = !!process.env[DEVELOPMENT];
 
 /**
- * The function `getScoreTextColor` takes a score as input and returns a corresponding color code based
- * on the score range.
- * @param {number} score - The `score` parameter is a number representing a score value that should be
- * between 0 and 10.
- * @returns The `getScoreTextColor` function returns a string representing the color based on the input
- * `score` value. The color returned is determined by the following conditions:
- * - If the `score` is less than or equal to 2, it returns "red.8".
- * - If the `score` is less than or equal to 5, it returns "orange.8".
- * - If the `
+ * This TypeScript function `getScoreTextColor` determines the color of text based on a score within a
+ * specified range.
+ * @param {number} score - The `score` parameter represents the numerical score for which you want to
+ * determine the text color based on its value.
+ * @param [multiplier=1] - The `multiplier` parameter in the `getScoreTextColor` function is used to
+ * adjust the score range dynamically. It allows you to multiply the score range by a certain factor to
+ * customize the color thresholds based on the multiplied score values. This can be useful when you
+ * want to scale or adjust the color
+ * @returns The function `getScoreTextColor` returns a string representing the color based on the score
+ * and multiplier provided.
  */
-export const getScoreTextColor = (score: number): string => {
-  if (score < 0 || score > 10) {
+export const getScoreTextColor = (score: number, multiplier = 1): string => {
+  if (score < 0 * multiplier || score > 10 * multiplier) {
     throw new Error("Score must be between 0 and 10");
   }
 
   switch (true) {
-    case score <= 2:
+    case score <= 2 * multiplier:
       return "red.8";
-    case score <= 5:
+    case score <= 5 * multiplier:
       return "orange.8";
-    case score <= 8:
+    case score <= 8 * multiplier:
       return "yellow.8";
-    case score <= 10:
+    case score <= 10 * multiplier:
       return "green.8";
     default:
       return "white";
@@ -69,12 +70,12 @@ export const formatDate = (date: Date): string =>
  * `totalCount` property defined, it defaults to 0.
  */
 export const calculateOverallCount = (
-  data: Record<string, { totalCount?: number }>,
+  data: Record<string, { totalCount?: number }>
 ) => {
   if (data) {
     return Object.values(data).reduce(
       (sum, item) => sum + (item?.totalCount ?? 0),
-      0,
+      0
     );
   }
 };

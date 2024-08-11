@@ -9,11 +9,13 @@ import Size from "@/components/packages/Tabs/components/Size";
 import Actions from "@/components/packages/Tabs/components/Actions";
 import Statistics from "@/components/packages/Tabs/components/Statistics";
 import Developer from "@/components/packages/Tabs/components/Developer";
+import Score from "@/components/packages/Tabs/components/Score";
 
 const Overview = ({ packageInfo }: any) => {
   const { data: npm } = packageInfo?.npm || {};
   const { data: gitHub } = packageInfo?.gitHub || {};
   const { data: bundle } = packageInfo?.bundle || {};
+  const { data: vulnerabilityScore } = packageInfo?.vulnerabilityScore || {};
 
   return (
     <Flex
@@ -26,6 +28,11 @@ const Overview = ({ packageInfo }: any) => {
       <Box w={{ base: "100%", sm: "70%" }}>
         <Conditional if={npm}>
           <Installations packageName={npm?.name} />
+        </Conditional>
+        <Conditional
+          if={vulnerabilityScore && Object.keys(vulnerabilityScore).length > 0}
+        >
+          <Score scoreData={vulnerabilityScore} packageName={npm?.name} />
         </Conditional>
         <Conditional if={gitHub?.prs || gitHub?.issues}>
           <Actions

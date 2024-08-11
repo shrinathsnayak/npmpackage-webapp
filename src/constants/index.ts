@@ -12,5 +12,13 @@ export const TABS: any = {
   versions: { name: "Versions", value: "versions", visible: false },
 };
 
+export const VULNERABILITY: any = {
+  license: { name: "License", label: "License" },
+  maintenance: { name: "Maintenance", label: "Maintenance" },
+  quality: { name: "Quality", label: "Quality" },
+  supplyChainRisk: { name: "Supply Chain", label: "Supply Chain Risk" },
+  vulnerability: { name: "Vulnerability", label: "Vulnerability" },
+};
+
 export const DEFAULT_TAB = TABS.overview.value;
 export const FIRST_AVAILABLE_DATE = "2015-01-01";

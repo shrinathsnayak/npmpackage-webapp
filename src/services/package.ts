@@ -20,7 +20,7 @@ export async function getPackageData(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-        options,
+        options
       );
 
       if (!res.ok) {
@@ -56,12 +56,12 @@ export async function getPackageData(packageName: string) {
  */
 export async function getPackageSecurityScore(
   packageName: string,
-  owner: string,
+  owner: string
 ) {
   const options = isDevelopment ? {} : generateAPIOptions(packageName);
   const res = await fetch(
     `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
-    options,
+    options
   );
 
   if (!res.ok) {
@@ -84,7 +84,7 @@ export async function searchPackage(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/search?q=${packageName}`,
-        options,
+        options
       );
 
       if (!res.ok) {
@@ -113,7 +113,7 @@ export async function getPackageDownloads(packageName: string) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}`,
-        options,
+        options
       );
 
       if (!res.ok) {
@@ -147,7 +147,7 @@ export async function getPackageDownloads(packageName: string) {
 export async function packageDownloadStats(
   packageName: string,
   startDate?: string,
-  endDate?: string,
+  endDate?: string
 ) {
   if (!packageName) return;
 
@@ -161,7 +161,7 @@ export async function packageDownloadStats(
 
     const response = await fetch(
       `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
-      options,
+      options
     );
 
     if (!response.ok) {
@@ -171,5 +171,40 @@ export async function packageDownloadStats(
     return await response.json();
   } catch (error) {
     console.error("Error fetching package download stats:", error);
+  }
+}
+
+/**
+ * The function `getPackageAlertsData` fetches data related to a specific package and version from an
+ * API endpoint.
+ * @param {string} packageName - The `packageName` parameter is a string that represents the name of a
+ * package or software component for which you want to retrieve alerts or information. It could be the
+ * name of a library, framework, tool, or any other software entity that you are interested in.
+ * @param {string} version - The `version` parameter in the `getPackageAlertsData` function represents
+ * the version of the package for which you want to retrieve alerts data. It is a string type parameter
+ * that specifies the specific version of the package you are interested in.
+ * @returns The function `getPackageAlertsData` is returning the JSON data fetched from the API
+ * endpoint for the specified package name and version.
+ */
+export async function getPackageAlertsData(
+  packageName: string,
+  version: string
+) {
+  try {
+    if (packageName && version) {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const res = await fetch(
+        `${process.env.API_ENDPOINT}/socket?packageName=${packageName}&version=${version}`,
+        options
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      return res.json();
+    }
+  } catch (err) {
+    console.error(err);
   }
 }
