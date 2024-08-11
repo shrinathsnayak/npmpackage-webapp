@@ -20,7 +20,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
       <OverviewCard title={`Other packages similar to ${packageName}`}>
         <SimpleGrid
           spacing={{ base: 10, sm: "xs" }}
-          cols={{ base: 1, sm: 2, lg: data.length }}
+          cols={{ base: 1, sm: 2, lg: 4 }}
           verticalSpacing={{ base: "sm", sm: "xs" }}
         >
           {data?.map((item: DataItem) => (

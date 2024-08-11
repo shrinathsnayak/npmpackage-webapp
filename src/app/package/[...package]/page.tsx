@@ -4,7 +4,9 @@ import {
   getPackageDownloads,
   searchPackage,
 } from "@/services/package";
+import Conditional from "@/components/shared/Conditional";
 import { genereatePackageName } from "@/constants/services.constants";
+import { removeSimilarByName } from "@/utils";
 
 const PackageContainer = dynamic(
   () => import("@/components/packages/PackageContainer"),
@@ -46,11 +48,15 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const downloads = packageName && (await getPackageDownloads(packageName));
   const { data: searchData } =
     ((await searchPackage(packageName)) as any) || ({} as any);
+  const filteredData = removeSimilarByName(searchData, packageName);
+
   return (
     <div>
       <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
       <PageTabs packageInfo={data} downloads={downloads} />
-      <Suggestions searchData={searchData} packageName={packageName} />
+      <Conditional if={filteredData?.length > 0}>
+        <Suggestions searchData={filteredData} packageName={packageName} />
+      </Conditional>
     </div>
   );
 }
