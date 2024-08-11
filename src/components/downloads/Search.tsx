@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import {
   Badge,
-  CloseButton,
   Combobox,
   Group,
   Text,

@@ -27,8 +27,7 @@ const CustomTags = ({ icon, value, color = "gray", tooltip }: any) => {
 };
 
 const Tags = ({ data }: any) => {
-  const { stars, commits, license, security, language, size, downloads } =
-    data || {};
+  const { stars, license, security, language, size, downloads } = data || {};
 
   return (
     <Flex
@@ -75,7 +74,7 @@ const Tags = ({ data }: any) => {
       {security && (
         <CustomTags
           color={getScoreTextColor(security)}
-          tooltip="Security Score"
+          tooltip="OpenSSF Score"
           icon={<IconShieldLock size={12} />}
           value={security}
         />

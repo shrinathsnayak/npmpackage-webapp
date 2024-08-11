@@ -16,10 +16,10 @@ import {
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
+import { IconArrowRight } from "@tabler/icons-react";
 import { Search } from "./Search";
 import { FIRST_AVAILABLE_DATE } from "@/constants";
 import Conditional from "../shared/Conditional";
-import { IconArrowRight } from "@tabler/icons-react";
 
 const SearchContainer = () => {
   const pathname = usePathname();
@@ -49,8 +49,8 @@ const SearchContainer = () => {
     };
     const filteredValue: any = Object.fromEntries(
       Object.entries(queryParams).filter(
-        ([_, val]) => val !== undefined && val !== null && val !== "",
-      ),
+        ([_, val]) => val !== undefined && val !== null && val !== ""
+      )
     );
     if (Object.keys(filteredValue).length > 0) {
       const params = new URLSearchParams(filteredValue);

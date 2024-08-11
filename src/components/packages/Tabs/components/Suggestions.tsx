@@ -16,9 +16,10 @@ import { DataItem } from "@/types/npm";
 const Suggestions = ({ searchData, packageName = "" }: any) => {
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Container className="responsiveContainer">
+    <Container className="responsiveContainer" mb={30}>
       <OverviewCard title={`Other packages similar to ${packageName}`}>
         <SimpleGrid
+          mt={10}
           spacing={{ base: 10, sm: "xs" }}
           cols={{ base: 1, sm: 2, lg: 4 }}
           verticalSpacing={{ base: "sm", sm: "xs" }}
