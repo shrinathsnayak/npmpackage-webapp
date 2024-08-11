@@ -6,7 +6,6 @@ import {
   SimpleGrid,
   Text,
   Box,
-  Divider,
 } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
@@ -15,7 +14,6 @@ import { breakCamelCase, getScoreTextColor } from "@/utils";
 
 const RenderScoreBreakup = ({ component, label, score }: any) => {
   if (component) {
-    const colour = getScoreTextColor(score, 10);
     return (
       <Box>
         {component &&

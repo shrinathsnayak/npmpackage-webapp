@@ -1,14 +1,25 @@
 import dynamic from "next/dynamic";
-import { getPackageData, getPackageDownloads } from "@/services/package";
+import {
+  getPackageData,
+  getPackageDownloads,
+  searchPackage,
+} from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
 
 const PackageContainer = dynamic(
   () => import("@/components/packages/PackageContainer"),
-  { ssr: true },
+  { ssr: true }
 );
 const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"), {
   ssr: true,
 });
+
+const Suggestions = dynamic(
+  () => import("@/components/packages/Tabs/components/Suggestions"),
+  {
+    ssr: true,
+  }
+);
 
 export async function generateMetadata({
   params,
@@ -33,10 +44,13 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const packageName = genereatePackageName(params.package);
   const data = packageName && (await getPackageData(packageName));
   const downloads = packageName && (await getPackageDownloads(packageName));
+  const { data: searchData } =
+    ((await searchPackage(packageName)) as any) || ({} as any);
   return (
     <div>
       <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
       <PageTabs packageInfo={data} downloads={downloads} />
+      <Suggestions searchData={searchData} packageName={packageName} />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { DEVELOPMENT } from "@/constants";
 import { npmFacts } from "@/constants/npmfacts";
+import { DataItem } from "@/types/npm";
 
 export const isDevelopment: boolean = !!process.env[DEVELOPMENT];
 
@@ -143,4 +144,57 @@ export const breakCamelCase = (str: string): string => {
 
   const brokenStr = str?.replace(/([a-z])([A-Z])/g, "$1 $2");
   return brokenStr?.charAt(0).toUpperCase() + brokenStr.slice(1);
+};
+
+/**
+ * The function `removeSimilarByName` removes items with a specific name from an array of objects and
+ * returns a limited number of remaining items.
+ * @param {DataItem[]} data - The `data` parameter is an array of `DataItem` objects that you want to
+ * filter. Each `DataItem` object should have a `name` property that will be used for comparison in the
+ * filtering process.
+ * @param {string} nameToRemove - The `nameToRemove` parameter in the `removeSimilarByName` function is
+ * a string that specifies the name of the data items that should be removed from the input array.
+ * @param [resultCount=3] - The `resultCount` parameter in the `removeSimilarByName` function specifies
+ * the maximum number of items to include in the final result after removing items with a name matching
+ * the `nameToRemove` parameter. It defaults to 3 if not provided explicitly.
+ * @returns The `removeSimilarByName` function returns an array of `DataItem` objects with the
+ * specified `nameToRemove` removed, limited to a maximum of `resultCount` items.
+ */
+export const removeSimilarByName = (
+  data: DataItem[],
+  nameToRemove: string,
+  resultCount = 4
+): DataItem[] => {
+  if (!Array.isArray(data)) {
+    throw new TypeError("First argument must be an array.");
+  }
+
+  if (typeof nameToRemove !== "string") {
+    throw new TypeError("Second argument must be a string.");
+  }
+
+  if (typeof resultCount !== "number" || resultCount < 0) {
+    throw new TypeError("Third argument must be a non-negative number.");
+  }
+
+  let removedCount = 0;
+
+  const filteredData = data.filter((item) => {
+    if (!item || typeof item !== "object" || !item.name) {
+      throw new Error(
+        "Each item in the array must be an object with a 'name' property."
+      );
+    }
+
+    if (item.name === nameToRemove) {
+      removedCount++;
+      return false;
+    }
+
+    return true;
+  });
+
+  const limitedData = filteredData.slice(0, resultCount);
+
+  return limitedData;
 };
