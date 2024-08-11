@@ -40,7 +40,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
                 bg="dark.9"
                 shadow="sm"
               >
-                <Text fz="sm" c="white">
+                <Text fz="md" c="white" fw={500}>
                   {item?.name}
                 </Text>
                 <Badge
