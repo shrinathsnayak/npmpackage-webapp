@@ -17,7 +17,7 @@ export default function Home() {
           mt={{ base: "-20%", sm: 0 }}
         >
           <ProductHuntLaunch />
-          <Title size={rem(40)} c="white">
+          <Title size={rem(35)} c="white">
             {NPMPACKAGE_TITLE}
           </Title>
           <Text mt={10} c="gray.4" fz="sm">
