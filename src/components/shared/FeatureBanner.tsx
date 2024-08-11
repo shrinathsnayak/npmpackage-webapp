@@ -1,39 +1,36 @@
-import { Flex, Text, Badge } from "@mantine/core";
 import React from "react";
+import { Flex, Text, Badge, Affix } from "@mantine/core";
 
 const FeatureBanner = () => {
   return (
+    <Affix position={{ top: 0, right: 0, left: 0 }}>
     <Flex
-      p={6}
-      mt={30}
+      p={12}
       gap={10}
-      px={10}
       bg="dark.9"
       align="center"
-      justify="space-between"
-      w="fit-content"
+      justify="center"
       direction={{
         base: "column",
         sm: "row",
       }}
       style={{
-        borderRadius: "var(--mantine-radius-sm)",
-        boxShadow: "var(--mantine-shadow-lg)",
+        boxShadow: "var(--mantine-shadow-md)",
       }}
     >
       <Badge
-        color="blue"
-        size="lg"
+        color="red.8"
+        size="md"
         display={{ base: "none", sm: "flex" }}
-        radius="xs"
-        w={90}
+        radius="sm"
       >
-        NEW
+        Feature
       </Badge>
-      <Text fz="xs">
-        {`Feature - Now you can view the package score, which includes metrics for Supply Chain, Quality, Maintenance, Vulnerability, and License.`}
+      <Text fz="xs" ta="center">
+        Now you can view the package score, which includes metrics for Supply Chain Risk, Quality, Maintenance, Vulnerability, and License.
       </Text>
     </Flex>
+    </Affix>
   );
 };
 
