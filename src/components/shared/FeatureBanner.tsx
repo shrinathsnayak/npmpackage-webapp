@@ -26,7 +26,7 @@ const FeatureBanner = () => {
         >
           Feature
         </Badge>
-        <Text fz="xs" ta="center">
+        <Text fz="sm" ta="center">
           Now you can view the package score, which includes metrics for Supply
           Chain Risk, Quality, Maintenance, Vulnerability, and License.
         </Text>
