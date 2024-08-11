@@ -4,6 +4,7 @@ import { NPMPACKAGE_TITLE } from "@/constants";
 import SearchBar from "@/components/Landing/LandingSearch";
 import PopularPackages from "@/components/Landing/PopularPackages";
 import ProductHuntLaunch from "@/components/shared/ProductHuntLaunch";
+import FeatureBanner from "@/components/shared/FeatureBanner";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
           </Text>
           <SearchBar />
           <PopularPackages />
+          <FeatureBanner />
         </Flex>
       </Center>
     </PageLayout>
