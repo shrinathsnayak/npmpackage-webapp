@@ -14,17 +14,18 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
       underline="never"
       prefetch
     >
-      <Paper p="sm" radius="md">
+      <Paper p="sm" radius="md" h="100%">
         <Text fz="sm" fw="500">
           {name || tag?.name}
         </Text>
         <Badge
-          variant="outline"
-          color="green"
-          opacity={0.9}
-          radius={5}
-          size="md"
           mt={5}
+          size="md"
+          maw="100%"
+          radius={5}
+          opacity={0.9}
+          color="green"
+          variant="outline"
           leftSection={<IconTag size={12} />}
         >
           {tag.name}

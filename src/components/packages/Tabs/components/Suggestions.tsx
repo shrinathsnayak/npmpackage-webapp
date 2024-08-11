@@ -12,11 +12,12 @@ import { IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { removeSimilarByName } from "@/utils";
 import { DataItem } from "@/types/npm";
+import classes from "./Installation.module.css";
 
 const Suggestions = ({ searchData, packageName = "" }: any) => {
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Container className="responsiveContainer" mb={30}>
+    <Container className="responsiveContainer" mb={20}>
       <OverviewCard title={`Other packages similar to ${packageName}`}>
         <SimpleGrid
           mt={10}
@@ -36,21 +37,23 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
                 w="100%"
                 h="100%"
                 withBorder
-                p={{ base: 15, sm: 10 }}
                 radius="md"
                 bg="dark.9"
-                shadow="sm"
+                shadow="xs"
+                p={{ base: 15, sm: 10 }}
+                className={classes.suggestedItem}
               >
                 <Text fz="md" c="white" fw={500}>
                   {item?.name}
                 </Text>
                 <Badge
-                  variant="outline"
+                  my={5}
+                  size="sm"
+                  maw="100%"
+                  radius={5}
                   color="green"
                   opacity={0.9}
-                  radius={5}
-                  size="sm"
-                  my={5}
+                  variant="outline"
                   leftSection={<IconTag size={12} />}
                 >
                   {item?.version}
