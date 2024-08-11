@@ -126,3 +126,21 @@ export const formatLanguagesData = (data: any[]) => {
     color: item.color,
   }));
 };
+
+/**
+ * The `breakCamelCase` function takes a camelCase string as input and returns the same string with
+ * spaces inserted before each capital letter.
+ * @param {string} str - The `str` parameter in the `breakCamelCase` function is a string that
+ * represents a camelCase string that you want to break into separate words.
+ * @returns The `breakCamelCase` function returns a string where camel case is broken by inserting a
+ * space before each uppercase letter. The first letter of the resulting string is then capitalized.
+ */
+export const breakCamelCase = (str: string): string => {
+  if (typeof str !== "string") {
+    console.error("Invalid input: Input must be a string.");
+    return "";
+  }
+
+  const brokenStr = str?.replace(/([a-z])([A-Z])/g, "$1 $2");
+  return brokenStr?.charAt(0).toUpperCase() + brokenStr.slice(1);
+};

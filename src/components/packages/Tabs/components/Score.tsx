@@ -1,11 +1,46 @@
 import React from "react";
-import { Flex, Paper, RingProgress, SimpleGrid, Text } from "@mantine/core";
+import {
+  Flex,
+  Paper,
+  RingProgress,
+  SimpleGrid,
+  Text,
+  Box,
+  Divider,
+} from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
 import { VULNERABILITY } from "@/constants";
-import { getScoreTextColor } from "@/utils";
+import { breakCamelCase, getScoreTextColor } from "@/utils";
 
-const ScoreCardProgress = ({ name, score, label }: any) => {
+const RenderScoreBreakup = ({ component, label, score }: any) => {
+  if (component) {
+    const colour = getScoreTextColor(score, 10);
+    return (
+      <Box>
+        {component &&
+          Object.keys(component).map((item: any) => (
+            <Conditional if={item} key={item}>
+              <Flex align="center" gap={20} justify="space-between">
+                <Text fw={500} fz="sm">
+                  {breakCamelCase(item)}
+                </Text>
+                <Text
+                  fz="sm"
+                  fw={700}
+                  c={getScoreTextColor(component[item], 10)}
+                >
+                  {component[item]}
+                </Text>
+              </Flex>
+            </Conditional>
+          ))}
+      </Box>
+    );
+  }
+};
+
+const ScoreCardProgress = ({ name, score, label, component }: any) => {
   const colour = getScoreTextColor(score, 10);
   return (
     <Flex direction="column" gap={2} align="center">
@@ -14,7 +49,17 @@ const ScoreCardProgress = ({ name, score, label }: any) => {
         size={95}
         thickness={10}
         sections={[
-          { value: score, color: colour, tooltip: `${label} - ${score}` },
+          {
+            value: score,
+            color: colour,
+            tooltip: (
+              <RenderScoreBreakup
+                score={score}
+                label={label}
+                component={component}
+              />
+            ),
+          },
         ]}
         label={
           <Text c={colour} fw={600} ta="center" size="lg">
@@ -22,7 +67,7 @@ const ScoreCardProgress = ({ name, score, label }: any) => {
           </Text>
         }
       />
-      <Text fz="sm" fw={500} ta="center">
+      <Text fz="sm" fw={400} ta="center">
         {name}
       </Text>
     </Flex>
@@ -39,11 +84,15 @@ const Score = ({ scoreData = {}, packageName }: any) => {
           verticalSpacing={{ base: "md", sm: "xl" }}
         >
           {Object.keys(scoreData).map((item: any) => (
-            <Conditional key={item} if={VULNERABILITY[item]?.name}>
+            <Conditional
+              key={item}
+              if={VULNERABILITY[item]?.name && scoreData[item]}
+            >
               <ScoreCardProgress
                 name={VULNERABILITY[item]?.name}
                 label={VULNERABILITY[item]?.label}
-                score={scoreData[item]}
+                score={scoreData[item]?.score}
+                component={scoreData[item]?.component}
               />
             </Conditional>
           ))}
