@@ -16,6 +16,7 @@ const PageLayout = ({
   hideHeader = false,
   fixedFooter = false,
   hideFooter = false,
+  bg = "dark.7",
 }: any) => {
   const [opened, { toggle }] = useDisclosure();
 
@@ -34,7 +35,7 @@ const PageLayout = ({
         <Header hideSearch={hideSearch} />
       </Conditional>
 
-      <AppShell.Main bg="dark.7">
+      <AppShell.Main bg={bg}>
         <Conditional if={!disableSpotlight}>
           <Suspense fallback={<>loading...</>}>
             <Search />

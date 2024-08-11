@@ -8,7 +8,12 @@ import FeatureBanner from "@/components/shared/FeatureBanner";
 
 export default function Home() {
   return (
-    <PageLayout hideHeader={true} fixedFooter={true} hideFooter={true}>
+    <PageLayout
+      hideHeader={true}
+      fixedFooter={true}
+      hideFooter={true}
+      bg="dark.9"
+    >
       <Center mah="calc(80vh - 65px)" mih="calc(80vh - 65px)" w="100%">
         <Flex
           direction="column"

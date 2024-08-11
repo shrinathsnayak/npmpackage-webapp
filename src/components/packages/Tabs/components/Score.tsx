@@ -50,13 +50,13 @@ const ScoreCardProgress = ({ name, score, label, component }: any) => {
           {
             value: score,
             color: colour,
-            tooltip: (
-              <RenderScoreBreakup
-                score={score}
-                label={label}
-                component={component}
-              />
-            ),
+            // tooltip: (
+            //   <RenderScoreBreakup
+            //     score={score}
+            //     label={label}
+            //     component={component}
+            //   />
+            // ),
           },
         ]}
         label={
@@ -72,7 +72,7 @@ const ScoreCardProgress = ({ name, score, label, component }: any) => {
   );
 };
 
-const Score = ({ scoreData = {}, packageName }: any) => {
+const Score = ({ scoreData = {} }: any) => {
   return (
     <OverviewCard title="Score">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
@@ -87,9 +87,9 @@ const Score = ({ scoreData = {}, packageName }: any) => {
               if={VULNERABILITY[item]?.name && scoreData[item]}
             >
               <ScoreCardProgress
+                score={scoreData[item]?.score}
                 name={VULNERABILITY[item]?.name}
                 label={VULNERABILITY[item]?.label}
-                score={scoreData[item]?.score}
                 component={scoreData[item]?.component}
               />
             </Conditional>

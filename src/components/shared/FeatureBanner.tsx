@@ -7,7 +7,7 @@ const FeatureBanner = () => {
       <Flex
         p={12}
         gap={10}
-        bg="dark.9"
+        bg="dark.7"
         align="center"
         justify="center"
         direction={{

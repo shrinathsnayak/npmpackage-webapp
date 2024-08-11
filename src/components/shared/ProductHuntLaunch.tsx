@@ -20,7 +20,7 @@ const ProductHuntLaunch = () => {
         mb={20}
         gap={8}
         px={10}
-        bg="dark.9"
+        bg="dark.7"
         align="center"
         justify="space-between"
         w="fit-content"

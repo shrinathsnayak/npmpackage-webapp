@@ -99,7 +99,7 @@ const SearchContainer = () => {
   return (
     <Box w="100%" bg="dark.9" pb={60}>
       <Container className="responsiveContainer" py={30}>
-        <Title order={3} size="2.3rem" fw={800} mb={20}>
+        <Title order={3} size="2.2rem" fw={800} mb={20} c="white">
           Dowloads
         </Title>
 
