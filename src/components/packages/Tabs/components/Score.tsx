@@ -10,19 +10,19 @@ const ScoreCardProgress = ({ name, score, label }: any) => {
   return (
     <Flex direction="column" gap={2} align="center">
       <RingProgress
-        size={95}
         roundCaps
-        thickness={9}
+        size={95}
+        thickness={10}
         sections={[
           { value: score, color: colour, tooltip: `${label} - ${score}` },
         ]}
         label={
-          <Text c={colour} fw={700} ta="center" size="lg">
+          <Text c={colour} fw={600} ta="center" size="lg">
             {score}
           </Text>
         }
       />
-      <Text fz="sm" fw={600} ta="center">
+      <Text fz="sm" fw={500} ta="center">
         {name}
       </Text>
     </Flex>
