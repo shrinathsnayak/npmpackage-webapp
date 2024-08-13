@@ -23,7 +23,7 @@ const Downloads = ({
   packageName,
 }: any) => {
   const { data } = downloads || {};
-  const cardRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const clipboard = useClipboard({ timeout: 1000 });
 
   return (
@@ -59,7 +59,7 @@ const Downloads = ({
           {clipboard.copied ? "Copied Share URL" : "Copy Share URL"}
         </Button>
       </Flex>
-      <div ref={cardRef as RefObject<HTMLDivElement>}>
+      <div ref={cardRef}>
         <Paper withBorder p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
           <Flex
             align="center"

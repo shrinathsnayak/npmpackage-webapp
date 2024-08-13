@@ -212,10 +212,10 @@ export const removeSimilarByName = (
  * @returns The `downloadDivAsImage` function is returning a Promise, which resolves to `any`.
  */
 export const downloadDivAsImage = async (
-  cardRef: RefObject<HTMLDivElement>,
+  cardRef: RefObject<HTMLElement>,
   name: string
 ): Promise<void> => {
-  const cardElement = cardRef.current;
+  const cardElement = cardRef.current as HTMLDivElement;
   const options = {
     allowTaint: true,
     useCORS: false,
@@ -239,6 +239,6 @@ export const downloadDivAsImage = async (
     anchor.click();
     anchor.remove();
   } catch (error) {
-    console.error('Error downloading image:', error);
+    console.error("Error downloading image:", error);
   }
 };
