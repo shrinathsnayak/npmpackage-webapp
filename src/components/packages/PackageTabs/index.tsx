@@ -13,7 +13,7 @@ import Conditional from "@/components/shared/Conditional";
 const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"));
 const Security = dynamic(() => import("@/components/packages/Tabs/Security"));
 const Dependencies = dynamic(
-  () => import("@/components/packages/Tabs/Dependencies"),
+  () => import("@/components/packages/Tabs/Dependencies")
 );
 const Downloads = dynamic(() => import("@/components/shared/Downloads"));
 
@@ -24,7 +24,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
     () => calculateOverallCount(npm?.data?.dependencies),
-    [npm?.data],
+    [npm?.data]
   );
 
   return (
@@ -40,9 +40,11 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
           <Tabs.Tab py="md" px="lg" value="overview">
             Overview
           </Tabs.Tab>
-          <Tabs.Tab py="md" px="lg" value="readme">
-            Readme
-          </Tabs.Tab>
+          <Conditional if={gitHub?.data?.readMe}>
+            <Tabs.Tab py="md" px="lg" value="readme">
+              Readme
+            </Tabs.Tab>
+          </Conditional>
           <Tabs.Tab py="md" px="lg" value="downloads">
             Downloads
           </Tabs.Tab>

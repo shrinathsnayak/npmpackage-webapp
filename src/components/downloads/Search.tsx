@@ -13,17 +13,18 @@ import { searchPackage } from "@/services/package";
 import { useThrottledCallback } from "@mantine/hooks";
 
 export function Search({ form }: any) {
-  const [value, setValue] = useState(form.getValues()?.packageName ?? "");
   const [data, setData] = useState<any>([]);
+  const { packageName } = form.getValues() || {};
+  const [value, setValue] = useState(packageName ?? "");
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
 
   useEffect(() => {
-    if (!form.getValues()?.packageName) {
+    if (!packageName) {
       setValue("");
     }
-  }, [form.getValues()?.packageName]);
+  }, [packageName]);
 
   const searchPackageName = async (packageName: any) => {
     const { status, data } =

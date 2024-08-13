@@ -16,13 +16,16 @@ export function Search() {
   const [query, setQuery] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
 
-  const handleClick = (event: any, packageName: string) => {
-    if (packageName) {
-      event.preventDefault();
-      router.push(`/package/${packageName}`);
-      setQuery("");
-    }
-  };
+  const handleClick = useCallback(
+    (event: any, packageName: string) => {
+      if (packageName) {
+        event.preventDefault();
+        router.push(`/package/${packageName}`);
+        setQuery("");
+      }
+    },
+    [router]
+  );
 
   const searchPackageName = async (packageName: any) => {
     const { status, data } =
@@ -72,7 +75,7 @@ export function Search() {
           </Group>
         </Spotlight.Action>
       )),
-    [data]
+    [data, handleClick]
   );
 
   return (

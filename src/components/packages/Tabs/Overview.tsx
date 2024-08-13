@@ -48,12 +48,18 @@ const Overview = ({ packageInfo }: any) => {
           />
         </Conditional>
         <Conditional
-          if={gitHub?.contributors?.length > 0 && gitHub?.contributorsCount > 0}
+          if={
+            (gitHub?.contributors?.length > 0 &&
+              gitHub?.contributorsCount > 0) ||
+            npm?.collaborators?.length > 0
+          }
         >
           <Collaborators
-            contributorsCount={gitHub?.contributorsCount}
-            contributors={gitHub?.contributors}
-            repositoryUrl={gitHub?.repositoryUrl}
+            contributorsCount={
+              gitHub?.contributorsCount || npm?.collaborators?.length
+            }
+            contributors={gitHub?.contributors || npm?.collaborators}
+            repositoryUrl={gitHub?.repositoryUrl || ""}
           />
         </Conditional>
       </Box>
