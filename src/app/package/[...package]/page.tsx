@@ -43,12 +43,13 @@ export async function generateMetadata({
 }
 
 export default async function Package({ params }: { params: { package: [] } }) {
-  const packageName = genereatePackageName(params.package);
-  const data = packageName && (await getPackageData(packageName));
-  const downloads = packageName && (await getPackageDownloads(packageName));
-  const { data: searchData } =
-    ((await searchPackage(packageName)) as any) || ({} as any);
-  const filteredData = removeSimilarByName(searchData, packageName);
+  const packageName = await genereatePackageName(params.package);
+  const [data, downloads, searchData] = await Promise.all([
+    (await getPackageData(packageName)) || {},
+    (await getPackageDownloads(packageName)) || {},
+    (await searchPackage(packageName)) || {},
+  ]);
+  const filteredData = removeSimilarByName(searchData?.data, packageName);
 
   return (
     <div>

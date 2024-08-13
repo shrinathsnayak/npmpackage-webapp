@@ -112,7 +112,7 @@ export async function getPackageDownloads(packageName: string) {
     if (packageName) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
       const res = await fetch(
-        `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}`,
+        `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}&getDailyDownloads=false`,
         options
       );
 

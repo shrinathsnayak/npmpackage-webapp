@@ -7,7 +7,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
   return (
     <AppShell.Footer
       fz="sm"
-      bg="dark.9"
+      bg="dark.7"
       withBorder
       pos={fixedFooter ? "fixed" : "static"}
       p={{ base: "md", sm: "lg" }}
@@ -18,7 +18,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           justify="space-between"
           direction={{ base: "column", sm: "row" }}
         >
-          <Text fz="sm" c="dimmed" fw={300}>
+          <Text fz="sm" c="white" fw={300}>
             Project by{" "}
             <Anchor
               fz="sm"
@@ -31,13 +31,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
               Shrinath Nayak
             </Anchor>{" "}
           </Text>
-          <Text
-            fw={300}
-            fz="sm"
-            c="dimmed"
-            ta="center"
-            mt={{ base: 10, sm: 0 }}
-          >
+          <Text fw={500} fz="xs" c="white" ta="center" mt={{ base: 10, sm: 0 }}>
             We do not own or store any data displayed on the website.
           </Text>
         </Flex>
