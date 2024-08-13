@@ -1,3 +1,4 @@
+import { RefObject } from "react";
 import { DEVELOPMENT } from "@/constants";
 import { npmFacts } from "@/constants/npmfacts";
 import { DataItem } from "@/types/npm";
@@ -210,7 +211,10 @@ export const removeSimilarByName = (
  * downloaded image to `.png`.
  * @returns The `downloadDivAsImage` function is returning a Promise, which resolves to `any`.
  */
-export const downloadDivAsImage = async (cardRef: any, name: string): any => {
+export const downloadDivAsImage = async (
+  cardRef: RefObject<HTMLDivElement>,
+  name: string
+): Promise<void> => {
   const cardElement = cardRef.current;
   const options = {
     allowTaint: true,
@@ -234,7 +238,7 @@ export const downloadDivAsImage = async (cardRef: any, name: string): any => {
     anchor.download = `${name}.png`;
     anchor.click();
     anchor.remove();
-  } catch (reason) {
-    console.log(reason);
+  } catch (error) {
+    console.error('Error downloading image:', error);
   }
 };
