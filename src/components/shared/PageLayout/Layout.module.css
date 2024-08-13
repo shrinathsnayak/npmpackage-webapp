@@ -96,3 +96,9 @@
     }
   }
 }
+
+.hideOnMobile {
+  @media (max-width: 47.5em) {
+    display: none;
+  }
+}
