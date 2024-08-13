@@ -1,6 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { Anchor, Badge, Box, Paper, SimpleGrid, Text } from "@mantine/core";
+import {
+  Anchor,
+  Badge,
+  Box,
+  Paper,
+  SimpleGrid,
+  Text,
+  NumberFormatter,
+} from "@mantine/core";
 import { IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { formatDate } from "@/utils";
@@ -41,7 +49,10 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
 const Releases = ({ releases, repositoryUrl }: any) => {
   const { total, data } = releases || {};
   return (
-    <OverviewCard title="Releases" badge={total}>
+    <OverviewCard
+      title="Releases"
+      badge={<NumberFormatter thousandSeparator value={total} />}
+    >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
         <SimpleGrid cols={{ base: 1, xs: 3 }}>
           {data?.map((item: any) => {
@@ -56,7 +67,10 @@ const Releases = ({ releases, repositoryUrl }: any) => {
             target="_blank"
             prefetch
           >
-            <Text fz="sm">View all {total} releases</Text>
+            <Text fz="sm">
+              View all <NumberFormatter thousandSeparator value={total} />{" "}
+              releases
+            </Text>
           </Anchor>
         </Box>
       </Paper>

@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Tabs, Container } from "@mantine/core";
+import { Tabs, Container, NumberFormatter } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
 import Overview from "@/components/packages/Tabs/Overview";
@@ -28,7 +28,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   );
 
   return (
-    <Container className="responsiveContainer" mt={-48}>
+    <Container className="responsiveContainer" mt={-47}>
       <Tabs
         value={search}
         variant="outline"
@@ -37,24 +37,25 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         onChange={(value) => router.push(`?t=${value}`)}
       >
         <Tabs.List>
-          <Tabs.Tab py="md" px="lg" value="overview">
+          <Tabs.Tab py="md" px="lg" c="white" value="overview">
             Overview
           </Tabs.Tab>
           <Conditional if={gitHub?.data?.readMe}>
-            <Tabs.Tab py="md" px="lg" value="readme">
+            <Tabs.Tab py="md" px="lg" c="white" value="readme">
               Readme
             </Tabs.Tab>
           </Conditional>
-          <Tabs.Tab py="md" px="lg" value="downloads">
+          <Tabs.Tab py="md" px="lg" c="white" value="downloads">
             Downloads
           </Tabs.Tab>
           <Conditional if={(dependenciesCount || 0) > 0}>
-            <Tabs.Tab py="md" px="lg" value="dependencies">
-              Dependencies ({dependenciesCount})
+            <Tabs.Tab py="md" px="lg" c="white" value="dependencies">
+              Dependencies (
+              <NumberFormatter thousandSeparator value={dependenciesCount} />)
             </Tabs.Tab>
           </Conditional>
           <Conditional if={securityScore?.data?.score}>
-            <Tabs.Tab py="md" px="lg" value="scorecard">
+            <Tabs.Tab py="md" px="lg" c="white" value="scorecard">
               OpenSSF Scorecard
             </Tabs.Tab>
           </Conditional>

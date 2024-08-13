@@ -8,6 +8,7 @@ import {
   Paper,
   Text,
   Tooltip,
+  NumberFormatter,
 } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
@@ -18,7 +19,10 @@ const Collaborators = ({
   repositoryUrl,
 }: any) => {
   return (
-    <OverviewCard title="Contributors" badge={contributorsCount}>
+    <OverviewCard
+      title="Contributors"
+      badge={<NumberFormatter thousandSeparator value={contributorsCount} />}
+    >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
         <Tooltip.Group openDelay={300} closeDelay={100}>
           <Group gap="xs">
@@ -56,7 +60,11 @@ const Collaborators = ({
               href={`${repositoryUrl}/contributors`}
               target="_blank"
             >
-              <Text fz="sm">View all {contributorsCount} contributors</Text>
+              <Text fz="sm">
+                View all{" "}
+                <NumberFormatter thousandSeparator value={contributorsCount} />{" "}
+                contributors
+              </Text>
             </Anchor>
           </Box>
         </Conditional>

@@ -17,7 +17,7 @@ const Stat = ({ icon, value, tooltip }: any) => {
   return (
     <Group mb={5} gap={10} align="center">
       {icon}
-      <Text fz="sm" fw={400} c="dimmed">
+      <Text fz="sm" fw={400} c="white">
         {value} {tooltip}
       </Text>
     </Group>

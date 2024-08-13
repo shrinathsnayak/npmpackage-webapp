@@ -18,8 +18,22 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           justify="space-between"
           direction={{ base: "column", sm: "row" }}
         >
-          <Text fz="sm" c="white" fw={300}>
-            Project by{" "}
+          <Flex gap={5} align="center">
+            <Text fz="sm" c="white" fw={500}>
+              Made in{" "}
+            </Text>
+            <Image
+              src={IndiaFlag.src}
+              w={20}
+              h={13}
+              alt="India Flag"
+              style={{
+                display: "inline",
+              }}
+            />{" "}
+            <Text fz="sm" c="white" fw={500}>
+              by{" "}
+            </Text>
             <Anchor
               fz="sm"
               component={Link}
@@ -27,11 +41,20 @@ const Footer = ({ fixedFooter }: boolean | any) => {
               target="blank"
               underline="never"
               prefetch
+              fw={500}
+              c="blue.4"
             >
               Shrinath Nayak
-            </Anchor>{" "}
-          </Text>
-          <Text fw={500} fz="xs" c="white" ta="center" mt={{ base: 10, sm: 0 }}>
+            </Anchor>
+          </Flex>
+
+          <Text
+            fw={500}
+            fz="xs"
+            c="dimmed"
+            ta="center"
+            mt={{ base: 10, sm: 0 }}
+          >
             We do not own or store any data displayed on the website.
           </Text>
         </Flex>

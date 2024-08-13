@@ -65,7 +65,7 @@ const ScoreCardProgress = ({ name, score, label, component }: any) => {
           </Text>
         }
       />
-      <Text fz="sm" fw={400} ta="center">
+      <Text fz="sm" fw={400} ta="center" c="white">
         {name}
       </Text>
     </Flex>
@@ -77,7 +77,7 @@ const Score = ({ scoreData = {} }: any) => {
     <OverviewCard title="Score">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
         <SimpleGrid
-          cols={{ base: 2, sm: 3, lg: 5 }}
+          cols={{ base: 2, sm: 2, lg: 4 }}
           spacing={{ base: 10, sm: "xl" }}
           verticalSpacing={{ base: "md", sm: "xl" }}
         >

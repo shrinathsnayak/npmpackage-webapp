@@ -10,7 +10,7 @@ export const LanguageLegend = ({ name, color, value }: any) => {
     return (
       <Flex align="center">
         <IconPointFilled fill={color} />
-        <Text fz="xs">
+        <Text fz="xs" c="white">
           {name}
           <span> ({value}%)</span>
         </Text>
@@ -31,7 +31,9 @@ const Languages = ({ languages }: any) => {
         <Group gap={2} mt={10}>
           {languagesData
             ?.sort((a: any, b: any) => b.value - a.value)
-            ?.map((item: any) => <LanguageLegend key={item.name} {...item} />)}
+            ?.map((item: any) => (
+              <LanguageLegend key={item.name} {...item} />
+            ))}
         </Group>
       </Paper>
     </OverviewCard>

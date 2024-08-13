@@ -28,16 +28,15 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
           direction={{ base: "column-reverse", sm: "row" }}
         >
           <Group align="center">
-            <Title order={1} size="2.3rem" fw={800} c="white">
+            <Title
+              order={1}
+              size="2.3rem"
+              fw={800}
+              c="white"
+              textWrap="balance"
+            >
               {npm?.name || github?.name}
             </Title>
-            {(github?.latestRelease || npm?.version) && (
-              <Tooltip label="Latest Release" position="right">
-                <Pill radius={5} size="md" mt={10}>
-                  {github?.latestRelease || `v${npm?.version}`}
-                </Pill>
-              </Tooltip>
-            )}
           </Group>
           <Box
             mb={{
@@ -66,6 +65,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             license: github?.license,
             security: security?.score,
             language: github?.primaryLanguage,
+            version: npm?.version,
           }}
         />
       </Container>
