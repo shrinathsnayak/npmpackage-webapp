@@ -5,7 +5,7 @@ const FeatureBanner = () => {
   return (
     <Affix position={{ top: 0, right: 0, left: 0 }}>
       <Flex
-        p={12}
+        p={{ base: 8, sm: 12 }}
         gap={10}
         bg="dark.7"
         align="center"
@@ -26,7 +26,7 @@ const FeatureBanner = () => {
         >
           Feature
         </Badge>
-        <Text fz="sm" ta="center" c="white">
+        <Text fz={{ base: "xs", sm: "sm" }} ta="center" c="white">
           Now you can view the package score, which includes metrics for Supply
           Chain Risk, Quality, Maintenance, Vulnerability, and License.
         </Text>

@@ -14,7 +14,7 @@ export default function Home() {
           direction="column"
           align="center"
           w={{ base: "90%", sm: "50%" }}
-          mt={{ base: "-20%", sm: 0 }}
+          mt={{ base: "-10%", sm: 0 }}
         >
           <ProductHuntLaunch />
           <Title size={rem(35)} c="white">
