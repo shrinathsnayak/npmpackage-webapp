@@ -35,9 +35,7 @@ const Downloads = ({
         gap={10}
       >
         <Button
-          size="sm"
           color="red.8"
-          variant="light"
           leftSection={<IconDownload size={15} />}
           onClick={() =>
             downloadDivAsImage(
@@ -46,12 +44,10 @@ const Downloads = ({
             )
           }
         >
-          Download as PNG
+          Export as PNG
         </Button>
 
         <Button
-          size="sm"
-          variant="light"
           leftSection={<IconShare2 size={15} />}
           color={clipboard.copied ? "green.8" : "teal.8"}
           onClick={() => clipboard.copy(window?.location?.href)}
