@@ -44,7 +44,7 @@ const Header = ({ hideSearch }: any) => {
                 component={NextImage}
                 alt="npmpackage.info logo"
               />
-              <Title order={3} c="white" className={classes.hideOnMobile}>
+              <Title order={3} c="white">
                 {NPMPACKAGE_TITLE}
               </Title>
             </Flex>
