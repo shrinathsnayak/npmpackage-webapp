@@ -35,10 +35,10 @@ const Header = ({ hideSearch }: any) => {
           gap={1}
         >
           <Anchor component={Link} href="/" underline="never" prefetch>
-            <Flex gap={4} justify="space-between" align="center">
+            <Flex gap={5} justify="space-between" align="center">
               <Image
-                width={35}
-                height={35}
+                width={30}
+                height={30}
                 src={Icon.src}
                 priority={true}
                 component={NextImage}

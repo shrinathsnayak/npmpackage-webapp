@@ -8,9 +8,9 @@ const Footer = ({ fixedFooter }: boolean | any) => {
     <AppShell.Footer
       fz="sm"
       bg="dark.7"
-      withBorder
+      withBorder={false}
+      p={{ base: "sm", sm: "lg" }}
       pos={fixedFooter ? "fixed" : "static"}
-      p={{ base: "md", sm: "lg" }}
     >
       <Container className="responsiveContainer">
         <Flex
