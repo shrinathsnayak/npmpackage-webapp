@@ -3,19 +3,21 @@ import { useRouter } from "next/navigation";
 import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
 
 const DependenciesRenderer = ({ dependency, name }: any) => {
-  const { replace } = useRouter();
+  const { push } = useRouter();
   const { data, totalCount } = dependency || {};
 
   const handleRouteChange = (item: string) => {
-    replace(`/package/${item}`);
+    push(`/package/${item}`);
   };
 
   return (
     <Box mb={10}>
       <Paper bg="dark.9" p={8} px={20} withBorder>
         <Flex align="center" justify="space-between">
-          <Title order={5}>{name}</Title>
-          <Text fs="lg" fw="bolder">
+          <Title order={5} c="white">
+            {name}
+          </Title>
+          <Text fs="lg" fw="bolder" c="white">
             {totalCount}
           </Text>
         </Flex>

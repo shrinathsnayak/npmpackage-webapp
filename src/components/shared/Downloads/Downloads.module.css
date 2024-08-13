@@ -8,6 +8,18 @@
   line-height: 1;
 }
 
+.analyticsCardDiffIcon {
+  display: none;
+}
+
+.analyticsCard {
+  @mixin hover {
+    .analyticsCardDiffIcon {
+      display: inline-block;
+    }
+  }
+}
+
 .analyticsCardDiff {
   line-height: 1;
   display: flex;

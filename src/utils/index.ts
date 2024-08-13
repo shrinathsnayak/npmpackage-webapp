@@ -198,3 +198,43 @@ export const removeSimilarByName = (
 
   return limitedData;
 };
+
+/**
+ * The function `downloadDivAsImage` downloads a specified HTML element as an image with customizable
+ * options.
+ * @param {any} cardRef - The `cardRef` parameter is a reference to the DOM element that you want to
+ * convert into an image. It is used to capture the content of the specified element and download it as
+ * an image.
+ * @param {string} name - The `name` parameter in the `downloadDivAsImage` function is a string that
+ * represents the name of the image file that will be downloaded. It is used to set the filename of the
+ * downloaded image to `.png`.
+ * @returns The `downloadDivAsImage` function is returning a Promise, which resolves to `any`.
+ */
+export const downloadDivAsImage = async (cardRef: any, name: string): any => {
+  const cardElement = cardRef.current;
+  const options = {
+    allowTaint: true,
+    useCORS: false,
+    backgroundColor: "#242424",
+    removeContainer: true,
+  };
+
+  if (!cardElement) return;
+
+  try {
+    const html2canvas = await import(
+      /* webpackPrefetch: true */ "html2canvas-pro"
+    );
+
+    const result = await html2canvas.default(cardElement, options);
+
+    const asURL = result.toDataURL("image/png");
+    const anchor = document.createElement("a");
+    anchor.href = asURL;
+    anchor.download = `${name}.png`;
+    anchor.click();
+    anchor.remove();
+  } catch (reason) {
+    console.log(reason);
+  }
+};

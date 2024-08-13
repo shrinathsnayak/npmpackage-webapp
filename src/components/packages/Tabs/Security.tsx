@@ -24,7 +24,9 @@ const Security = ({ packageInfo }: any) => {
           w={{ base: "100%", sm: "500" }}
           pos={{ base: "static", sm: "sticky" }}
         >
-          <Text fw="500">Score</Text>
+          <Text fw="500" c="white">
+            Score
+          </Text>
           <Flex my={5} align="flex-end">
             <Title order={1} size="h1" c={getScoreTextColor(score)}>
               {score}
@@ -38,7 +40,7 @@ const Security = ({ packageInfo }: any) => {
             Last Scanned on {lastScanned}
           </Text>
 
-          <Text fz="sm" my={10} fw={400}>
+          <Text fz="sm" my={10} fw={400} c="white">
             The Open Source Security Foundation is a cross-industry
             collaboration to improve the security of open source software (OSS).
             The Scorecard provides security health metrics for open source

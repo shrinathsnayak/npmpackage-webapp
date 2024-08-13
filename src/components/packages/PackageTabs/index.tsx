@@ -66,7 +66,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <Downloads downloads={downloads} />
+          <Downloads downloads={downloads} packageName={npm?.data?.name} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>

@@ -10,10 +10,10 @@ export default function Home() {
     <PageLayout hideHeader={true} fixedFooter={true} bg="dark.9">
       <Center mah="calc(80vh - 65px)" mih="calc(80vh - 65px)" w="100%">
         <Flex
-          direction="column"
           align="center"
+          direction="column"
           w={{ base: "90%", sm: "50%" }}
-          mt={{ base: "-10%", sm: 0 }}
+          mt={{ base: "-25%", sm: 0 }}
         >
           <ProductHuntLaunch />
           <Title size={rem(35)} c="white">

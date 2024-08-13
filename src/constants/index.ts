@@ -13,10 +13,9 @@ export const TABS: any = {
 };
 
 export const VULNERABILITY: any = {
-  // license: { name: "License", label: "License" },
   maintenance: { name: "Maintenance", label: "Maintenance" },
   quality: { name: "Quality", label: "Quality" },
-  supplyChainRisk: { name: "Supply Chain", label: "Supply Chain Risk" },
+  supplyChainRisk: { name: "Supply Chain Risk", label: "Supply Chain Risk" },
   vulnerability: { name: "Vulnerability", label: "Vulnerability" },
 };
 

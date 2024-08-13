@@ -10,7 +10,15 @@ const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
       : 0;
   const DiffIcon = difference > 0 ? IconArrowUpRight : IconArrowDownRight;
   return (
-    <Paper withBorder p="md" radius="md" key={title} bg="dark.9" shadow="sm">
+    <Paper
+      withBorder
+      p="md"
+      radius="md"
+      key={title}
+      bg="dark.9"
+      shadow="sm"
+      className={classes.analyticsCard}
+    >
       <Group justify="space-between">
         <Text size="xs" c="dimmed" className={classes.analyticsCardTitle}>
           {title}
@@ -28,13 +36,17 @@ const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
               })}
               %
             </span>
-            <DiffIcon size="1rem" stroke={1.5} />
+            <DiffIcon
+              size="1rem"
+              stroke={1.5}
+              className={classes.analyticsCardDiffIcon}
+            />
           </Text>
         </Group>
       </Group>
 
       <Group align="flex-end" gap="xs" mt={25}>
-        <Text className={classes.analyticsCardValue}>
+        <Text className={classes.analyticsCardValue} c="white">
           <NumberFormatter thousandSeparator value={value} />
         </Text>
       </Group>

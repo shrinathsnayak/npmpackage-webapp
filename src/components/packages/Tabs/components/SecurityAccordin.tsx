@@ -13,7 +13,7 @@ function AccordionLabel({ score, name, description }: any) {
         </Title>
       </Box>
       <div>
-        <Text fz="md" fw="bold">
+        <Text fz="md" fw="bold" c="white">
           {name}
         </Text>
         <Text size="sm" c="dimmed">

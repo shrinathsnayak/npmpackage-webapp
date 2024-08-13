@@ -21,7 +21,7 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
 
   return (
     <Paper px="md" py="sm" withBorder shadow="md" radius="md">
-      <Text fw={500} mb={5} fz="lg">
+      <Text fw={500} mb={5} fz="lg" c="white">
         {label}
       </Text>
       {getFilteredChartTooltipPayload(payload)?.map((item: any) => (
