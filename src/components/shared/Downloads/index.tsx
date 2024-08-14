@@ -48,11 +48,11 @@ const Downloads = ({
         </Button>
 
         <Button
+          color="teal.8"
           leftSection={<IconShare2 size={15} />}
-          color={clipboard.copied ? "green.8" : "teal.8"}
           onClick={() => clipboard.copy(window?.location?.href)}
         >
-          {clipboard.copied ? "Copied Share URL" : "Copy Share URL"}
+          {clipboard.copied ? "Copied" : "Share"}
         </Button>
       </Flex>
       <div ref={cardRef}>
