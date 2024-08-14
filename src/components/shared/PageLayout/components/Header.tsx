@@ -23,7 +23,7 @@ const Header = ({ hideSearch }: any) => {
     <AppShell.Header>
       <Group
         h="100%"
-        px={{ base: "md", sm: "xl" }}
+        px={{ base: "xs", sm: 100 }}
         justify="space-between"
         align="center"
       >
