@@ -34,7 +34,7 @@ const Header = ({ hideSearch }: any) => {
           py="xs"
           gap={1}
         >
-          <Anchor component={Link} href="/" underline="never" prefetch>
+          <Anchor component={Link} href="/" underline="never" prefetch w="min-content">
             <Flex gap={5} justify="space-between" align="center">
               <Image
                 width={30}

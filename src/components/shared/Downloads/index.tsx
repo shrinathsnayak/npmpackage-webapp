@@ -1,4 +1,4 @@
-import React, { RefObject, useRef } from "react";
+import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import {
   Box,
