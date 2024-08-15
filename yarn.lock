@@ -401,11 +401,6 @@
   resolved "https://registry.npmjs.org/@mantine/store/-/store-7.11.1.tgz"
   integrity sha512-5xOompA7pADDvYlw6KEr0YIr95bdFI0W/KZizi8E/BKOLVUpku1UvqcClodq4U0Xjz5eZt/Jf3gEV9lyJbt8Zw==
 
-"@mantinex/dev-icons@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/@mantinex/dev-icons/-/dev-icons-1.0.2.tgz"
-  integrity sha512-wKSOvjqLTQbSf+XAq3BojhkaEwjR1C3L5ShlgE2lN6JnxGcIZeFcwphMf4xqBp9Gl45XhIyKxNGfmija/u/a7A==
-
 "@mantinex/shiki@^1.0.3":
   version "1.0.3"
   resolved "https://registry.npmjs.org/@mantinex/shiki/-/shiki-1.0.3.tgz"

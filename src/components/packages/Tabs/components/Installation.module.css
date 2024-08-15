@@ -20,11 +20,6 @@
 
 .icon {
   margin-right: 5px;
-
-  @mixin rtl {
-    margin-right: 0;
-    margin-left: 5px;
-  }
 }
 
 .suggestedItem {

@@ -49,7 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="color-scheme" content="dark" />
-        <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+        <link rel="preconnecFt" href="https://avatars.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <ColorSchemeScript forceColorScheme="dark" defaultColorScheme="dark" />
         <Metrics />
