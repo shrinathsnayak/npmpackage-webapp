@@ -50,13 +50,13 @@ const ScoreCardProgress = ({ name, score, label, component }: any) => {
           {
             value: score,
             color: colour,
-            // tooltip: (
-            //   <RenderScoreBreakup
-            //     score={score}
-            //     label={label}
-            //     component={component}
-            //   />
-            // ),
+            tooltip: (
+              <RenderScoreBreakup
+                score={score}
+                label={label}
+                component={component}
+              />
+            ),
           },
         ]}
         label={

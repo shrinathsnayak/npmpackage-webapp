@@ -24,19 +24,19 @@ export const metadata: Metadata = {
   openGraph: {
     images: [OGImage.src],
   },
-  alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}`,
-  },
   keywords: [
+    "react",
+    "github",
+    "nextjs",
     "npmjs.org",
     "npmjs.com",
+    "npm history",
+    "npminsights",
+    "npm package",
     "npm insights",
     "npm downloads",
-    "npm history",
-    "github",
-    "react",
-    "mextjs",
-    "npminsights",
+    "npmpackgae.info",
+    "npm package info",
   ],
 };
 
