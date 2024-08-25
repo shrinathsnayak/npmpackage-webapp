@@ -18,7 +18,7 @@ export const LinksContainer = ({
   runKit,
 }: any) => {
   return (
-    <Group gap={15} mt={10} mb={{ base: 5, sm: 0 }}>
+    <Group gap={15} mb={{ base: 5, sm: 0 }}>
       <Conditional if={homePage}>
         <ActionIcon
           prefetch

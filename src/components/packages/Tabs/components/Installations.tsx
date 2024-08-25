@@ -2,9 +2,12 @@
 
 import React from "react";
 import { CodeHighlightTabs } from "@mantinex/shiki";
+import { Image } from "@mantine/core";
 import classes from "./Installation.module.css";
 import OverviewCard from "@/components/shared/OverviewCard";
-import { IconBrandNpm, IconBrandYarn } from "@tabler/icons-react";
+
+import NpmIcon from "@/assets/npm.svg";
+import YarnIcon from "@/assets/yarn.svg";
 
 const Installations = ({ packageName }: any) => {
   return (
@@ -16,13 +19,13 @@ const Installations = ({ packageName }: any) => {
             fileName: "npm",
             code: `npm install ${packageName}`,
             language: "bash",
-            icon: <IconBrandNpm size={18} color="#C12127" className={classes.icon} />,
+            icon: <Image src={NpmIcon.src} w={16} h={16} alt="NPM Icon" />,
           },
           {
             fileName: "yarn",
             code: `yarn add ${packageName}`,
             language: "bash",
-            icon: <IconBrandYarn size={18} color="#368FB9" className={classes.icon} />,
+            icon: <Image src={YarnIcon.src} w={16} h={16} alt="Yarn Icon" />,
           },
         ]}
       />

@@ -27,17 +27,9 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
           justify="space-between"
           direction={{ base: "column-reverse", sm: "row" }}
         >
-          <Group align="center">
-            <Title
-              order={1}
-              size="2.3rem"
-              fw={800}
-              c="white"
-              textWrap="balance"
-            >
-              {npm?.name || github?.name}
-            </Title>
-          </Group>
+          <Title order={1} size="2.3rem" fw={800} c="white" textWrap="balance">
+            {npm?.name || github?.name}
+          </Title>
           <Box
             mb={{
               base: 15,
