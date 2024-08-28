@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IconSearch } from "@tabler/icons-react";
 import { Badge, Group, Text } from "@mantine/core";
@@ -16,16 +16,12 @@ export function Search() {
   const [query, setQuery] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
 
-  const handleClick = useCallback(
-    (event: any, packageName: string) => {
-      if (packageName) {
-        event.preventDefault();
-        router.push(`/package/${packageName}`);
-        setQuery("");
-      }
-    },
-    [router]
-  );
+  const handleClick = (event: any, packageName: string) => {
+    if (packageName) {
+      router.push(`/package/${packageName}`);
+      setQuery("");
+    }
+  };
 
   const searchPackageName = async (packageName: any) => {
     const { status, data } =
@@ -44,39 +40,35 @@ export function Search() {
     handleSearch(value);
   };
 
-  const items = useMemo(
-    () =>
-      data?.map((item) => (
-        <Spotlight.Action
-          key={`${item.name}${item.version}`}
-          onClick={(event: any) => handleClick(event, item.name)}
-        >
-          <Group wrap="nowrap" w="100%" p={2}>
-            <div style={{ flex: 1 }}>
-              <Group align="center" gap={5}>
-                <Text fz="lg" fw="bold">
-                  {item.name}
-                </Text>
-                <Badge color="gray" variant="light">
-                  {item.version}
-                </Badge>
-              </Group>
-
-              {item.description && (
-                <Text opacity={0.6} size="sm" mt={3}>
-                  {item.description}
-                </Text>
-              )}
-
-              <Text opacity={0.9} size="xs" mt={5}>
-                Published on {formatDate(new Date(item.date))}
-              </Text>
-            </div>
+  const items = data?.map((item) => (
+    <Spotlight.Action
+      key={`${item.name}${item.version}`}
+      onClick={(event: any) => handleClick(event, item.name)}
+    >
+      <Group wrap="nowrap" w="100%" p={2}>
+        <div style={{ flex: 1 }}>
+          <Group align="center" gap={5}>
+            <Text fz="lg" fw="bold">
+              {item.name}
+            </Text>
+            <Badge color="gray" variant="light">
+              {item.version}
+            </Badge>
           </Group>
-        </Spotlight.Action>
-      )),
-    [data, handleClick]
-  );
+
+          {item.description && (
+            <Text opacity={0.6} size="sm" mt={3}>
+              {item.description}
+            </Text>
+          )}
+
+          <Text opacity={0.9} size="xs" mt={5}>
+            Published on {formatDate(new Date(item.date))}
+          </Text>
+        </div>
+      </Group>
+    </Spotlight.Action>
+  ));
 
   return (
     <Spotlight.Root

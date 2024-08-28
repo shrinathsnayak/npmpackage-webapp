@@ -27,11 +27,10 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
         >
           {data?.map((item: DataItem) => (
             <Anchor
-              prefetch
               key={item?.name}
               component={Link}
               underline="never"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/package/${item?.name}`}
+              href={`/package/${item?.name}`}
             >
               <Paper
                 w="100%"
