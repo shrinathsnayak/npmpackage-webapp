@@ -38,16 +38,8 @@ const nextConfig = {
       },
     ],
   },
-  webpack(config, { isServer }) {
-    if (!isServer) {
-      config.optimization.splitChunks = {
-        ...config.optimization.splitChunks,
-        maxSize: 20000,
-      };
-    }
-    return config;
-  },
 };
+
 const withMDX = createMDX({
   options: {
     remarkPlugins: [remarkGfm],
