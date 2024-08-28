@@ -17,7 +17,7 @@ const RenderScoreBreakup = ({ component, label, score }: any) => {
     return (
       <Box>
         {component &&
-          Object.keys(component).map((item: any) => (
+          Object.keys(component)?.map((item: any) => (
             <Conditional if={item} key={item}>
               <Flex align="center" gap={20} justify="space-between">
                 <Text fw={500} fz="sm">
@@ -81,7 +81,7 @@ const Score = ({ scoreData = {} }: any) => {
           spacing={{ base: 10, sm: "xl" }}
           verticalSpacing={{ base: "md", sm: "xl" }}
         >
-          {Object.keys(scoreData).map((item: any) => (
+          {Object.keys(scoreData)?.map((item: any) => (
             <Conditional
               key={item}
               if={VULNERABILITY[item]?.name && scoreData[item]}
