@@ -10,7 +10,6 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { captureException } from "@/utils/error";
 import ErrorImage from "@/assets/error.webp";
 
 export default function Error({
@@ -21,7 +20,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    captureException(error);
+    console.log(error);
   }, [error]);
 
   return (

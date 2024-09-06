@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { Center, Container, Image, Paper, Title } from "@mantine/core";
 import ErrorImage from "@/assets/error.webp";
-import { captureException } from "@/utils/error";
 
 export default function Error({
   error,
@@ -13,7 +12,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    captureException(error);
+    console.log(error);
   }, [error]);
 
   return (

@@ -1,5 +1,4 @@
 import MillionLint from "@million/lint";
-import { withSentryConfig } from "@sentry/nextjs";
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import NextBundleAnalyzer from "@next/bundle-analyzer";
@@ -57,17 +56,15 @@ const withMDX = createMDX({
 export default MillionLint.next({
   rsc: true,
 })(
-  withSentryConfig(
-    withMDX(
-      withBundleAnalyzer(nextConfig, {
-        org: "kickstart-ab",
-        project: "npmpackageinfo",
-        silent: !process.env.CI,
-        widenClientFileUpload: true,
-        hideSourceMaps: true,
-        disableLogger: true,
-        automaticVercelMonitors: true,
-      })
-    )
+  withMDX(
+    withBundleAnalyzer(nextConfig, {
+      org: "kickstart-ab",
+      project: "npmpackageinfo",
+      silent: !process.env.CI,
+      widenClientFileUpload: true,
+      hideSourceMaps: true,
+      disableLogger: true,
+      automaticVercelMonitors: true,
+    })
   )
 );
