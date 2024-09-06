@@ -1,12 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { AppShell } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Search } from "@/components/shared/Search";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Conditional from "../Conditional";
+
+const Footer = dynamic(() => import("./components/Footer"));
+const Header = dynamic(() => import("./components/Header"));
 
 const PageLayout = ({
   children,

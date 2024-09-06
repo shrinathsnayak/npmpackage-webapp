@@ -11,8 +11,13 @@ import { searchPackage } from "@/services/package";
 
 export const [searchStore, searchHandlers] = createSpotlight();
 
-const MemoizedSpotlightAction = memo(({ item, renderItems }: any) => {
+const MemoizedSpotlightAction = memo(({ item }: any) => {
   const router = useRouter();
+  const formattedDate = useMemo(
+    () => formatDate(new Date(item.date)),
+    [item.date]
+  );
+
   const handleClick = useCallback(
     (packageName: string) => {
       if (packageName) {
@@ -23,10 +28,32 @@ const MemoizedSpotlightAction = memo(({ item, renderItems }: any) => {
     [router]
   );
 
-  return (<Spotlight.Action onClick={() => handleClick(item.name)}>
-    {renderItems(item)}
-  </Spotlight.Action>
-  )
+  return (
+    <Spotlight.Action onClick={() => handleClick(item.name)}>
+      <Group wrap="nowrap" w="100%" p={2}>
+        <div style={{ flex: 1 }}>
+          <Group align="center" gap={5}>
+            <Text fz="lg" fw="bold" c="white">
+              {item.name}
+            </Text>
+            <Badge c="gray" variant="light">
+              {item.version}
+            </Badge>
+          </Group>
+
+          {item.description && (
+            <Text opacity={0.6} size="sm" mt={3} c="dark.1">
+              {item.description}
+            </Text>
+          )}
+
+          <Text opacity={0.9} size="xs" mt={5} c="dark.0">
+            Published on {formattedDate}
+          </Text>
+        </div>
+      </Group>
+    </Spotlight.Action>
+  );
 });
 
 MemoizedSpotlightAction.displayName = "MemoizedSpotlightAction";
@@ -56,43 +83,15 @@ export function Search() {
     [handleSearch]
   );
 
-  const renderItems = useCallback((item: any) => {
-    return (
-      <Group wrap="nowrap" w="100%" p={2}>
-        <div style={{ flex: 1 }}>
-          <Group align="center" gap={5}>
-            <Text fz="lg" fw="bold" c="white">
-              {item.name}
-            </Text>
-            <Badge c="gray" variant="light">
-              {item.version}
-            </Badge>
-          </Group>
-
-          {item.description && (
-            <Text opacity={0.6} size="sm" mt={3} c="dark.1">
-              {item.description}
-            </Text>
-          )}
-
-          <Text opacity={0.9} size="xs" mt={5} c="dark.0">
-            Published on {formatDate(new Date(item.date))}
-          </Text>
-        </div>
-      </Group>
-    );
-  }, [])
-
   const items = useMemo(
     () =>
       data?.map((item) => (
         <MemoizedSpotlightAction
-          item={item}
           key={`${item.name}${item.version}`}
-          renderItems={renderItems}
+          item={item}
         />
       )),
-    [data, renderItems]
+    [data]
   );
 
   return (
@@ -109,9 +108,6 @@ export function Search() {
         required
         placeholder="Search Package Name"
         leftSection={<IconSearch stroke={1.5} />}
-        wrapperProps={{
-          focus: true
-        }}
       />
       <Spotlight.ActionsList>
         {items.length > 0 ? (

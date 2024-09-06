@@ -4,7 +4,7 @@ import React, { useMemo, useState } from "react";
 import { Box, Group, List, Text, Accordion, Title } from "@mantine/core";
 import { getScoreTextColor } from "@/utils";
 
-function AccordionLabel({ score, name, description }: any) {
+const AccordionLabel = ({ score, name, description }: any) => {
   return (
     <Group wrap="nowrap" gap={10}>
       <Box miw={50} w={50}>
@@ -22,9 +22,9 @@ function AccordionLabel({ score, name, description }: any) {
       </div>
     </Group>
   );
-}
+};
 
-function AccordionContent({ reason, details }: any) {
+const AccordionContent = ({ reason, details }: any) => {
   return (
     <div>
       <Box my={10} mb={15}>
@@ -51,7 +51,7 @@ function AccordionContent({ reason, details }: any) {
       )}
     </div>
   );
-}
+};
 
 const SecurityAccordin = ({ checks = [] }: any) => {
   const [value, setValue] = useState<string[]>([]);
