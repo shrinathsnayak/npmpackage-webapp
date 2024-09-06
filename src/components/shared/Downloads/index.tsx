@@ -28,12 +28,7 @@ const Downloads = ({
 
   return (
     <Box>
-      <Flex
-        align="center"
-        justify={{ base: "center", sm: "flex-end" }}
-        mb={15}
-        gap={10}
-      >
+      <Flex align="center" justify={{ sm: "flex-end" }} mb={15} gap={10}>
         <Button
           color="red.8"
           leftSection={<IconDownload size={15} />}

@@ -51,7 +51,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           <Text
             fw={500}
             fz="xs"
-            c="dimmed"
+            c="dark.0"
             ta="center"
             mt={{ base: 10, sm: 0 }}
           >
