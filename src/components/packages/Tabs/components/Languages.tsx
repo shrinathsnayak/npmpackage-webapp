@@ -1,11 +1,11 @@
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 import { PieChart } from "@mantine/charts";
 import { Box, Flex, Group, Paper, Text } from "@mantine/core";
 import { formatLanguagesData } from "@/utils";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { IconPointFilled } from "@tabler/icons-react";
 
-export const LanguageLegend = ({ name, color, value }: any) => {
+export const LanguageLegend = memo(({ name, color, value }: any) => {
   if (value) {
     return (
       <Flex align="center">
@@ -17,7 +17,9 @@ export const LanguageLegend = ({ name, color, value }: any) => {
       </Flex>
     );
   }
-};
+});
+
+LanguageLegend.displayName = "LanguageLegend";
 
 const Languages = ({ languages }: any) => {
   const languagesData = useMemo(() => {

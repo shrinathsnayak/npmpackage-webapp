@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Box, Group, List, Text, Accordion, Title } from "@mantine/core";
 import { getScoreTextColor } from "@/utils";
 
@@ -55,16 +55,18 @@ function AccordionContent({ reason, details }: any) {
 
 const SecurityAccordin = ({ checks = [] }: any) => {
   const [value, setValue] = useState<string[]>([]);
-  const items = checks?.map((item: any) => (
-    <Accordion.Item value={item.name} key={item.name}>
-      <Accordion.Control>
-        <AccordionLabel {...item} />
-      </Accordion.Control>
-      <Accordion.Panel>
-        <AccordionContent {...item} />
-      </Accordion.Panel>
-    </Accordion.Item>
-  ));
+  const items = useMemo(() => {
+    return checks?.map((item: any) => (
+      <Accordion.Item value={item.name} key={item.name}>
+        <Accordion.Control>
+          <AccordionLabel {...item} />
+        </Accordion.Control>
+        <Accordion.Panel>
+          <AccordionContent {...item} />
+        </Accordion.Panel>
+      </Accordion.Item>
+    ));
+  }, [checks]);
 
   return (
     <Box w="100%">
