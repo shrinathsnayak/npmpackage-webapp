@@ -12,11 +12,9 @@ const nextConfig = {
     optimizeCss: true,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
-      "@mantine/core",
       "@mantine/charts",
       "@mantine/spotlight",
       "@mantinex/shiki",
-      "@mantine/hooks",
       "@mantine/form",
       "@mantine/code-highlight",
       "@mantine/dates",
