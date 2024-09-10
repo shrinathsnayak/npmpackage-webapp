@@ -8,7 +8,7 @@ import Conditional from "@/components/shared/Conditional";
 const Developer = ({ avatar, owner, developerUrl }: any) => {
   return (
     <OverviewCard title="Developer">
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
+      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex gap={10} align="center">
           <Image
             width={20}

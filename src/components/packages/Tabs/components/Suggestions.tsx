@@ -35,7 +35,6 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
               <Paper
                 w="100%"
                 h="100%"
-                withBorder
                 radius="md"
                 bg="dark.9"
                 shadow="xs"

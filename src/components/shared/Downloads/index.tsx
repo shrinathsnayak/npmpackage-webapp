@@ -51,7 +51,7 @@ const Downloads = ({
         </Button>
       </Flex>
       <div ref={cardRef}>
-        <Paper withBorder p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
+        <Paper p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
           <Flex
             align="center"
             justify="space-between"

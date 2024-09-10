@@ -20,7 +20,7 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
   if (!payload) return null;
 
   return (
-    <Paper px="md" py="sm" withBorder shadow="md" radius="md">
+    <Paper px="md" py="sm" shadow="md" radius="md">
       <Text fw={500} mb={5} fz="lg" c="white">
         {label}
       </Text>
@@ -41,7 +41,7 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
 const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
   const Chart = ChartsMapping[chartType];
   return (
-    <Paper withBorder p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
+    <Paper p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
       <Title order={5} mb={50}>
         {type} Downloads
       </Title>

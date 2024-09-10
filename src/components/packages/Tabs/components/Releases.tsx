@@ -53,7 +53,7 @@ const Releases = ({ releases, repositoryUrl }: any) => {
       title="Releases"
       badge={<NumberFormatter thousandSeparator value={total} />}
     >
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
+      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <SimpleGrid cols={{ base: 1, xs: 3 }}>
           {data?.map((item: any) => {
             return <ReleaseCard key={item.publishedAt} {...item} />;

@@ -41,7 +41,7 @@ const ActionsCard = ({ data, link }: any) => {
           />
         </ActionIcon>
       </Flex>
-      <Divider />
+      <Divider c="dark.7"/>
       <Flex align="center" justify="space-around">
         <Box p="xs" ta="center">
           <Text fz="sm" c="white">
@@ -51,7 +51,7 @@ const ActionsCard = ({ data, link }: any) => {
             <NumberFormatter thousandSeparator value={Number(total)} />
           </Title>
         </Box>
-        <Divider orientation="vertical" />
+        <Divider orientation="vertical" c="dark.7" />
         <Box p="xs" ta="center">
           <Text fz="sm" c="white">
             Closed
@@ -62,7 +62,7 @@ const ActionsCard = ({ data, link }: any) => {
         </Box>
         {merged > 0 && (
           <>
-            <Divider orientation="vertical" />
+            <Divider orientation="vertical" c="dark.7" />
             <Box p="xs" ta="center">
               <Text fz="sm" c="white">
                 Merged
@@ -82,12 +82,12 @@ const Actions = ({ prs, issues, repositoryUrl }: any) => {
   return (
     <SimpleGrid cols={{ base: 1, xs: 2 }} spacing={{ base: 5, sm: 20 }}>
       <OverviewCard title="Pull Requests">
-        <Paper p={0} radius="md" bg="dark.9" shadow="sm" withBorder>
+        <Paper p={0} radius="md" bg="dark.9" shadow="sm">
           <ActionsCard data={prs} link={`${repositoryUrl}/pulls`} />
         </Paper>
       </OverviewCard>
       <OverviewCard title="Issues">
-        <Paper p={0} radius="md" bg="dark.9" shadow="sm" withBorder>
+        <Paper p={0} radius="md" bg="dark.9" shadow="sm">
           <ActionsCard data={issues} link={`${repositoryUrl}/issues`} />
         </Paper>
       </OverviewCard>

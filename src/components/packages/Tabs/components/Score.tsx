@@ -75,7 +75,7 @@ const ScoreCardProgress = ({ name, score, label, component }: any) => {
 const Score = ({ scoreData = {} }: any) => {
   return (
     <OverviewCard title="Score">
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
+      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <SimpleGrid
           cols={{ base: 2, sm: 2, lg: 4 }}
           spacing={{ base: 10, sm: "xl" }}

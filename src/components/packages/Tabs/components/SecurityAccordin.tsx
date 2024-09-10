@@ -3,6 +3,7 @@
 import React, { useMemo, useState, useCallback } from "react";
 import { Box, Group, List, Text, Accordion, Title } from "@mantine/core";
 import { getScoreTextColor } from "@/utils";
+import classes from './Installation.module.css';
 
 const AccordionLabel = React.memo(({ score, name, description }: any) => {
   return (
@@ -73,14 +74,6 @@ const SecurityAccordin = ({ checks = [] }: any) => {
     ));
   }, [checks]);
 
-  const accordinStyles = useMemo(
-    () => ({
-      overflow: "hidden",
-      borderRadius: "0.5rem",
-    }),
-    []
-  );
-
   const handleAccordionChange = useCallback((newValue: string[]) => {
     setValue(newValue);
   }, []);
@@ -95,7 +88,7 @@ const SecurityAccordin = ({ checks = [] }: any) => {
         chevronPosition="right"
         bg="dark.9"
         radius="md"
-        style={accordinStyles}
+        classNames={{ root: classes.accordinRoot, item: classes.accordinItem }}
       >
         {items}
       </Accordion>

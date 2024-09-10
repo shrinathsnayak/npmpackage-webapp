@@ -69,7 +69,7 @@ const SearchContainer = () => {
         : null,
     };
     return (
-      <Paper p={2} px="sm" radius="sm" bg="dark.7" shadow="sm" withBorder>
+      <Paper p={2} px="sm" radius="sm" bg="dark.7" shadow="sm">
         <Flex gap={10} align="center">
           <Conditional if={packageName}>
             <Text fz="sm" ml={1}>

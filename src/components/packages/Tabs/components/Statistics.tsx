@@ -37,7 +37,7 @@ const Statistics = ({ data }: any) => {
   } = data || {};
   return (
     <OverviewCard title="Statistics">
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
+      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {license && (
           <Stat
             tooltip="License"

@@ -11,7 +11,6 @@ const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
   const DiffIcon = difference > 0 ? IconArrowUpRight : IconArrowDownRight;
   return (
     <Paper
-      withBorder
       p="md"
       radius="md"
       key={title}

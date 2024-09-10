@@ -82,7 +82,7 @@ const Header = ({ hideSearch }: any) => {
                 </UnstyledButton>
               </>
             )}
-            <UnstyledButton
+            {/* <UnstyledButton
               component={Link}
               href="/downloads"
               className={classes.mobilecontrol}
@@ -91,7 +91,7 @@ const Header = ({ hideSearch }: any) => {
                 style={{ width: rem(22), height: rem(22) }}
                 stroke={2}
               />
-            </UnstyledButton>
+            </UnstyledButton> */}
           </Group>
         </Group>
       </Group>

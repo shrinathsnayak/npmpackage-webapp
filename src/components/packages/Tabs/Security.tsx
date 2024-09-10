@@ -16,7 +16,6 @@ const Security = ({ packageInfo }: any) => {
         <Paper
           p="lg"
           top="75px"
-          withBorder
           shadow="sm"
           h="fit-content"
           radius="md"

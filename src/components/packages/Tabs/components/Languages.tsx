@@ -39,7 +39,7 @@ const Languages = ({ languages }: any) => {
 
   return (
     <OverviewCard title="Languages">
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
+      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {MemoizedPieChart}
         <Group gap={2} mt={10}>
           {legendItems}
