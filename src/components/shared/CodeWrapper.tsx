@@ -1,19 +1,25 @@
 "use client";
 
+import React, { useCallback } from "react";
 import { ShikiProvider } from "@mantinex/shiki";
+import { Highlighter } from "shiki";
 
-async function loadShiki() {
-  const { getHighlighter } = (await import("shiki")) || {};
+const loadShiki = async (): Promise<Highlighter> => {
+  const { getHighlighter } = await import("shiki");
   const shiki = await getHighlighter({
     langs: ["tsx", "scss", "html", "bash", "json"],
     themes: [],
   });
 
   return shiki;
-}
+};
 
 const ShikiLoader = ({ children }: { children: React.ReactNode }) => {
-  return <ShikiProvider loadShiki={loadShiki as any}>{children}</ShikiProvider>;
+  const memoizedLoadShiki = useCallback(loadShiki, []);
+
+  return (
+    <ShikiProvider loadShiki={memoizedLoadShiki}>{children}</ShikiProvider>
+  );
 };
 
 export default ShikiLoader;

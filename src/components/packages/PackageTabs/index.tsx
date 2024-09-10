@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useCallback, useMemo } from "react";
+import { Suspense, useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container, NumberFormatter } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
@@ -13,27 +12,15 @@ import ReadMe from "@/components/packages/Tabs/ReadMe";
 import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Downloads from "@/components/shared/Downloads";
-// const Overview = dynamic(() => import("@/components/packages/Tabs/Overview"), {
-//   ssr: true,
-// });
-// const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"), {
-//   ssr: true,
-// });
-// const Security = dynamic(() => import("@/components/packages/Tabs/Security"), {
-//   ssr: true,
-// });
-// const Dependencies = dynamic(
-//   () => import("@/components/packages/Tabs/Dependencies"),
-//   { ssr: true }
-// );
-// const Downloads = dynamic(() => import("@/components/shared/Downloads"), {
-//   ssr: true,
-// });
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const search = searchParams.get("t") || DEFAULT_TAB;
+  const search = useMemo(
+    () => searchParams.get("t") || DEFAULT_TAB,
+    [searchParams]
+  );
+  const downloadsData = useMemo(() => downloads, []);
   const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
     () => calculateOverallCount(npm?.data?.dependencies),
@@ -84,15 +71,24 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
-          <Overview packageInfo={packageInfo} />
+          <Suspense>
+            <Overview packageInfo={packageInfo} />
+          </Suspense>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <Downloads downloads={downloads} packageName={npm?.data?.name} />
+          <Suspense>
+            <Downloads
+              downloads={downloadsData}
+              packageName={npm?.data?.name}
+            />
+          </Suspense>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
-          <Dependencies data={npm?.data?.dependencies} />
+          <Suspense>
+            <Dependencies data={npm?.data?.dependencies} />
+          </Suspense>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.versions.value} py={20}>
@@ -100,11 +96,15 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <ReadMe data={gitHub?.data?.readMe} />
+          <Suspense>
+            <ReadMe data={gitHub?.data?.readMe} />
+          </Suspense>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>
-          <Security packageInfo={securityScore?.data} />
+          <Suspense>
+            <Security packageInfo={securityScore?.data} />
+          </Suspense>
         </Tabs.Panel>
       </Tabs>
     </Container>

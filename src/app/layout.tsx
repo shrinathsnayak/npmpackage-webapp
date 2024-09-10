@@ -3,11 +3,11 @@ import "@mantine/spotlight/styles.css";
 import "@mantine/code-highlight/styles.css";
 import "@mantinex/shiki/styles.css";
 import "@mantine/dates/styles.css";
-import '@mantine/nprogress/styles.css';
+import "@mantine/nprogress/styles.css";
 import "@/global.module.css";
 
 import type { Metadata } from "next";
-import { MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
 import Metrics from "@/observability";
 import Favicon from "@/assets/logos/icon.png";
@@ -54,6 +54,7 @@ export default function RootLayout({
         <link rel="preconnecFt" href="https://avatars.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <Metrics />
+        <ColorSchemeScript defaultColorScheme="dark" forceColorScheme="dark" />
       </head>
       <body suppressHydrationWarning={true} className="root">
         <MantineProvider

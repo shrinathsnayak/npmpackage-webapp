@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import { Box, Group, List, Text, Accordion, Title } from "@mantine/core";
 import { getScoreTextColor } from "@/utils";
 
-const AccordionLabel = ({ score, name, description }: any) => {
+const AccordionLabel = React.memo(({ score, name, description }: any) => {
   return (
     <Group wrap="nowrap" gap={10}>
       <Box miw={50} w={50}>
@@ -22,9 +22,11 @@ const AccordionLabel = ({ score, name, description }: any) => {
       </div>
     </Group>
   );
-};
+});
 
-const AccordionContent = ({ reason, details }: any) => {
+AccordionLabel.displayName = "AccordionLabel";
+
+const AccordionContent = React.memo(({ reason, details }: any) => {
   return (
     <div>
       <Box my={10} mb={15}>
@@ -51,10 +53,13 @@ const AccordionContent = ({ reason, details }: any) => {
       )}
     </div>
   );
-};
+});
+
+AccordionContent.displayName = "AccordionContent";
 
 const SecurityAccordin = ({ checks = [] }: any) => {
   const [value, setValue] = useState<string[]>([]);
+
   const items = useMemo(() => {
     return checks?.map((item: any) => (
       <Accordion.Item value={item.name} key={item.name}>
@@ -68,22 +73,36 @@ const SecurityAccordin = ({ checks = [] }: any) => {
     ));
   }, [checks]);
 
+  const accordinStyles = useMemo(
+    () => ({
+      overflow: "hidden",
+      borderRadius: "0.5rem",
+    }),
+    []
+  );
+
+  const handleAccordionChange = useCallback((newValue: string[]) => {
+    setValue(newValue);
+  }, []);
+
   return (
     <Box w="100%">
       <Accordion
         multiple
         value={value}
         variant="contained"
-        onChange={setValue}
+        onChange={handleAccordionChange}
         chevronPosition="right"
         bg="dark.9"
         radius="md"
-        style={{ overflow: "hidden", borderRadius: "0.5rem" }}
+        style={accordinStyles}
       >
         {items}
       </Accordion>
     </Box>
   );
 };
+
+SecurityAccordin.displayName = "SecurityAccordin";
 
 export default SecurityAccordin;

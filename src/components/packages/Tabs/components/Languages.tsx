@@ -26,16 +26,23 @@ const Languages = ({ languages }: any) => {
     return formatLanguagesData(languages);
   }, [languages]);
 
+  const MemoizedPieChart = useMemo(
+    () => <PieChart data={languagesData} mx="auto" size={180} h={200} />,
+    [languagesData]
+  );
+
+  const legendItems = useMemo(() => {
+    return languagesData
+      ?.sort((a: any, b: any) => b.value - a.value)
+      ?.map((item: any) => <LanguageLegend key={item.name} {...item} />);
+  }, [languagesData]);
+
   return (
     <OverviewCard title="Languages">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm" withBorder>
-        <PieChart data={languagesData} mx="auto" size={180} h={200} />
+        {MemoizedPieChart}
         <Group gap={2} mt={10}>
-          {languagesData
-            ?.sort((a: any, b: any) => b.value - a.value)
-            ?.map((item: any) => (
-              <LanguageLegend key={item.name} {...item} />
-            ))}
+          {legendItems}
         </Group>
       </Paper>
     </OverviewCard>
