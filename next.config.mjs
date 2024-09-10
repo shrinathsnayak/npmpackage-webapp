@@ -11,14 +11,6 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     webVitalsAttribution: ["CLS", "LCP"],
-    optimizePackageImports: [
-      "@mantine/charts",
-      "@mantine/spotlight",
-      "@mantinex/shiki",
-      "@mantine/form",
-      "@mantine/code-highlight",
-      "@mantine/dates",
-    ],
   },
   poweredByHeader: false,
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
@@ -53,16 +45,4 @@ const withMDX = createMDX({
 });
 export default MillionLint.next({
   rsc: true,
-})(
-  withMDX(
-    withBundleAnalyzer(nextConfig, {
-      org: "kickstart-ab",
-      project: "npmpackageinfo",
-      silent: !process.env.CI,
-      widenClientFileUpload: true,
-      hideSourceMaps: true,
-      disableLogger: true,
-      automaticVercelMonitors: true,
-    })
-  )
-);
+})(withMDX(withBundleAnalyzer(nextConfig)));

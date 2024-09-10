@@ -20,10 +20,7 @@ const MemoizedSpotlightAction = memo(({ item }: any) => {
 
   const handleClick = useCallback(
     (packageName: string) => {
-      if (packageName) {
-        router.prefetch(`/package/${packageName}`);
-        router.push(`/package/${packageName}`);
-      }
+      router.push(`/package/${packageName}`);
     },
     [router]
   );
