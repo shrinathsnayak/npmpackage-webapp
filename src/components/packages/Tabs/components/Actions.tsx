@@ -20,7 +20,7 @@ const ActionsCard = ({ data, link }: any) => {
     <Box>
       <Flex p="md" px="lg" justify="space-between">
         <Box>
-          <Text fz="xs" c="dimmed" mb={1}>
+          <Text fz="xs" c="white" mb={1}>
             Open
           </Text>
           <Title order={2} c="green.6">
@@ -44,7 +44,7 @@ const ActionsCard = ({ data, link }: any) => {
       <Divider />
       <Flex align="center" justify="space-around">
         <Box p="xs" ta="center">
-          <Text fz="sm" c="dimmed">
+          <Text fz="sm" c="white">
             Total
           </Text>
           <Title order={4}>
@@ -53,7 +53,7 @@ const ActionsCard = ({ data, link }: any) => {
         </Box>
         <Divider orientation="vertical" />
         <Box p="xs" ta="center">
-          <Text fz="sm" c="dimmed">
+          <Text fz="sm" c="white">
             Closed
           </Text>
           <Title order={4} c="red.6">
@@ -64,7 +64,7 @@ const ActionsCard = ({ data, link }: any) => {
           <>
             <Divider orientation="vertical" />
             <Box p="xs" ta="center">
-              <Text fz="sm" c="dimmed">
+              <Text fz="sm" c="white">
                 Merged
               </Text>
               <Title order={4} c="grape.6">

@@ -51,7 +51,6 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
         <link rel="preconnecFt" href="https://avatars.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
-        <ColorSchemeScript forceColorScheme="dark" defaultColorScheme="dark" />
         <Metrics />
       </head>
       <body suppressHydrationWarning={true} className="root">

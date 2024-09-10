@@ -6,16 +6,25 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container, NumberFormatter } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
-import classes from "./Tabs.module.css";
 import Conditional from "@/components/shared/Conditional";
+import classes from "./Tabs.module.css";
 
-const Overview = dynamic(() => import("@/components/packages/Tabs/Overview"));
-const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"));
-const Security = dynamic(() => import("@/components/packages/Tabs/Security"));
+const Overview = dynamic(() => import("@/components/packages/Tabs/Overview"), {
+  ssr: true,
+});
+const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"), {
+  ssr: true,
+});
+const Security = dynamic(() => import("@/components/packages/Tabs/Security"), {
+  ssr: true,
+});
 const Dependencies = dynamic(
-  () => import("@/components/packages/Tabs/Dependencies")
+  () => import("@/components/packages/Tabs/Dependencies"),
+  { ssr: true }
 );
-const Downloads = dynamic(() => import("@/components/shared/Downloads"));
+const Downloads = dynamic(() => import("@/components/shared/Downloads"), {
+  ssr: true,
+});
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
