@@ -15,7 +15,7 @@ const loadShiki = async (): Promise<Highlighter> => {
 };
 
 const ShikiLoader = ({ children }: { children: React.ReactNode }) => {
-  const memoizedLoadShiki = useCallback(loadShiki, []);
+  const memoizedLoadShiki: any = useCallback(loadShiki, []);
 
   return (
     <ShikiProvider loadShiki={memoizedLoadShiki}>{children}</ShikiProvider>
