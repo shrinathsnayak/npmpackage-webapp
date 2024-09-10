@@ -7,6 +7,7 @@ import {
 import Conditional from "@/components/shared/Conditional";
 import { genereatePackageName } from "@/constants/services.constants";
 import { removeSimilarByName } from "@/utils";
+import { useMemo } from "react";
 
 const PackageContainer = dynamic(
   () => import("@/components/packages/PackageContainer"),
@@ -53,7 +54,10 @@ export default async function Package({ params }: { params: { package: [] } }) {
 
   return (
     <>
-      <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
+      <PackageContainer
+        packageInfo={data}
+        downloads={downloads?.data?.total}
+      />
       <PageTabs packageInfo={data} downloads={downloads} />
       <Conditional if={filteredData?.length > 0}>
         <Suggestions searchData={filteredData} packageName={packageName} />

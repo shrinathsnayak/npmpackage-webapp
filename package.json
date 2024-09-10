@@ -16,6 +16,7 @@
     "@mantine/dates": "^7.12.0",
     "@mantine/form": "^7.12.0",
     "@mantine/hooks": "^7.12.0",
+    "@mantine/nprogress": "^7.12.2",
     "@mantine/spotlight": "^7.12.0",
     "@mantinex/shiki": "^1.0.3",
     "@mdx-js/loader": "^3.0.1",

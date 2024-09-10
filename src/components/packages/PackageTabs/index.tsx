@@ -1,30 +1,34 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container, NumberFormatter } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import { calculateOverallCount } from "@/utils";
 import Conditional from "@/components/shared/Conditional";
 import classes from "./Tabs.module.css";
-
-const Overview = dynamic(() => import("@/components/packages/Tabs/Overview"), {
-  ssr: true,
-});
-const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"), {
-  ssr: true,
-});
-const Security = dynamic(() => import("@/components/packages/Tabs/Security"), {
-  ssr: true,
-});
-const Dependencies = dynamic(
-  () => import("@/components/packages/Tabs/Dependencies"),
-  { ssr: true }
-);
-const Downloads = dynamic(() => import("@/components/shared/Downloads"), {
-  ssr: true,
-});
+import Overview from "@/components/packages/Tabs/Overview";
+import ReadMe from "@/components/packages/Tabs/ReadMe";
+import Security from "@/components/packages/Tabs/Security";
+import Dependencies from "@/components/packages/Tabs/Dependencies";
+import Downloads from "@/components/shared/Downloads";
+// const Overview = dynamic(() => import("@/components/packages/Tabs/Overview"), {
+//   ssr: true,
+// });
+// const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"), {
+//   ssr: true,
+// });
+// const Security = dynamic(() => import("@/components/packages/Tabs/Security"), {
+//   ssr: true,
+// });
+// const Dependencies = dynamic(
+//   () => import("@/components/packages/Tabs/Dependencies"),
+//   { ssr: true }
+// );
+// const Downloads = dynamic(() => import("@/components/shared/Downloads"), {
+//   ssr: true,
+// });
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
@@ -36,6 +40,15 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     [npm?.data]
   );
 
+  const redirectToTab = useCallback(
+    (value: string) => {
+      if (value) {
+        router.push(`?t=${value}`);
+      }
+    },
+    [router]
+  );
+
   return (
     <Container className="responsiveContainer" mt={-47}>
       <Tabs
@@ -43,7 +56,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         variant="outline"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
-        onChange={(value) => router.push(`?t=${value}`)}
+        onChange={(value: any) => redirectToTab(value)}
       >
         <Tabs.List>
           <Tabs.Tab py="md" px="lg" c="white" value="overview">
