@@ -167,22 +167,22 @@ export const removeSimilarByName = (
   resultCount = 4
 ): DataItem[] => {
   if (!Array.isArray(data)) {
-    throw new TypeError("First argument must be an array.");
+    console.error("First argument must be an array.");
   }
 
   if (typeof nameToRemove !== "string") {
-    throw new TypeError("Second argument must be a string.");
+    console.error("Second argument must be a string.");
   }
 
   if (typeof resultCount !== "number" || resultCount < 0) {
-    throw new TypeError("Third argument must be a non-negative number.");
+    console.error("Third argument must be a non-negative number.");
   }
 
   let removedCount = 0;
 
-  const filteredData = data.filter((item) => {
+  const filteredData = data?.filter((item) => {
     if (!item || typeof item !== "object" || !item.name) {
-      throw new Error(
+      console.error(
         "Each item in the array must be an object with a 'name' property."
       );
     }
@@ -195,7 +195,7 @@ export const removeSimilarByName = (
     return true;
   });
 
-  const limitedData = filteredData.slice(0, resultCount);
+  const limitedData = filteredData?.slice(0, resultCount);
 
   return limitedData;
 };

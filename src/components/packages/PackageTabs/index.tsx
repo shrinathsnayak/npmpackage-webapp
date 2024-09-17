@@ -1,10 +1,9 @@
 "use client";
 
-import { Suspense, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container, NumberFormatter } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
-import { calculateOverallCount } from "@/utils";
 import Conditional from "@/components/shared/Conditional";
 import classes from "./Tabs.module.css";
 import Overview from "@/components/packages/Tabs/Overview";
@@ -23,7 +22,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   const downloadsData = useMemo(() => downloads, []);
   const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
-    () => calculateOverallCount(npm?.data?.dependencies),
+    () => npm?.data?.dependencies?.dependencies?.totalCount,
     [npm?.data]
   );
 
@@ -71,24 +70,18 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
-          <Suspense>
-            <Overview packageInfo={packageInfo} />
-          </Suspense>
+          <Overview packageInfo={packageInfo} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <Suspense>
-            <Downloads
-              downloads={downloadsData}
-              packageName={npm?.data?.name}
-            />
-          </Suspense>
+          <Downloads
+            downloads={downloadsData}
+            packageName={npm?.data?.name}
+          />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
-          <Suspense>
-            <Dependencies data={npm?.data?.dependencies} />
-          </Suspense>
+          <Dependencies data={npm?.data?.dependencies} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.versions.value} py={20}>
@@ -96,15 +89,11 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <Suspense>
-            <ReadMe data={gitHub?.data?.readMe} />
-          </Suspense>
+          <ReadMe data={gitHub?.data?.readMe} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>
-          <Suspense>
-            <Security packageInfo={securityScore?.data} />
-          </Suspense>
+          <Security packageInfo={securityScore?.data} />
         </Tabs.Panel>
       </Tabs>
     </Container>
