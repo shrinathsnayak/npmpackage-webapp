@@ -11,6 +11,7 @@ import ReadMe from "@/components/packages/Tabs/ReadMe";
 import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Downloads from "@/components/shared/Downloads";
+import { calculateOverallCount } from "@/utils";
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   const downloadsData = useMemo(() => downloads, []);
   const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
-    () => npm?.data?.dependencies?.dependencies?.totalCount,
+    () => calculateOverallCount(npm?.data?.dependencies),
     [npm?.data]
   );
 
@@ -59,7 +60,11 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
           <Conditional if={(dependenciesCount || 0) > 0}>
             <Tabs.Tab py="md" px="lg" c="white" value="dependencies">
               Dependencies (
-              <NumberFormatter thousandSeparator value={dependenciesCount} />)
+              <NumberFormatter
+                thousandSeparator
+                value={npm?.data?.dependencies?.dependencies?.totalCount}
+              />
+              )
             </Tabs.Tab>
           </Conditional>
           <Conditional if={securityScore?.data?.score}>
@@ -74,10 +79,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <Downloads
-            downloads={downloadsData}
-            packageName={npm?.data?.name}
-          />
+          <Downloads downloads={downloadsData} packageName={npm?.data?.name} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
