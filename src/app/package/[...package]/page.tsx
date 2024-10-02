@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import {
   getPackageData,
@@ -52,12 +53,12 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const filteredData = removeSimilarByName(searchData?.data, packageName);
 
   return (
-    <>
+    <Suspense fallback={<p>Loading...</p>}>
       <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
       <PageTabs packageInfo={data} downloads={downloads} />
       <Conditional if={filteredData?.length > 0}>
         <Suggestions searchData={filteredData} packageName={packageName} />
       </Conditional>
-    </>
+    </Suspense>
   );
 }
