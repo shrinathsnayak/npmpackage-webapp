@@ -59,12 +59,17 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
           </Tabs.Tab>
           <Conditional if={(dependenciesCount || 0) > 0}>
             <Tabs.Tab py="md" px="lg" c="white" value="dependencies">
-              Dependencies (
-              <NumberFormatter
-                thousandSeparator
-                value={npm?.data?.dependencies?.dependencies?.totalCount}
-              />
-              )
+              Dependencies
+              <Conditional
+                if={npm?.data?.dependencies?.dependencies?.totalCount > 0}
+              >
+                (
+                <NumberFormatter
+                  thousandSeparator
+                  value={npm?.data?.dependencies?.dependencies?.totalCount}
+                />
+                )
+              </Conditional>
             </Tabs.Tab>
           </Conditional>
           <Conditional if={securityScore?.data?.score}>
