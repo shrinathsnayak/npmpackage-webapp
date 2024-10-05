@@ -31,6 +31,8 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
               component={Link}
               underline="never"
               href={`/package/${item?.name}`}
+              scroll={false}
+              shallow={true}
             >
               <Paper
                 w="100%"

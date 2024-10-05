@@ -22,7 +22,10 @@ const CodeHighlightTabs = memo(
         <OriginalCodeHighlightTabs code={code} classNames={classNames} />
       </Suspense>
     );
-  }
+  },
+  (prevProps, nextProps) =>
+    prevProps.code === nextProps.code &&
+    prevProps.classNames === nextProps.classNames
 );
 
 CodeHighlightTabs.displayName = "CodeHighlightTabs";

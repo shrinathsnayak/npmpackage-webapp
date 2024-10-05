@@ -17,6 +17,9 @@ import React from "react"; // Import React to use React.memo
 // Wrap Downloads component with React.memo to prevent unnecessary re-renders
 const MemoizedDownloads = React.memo(Downloads);
 
+// Wrap Security component with React.memo to prevent unnecessary re-renders
+const MemoizedSecurity = React.memo(Security);
+
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -49,7 +52,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         variant="outline"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
-        onChange={redirectToTab} // Use the memoized function directly
+        onChange={(value: any) => redirectToTab(value)} // Use the memoized function directly
       >
         <Tabs.List>
           <Tabs.Tab py="md" px="lg" c="white" value="overview">
@@ -106,7 +109,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>
-          <Security packageInfo={securityScore?.data} />
+          <MemoizedSecurity packageInfo={securityScore?.data} />
         </Tabs.Panel>
       </Tabs>
     </Container>
