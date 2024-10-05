@@ -78,6 +78,11 @@ const SecurityAccordin = ({ checks = [] }: any) => {
     setValue(newValue);
   }, []);
 
+  const classNames = useMemo(() => ({
+    root: classes.accordinRoot,
+    item: classes.accordinItem
+  }), []);
+
   return (
     <Box w="100%">
       <Accordion
@@ -88,7 +93,7 @@ const SecurityAccordin = ({ checks = [] }: any) => {
         chevronPosition="right"
         bg="dark.9"
         radius="md"
-        classNames={{ root: classes.accordinRoot, item: classes.accordinItem }}
+        classNames={classNames}
       >
         {items}
       </Accordion>

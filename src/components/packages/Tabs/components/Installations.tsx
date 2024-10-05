@@ -1,7 +1,6 @@
 "use client";
 
-import React, { memo, useMemo } from "react";
-import { CodeHighlightTabs as OriginalCodeHighlightTabs } from "@mantinex/shiki";
+import React, { memo, useMemo, lazy, Suspense } from "react";
 import { Image } from "@mantine/core";
 import classes from "./Installation.module.css";
 import OverviewCard from "@/components/shared/OverviewCard";
@@ -9,9 +8,20 @@ import OverviewCard from "@/components/shared/OverviewCard";
 import NpmIcon from "@/assets/npm.svg";
 import YarnIcon from "@/assets/yarn.svg";
 
+// Use React.lazy for code splitting
+const OriginalCodeHighlightTabs = lazy(() =>
+  import("@mantinex/shiki").then((module) => ({
+    default: module.CodeHighlightTabs,
+  }))
+);
+
 const CodeHighlightTabs = memo(
   ({ code, classNames }: { code: any; classNames: any }) => {
-    return <OriginalCodeHighlightTabs code={code} classNames={classNames} />;
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OriginalCodeHighlightTabs code={code} classNames={classNames} />
+      </Suspense>
+    );
   }
 );
 

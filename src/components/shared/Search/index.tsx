@@ -20,11 +20,11 @@ const MemoizedSpotlightAction = memo(({ item, setQuery }: any) => {
 
   const handleClick = useCallback(
     (packageName: string) => {
-      setQuery("");
       router.push(`/package/${packageName}`, {
         scroll: false,
         shallow: true,
       } as any);
+      setQuery("");
     },
     [router, setQuery]
   );
@@ -86,7 +86,7 @@ export function Search() {
 
   const items = useMemo(
     () =>
-      data?.map((item) => (
+      data.map((item) => (
         <MemoizedSpotlightAction
           key={`${item.name}${item.version}`}
           setQuery={setQuery}
@@ -94,6 +94,11 @@ export function Search() {
         />
       )),
     [data]
+  );
+
+  const memoizedIconSearch = useMemo(
+    () => <IconSearch stroke={1.5} />,
+    []
   );
 
   return (
@@ -109,7 +114,7 @@ export function Search() {
         pointer
         required
         placeholder="Search Package Name"
-        leftSection={<IconSearch stroke={1.5} />}
+        leftSection={memoizedIconSearch}
       />
       <Spotlight.ActionsList>
         {items.length > 0 ? (

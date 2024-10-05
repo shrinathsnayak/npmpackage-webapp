@@ -12,6 +12,10 @@ import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Downloads from "@/components/shared/Downloads";
 import { calculateOverallCount } from "@/utils";
+import React from "react"; // Import React to use React.memo
+
+// Wrap Downloads component with React.memo to prevent unnecessary re-renders
+const MemoizedDownloads = React.memo(Downloads);
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
@@ -20,7 +24,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     () => searchParams.get("t") || DEFAULT_TAB,
     [searchParams]
   );
-  const downloadsData = useMemo(() => downloads, []);
+  const downloadsData = useMemo(() => downloads, [downloads]); // Ensure stability
   const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
     () => calculateOverallCount(npm?.data?.dependencies),
@@ -36,6 +40,8 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     [router]
   );
 
+  const packageName = useMemo(() => npm?.data?.name, [npm?.data?.name]); // Ensure stability
+
   return (
     <Container className="responsiveContainer" mt={-47}>
       <Tabs
@@ -43,7 +49,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         variant="outline"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
-        onChange={(value: any) => redirectToTab(value)}
+        onChange={redirectToTab} // Use the memoized function directly
       >
         <Tabs.List>
           <Tabs.Tab py="md" px="lg" c="white" value="overview">
@@ -84,7 +90,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <Downloads downloads={downloadsData} packageName={npm?.data?.name} />
+          <MemoizedDownloads downloads={downloadsData} packageName={packageName} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
