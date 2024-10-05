@@ -11,7 +11,7 @@ import { searchPackage } from "@/services/package";
 
 export const [searchStore, searchHandlers] = createSpotlight();
 
-const MemoizedSpotlightAction = memo(({ item }: any) => {
+const MemoizedSpotlightAction = memo(({ item, setQuery }: any) => {
   const router = useRouter();
   const formattedDate = useMemo(
     () => formatDate(new Date(item.date)),
@@ -20,9 +20,13 @@ const MemoizedSpotlightAction = memo(({ item }: any) => {
 
   const handleClick = useCallback(
     (packageName: string) => {
-      router.push(`/package/${packageName}`);
+      setQuery("");
+      router.push(`/package/${packageName}`, {
+        scroll: false,
+        shallow: true,
+      } as any);
     },
-    [router]
+    [router, setQuery]
   );
 
   return (
@@ -85,6 +89,7 @@ export function Search() {
       data?.map((item) => (
         <MemoizedSpotlightAction
           key={`${item.name}${item.version}`}
+          setQuery={setQuery}
           item={item}
         />
       )),
