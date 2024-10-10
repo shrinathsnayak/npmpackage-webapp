@@ -1,7 +1,7 @@
 "use server";
-
-import { generateAPIOptions } from "@/constants/services.constants";
+import { cache } from "react";
 import { isDevelopment } from "@/utils";
+import { generateAPIOptions } from "@/constants/services.constants";
 
 /**
  * The function `getPackageData` fetches package data from an API endpoint based on the provided
@@ -14,7 +14,7 @@ import { isDevelopment } from "@/utils";
  * response is not valid JSON. If there is an error during the fetch process or if the package name is
  * not provided, it throws an error with the corresponding message.
  */
-export async function getPackageData(packageName: string) {
+export const getPackageData = cache(async (packageName: string) => {
   try {
     if (packageName) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
@@ -41,7 +41,7 @@ export async function getPackageData(packageName: string) {
     console.error("Error fetching package data:", err);
     throw err;
   }
-}
+});
 
 /**
  * The function `getPackageSecurityScore` fetches security score data for a specified package owned by
@@ -54,22 +54,21 @@ export async function getPackageData(packageName: string) {
  * @returns The function `getPackageSecurityScore` is returning the JSON data fetched from the API
  * endpoint for the specified package name and owner.
  */
-export async function getPackageSecurityScore(
-  packageName: string,
-  owner: string
-) {
-  const options = isDevelopment ? {} : generateAPIOptions(packageName);
-  const res = await fetch(
-    `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
-    options
-  );
+export const getPackageSecurityScore = cache(
+  async (packageName: string, owner: string) => {
+    const options = isDevelopment ? {} : generateAPIOptions(packageName);
+    const res = await fetch(
+      `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
+      options
+    );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
   }
-
-  return res.json();
-}
+);
 
 /**
  * The function `searchPackage` asynchronously fetches package data based on the provided package name.
@@ -78,7 +77,7 @@ export async function getPackageSecurityScore(
  * @returns The `searchPackage` function returns a Promise that resolves to the JSON data fetched from
  * the API endpoint for the specified package name.
  */
-export async function searchPackage(packageName: string) {
+export const searchPackage = cache(async (packageName: string) => {
   try {
     if (packageName) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
@@ -96,7 +95,7 @@ export async function searchPackage(packageName: string) {
   } catch (err) {
     console.error(err);
   }
-}
+});
 
 /**
  * The function `getPackageDownloads` fetches download data for a specified package name using an API
@@ -107,7 +106,7 @@ export async function searchPackage(packageName: string) {
  * of JSON data if the request is successful. If there is an error during the fetch operation or if the
  * package name is not provided, the function will log the error to the console.
  */
-export async function getPackageDownloads(packageName: string) {
+export const getPackageDownloads = cache(async (packageName: string) => {
   try {
     if (packageName) {
       const options = isDevelopment ? {} : generateAPIOptions(packageName);
@@ -125,7 +124,7 @@ export async function getPackageDownloads(packageName: string) {
   } catch (err) {
     console.error(err);
   }
-}
+});
 
 /**
  * This TypeScript function fetches download statistics for a specified package within a given date
@@ -144,35 +143,33 @@ export async function getPackageDownloads(packageName: string) {
  * provides download statistics for a given package name within the specified date range. If there is
  * an error during the fetch operation, an error message is logged to the console.
  */
-export async function packageDownloadStats(
-  packageName: string,
-  startDate?: string,
-  endDate?: string
-) {
-  if (!packageName) return;
+export const packageDownloadStats = cache(
+  async (packageName: string, startDate?: string, endDate?: string) => {
+    if (!packageName) return;
 
-  try {
-    const options = isDevelopment ? {} : generateAPIOptions(packageName);
-    const requestObj: Record<string, string> = { packageName };
+    try {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const requestObj: Record<string, string> = { packageName };
 
-    if (startDate) requestObj.startDate = startDate;
-    if (endDate) requestObj.endDate = endDate;
-    const searchQuery = new URLSearchParams(requestObj);
+      if (startDate) requestObj.startDate = startDate;
+      if (endDate) requestObj.endDate = endDate;
+      const searchQuery = new URLSearchParams(requestObj);
 
-    const response = await fetch(
-      `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
-      options
-    );
+      const response = await fetch(
+        `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
+        options
+      );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching package download stats:", error);
     }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching package download stats:", error);
   }
-}
+);
 
 /**
  * The function `getPackageAlertsData` fetches data related to a specific package and version from an
@@ -186,25 +183,24 @@ export async function packageDownloadStats(
  * @returns The function `getPackageAlertsData` is returning the JSON data fetched from the API
  * endpoint for the specified package name and version.
  */
-export async function getPackageAlertsData(
-  packageName: string,
-  version: string
-) {
-  try {
-    if (packageName && version) {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
-      const res = await fetch(
-        `${process.env.API_ENDPOINT}/socket?packageName=${packageName}&version=${version}`,
-        options
-      );
+export const getPackageAlertsData = cache(
+  async (packageName: string, version: string) => {
+    try {
+      if (packageName && version) {
+        const options = isDevelopment ? {} : generateAPIOptions(packageName);
+        const res = await fetch(
+          `${process.env.API_ENDPOINT}/socket?packageName=${packageName}&version=${version}`,
+          options
+        );
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        return res.json();
       }
-
-      return res.json();
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error(err);
   }
-}
+);
