@@ -27,6 +27,7 @@ const Developer = ({ avatar, owner, developerUrl }: any) => {
               target="_blank"
               href={developerUrl}
               underline="hover"
+              prefetch
             >
               {owner}
             </Anchor>
