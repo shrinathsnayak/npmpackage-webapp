@@ -8,7 +8,6 @@ import OverviewCard from "@/components/shared/OverviewCard";
 import NpmIcon from "@/assets/npm.svg";
 import YarnIcon from "@/assets/yarn.svg";
 
-// Use React.lazy for code splitting
 const OriginalCodeHighlightTabs = lazy(() =>
   import("@mantinex/shiki").then((module) => ({
     default: module.CodeHighlightTabs,

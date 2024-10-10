@@ -7,7 +7,7 @@ import classes from "./404.module.css";
 import PageLayout from "../PageLayout";
 
 export function NothingFound() {
-  const { replace } = useRouter();
+  const { prefetch } = useRouter();
   return (
     <PageLayout hideFooter={true} bg="dark.9">
       <Container className={`${classes.root} responsiveContainer`}>
@@ -23,7 +23,7 @@ export function NothingFound() {
               think this is an error contact support.
             </Text>
             <Group justify="center">
-              <Button size="md" color="red.8" onClick={() => replace("/")}>
+              <Button size="md" color="red.8" onClick={() => prefetch("/")}>
                 Take me back to home page
               </Button>
             </Group>

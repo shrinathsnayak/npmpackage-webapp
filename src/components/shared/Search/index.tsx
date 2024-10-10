@@ -20,7 +20,7 @@ const MemoizedSpotlightAction = memo(({ item, setQuery }: any) => {
 
   const handleClick = useCallback(
     (packageName: string) => {
-      router.push(`/package/${packageName}`, {
+      router.prefetch(`/package/${packageName}`, {
         scroll: false,
         shallow: true,
       } as any);

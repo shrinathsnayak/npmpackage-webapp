@@ -23,7 +23,7 @@ import Conditional from "../shared/Conditional";
 
 const SearchContainer = () => {
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { prefetch } = useRouter();
   const searchParams = useSearchParams();
 
   const form = useForm({
@@ -54,7 +54,7 @@ const SearchContainer = () => {
     );
     if (Object.keys(filteredValue).length > 0) {
       const params = new URLSearchParams(filteredValue);
-      replace(`${pathname}?${params.toString()}`);
+      prefetch(`${pathname}?${params.toString()}`);
     }
   };
 
@@ -88,7 +88,7 @@ const SearchContainer = () => {
           <CloseButton
             onClick={() => {
               form.reset();
-              replace(pathname);
+              prefetch(pathname);
             }}
           />
         </Flex>

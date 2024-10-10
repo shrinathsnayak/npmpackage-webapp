@@ -37,7 +37,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   const redirectToTab = useCallback(
     (value: string) => {
       if (value) {
-        router.push(`?t=${value}`);
+        router.prefetch(`?t=${value}`);
       }
     },
     [router]
