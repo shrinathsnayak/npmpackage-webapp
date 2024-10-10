@@ -54,11 +54,16 @@ export default async function Package({ params }: { params: { package: [] } }) {
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <PackageContainer packageInfo={data} downloads={downloads?.data?.total} />
-      <PageTabs packageInfo={data} downloads={downloads} />
-      <Conditional if={filteredData?.length > 0}>
-        <Suggestions searchData={filteredData} packageName={packageName} />
-      </Conditional>
+      <div>
+        <PackageContainer
+          packageInfo={data}
+          downloads={downloads?.data?.total}
+        />
+        <PageTabs packageInfo={data} downloads={downloads} />
+        <Conditional if={filteredData?.length > 0}>
+          <Suggestions searchData={filteredData} packageName={packageName} />
+        </Conditional>
+      </div>
     </Suspense>
   );
 }
