@@ -3,11 +3,11 @@ import { useRouter } from "next/navigation";
 import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
 
 const DependenciesRenderer = ({ dependency, name }: any) => {
-  const { prefetch } = useRouter();
+  const { push } = useRouter();
   const { data, totalCount } = dependency || {};
 
   const handleRouteChange = (item: string) => {
-    prefetch(`/package/${item}`);
+    push(`/package/${item}`);
   };
 
   return (
