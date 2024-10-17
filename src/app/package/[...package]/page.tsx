@@ -29,7 +29,8 @@ export async function generateMetadata({
 }: {
   params: { package: [] };
 }) {
-  const name = genereatePackageName(params.package);
+  const { package: packages } = await params;
+  const name = await genereatePackageName(packages);
   const { npm, gitHub } = (await getPackageData(name)) || {};
   return {
     title: npm?.data?.name,
@@ -38,13 +39,14 @@ export async function generateMetadata({
       images: [gitHub?.data?.avatar],
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${params.package}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`,
     },
   };
 }
 
 export default async function Package({ params }: { params: { package: [] } }) {
-  const packageName = await genereatePackageName(params.package);
+  const { package: packages } = await params;
+  const packageName = await genereatePackageName(packages);
   const [data, downloads, searchData] = await Promise.all([
     (await getPackageData(packageName)) || {},
     (await getPackageDownloads(packageName)) || {},
