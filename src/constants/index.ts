@@ -21,3 +21,10 @@ export const VULNERABILITY: any = {
 
 export const DEFAULT_TAB = TABS.overview.value;
 export const FIRST_AVAILABLE_DATE = "2015-01-01";
+
+export const CHART_DATE_TYPES: any = {
+  daily: 'Daily',
+  weekly: 'Weekly',
+  monthly: 'Monthly',
+  yearly: 'Yearly',
+}

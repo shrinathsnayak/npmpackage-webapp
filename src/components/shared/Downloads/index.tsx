@@ -13,6 +13,7 @@ import {
 import { downloadDivAsImage } from "@/utils";
 import { IconDownload, IconShare2 } from "@tabler/icons-react";
 import { useClipboard } from "@mantine/hooks";
+import { CHART_DATE_TYPES } from "@/constants";
 
 const AnalyticsCard = dynamic(() => import("./AnalyticsCard"), { ssr: true });
 const DownloadGraph = dynamic(() => import("./Graph"), { ssr: true });
@@ -99,19 +100,30 @@ const Downloads = ({
             type="year"
           />
         </SimpleGrid>
-        {showDailyDownloads && (
-          <DownloadGraph data={data?.allDailyDownloads ?? []} type="Daily" />
-        )}
-        <DownloadGraph data={data?.weekly ?? []} type="Weekly" />
+        <DownloadGraph data={data?.allDailyDownloads ?? []} type={CHART_DATE_TYPES.daily} />
+        <DownloadGraph data={data?.weekly ?? []} type={CHART_DATE_TYPES.weekly} />
         <DownloadGraph
           data={data?.monthly ?? []}
-          type="Monthly"
+          type={CHART_DATE_TYPES.monthly}
           chartType="bar"
+          xAxisProps={{
+            minTickGap: 10,
+            interval: "preserveStartEnd",
+            tickFormatter: (value: any) => new Intl.DateTimeFormat("en-IN", {
+              year: "numeric",
+              month: "short",
+            }).format(new Date(value)),
+          }}
         />
         <DownloadGraph
           data={data?.yearly ?? []}
-          type="Yearly"
+          type={CHART_DATE_TYPES.yearly}
           chartType="bar"
+          xAxisProps={{
+            minTickGap: 8,
+            interval: "preserveStartEnd",
+            tickFormatter: (value: any) => new Date(value).getFullYear(),
+          }}
         />
       </div>
     </Box>

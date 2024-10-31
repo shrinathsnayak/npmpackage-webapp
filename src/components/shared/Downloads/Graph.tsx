@@ -6,23 +6,35 @@ import {
 } from "@mantine/charts";
 import { Group, NumberFormatter, Paper, Text, Title } from "@mantine/core";
 import { formatDate } from "@/utils";
+import { CHART_DATE_TYPES } from "@/constants";
 
 interface ChartTooltipProps {
   label: string;
   payload: Record<string, any>[] | undefined;
+  type: string | any;
 }
 
 const ChartsMapping: any = {
   area: AreaChart,
   bar: BarChart,
 };
-function ChartTooltip({ label, payload }: ChartTooltipProps) {
+function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
   if (!payload) return null;
+
+  const date = new Date(label || new Date());
+
+  const labelMapping = {
+    [CHART_DATE_TYPES.yearly]: date.getFullYear(),
+    [CHART_DATE_TYPES.monthly]: new Intl.DateTimeFormat("en-IN", {
+      year: "numeric",
+      month: "short",
+    }).format(date),
+  }
 
   return (
     <Paper px="md" py="sm" shadow="md" radius="md">
       <Text fw={500} mb={5} fz="lg" c="white">
-        {label}
+        {labelMapping[type] || label}
       </Text>
       {getFilteredChartTooltipPayload(payload)?.map((item: any) => (
         <Group key={item.name} gap={4}>
@@ -38,7 +50,13 @@ function ChartTooltip({ label, payload }: ChartTooltipProps) {
   );
 }
 
-const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
+const DownloadGraph = ({
+  data,
+  type,
+  chartType = "area",
+  xAxisProps,
+  yAxisProps,
+}: any) => {
   const Chart = ChartsMapping[chartType];
   return (
     <Paper p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
@@ -57,21 +75,25 @@ const DownloadGraph = ({ data, type, chartType = "area" }: any) => {
         tooltipAnimationDuration={200}
         legendProps={{ verticalAlign: "bottom" }}
         series={[{ name: "downloads", color: "red.8" }]}
-        yAxisProps={{
-          tickFormatter: (value: number) =>
-            new Intl.NumberFormat("en-US", {
-              notation: "compact",
-              compactDisplay: "short",
-            }).format(value || 0),
-        }}
-        xAxisProps={{
-          minTickGap: 8,
-          interval: "preserveStartEnd",
-          tickFormatter: (value: any) => formatDate(new Date(value)),
-        }}
+        yAxisProps={
+          yAxisProps || {
+            tickFormatter: (value: number) =>
+              new Intl.NumberFormat("en-US", {
+                notation: "compact",
+                compactDisplay: "short",
+              }).format(value || 0),
+          }
+        }
+        xAxisProps={
+          xAxisProps || {
+            minTickGap: 8,
+            interval: "preserveStartEnd",
+            tickFormatter: (value: any) => formatDate(new Date(value)),
+          }
+        }
         tooltipProps={{
           content: ({ label, payload }: any) => (
-            <ChartTooltip label={label} payload={payload} />
+            <ChartTooltip label={label} payload={payload} type={type} />
           ),
         }}
         valueFormatter={(value: any) =>
