@@ -48,7 +48,6 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
   const packageName = await genereatePackageName(packages);
 
-  // Fetch all data concurrently
   const [data, downloads, searchData] = await Promise.all([
     getPackageData(packageName),
     getPackageDownloads(packageName),
@@ -58,17 +57,21 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const filteredData = removeSimilarByName(searchData?.data, packageName);
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <div>
+    <div>
+      <Suspense fallback={<p>Loading package information...</p>}>
         <PackageContainer
           packageInfo={data || {}}
           downloads={downloads?.data?.total || 0}
         />
+      </Suspense>
+      <Suspense fallback={<p>Loading tabs...</p>}>
         <PageTabs packageInfo={data || {}} downloads={downloads || {}} />
-        <Conditional if={filteredData?.length > 0}>
+      </Suspense>
+      <Conditional if={filteredData?.length > 0}>
+        <Suspense fallback={<p>Loading suggestions...</p>}>
           <Suggestions searchData={filteredData} packageName={packageName} />
-        </Conditional>
-      </div>
-    </Suspense>
+        </Suspense>
+      </Conditional>
+    </div>
   );
 }
