@@ -29,7 +29,7 @@ function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
       year: "numeric",
       month: "short",
     }).format(date),
-  }
+  };
 
   return (
     <Paper px="md" py="sm" shadow="md" radius="md">
@@ -74,7 +74,7 @@ const DownloadGraph = ({
         fillOpacity={0.51}
         tooltipAnimationDuration={200}
         legendProps={{ verticalAlign: "bottom" }}
-        series={[{ name: "downloads", color: "red.8" }]}
+        series={[{ name: "downloads", color: "red.7" }]}
         yAxisProps={
           yAxisProps || {
             tickFormatter: (value: number) =>

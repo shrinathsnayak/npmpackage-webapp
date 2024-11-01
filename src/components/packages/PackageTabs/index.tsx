@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container, NumberFormatter } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
@@ -12,13 +12,10 @@ import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Downloads from "@/components/shared/Downloads";
 import { calculateOverallCount } from "@/utils";
-import React from "react"; // Import React to use React.memo
 
-// Wrap Downloads component with React.memo to prevent unnecessary re-renders
-const MemoizedDownloads = React.memo(Downloads);
+const MemoizedDownloads = memo(Downloads);
 
-// Wrap Security component with React.memo to prevent unnecessary re-renders
-const MemoizedSecurity = React.memo(Security);
+const MemoizedSecurity = memo(Security);
 
 const PageTabs = ({ packageInfo, downloads }: any) => {
   const router = useRouter();
@@ -27,7 +24,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     () => searchParams.get("t") || DEFAULT_TAB,
     [searchParams]
   );
-  const downloadsData = useMemo(() => downloads, [downloads]); // Ensure stability
+  const downloadsData = useMemo(() => downloads, [downloads]);
   const { gitHub, securityScore, npm } = packageInfo || {};
   const dependenciesCount = useMemo(
     () => calculateOverallCount(npm?.data?.dependencies),
@@ -43,7 +40,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     [router]
   );
 
-  const packageName = useMemo(() => npm?.data?.name, [npm?.data?.name]); // Ensure stability
+  const packageName = useMemo(() => npm?.data?.name, [npm?.data?.name]);
 
   return (
     <Container className="responsiveContainer" mt={-47}>
@@ -52,7 +49,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         variant="outline"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
-        onChange={(value: any) => redirectToTab(value)} // Use the memoized function directly
+        onChange={(value: any) => redirectToTab(value)}
       >
         <Tabs.List>
           <Tabs.Tab py="md" px="lg" c="white" value="overview">
@@ -93,7 +90,10 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <MemoizedDownloads downloads={downloadsData} packageName={packageName} />
+          <MemoizedDownloads
+            downloads={downloadsData}
+            packageName={packageName}
+          />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>

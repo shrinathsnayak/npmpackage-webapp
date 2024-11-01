@@ -11,7 +11,7 @@ import { searchPackage } from "@/services/package";
 
 export const [searchStore, searchHandlers] = createSpotlight();
 
-const MemoizedSpotlightAction = memo(({ item, setQuery }: any) => {
+const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
   const router = useRouter();
   const formattedDate = useMemo(
     () => formatDate(new Date(item.date)),
@@ -20,13 +20,12 @@ const MemoizedSpotlightAction = memo(({ item, setQuery }: any) => {
 
   const handleClick = useCallback(
     (packageName: string) => {
-      router.push(`/package/${packageName}`, {
-        scroll: false,
-        shallow: true,
-      } as any);
       setQuery("");
+      setData([]);
+      router.prefetch(`/package/${packageName}`);
+      router.push(`/package/${packageName}`, { scroll: false });
     },
-    [router, setQuery]
+    [router, setQuery, setData]
   );
 
   return (
@@ -59,7 +58,7 @@ const MemoizedSpotlightAction = memo(({ item, setQuery }: any) => {
 
 MemoizedSpotlightAction.displayName = "MemoizedSpotlightAction";
 
-export function Search() {
+const SearchComponent = () => {
   const [query, setQuery] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
   const shortcuts = useMemo<string[]>(() => ["mod + K", "mod + P", "/"], []);
@@ -90,16 +89,14 @@ export function Search() {
         <MemoizedSpotlightAction
           key={`${item.name}${item.version}`}
           setQuery={setQuery}
+          setData={setData}
           item={item}
         />
       )),
     [data]
   );
 
-  const memoizedIconSearch = useMemo(
-    () => <IconSearch stroke={1.5} />,
-    []
-  );
+  const memoizedIconSearch = useMemo(() => <IconSearch stroke={1.5} />, []);
 
   return (
     <Spotlight.Root
@@ -125,4 +122,6 @@ export function Search() {
       </Spotlight.ActionsList>
     </Spotlight.Root>
   );
-}
+};
+
+export const Search = memo(SearchComponent);
