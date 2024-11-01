@@ -29,7 +29,7 @@ export async function generateMetadata({
 }: {
   params: { package: [] };
 }) {
-  const { package: packages } = await params;
+  const { package: packages } = params;
   const name = await genereatePackageName(packages);
   const { npm, gitHub } = (await getPackageData(name)) || {};
   return {
@@ -45,23 +45,26 @@ export async function generateMetadata({
 }
 
 export default async function Package({ params }: { params: { package: [] } }) {
-  const { package: packages } = await params;
+  const { package: packages } = params;
   const packageName = await genereatePackageName(packages);
+
+  // Fetch all data concurrently
   const [data, downloads, searchData] = await Promise.all([
-    (await getPackageData(packageName)) || {},
-    (await getPackageDownloads(packageName)) || {},
-    (await searchPackage(packageName)) || {},
+    getPackageData(packageName),
+    getPackageDownloads(packageName),
+    searchPackage(packageName),
   ]);
+
   const filteredData = removeSimilarByName(searchData?.data, packageName);
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <div>
         <PackageContainer
-          packageInfo={data}
-          downloads={downloads?.data?.total}
+          packageInfo={data || {}}
+          downloads={downloads?.data?.total || 0}
         />
-        <PageTabs packageInfo={data} downloads={downloads} />
+        <PageTabs packageInfo={data || {}} downloads={downloads || {}} />
         <Conditional if={filteredData?.length > 0}>
           <Suggestions searchData={filteredData} packageName={packageName} />
         </Conditional>

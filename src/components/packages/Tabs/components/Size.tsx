@@ -12,7 +12,7 @@ const Size = ({ bundleSize, packageName }: any) => {
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex gap="xs" align="center" justify="space-between">
           <Box>
-            <Title order={3} c="white">
+            <Title order={4} c="white">
               {formatSize(size)}
             </Title>
             <Text fz="xs" c="dimmed">
@@ -20,7 +20,7 @@ const Size = ({ bundleSize, packageName }: any) => {
             </Text>
           </Box>
           <Box>
-            <Title order={3} c="white">
+            <Title order={4} c="white">
               {formatSize(gzip)}
             </Title>
             <Text fz="xs" c="dimmed">
@@ -37,13 +37,13 @@ const Size = ({ bundleSize, packageName }: any) => {
             target="_blank"
           >
             <Flex align="center" gap={8}>
-              <Text fz="sm" fw={400}>
+              <Text fz="xs" fw={400}>
                 Bundlephobia
               </Text>
-              <IconExternalLink
+              {/* <IconExternalLink
                 style={{ width: 18, height: 18 }}
                 stroke={1.5}
-              />
+              /> */}
             </Flex>
           </Anchor>
         </Box>
