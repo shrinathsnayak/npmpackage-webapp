@@ -41,55 +41,55 @@ const Statistics = ({ data }: any) => {
         {license && (
           <Stat
             tooltip="License"
-            icon={<IconLicense size={16} color="#828282" stroke={2} />}
+            icon={<IconLicense size={16} color="#fff" stroke={2} />}
             value={license}
           />
         )}
         {stars > 0 && (
           <Stat
             tooltip="Stars"
-            icon={<IconStar size={16} color="#828282" stroke={2} />}
+            icon={<IconStar size={16} color="#fff" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={stars} />}
           />
         )}
         {commits > 0 && (
           <Stat
             tooltip="Commits"
-            icon={<IconHistory size={16} color="#828282" stroke={2} />}
+            icon={<IconHistory size={16} color="#fff" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={commits} />}
           />
         )}
         {forks > 0 && (
           <Stat
             tooltip="Forks"
-            icon={<IconGitFork size={16} color="#828282" stroke={2} />}
+            icon={<IconGitFork size={16} color="#fff" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={forks} />}
           />
         )}
         {watchers > 0 && (
           <Stat
             tooltip="Watching"
-            icon={<IconEye size={16} color="#828282" stroke={2} />}
+            icon={<IconEye size={16} color="#fff" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={watchers} />}
           />
         )}
         {branches > 0 && (
           <Stat
             tooltip="Branches"
-            icon={<IconGitBranch size={16} color="#828282" stroke={2} />}
+            icon={<IconGitBranch size={16} color="#fff" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={branches} />}
           />
         )}
         {contributors > 0 && (
           <Stat
             tooltip="Contributors"
-            icon={<IconUsers size={16} color="#828282" stroke={2} />}
+            icon={<IconUsers size={16} color="#fff" stroke={2} />}
             value={<NumberFormatter thousandSeparator value={contributors} />}
           />
         )}
         {updatedAt && (
           <Stat
-            icon={<IconReload size={16} color="#828282" stroke={2} />}
+            icon={<IconReload size={16} color="#fff" stroke={2} />}
             value={`Updated on ${formatDate(new Date(updatedAt))}`}
           />
         )}
