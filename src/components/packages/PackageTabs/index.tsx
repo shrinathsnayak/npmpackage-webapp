@@ -34,13 +34,17 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   const redirectToTab = useCallback(
     (value: string) => {
       if (value) {
-        router.push(`?t=${value}`);
+        router.replace(`?t=${value}`);
       }
     },
     [router]
   );
 
   const packageName = useMemo(() => npm?.data?.name, [npm?.data?.name]);
+  const readMeFileContent = useMemo(
+    () => gitHub?.data?.readMe,
+    [gitHub?.data?.readMe]
+  );
 
   return (
     <Container className="responsiveContainer" mt={-47}>
@@ -105,7 +109,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <ReadMe data={gitHub?.data?.readMe} />
+          <ReadMe data={readMeFileContent} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>

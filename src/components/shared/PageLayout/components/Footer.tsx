@@ -19,29 +19,26 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           direction={{ base: "column", sm: "row" }}
         >
           <Flex gap={5} align="center">
-            <Text fz="sm" c="white" fw={500}>
+            <Text fz="xs" c="white" fw={400}>
               Made in{" "}
             </Text>
             <Image
               src={IndiaFlag.src}
               w={20}
-              h={13}
+              h={11}
               alt="India Flag"
-              style={{
-                display: "inline",
-              }}
             />{" "}
-            <Text fz="sm" c="white" fw={500}>
+            <Text fz="xs" c="white" fw={400}>
               by{" "}
             </Text>
             <Anchor
-              fz="sm"
+              fz="xs"
               component={Link}
               href="https://snayak.dev"
               target="blank"
               underline="never"
               prefetch
-              fw={500}
+              fw={400}
               c="blue.4"
             >
               Shrinath Nayak
@@ -49,7 +46,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           </Flex>
 
           <Text
-            fw={500}
+            fw={400}
             fz="xs"
             c="dark.0"
             ta="center"
