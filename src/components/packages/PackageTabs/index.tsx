@@ -82,7 +82,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   );
 
   return (
-    <Container className="responsiveContainer" mt={{ base: -47, sm: -48 }}>
+    <Container className="responsiveContainer" mt={{ base: -46, sm: -48 }}>
       <Tabs
         autoContrast
         value={search}
