@@ -81,7 +81,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   );
 
   return (
-    <Container className="responsiveContainer" mt={-48}>
+    <Container className="responsiveContainer" mt={{ base: -46, sm: -48 }}>
       <Tabs
         value={search}
         variant="outline"
