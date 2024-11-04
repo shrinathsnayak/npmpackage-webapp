@@ -8,6 +8,7 @@ import {
 import Conditional from "@/components/shared/Conditional";
 import { genereatePackageName } from "@/constants/services.constants";
 import { removeSimilarByName } from "@/utils";
+import OGImage from "@/assets/og.png";
 
 const PackageContainer = dynamic(
   () => import("@/components/packages/PackageContainer"),
@@ -30,17 +31,16 @@ export async function generateMetadata({
   params: { package: [] };
 }) {
   const { package: packages } = params;
-  const name = await genereatePackageName(packages);
-  const { npm, gitHub } = (await getPackageData(name)) || {};
+  const packageName = genereatePackageName(packages);
   return {
-    title: npm?.data?.name,
-    description: npm?.data?.description,
+    title: packageName,
     openGraph: {
-      images: [gitHub?.data?.avatar],
+      images: [OGImage.src],
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`,
     },
+    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`),
   };
 }
 

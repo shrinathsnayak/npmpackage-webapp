@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useCallback, useState, useMemo, memo } from "react";
+import { useCallback, useState, useMemo, memo, useEffect } from "react";
 import { IconSearch } from "@tabler/icons-react";
 import { Badge, Group, Text } from "@mantine/core";
-import { useThrottledCallback } from "@mantine/hooks";
+import { useDebouncedValue } from "@mantine/hooks";
 import { createSpotlight, Spotlight } from "@mantine/spotlight";
 import { formatDate } from "@/utils";
 import { searchPackage } from "@/services/package";
@@ -22,10 +22,9 @@ const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
     (packageName: string) => {
       setQuery("");
       setData([]);
-      router.prefetch(`/package/${packageName}`);
       router.push(`/package/${packageName}`, { scroll: false });
     },
-    [router, setQuery, setData]
+    [router, setData, setQuery]
   );
 
   return (
@@ -61,6 +60,7 @@ MemoizedSpotlightAction.displayName = "MemoizedSpotlightAction";
 const SearchComponent = () => {
   const [query, setQuery] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
+  const [debouncedQuery] = useDebouncedValue(query, 500);
   const shortcuts = useMemo<string[]>(() => ["mod + K", "mod + P", "/"], []);
 
   const searchPackageName = async (packageName: any) => {
@@ -71,16 +71,17 @@ const SearchComponent = () => {
     }
   };
 
-  const handleSearch = useThrottledCallback((query: string) => {
-    searchPackageName(query);
-  }, 500);
+  useEffect(() => {
+    if (debouncedQuery) {
+      searchPackageName(debouncedQuery);
+    }
+  }, [debouncedQuery]);
 
   const handleChange = useCallback(
     (value: string) => {
       setQuery(value);
-      handleSearch(value);
     },
-    [handleSearch]
+    []
   );
 
   const items = useMemo(

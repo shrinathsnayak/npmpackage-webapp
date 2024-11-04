@@ -1,4 +1,3 @@
-import MillionLint from "@million/lint";
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import NextBundleAnalyzer from "@next/bundle-analyzer";
@@ -43,6 +42,5 @@ const withMDX = createMDX({
     rehypePlugins: [],
   },
 });
-export default MillionLint.next({
-  rsc: true,
-})(withMDX(withBundleAnalyzer(nextConfig)));
+
+export default withMDX(withBundleAnalyzer(nextConfig));
