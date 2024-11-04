@@ -79,10 +79,9 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
           radius="md"
           p={12}
           fz="xs"
-          transitionProps={{ transition: "pop", duration: 200 }}
           label={tooltip}
         >
-          <IconInfoCircle size={16} />
+          <IconInfoCircle size={18} />
         </Tooltip>
       </Flex>
     </Flex>
