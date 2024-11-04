@@ -1,12 +1,6 @@
 import React from "react";
 import { emojify } from "node-emoji";
-import {
-  Container,
-  Box,
-  Title,
-  Flex,
-  Text,
-} from "@mantine/core";
+import { Container, Box, Title, Flex, Text } from "@mantine/core";
 import Tags from "./Tags";
 import { LinksContainer } from "./LinksContainer";
 
@@ -24,7 +18,15 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
           justify="space-between"
           direction={{ base: "column-reverse", sm: "row" }}
         >
-          <Title order={1} size="2.3rem" fw={800} c="white" textWrap="balance">
+          <Title
+            order={1}
+            size="2.3rem"
+            fw={800}
+            c="white"
+            textWrap="balance"
+            w={{ base: "100%", sm: "auto" }}
+            style={{ wordBreak: "break-word" }}
+          >
             {npm?.name || github?.name}
           </Title>
           <Box
