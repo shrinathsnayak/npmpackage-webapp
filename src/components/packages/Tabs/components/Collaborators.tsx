@@ -26,7 +26,7 @@ const Collaborators = ({
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Tooltip.Group openDelay={300} closeDelay={100}>
           <Group gap="xs">
-            {contributors &&
+            {contributors.length > 0 &&
               contributors?.map((item: any) => (
                 <Tooltip label={item?.name} withArrow key={item?.name}>
                   <Anchor

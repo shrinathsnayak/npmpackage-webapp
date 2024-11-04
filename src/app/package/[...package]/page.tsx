@@ -46,12 +46,12 @@ export async function generateMetadata({
 
 export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
-  const packageName = await genereatePackageName(packages);
+  const packageName = genereatePackageName(packages);
 
   const [data, downloads, searchData] = await Promise.all([
-    getPackageData(packageName),
-    getPackageDownloads(packageName),
-    searchPackage(packageName),
+    await getPackageData(packageName),
+    await getPackageDownloads(packageName),
+    await searchPackage(packageName),
   ]);
 
   const filteredData = removeSimilarByName(searchData?.data, packageName);

@@ -50,15 +50,15 @@ const Overview = ({ packageInfo }: any) => {
         <Conditional
           if={
             (gitHub?.contributors?.length > 0 &&
-              gitHub?.contributorsCount > 0) ||
-            npm?.collaborators?.length > 0
+              gitHub?.contributorsCount > 0 && Array.isArray(gitHub?.contributors))
+            //|| npm?.collaborators?.length > 0
           }
         >
           <Collaborators
             contributorsCount={
-              gitHub?.contributorsCount || npm?.collaborators?.length
+              gitHub?.contributorsCount //|| npm?.collaborators?.length
             }
-            contributors={gitHub?.contributors || npm?.collaborators}
+            contributors={gitHub?.contributors} //|| npm?.collaborators
             repositoryUrl={gitHub?.repositoryUrl || ""}
           />
         </Conditional>

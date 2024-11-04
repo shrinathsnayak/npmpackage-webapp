@@ -14,5 +14,5 @@ export const NavigationProgressBar = () => {
     }
   }, [pathname])
 
-  return <NavigationProgress color='red.8' size={10} />
+  return <NavigationProgress color='red.8' size={5} />
 }
