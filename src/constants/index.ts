@@ -13,18 +13,37 @@ export const TABS: any = {
 };
 
 export const VULNERABILITY: any = {
-  maintenance: { name: "Maintenance", label: "Maintenance" },
-  quality: { name: "Quality", label: "Quality" },
-  supplyChainRisk: { name: "Supply Chain Risk", label: "Supply Chain Risk" },
-  vulnerability: { name: "Vulnerability", label: "Vulnerability" },
+  maintenance: {
+    name: "Maintenance",
+    label: "Maintenance",
+    tooltip:
+      "Packages marked as deprecated or not updated in over five years may be unmaintained and potentially harbor unresolved vulnerabilities.",
+  },
+  quality: {
+    name: "Quality",
+    label: "Quality",
+    tooltip:
+      "Packages with a floating version range may cause major version update issues, lack popularity, have low-quality dependencies, or contain discouraged minified code.",
+  },
+  supplyChainRisk: {
+    name: "Supply Chain",
+    label: "Supply Chain",
+    tooltip: `Supply chain attacks target open-source software dependencies, compromising trusted components to spread vulnerabilities even to secure organizations.`,
+  },
+  vulnerability: {
+    name: "Vulnerability",
+    label: "Vulnerability",
+    tooltip:
+      "Vulnerabilities are weaknesses in software that attackers can exploit, making ongoing detection and management essential to reducing security risks by addressing critical issues promptly.",
+  },
 };
 
 export const DEFAULT_TAB = TABS.overview.value;
 export const FIRST_AVAILABLE_DATE = "2015-01-01";
 
 export const CHART_DATE_TYPES: any = {
-  daily: 'Daily',
-  weekly: 'Weekly',
-  monthly: 'Monthly',
-  yearly: 'Yearly',
-}
+  daily: "Daily",
+  weekly: "Weekly",
+  monthly: "Monthly",
+  yearly: "Yearly",
+};

@@ -6,11 +6,13 @@ import {
   SimpleGrid,
   Text,
   Box,
+  Tooltip,
 } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
 import { VULNERABILITY } from "@/constants";
 import { breakCamelCase, getScoreTextColor } from "@/utils";
+import { IconInfoCircle } from "@tabler/icons-react";
 
 const RenderScoreBreakup = ({ component, label, score }: any) => {
   if (component) {
@@ -38,7 +40,7 @@ const RenderScoreBreakup = ({ component, label, score }: any) => {
   }
 };
 
-const ScoreCardProgress = ({ name, score, label, component }: any) => {
+const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
   const colour = getScoreTextColor(score, 10);
   return (
     <Flex direction="column" gap={2} align="center">
@@ -65,9 +67,24 @@ const ScoreCardProgress = ({ name, score, label, component }: any) => {
           </Text>
         }
       />
-      <Text fz="sm" fw={400} ta="center" c="white">
-        {name}
-      </Text>
+      <Flex gap={4} align="center" justify="center">
+        <Text fz="sm" fw={400} ta="center" c="white">
+          {name}
+        </Text>
+        <Tooltip
+          multiline
+          withArrow
+          maw={300}
+          color="dark.8"
+          radius="md"
+          p={12}
+          fz="xs"
+          transitionProps={{ transition: "pop", duration: 200 }}
+          label={tooltip}
+        >
+          <IconInfoCircle size={16} />
+        </Tooltip>
+      </Flex>
     </Flex>
   );
 };
@@ -90,6 +107,7 @@ const Score = ({ scoreData = {} }: any) => {
                 score={scoreData[item]?.score}
                 name={VULNERABILITY[item]?.name}
                 label={VULNERABILITY[item]?.label}
+                tooltip={VULNERABILITY[item]?.tooltip}
                 component={scoreData[item]?.component}
               />
             </Conditional>
