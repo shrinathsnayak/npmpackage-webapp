@@ -9,6 +9,7 @@ import {
   Flex,
   Kbd,
   Text,
+  Box,
 } from "@mantine/core";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
@@ -72,9 +73,9 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     rest?: any;
   }) => (
     <Flex align="center" p={0} gap={8} m={0}>
-      <div>
+      <Box visibleFrom="sm">
         <Kbd size="xs">{value}</Kbd>
-      </div>
+      </Box>
       <Text fz="sm">{label}</Text>
       <div>{rest}</div>
     </Flex>
@@ -83,6 +84,7 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   return (
     <Container className="responsiveContainer" mt={{ base: -47, sm: -48 }}>
       <Tabs
+        autoContrast
         value={search}
         variant="outline"
         classNames={classes}
