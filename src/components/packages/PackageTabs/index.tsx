@@ -71,19 +71,17 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     label: string;
     rest?: any;
   }) => (
-    <Flex align="center" p={0} gap={0} m={0}>
+    <Flex align="center" p={0} gap={8} m={0}>
       <div>
-        <Kbd mr={6} size="xs">
-          {value}
-        </Kbd>
+        <Kbd size="xs">{value}</Kbd>
       </div>
       <Text fz="sm">{label}</Text>
-      {rest}
+      <div>{rest}</div>
     </Flex>
   );
 
   return (
-    <Container className="responsiveContainer" mt={-47}>
+    <Container className="responsiveContainer" mt={-48}>
       <Tabs
         value={search}
         variant="outline"
