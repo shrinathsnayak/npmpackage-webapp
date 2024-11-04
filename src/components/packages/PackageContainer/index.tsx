@@ -6,9 +6,6 @@ import {
   Title,
   Flex,
   Text,
-  Pill,
-  Group,
-  Tooltip,
 } from "@mantine/core";
 import Tags from "./Tags";
 import { LinksContainer } from "./LinksContainer";

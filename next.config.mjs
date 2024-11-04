@@ -9,7 +9,18 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 const nextConfig = {
   experimental: {
     webVitalsAttribution: ["CLS", "LCP"],
-    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    optimizePackageImports: [
+      "@mantine/core",
+      "@mantine/hooks",
+      "@mantinex/shiki",
+      "@mantine/charts",
+      "@mantine/dates",
+      "@mantine/form",
+      "@mantine/hooks",
+      "@mantine/nprogress",
+      "@mantine/spotlight",
+      "@mantine/code-highlight",
+    ],
   },
   poweredByHeader: false,
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],

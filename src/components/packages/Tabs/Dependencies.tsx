@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
+import EmptyState from "./EmptyState";
 
 const DependenciesRenderer = ({ dependency, name }: any) => {
   const { push } = useRouter();
@@ -46,6 +47,11 @@ const Dependencies = ({ data }: any) => {
     devDependencies,
     optionalDependencies,
   } = data || {};
+  if (data && Object.keys(data).length === 0) {
+    return (
+      <EmptyState text="No dependencies detected" />
+    )
+  }
   return (
     <Box>
       {dependencies && (
