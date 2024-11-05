@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useCallback, useMemo, memo, Suspense } from "react";
+import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   Tabs,
@@ -15,24 +14,13 @@ import {
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
+import Overview from "@/components/packages/Tabs/Overview";
+import ReadMe from "@/components/packages/Tabs/ReadMe";
+import Security from "@/components/packages/Tabs/Security";
+import Dependencies from "@/components/packages/Tabs/Dependencies";
+import Downloads from "@/components/shared/Downloads";
 import classes from "./Tabs.module.css";
-
-const Overview = dynamic(() => import("@/components/packages/Tabs/Overview"), {
-  ssr: true,
-});
-const ReadMe = dynamic(() => import("@/components/packages/Tabs/ReadMe"), {
-  ssr: true,
-});
-const Security = dynamic(() => import("@/components/packages/Tabs/Security"), {
-  ssr: true,
-});
-const Dependencies = dynamic(
-  () => import("@/components/packages/Tabs/Dependencies"),
-  { ssr: true }
-);
-const Downloads = dynamic(() => import("@/components/shared/Downloads"), {
-  ssr: true,
-});
+// import { calculateOverallCount } from "@/utils";
 
 const MemoizedDownloads = memo(Downloads);
 
@@ -143,36 +131,30 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Overview packageInfo={packageInfo} />
-          </Suspense>
+          <Overview packageInfo={packageInfo} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <MemoizedDownloads
-              downloads={downloadsData}
-              packageName={packageName}
-            />
-          </Suspense>
+          <MemoizedDownloads
+            downloads={downloadsData}
+            packageName={packageName}
+          />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Dependencies data={npm?.data?.dependencies} />
-          </Suspense>
+          <Dependencies data={npm?.data?.dependencies} />
+        </Tabs.Panel>
+
+        <Tabs.Panel value={TABS.versions.value} py={20}>
+          {TABS.versions.name}
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <ReadMe data={readMeFileContent} />
-          </Suspense>
+          <ReadMe data={readMeFileContent} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <MemoizedSecurity packageInfo={securityScore?.data} />
-          </Suspense>
+          <MemoizedSecurity packageInfo={securityScore?.data} />
         </Tabs.Panel>
       </Tabs>
     </Container>
