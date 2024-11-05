@@ -6,7 +6,7 @@ const MicrosoftClarity = () => {
   return (
     <Script
       id="microsoft-clarity-init"
-      strategy="afterInteractive"
+      strategy="worker"
       dangerouslySetInnerHTML={{
         __html: `
           (function(c,l,a,r,i,t,y){

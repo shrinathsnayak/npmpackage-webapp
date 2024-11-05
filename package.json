@@ -40,6 +40,7 @@
     "shiki": "^1.1.7"
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.10.2",
     "@next/bundle-analyzer": "^14.2.4",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
