@@ -1,8 +1,8 @@
 import React from "react";
 import { emojify } from "node-emoji";
 import { Container, Box, Title, Flex, Text } from "@mantine/core";
-import Tags from "./Tags";
 import { LinksContainer } from "./LinksContainer";
+import Tags from "./Tags";
 
 const PackageContainer = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -24,6 +24,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             fw={800}
             c="white"
             textWrap="balance"
+            ta={{ base: "center", sm: "left" }}
             w={{ base: "100%", sm: "auto" }}
             style={{ wordBreak: "break-word" }}
           >

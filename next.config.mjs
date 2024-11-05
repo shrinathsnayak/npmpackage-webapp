@@ -10,13 +10,14 @@ const nextConfig = {
   experimental: {
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
+      "node-emoji",
+      "@mantine/form",
       "@mantine/core",
       "@mantine/hooks",
-      "@mantinex/shiki",
-      "@mantine/charts",
       "@mantine/dates",
-      "@mantine/form",
       "@mantine/hooks",
+      "@mantine/charts",
+      "@mantinex/shiki",
       "@mantine/nprogress",
       "@mantine/spotlight",
       "@mantine/code-highlight",
