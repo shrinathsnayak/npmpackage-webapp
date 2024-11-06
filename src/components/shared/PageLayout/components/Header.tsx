@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import NextImage from "next/image";
+// import NextImage from "next/image";
 import {
   Anchor,
   AppShell,

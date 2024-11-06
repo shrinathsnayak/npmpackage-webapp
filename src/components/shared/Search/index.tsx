@@ -107,6 +107,7 @@ const SearchComponent = () => {
       store={searchStore}
       onQueryChange={handleChange}
       shortcut={shortcuts}
+      triggerOnContentEditable={true}
     >
       <Spotlight.Search
         pointer
