@@ -37,14 +37,14 @@ const Header = ({ hideSearch }: any) => {
           <Anchor prefetch component={Link} href="/" underline="never" w="min-content">
             <Flex gap={5} justify="space-between" align="center">
               <Image
-                width={30}
-                height={30}
+                w={35}
+                h={35}
                 src={Icon.src}
-                priority={true}
-                component={NextImage}
+                // priority={true}
+                // component={NextImage}
                 alt="npmpackage.info logo"
               />
-              <Title order={3} c="white">
+              <Title order={3} c="white" visibleFrom="md">
                 {NPMPACKAGE_TITLE}
               </Title>
             </Flex>
@@ -55,7 +55,7 @@ const Header = ({ hideSearch }: any) => {
                 <UnstyledButton
                   onClick={() => searchHandlers.open()}
                   className={classes.searchRoot}
-                  data-desktop
+                // data-desktop
                 >
                   <Group gap="xs">
                     <IconSearch
@@ -70,7 +70,7 @@ const Header = ({ hideSearch }: any) => {
                     </Text>
                   </Group>
                 </UnstyledButton>
-                <UnstyledButton
+                {/* <UnstyledButton
                   onClick={() => searchHandlers.open()}
                   className={classes.mobilecontrol}
                   data-mobile
@@ -79,7 +79,7 @@ const Header = ({ hideSearch }: any) => {
                     style={{ width: rem(22), height: rem(22) }}
                     stroke={2}
                   />
-                </UnstyledButton>
+                </UnstyledButton> */}
               </>
             )}
             {/* <UnstyledButton
