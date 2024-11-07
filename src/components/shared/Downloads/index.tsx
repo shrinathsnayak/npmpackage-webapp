@@ -59,7 +59,7 @@ const Downloads = ({
             direction={{ base: "column", sm: "row" }}
           >
             <Box display={{ base: "none", sm: "block" }}>
-              <Title order={3}>Total Downloads</Title>
+              <Title order={3} c="white">Total Downloads</Title>
               <Text fz="sm" c="dimmed" mt={5}>
                 Cumulative downloads
               </Text>

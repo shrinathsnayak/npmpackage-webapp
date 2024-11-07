@@ -32,14 +32,14 @@ const Feedback = () => {
           Feedback
         </Button>
         <ActionIcon
-          size="xl"
+          size={55}
           radius="xl"
           hiddenFrom="md"
           variant="default"
           autoContrast={true}
           onClick={() => handlers.open()}
         >
-          <IconMessageDots size={20} />
+          <IconMessageDots size={25} />
         </ActionIcon>
       </Affix>
       <Modal
