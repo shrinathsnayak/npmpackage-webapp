@@ -8,6 +8,7 @@ import classes from "./Installation.module.css";
 
 import NpmIcon from "@/assets/npm.svg";
 import YarnIcon from "@/assets/yarn.svg";
+import PnpmIcon from "@/assets/pnpm.svg";
 
 const Installations = ({ packageName }: any) => {
   return (
@@ -26,6 +27,12 @@ const Installations = ({ packageName }: any) => {
             code: `yarn add ${packageName}`,
             language: "bash",
             icon: <Image src={YarnIcon.src} w={16} h={16} alt="Yarn Icon" />,
+          },
+          {
+            fileName: "pnpm",
+            code: `pnpm add ${packageName}`,
+            language: "bash",
+            icon: <Image src={PnpmIcon.src} w={16} h={16} alt="PNPM Icon" />,
           },
         ]}
       />

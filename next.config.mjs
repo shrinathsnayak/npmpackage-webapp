@@ -7,6 +7,14 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compiler: {
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? {
+          exclude: ["error", "warnings"],
+        }
+        : false,
+  },
   experimental: {
     nextScriptWorkers: true,
     webVitalsAttribution: ["CLS", "LCP"],
