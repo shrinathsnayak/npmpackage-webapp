@@ -50,6 +50,7 @@ const Form = ({ formSubmit }: any) => {
           autosize
           autoFocus
           minRows={3}
+          maxRows={10}
           label="Message"
           placeholder="Enter feedback message"
           {...form.getInputProps("message")}
