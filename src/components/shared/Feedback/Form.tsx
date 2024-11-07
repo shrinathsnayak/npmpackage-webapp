@@ -32,7 +32,7 @@ const Form = ({ formSubmit }: any) => {
 
   return (
     <form onSubmit={form.onSubmit((values) => handleFormSubmit(values))}>
-      <Flex direction="column" gap={20}>
+      <Flex direction="column" gap={20} p={3}>
         <Flex align="center" gap={15}>
           {SCORE_VALUES.map((item: any) => (
             <ActionIcon
@@ -49,9 +49,11 @@ const Form = ({ formSubmit }: any) => {
         <Textarea
           autosize
           autoFocus
+          size="md"
           minRows={3}
           maxRows={10}
           label="Message"
+          description=" "
           placeholder="Enter feedback message"
           {...form.getInputProps("message")}
         />
