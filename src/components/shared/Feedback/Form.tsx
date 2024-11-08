@@ -62,7 +62,7 @@ const Form = ({ formSubmit }: any) => {
         </Flex>
         <Textarea
           autosize
-          size="md"
+          size="sm"
           minRows={5}
           maxRows={10}
           label="Message"
@@ -71,6 +71,7 @@ const Form = ({ formSubmit }: any) => {
           {...form.getInputProps("message")}
         />
         <TextInput
+          size="sm"
           label="Email Address (Optional)"
           description="Your email may be used to contact you for clarification if needed."
           placeholder="Enter your contact email address"
