@@ -8,7 +8,7 @@ const Security = ({ packageInfo }: any) => {
   const { overallScore, score, lastScanned, checks } = packageInfo || {};
 
   if (!score) {
-    return <EmptyState text="Unable to fetch score" />
+    return <EmptyState text="Unable to fetch score" />;
   }
 
   return (
@@ -51,11 +51,7 @@ const Security = ({ packageInfo }: any) => {
             projects.
           </Text>
 
-          <Anchor
-            fz="sm"
-            href="https://github.com/ossf/scorecard/blob/main/docs/checks.md"
-            target="_blank"
-          >
+          <Anchor fz="sm" href="https://scorecard.dev/" target="_blank">
             Learn More
           </Anchor>
         </Paper>
