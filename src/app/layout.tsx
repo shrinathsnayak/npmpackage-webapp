@@ -63,7 +63,7 @@ export default function RootLayout({
           data-id="snayak"
           data-description="Support me on Buy me a coffee!"
           data-message=""
-          data-color="#f03e3e"
+          data-color="#e03131"
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
