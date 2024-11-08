@@ -1,15 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import {
-  Box,
-  Center,
-  Container,
-  Image,
-  Paper,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Button, Center, Container, Image, Paper, Title } from "@mantine/core";
 import ErrorImage from "@/assets/error.webp";
 
 export default function Error({
@@ -40,6 +32,9 @@ export default function Error({
             Oops! Our website is taking a breather. Hang tight while we fix
             things up!
           </Title>
+          <Button onClick={reset} color="red.8" mt={20}>
+            Reload the page
+          </Button>
         </Container>
       </Paper>
     </Center>
