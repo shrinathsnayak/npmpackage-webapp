@@ -2,6 +2,7 @@
 
 import { createClient } from "@/utils/supbase";
 import { FeedbackFormData } from "@/types/feedback";
+import { isDevelopment } from "@/utils";
 
 const supabase = createClient();
 
@@ -34,6 +35,8 @@ export async function saveFeedback(formData: FeedbackFormData) {
  * count.
  */
 export async function updatePopularPackageCount(packageId: string) {
+  if (isDevelopment) return true;
+
   const { error } = await supabase.rpc("increment_popular_count", {
     package_id_input: packageId,
   });
@@ -54,6 +57,8 @@ export async function updatePopularPackageCount(packageId: string) {
  * message and return `false`.
  */
 export async function getPopularPackages() {
+  if (isDevelopment) return true;
+
   const { data, error } = await supabase
     .from("popular")
     .select("package_id")
