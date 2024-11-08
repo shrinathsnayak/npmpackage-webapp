@@ -6,9 +6,8 @@ import PopularPackages from "@/components/Landing/PopularPackages";
 import ProductHuntLaunch from "@/components/shared/ProductHuntLaunch";
 import Conditional from "@/components/shared/Conditional";
 import { getPopularPackages } from "@/services/supbase";
-import { ONE_HOUR_API_CACHE } from "@/constants/services.constants";
 
-export const revalidate = ONE_HOUR_API_CACHE;
+export const revalidate = 60;
 
 export default async function Home() {
   const popularPackages: any = await getPopularPackages();

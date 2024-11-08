@@ -6,12 +6,3 @@ export const npmFacts = [
   "NPM was acquired by GitHub in March 2020.",
   "NPM registry records approximately 1.5 to 2 billion package downloads per day. ",
 ];
-
-export const popularPackages = [
-  "react",
-  "next",
-  "vue",
-  "svelte",
-  "solid-js",
-  "@mantine/core",
-];
