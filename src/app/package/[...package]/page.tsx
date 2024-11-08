@@ -40,7 +40,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`,
     },
-    metadataBase: new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`),
+    metadataBase: new URL(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`
+    ),
   };
 }
 
@@ -49,9 +51,9 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const packageName = genereatePackageName(packages);
 
   const [data, downloads, searchData] = await Promise.all([
-    await getPackageData(packageName),
-    await getPackageDownloads(packageName),
-    await searchPackage(packageName),
+    getPackageData(packageName),
+    getPackageDownloads(packageName),
+    searchPackage(packageName),
   ]);
 
   const filteredData = removeSimilarByName(searchData?.data, packageName);

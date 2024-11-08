@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ActionIcon, Button, Flex, Textarea } from "@mantine/core";
+import { ActionIcon, Button, Flex, Textarea, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { SCORE_VALUES } from "./constants";
 
@@ -11,15 +11,29 @@ const Form = ({ formSubmit }: any) => {
     initialValues: {
       message: "",
       score: null,
+      email: null,
       url: window.location.href,
     },
     validate: {
+      email: (value: string) =>
+        !value
+          ? null
+          : /^\S+@\S+$/.test(value?.trim())
+            ? null
+            : "Invalid email",
       message: (value: string) =>
         value.trim().length === 0
           ? "Please enter a feedback message."
           : value.length < 5
             ? "Message is too short. Please enter at least 5 characters."
             : null,
+    },
+    transformValues(values: any) {
+      return {
+        ...values,
+        message: values.message?.trim(),
+        email: values.email?.trim() || null,
+      };
     },
   });
 
@@ -48,14 +62,20 @@ const Form = ({ formSubmit }: any) => {
         </Flex>
         <Textarea
           autosize
-          autoFocus
           size="md"
-          minRows={3}
+          minRows={5}
           maxRows={10}
           label="Message"
           description=" "
           placeholder="Enter feedback message"
           {...form.getInputProps("message")}
+        />
+        <TextInput
+          label="Email Address (Optional)"
+          description="Your email may be used to contact you for clarification if needed."
+          placeholder="Enter your contact email address"
+          inputWrapperOrder={["label", "input", "description", "error"]}
+          {...form.getInputProps("email")}
         />
         <Button type="submit" fullWidth color="red.8">
           {loading ? "Submitting" : "Submit"} Feedback

@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Anchor, Center, Group, rem, Text } from "@mantine/core";
-import { popularPackages } from "@/constants/npmfacts";
 import { IconTrendingUp } from "@tabler/icons-react";
+import { updatePopularPackageCount } from "@/services/supbase";
 
-const PopularPackages = () => {
+const PopularPackages = ({ popularPackages }: any) => {
   return (
     <Center>
       <Group gap={2} align="center">
@@ -17,16 +19,17 @@ const PopularPackages = () => {
             Popular Packages
           </Text>
         </Group>
-        {popularPackages.map((item: string) => (
+        {popularPackages.map((item: any) => (
           <Anchor
             p={5}
-            key={item}
             prefetch
             component={Link}
             underline="hover"
-            href={`${process.env.NEXT_PUBLIC_SITE_URL}/package/${item}`}
+            key={item?.package_id}
+            onClick={() => updatePopularPackageCount(item?.package_id)}
+            href={`${process.env.NEXT_PUBLIC_SITE_URL}/package/${item?.package_id}`}
           >
-            <Text fw={500}>{item}</Text>
+            <Text fw={500}>{item?.package_id}</Text>
           </Anchor>
         ))}
       </Group>

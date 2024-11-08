@@ -1,11 +1,17 @@
 import { Center, Title, Text, rem, Flex } from "@mantine/core";
-import PageLayout from "@/components/shared/PageLayout";
 import { NPMPACKAGE_TITLE } from "@/constants";
+import PageLayout from "@/components/shared/PageLayout";
 import SearchBar from "@/components/Landing/LandingSearch";
 import PopularPackages from "@/components/Landing/PopularPackages";
 import ProductHuntLaunch from "@/components/shared/ProductHuntLaunch";
+import Conditional from "@/components/shared/Conditional";
+import { getPopularPackages } from "@/services/supbase";
+import { ONE_HOUR_API_CACHE } from "@/constants/services.constants";
 
-export default function Home() {
+export const revalidate = ONE_HOUR_API_CACHE;
+
+export default async function Home() {
+  const popularPackages: any = await getPopularPackages();
   return (
     <PageLayout hideHeader={true} fixedFooter={true} bg="dark.9">
       <Center mah="calc(80vh - 65px)" mih="calc(80vh - 65px)" w="100%">
@@ -23,7 +29,9 @@ export default function Home() {
             Discover detailed information about npm packages.
           </Text>
           <SearchBar />
-          <PopularPackages />
+          <Conditional if={popularPackages?.length > 0}>
+            <PopularPackages popularPackages={popularPackages} />
+          </Conditional>
         </Flex>
       </Center>
     </PageLayout>

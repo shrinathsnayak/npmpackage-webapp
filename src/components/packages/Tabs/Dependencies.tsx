@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
+import { updatePopularPackageCount } from "@/services/supbase";
 import EmptyState from "./EmptyState";
 
 const DependenciesRenderer = ({ dependency, name }: any) => {
@@ -9,6 +10,7 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
 
   const handleRouteChange = (item: string) => {
     push(`/package/${item}`);
+    updatePopularPackageCount(item);
   };
 
   return (
@@ -48,9 +50,7 @@ const Dependencies = ({ data }: any) => {
     optionalDependencies,
   } = data || {};
   if (data && Object.keys(data).length === 0) {
-    return (
-      <EmptyState text="No dependencies detected" />
-    )
+    return <EmptyState text="No dependencies detected" />;
   }
   return (
     <Box>

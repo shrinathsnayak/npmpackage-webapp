@@ -8,6 +8,7 @@ import { useDebouncedValue } from "@mantine/hooks";
 import { createSpotlight, Spotlight } from "@mantine/spotlight";
 import { formatDate } from "@/utils";
 import { searchPackage } from "@/services/package";
+import { updatePopularPackageCount } from "@/services/supbase";
 
 export const [searchStore, searchHandlers] = createSpotlight();
 
@@ -19,9 +20,10 @@ const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
   );
 
   const handleClick = useCallback(
-    (packageName: string) => {
+    async (packageName: string) => {
       setQuery("");
       setData([]);
+      await updatePopularPackageCount(packageName);
       router.push(`/package/${packageName}`, { scroll: false });
     },
     [router, setData, setQuery]
@@ -77,12 +79,9 @@ const SearchComponent = () => {
     }
   }, [debouncedQuery]);
 
-  const handleChange = useCallback(
-    (value: string) => {
-      setQuery(value);
-    },
-    []
-  );
+  const handleChange = useCallback((value: string) => {
+    setQuery(value);
+  }, []);
 
   const items = useMemo(
     () =>

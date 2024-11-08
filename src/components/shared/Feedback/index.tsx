@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ActionIcon, Affix, Button, Flex, Kbd, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMessageDots } from "@tabler/icons-react";
-import { saveFeedback } from "@/services/feedback";
+import { saveFeedback } from "@/services/supbase";
 import Form from "./Form";
 import Success from "./Success";
 
@@ -44,7 +44,7 @@ const Feedback = () => {
       </Affix>
       <Modal
         centered
-        size="md"
+        size="lg"
         opened={opened}
         title="Feedback"
         withinPortal={true}

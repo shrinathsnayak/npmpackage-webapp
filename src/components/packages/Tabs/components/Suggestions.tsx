@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import {
@@ -10,6 +12,7 @@ import {
 } from "@mantine/core";
 import { IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
+import { updatePopularPackageCount } from "@/services/supbase";
 import { removeSimilarByName } from "@/utils";
 import { DataItem } from "@/types/npm";
 import classes from "./Installation.module.css";
@@ -34,6 +37,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
               href={`/package/${item?.name}`}
               scroll={false}
               shallow={true}
+              onClick={() => updatePopularPackageCount(item?.name)}
             >
               <Paper
                 w="100%"
