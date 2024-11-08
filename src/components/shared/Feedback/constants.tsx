@@ -6,7 +6,7 @@ import {
   IconMoodEmpty,
 } from "@tabler/icons-react";
 
-const STROKE_VALUE = "1.3";
+const STROKE_VALUE = "1.5";
 
 export const SCORE_VALUES: any = [
   { value: 5, label: <IconMoodSmileDizzy stroke={STROKE_VALUE} /> },

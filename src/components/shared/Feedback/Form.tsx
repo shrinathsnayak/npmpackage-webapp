@@ -78,7 +78,7 @@ const Form = ({ formSubmit }: any) => {
           inputWrapperOrder={["label", "input", "description", "error"]}
           {...form.getInputProps("email")}
         />
-        <Button type="submit" fullWidth color="red.8">
+        <Button type="submit" fullWidth color="red.8" size="md">
           {loading ? "Submitting" : "Submit"} Feedback
         </Button>
       </Flex>

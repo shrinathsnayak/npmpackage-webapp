@@ -21,7 +21,7 @@ const Feedback = () => {
 
   return (
     <div>
-      <Affix position={{ bottom: 20, right: 20 }} withinPortal={true}>
+      <Affix position={{ bottom: 20, left: 20 }} withinPortal={true}>
         <Button
           radius="xl"
           visibleFrom="md"
@@ -44,11 +44,16 @@ const Feedback = () => {
       </Affix>
       <Modal
         centered
-        size="lg"
+        size="md"
+        shadow="xl"
+        radius="md"
         opened={opened}
         title="Feedback"
         withinPortal={true}
-        radius="md"
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 4,
+        }}
         onClose={() => {
           handlers.close();
           setShowSuccess(false);
