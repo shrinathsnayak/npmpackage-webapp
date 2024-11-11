@@ -38,17 +38,17 @@ export async function generateMetadata({
       images: [OGImage.src],
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`,
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`,
     },
     metadataBase: new URL(
-      `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packages}`
+      `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`
     ),
   };
 }
 
 export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
-  const packageName = genereatePackageName(packages);
+  const packageName = await genereatePackageName(packages);
 
   const [data, downloads, searchData] = await Promise.all([
     getPackageData(packageName),

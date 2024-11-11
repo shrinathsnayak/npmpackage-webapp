@@ -16,6 +16,7 @@ const nextConfig = {
         : false,
   },
   experimental: {
+    appDir: true,
     nextScriptWorkers: true,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
