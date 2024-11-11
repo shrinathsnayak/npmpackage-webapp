@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { Button, Center, Container, Image, Paper, Title } from "@mantine/core";
 import ErrorImage from "@/assets/error.webp";
 
@@ -12,7 +11,6 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const router = useRouter();
   useEffect(() => {
     console.log(error);
   }, [error]);
@@ -36,7 +34,7 @@ export default function Error({
           </Title>
           <Button
             onClick={() => {
-              router.refresh();
+              window.location.reload();
               reset();
             }}
             color="red.8"
