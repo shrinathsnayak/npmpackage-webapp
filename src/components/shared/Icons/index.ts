@@ -1,1 +1,1 @@
-export { default as ProductHuntIcon } from './ProductHunt.Icon';
+export { default as ProductHuntIcon } from "./ProductHunt.Icon";

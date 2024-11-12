@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import {
   getPackageData,
   getPackageDownloads,
+  getPackageVulnerabilities,
   searchPackage,
 } from "@/services/package";
 import Conditional from "@/components/shared/Conditional";
@@ -50,10 +51,11 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
   const packageName = await genereatePackageName(packages);
 
-  const [data, downloads, searchData] = await Promise.all([
+  const [data, downloads, searchData, vulnerabilities] = await Promise.all([
     getPackageData(packageName),
     getPackageDownloads(packageName),
     searchPackage(packageName),
+    getPackageVulnerabilities(packageName),
   ]);
 
   const filteredData = removeSimilarByName(searchData?.data, packageName);
@@ -67,7 +69,11 @@ export default async function Package({ params }: { params: { package: [] } }) {
         />
       </Suspense>
       <Suspense fallback={<p>Loading tabs...</p>}>
-        <PageTabs packageInfo={data || {}} downloads={downloads || {}} />
+        <PageTabs
+          packageInfo={data || {}}
+          downloads={downloads || {}}
+          vulnerabilities={vulnerabilities || {}}
+        />
       </Suspense>
       <Conditional if={filteredData?.length > 0}>
         <Suspense fallback={<p>Loading suggestions...</p>}>

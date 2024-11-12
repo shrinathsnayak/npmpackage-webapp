@@ -19,14 +19,14 @@ const Form = ({ formSubmit }: any) => {
         !value
           ? null
           : /^\S+@\S+$/.test(value?.trim())
-            ? null
-            : "Invalid email",
+          ? null
+          : "Invalid email",
       message: (value: string) =>
         value.trim().length === 0
           ? "Please enter a feedback message."
           : value.length < 5
-            ? "Message is too short. Please enter at least 5 characters."
-            : null,
+          ? "Message is too short. Please enter at least 5 characters."
+          : null,
     },
     transformValues(values: any) {
       return {

@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button, Center, Container, Image, MantineProvider, Paper, Title } from "@mantine/core";
+import {
+  Button,
+  Center,
+  Container,
+  Image,
+  MantineProvider,
+  Paper,
+  Title,
+} from "@mantine/core";
 import ErrorImage from "@/assets/error.webp";
 import theme from "./theme";
 

@@ -20,6 +20,11 @@ const nextConfig = {
     nextScriptWorkers: true,
     webVitalsAttribution: ["CLS", "LCP"],
     optimizePackageImports: [
+      "remark-gfm",
+      "rehype-raw",
+      "rehype-rewrite",
+      "react-markdown",
+      "react-syntax-highlighter",
       "node-emoji",
       "@mantine/form",
       "@mantine/core",

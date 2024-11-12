@@ -1,14 +1,15 @@
 import React, { Suspense } from "react";
 import { Title, Flex, Text, Paper, Anchor } from "@mantine/core";
 import SecurityAccordin from "@/components/packages/Tabs/components/SecurityAccordin";
+import EmptyState from "@/components/shared/Empty";
 import { getScoreTextColor } from "@/utils";
-import EmptyState from "./EmptyState";
+import { EMPTY_TYPE } from "@/constants/empty";
 
 const Security = ({ packageInfo }: any) => {
   const { overallScore, score, lastScanned, checks } = packageInfo || {};
 
   if (!score) {
-    return <EmptyState text="Unable to fetch score" />;
+    return <EmptyState type={EMPTY_TYPE.SECURITY} />;
   }
 
   return (
