@@ -9,7 +9,7 @@ const OverviewCard = ({ children, title, badge }: any) => {
           {title}
         </Title>
         {badge && (
-          <Badge radius={5} size="md" color="dark.9">
+          <Badge radius={5} size="sm" color="dark.9">
             {badge}
           </Badge>
         )}

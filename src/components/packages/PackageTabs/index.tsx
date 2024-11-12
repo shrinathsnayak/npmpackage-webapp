@@ -10,6 +10,7 @@ import {
   Kbd,
   Text,
   Box,
+  Badge,
 } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
@@ -20,13 +21,13 @@ import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Downloads from "@/components/shared/Downloads";
 import classes from "./Tabs.module.css";
-// import { calculateOverallCount } from "@/utils";
+import Vulnerabilities from "../Tabs/components/vulnerabilities";
 
 const MemoizedDownloads = memo(Downloads);
 
 const MemoizedSecurity = memo(Security);
 
-const PageTabs = ({ packageInfo, downloads }: any) => {
+const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = useMemo(
@@ -35,11 +36,6 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   );
   const downloadsData = useMemo(() => downloads, [downloads]);
   const { gitHub, securityScore, npm } = packageInfo || {};
-  // const dependenciesCount = useMemo(
-  //   () => calculateOverallCount(npm?.data?.dependencies),
-  //   [npm?.data]
-  // );
-
   const redirectToTab = useCallback(
     (value: string) => {
       if (value) {
@@ -60,7 +56,8 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
     ["2", () => redirectToTab("readme")],
     ["3", () => redirectToTab("downloads")],
     ["4", () => redirectToTab("dependencies")],
-    ["5", () => redirectToTab("scorecard")],
+    ["5", () => redirectToTab("vulnerabilities")],
+    ["6", () => redirectToTab("scorecard")],
   ]);
 
   const HotKeys = ({
@@ -82,7 +79,11 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
   );
 
   return (
-    <Container className="responsiveContainer" mt={{ base: -46, sm: -48 }}>
+    <Container
+      size="lg"
+      className="responsiveContainer"
+      mt={{ base: -46, sm: -47 }}
+    >
       <Tabs
         autoContrast
         value={search}
@@ -95,15 +96,12 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
           <Tabs.Tab py="sm" px="lg" c="white" value="overview">
             <HotKeys value="1" label="Overview" />
           </Tabs.Tab>
-          {/* <Conditional if={gitHub?.data?.readMe}> */}
           <Tabs.Tab py="sm" px="lg" c="white" value="readme">
             <HotKeys value="2" label="Readme" />
           </Tabs.Tab>
-          {/* </Conditional> */}
           <Tabs.Tab py="sm" px="lg" c="white" value="downloads">
             <HotKeys value="3" label="Downloads" />
           </Tabs.Tab>
-          {/* <Conditional if={(dependenciesCount || 0) > 0}> */}
           <Tabs.Tab py="sm" px="lg" c="white" value="dependencies">
             <HotKeys
               value="4"
@@ -122,12 +120,20 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
               }
             />
           </Tabs.Tab>
-          {/* </Conditional> */}
-          {/* <Conditional if={securityScore?.data?.score}> */}
-          <Tabs.Tab py="sm" px="lg" c="white" value="scorecard">
-            <HotKeys value="5" label="OpenSSF Scorecard" />
+          <Tabs.Tab py="sm" px="lg" c="white" value="vulnerabilities">
+            <HotKeys
+              value="5"
+              label="Vulnerabilities"
+              rest={
+                <Badge color="red.8" radius="sm" size="xs">
+                  New
+                </Badge>
+              }
+            />
           </Tabs.Tab>
-          {/* </Conditional> */}
+          <Tabs.Tab py="sm" px="lg" c="white" value="scorecard">
+            <HotKeys value="6" label="OpenSSF Scorecard" />
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
@@ -150,7 +156,11 @@ const PageTabs = ({ packageInfo, downloads }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <ReadMe data={readMeFileContent} />
+          <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
+        </Tabs.Panel>
+
+        <Tabs.Panel value={TABS.vulnerabilities.value} py={20}>
+          <Vulnerabilities vulnerabilities={vulnerabilities} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>

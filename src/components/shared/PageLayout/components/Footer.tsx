@@ -12,7 +12,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
       p={{ base: "sm", sm: "lg" }}
       pos={fixedFooter ? "fixed" : "static"}
     >
-      <Container className="responsiveContainer">
+      <Container size="lg" className="responsiveContainer">
         <Flex
           align="center"
           justify="space-between"

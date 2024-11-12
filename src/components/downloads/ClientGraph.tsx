@@ -5,7 +5,7 @@ import Downloads from "../shared/Downloads";
 
 export default function ClientGraphContainer({ downloads, packageName }: any) {
   return (
-    <Container className="responsiveContainer" mt={{ base: -70, sm: -100 }}>
+    <Container size="lg" className="responsiveContainer" mt={{ base: -70, sm: -100 }}>
       <Downloads
         downloads={downloads}
         showDailyDownloads={true}

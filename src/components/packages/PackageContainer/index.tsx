@@ -12,7 +12,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
 
   return (
     <Box w="100%" bg="dark.9" pb={60}>
-      <Container className="responsiveContainer" py={30}>
+      <Container size="lg" className="responsiveContainer" py={30}>
         <Flex
           align="center"
           justify="space-between"

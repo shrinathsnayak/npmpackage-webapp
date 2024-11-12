@@ -10,7 +10,7 @@ export function NothingFound() {
   const { replace } = useRouter();
   return (
     <PageLayout hideFooter={true} bg="dark.9">
-      <Container className={`${classes.root} responsiveContainer`}>
+      <Container size="lg" className={`${classes.root} responsiveContainer`}>
         <div className={classes.inner}>
           <Illustration className={classes.image} />
           <div className={classes.content}>
