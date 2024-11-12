@@ -69,7 +69,11 @@ export default async function Package({ params }: { params: { package: [] } }) {
         />
       </Suspense>
       <Suspense fallback={<p>Loading tabs...</p>}>
-        <PageTabs packageInfo={data || {}} downloads={downloads || {}} vulnerabilities={vulnerabilities || {}} />
+        <PageTabs
+          packageInfo={data || {}}
+          downloads={downloads || {}}
+          vulnerabilities={vulnerabilities || {}}
+        />
       </Suspense>
       <Conditional if={filteredData?.length > 0}>
         <Suspense fallback={<p>Loading suggestions...</p>}>

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react'
-import { Box } from '@mantine/core';
-import EmptyState from '@/components/shared/Empty';
-import { EMPTY_TYPE } from '@/constants/empty';
+import React from "react";
+import { Box } from "@mantine/core";
+import EmptyState from "@/components/shared/Empty";
+import { EMPTY_TYPE } from "@/constants/empty";
 
 interface ComponentProps {
   vulnerabilities: any;
@@ -16,11 +16,9 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
     return <EmptyState type={EMPTY_TYPE.VULNERABILITIES} />;
   }
 
-  console.log(data, 'data')
+  console.log(data, "data");
 
-  return (
-    <Box>Vulnerabilities</Box>
-  )
-}
+  return <Box>Vulnerabilities</Box>;
+};
 
-export default Vulnerabilities
+export default Vulnerabilities;

@@ -9,7 +9,6 @@ import { Anchor } from "@mantine/core";
 import styles from "./mdx.module.css";
 
 const MDX = ({ content, owner, name, branch }: any) => {
-  console.log(owner, name, branch, 'mdx')
   return (
     <Suspense fallback={<>loading...</>}>
       <Markdown
@@ -22,7 +21,10 @@ const MDX = ({ content, owner, name, branch }: any) => {
             {
               rewrite: (node: any) => {
                 const githubBaseUrl = `https://raw.githubusercontent.com/${owner}/${name}/${branch}/`;
-                if (node.tagName === "img" && node.properties.src?.startsWith("src/")) {
+                if (
+                  node.tagName === "img" &&
+                  node.properties.src?.startsWith("src/")
+                ) {
                   node.properties.src = githubBaseUrl + node.properties.src;
                 }
               },

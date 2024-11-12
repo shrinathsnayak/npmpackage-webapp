@@ -22,12 +22,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
             <Text fz="xs" c="white" fw={400}>
               Made in{" "}
             </Text>
-            <Image
-              src={IndiaFlag.src}
-              w={20}
-              h={11}
-              alt="India Flag"
-            />{" "}
+            <Image src={IndiaFlag.src} w={20} h={11} alt="India Flag" />{" "}
             <Text fz="xs" c="white" fw={400}>
               by{" "}
             </Text>

@@ -59,7 +59,9 @@ const Downloads = ({
             direction={{ base: "column", sm: "row" }}
           >
             <Box display={{ base: "none", sm: "block" }}>
-              <Title order={3} c="white">Total Downloads</Title>
+              <Title order={3} c="white">
+                Total Downloads
+              </Title>
               <Text fz="sm" c="dimmed" mt={5}>
                 Cumulative downloads
               </Text>
@@ -100,8 +102,14 @@ const Downloads = ({
             type="year"
           />
         </SimpleGrid>
-        <DownloadGraph data={data?.allDailyDownloads ?? []} type={CHART_DATE_TYPES.daily} />
-        <DownloadGraph data={data?.weekly ?? []} type={CHART_DATE_TYPES.weekly} />
+        <DownloadGraph
+          data={data?.allDailyDownloads ?? []}
+          type={CHART_DATE_TYPES.daily}
+        />
+        <DownloadGraph
+          data={data?.weekly ?? []}
+          type={CHART_DATE_TYPES.weekly}
+        />
         <DownloadGraph
           data={data?.monthly ?? []}
           type={CHART_DATE_TYPES.monthly}
@@ -109,10 +117,11 @@ const Downloads = ({
           xAxisProps={{
             minTickGap: 10,
             interval: "preserveStartEnd",
-            tickFormatter: (value: any) => new Intl.DateTimeFormat("en-IN", {
-              year: "numeric",
-              month: "short",
-            }).format(new Date(value)),
+            tickFormatter: (value: any) =>
+              new Intl.DateTimeFormat("en-IN", {
+                year: "numeric",
+                month: "short",
+              }).format(new Date(value)),
           }}
         />
         <DownloadGraph

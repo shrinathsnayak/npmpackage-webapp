@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import { NavigationProgress, nprogress } from '@mantine/nprogress'
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { NavigationProgress, nprogress } from "@mantine/nprogress";
 
 export const NavigationProgressBar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   useEffect(() => {
-    nprogress.complete()
+    nprogress.complete();
     return () => {
-      nprogress.start()
-    }
-  }, [pathname])
+      nprogress.start();
+    };
+  }, [pathname]);
 
-  return <NavigationProgress color='red.8' size={5} />
-}
+  return <NavigationProgress color="red.8" size={5} />;
+};

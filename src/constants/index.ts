@@ -10,7 +10,11 @@ export const TABS: any = {
   dependencies: { name: "Dependencies", value: "dependencies", visible: true },
   scorecard: { name: "OpenSSF Scorecard", value: "scorecard", visible: true },
   versions: { name: "Versions", value: "versions", visible: false },
-  vulnerabilities: { name: "Vulnerabilities", value: "vulnerabilities", visible: true },
+  vulnerabilities: {
+    name: "Vulnerabilities",
+    value: "vulnerabilities",
+    visible: true,
+  },
 };
 
 export const VULNERABILITY: any = {
