@@ -81,7 +81,7 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
           fz="xs"
           label={tooltip}
         >
-          <IconInfoCircle size={18} />
+          <IconInfoCircle size={20} />
         </Tooltip>
       </Flex>
     </Flex>

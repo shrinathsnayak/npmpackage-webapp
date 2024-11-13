@@ -1,5 +1,6 @@
 .cardComponent {
   @mixin hover {
     cursor: pointer;
+    border-color: var(--mantine-color-blue-9);
   }
 }

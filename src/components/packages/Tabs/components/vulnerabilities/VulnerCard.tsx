@@ -1,6 +1,15 @@
-import { Badge, Box, Card, Group, Text } from "@mantine/core";
+import {
+  ActionIcon,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Group,
+  Text,
+} from "@mantine/core";
 import { VULNERABILITY_COLORS } from "@/constants";
 import classes from "./index.module.css";
+import { IconExternalLink } from "@tabler/icons-react";
 
 const VulnerCard = ({
   severity,
@@ -12,10 +21,11 @@ const VulnerCard = ({
 }: any) => {
   return (
     <Card
-      shadow="sm"
+      shadow="md"
       padding="md"
       radius="md"
       bg="dark.9"
+      withBorder
       onClick={onClick}
       className={classes.cardComponent}
     >
@@ -32,9 +42,14 @@ const VulnerCard = ({
           <b>{score}</b>/10
         </Text>
       </Group>
-      <Text fz="md" my="sm" c="white">
-        {summary}
-      </Text>
+      <Box my="sm">
+        <Text fz="xs" c="dimmed">
+          Summary
+        </Text>
+        <Text fz="sm" c="white">
+          {summary}
+        </Text>
+      </Box>
       <Group justify="space-between" align="center" mb="xs">
         <Box>
           <Text fz="xs" c="dimmed">
