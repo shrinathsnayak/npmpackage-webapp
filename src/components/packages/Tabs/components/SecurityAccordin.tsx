@@ -3,7 +3,7 @@
 import React, { useMemo, useState, useCallback } from "react";
 import { Box, Group, List, Text, Accordion, Title } from "@mantine/core";
 import { getScoreTextColor } from "@/utils";
-import classes from './Installation.module.css';
+import classes from "./Installation.module.css";
 
 const AccordionLabel = React.memo(({ score, name, description }: any) => {
   return (
@@ -78,10 +78,13 @@ const SecurityAccordin = ({ checks = [] }: any) => {
     setValue(newValue);
   }, []);
 
-  const classNames = useMemo(() => ({
-    root: classes.accordinRoot,
-    item: classes.accordinItem
-  }), []);
+  const classNames = useMemo(
+    () => ({
+      root: classes.accordinRoot,
+      item: classes.accordinItem,
+    }),
+    []
+  );
 
   return (
     <Box w="100%">

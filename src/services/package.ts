@@ -1,6 +1,6 @@
 "use server";
 import { isDevelopment } from "@/utils";
-import { unstable_cache as cache } from 'next/cache';
+import { unstable_cache as cache } from "next/cache";
 import { generateAPIOptions } from "@/constants/services.constants";
 
 /**
@@ -172,35 +172,29 @@ export const packageDownloadStats = cache(
 );
 
 /**
- * The function `getPackageAlertsData` fetches data related to a specific package and version from an
+ * The function `getPackageVulnerabilities` fetches vulnerability data for a specified package from an
  * API endpoint.
- * @param {string} packageName - The `packageName` parameter is a string that represents the name of a
- * package or software component for which you want to retrieve alerts or information. It could be the
- * name of a library, framework, tool, or any other software entity that you are interested in.
- * @param {string} version - The `version` parameter in the `getPackageAlertsData` function represents
- * the version of the package for which you want to retrieve alerts data. It is a string type parameter
- * that specifies the specific version of the package you are interested in.
- * @returns The function `getPackageAlertsData` is returning the JSON data fetched from the API
- * endpoint for the specified package name and version.
+ * @param {string} packageName - The `packageName` parameter is a string that represents the name of
+ * the package for which you want to retrieve vulnerability information.
+ * @returns The `getPackageVulnerabilities` function returns the JSON data fetched from the API endpoint
+ * for the specified package name.
  */
-export const getPackageAlertsData = cache(
-  async (packageName: string, version: string) => {
-    try {
-      if (packageName && version) {
-        const options = isDevelopment ? {} : generateAPIOptions(packageName);
-        const res = await fetch(
-          `${process.env.API_ENDPOINT}/socket?packageName=${packageName}&version=${version}`,
-          options
-        );
+export const getPackageVulnerabilities = cache(async (packageName: string) => {
+  try {
+    if (packageName) {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const res = await fetch(
+        `${process.env.API_ENDPOINT}/vulnerabilities?name=${packageName}`,
+        options
+      );
 
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        return res.json();
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
       }
-    } catch (err) {
-      console.error(err);
+
+      return res.json();
     }
+  } catch (err) {
+    console.error(err);
   }
-);
+});

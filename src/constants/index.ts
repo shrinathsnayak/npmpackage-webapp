@@ -10,6 +10,11 @@ export const TABS: any = {
   dependencies: { name: "Dependencies", value: "dependencies", visible: true },
   scorecard: { name: "OpenSSF Scorecard", value: "scorecard", visible: true },
   versions: { name: "Versions", value: "versions", visible: false },
+  vulnerabilities: {
+    name: "Vulnerabilities",
+    value: "vulnerabilities",
+    visible: true,
+  },
 };
 
 export const VULNERABILITY: any = {
@@ -46,4 +51,11 @@ export const CHART_DATE_TYPES: any = {
   weekly: "Weekly",
   monthly: "Monthly",
   yearly: "Yearly",
+};
+
+export const VULNERABILITY_COLORS: any = {
+  HIGH: "red.9",
+  MODERATE: "orange.9",
+  CRITICAL: "yellow.9",
+  LOW: "gray.0",
 };

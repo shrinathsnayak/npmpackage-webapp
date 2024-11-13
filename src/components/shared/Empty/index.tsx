@@ -1,9 +1,14 @@
 import React from "react";
 import NextImage from "next/image";
 import { Flex, Image, Text, Paper } from "@mantine/core";
-import Empty from "@/assets/empty.png";
+import { EMPTY_TYPE, EMPTY_STATE } from "@/constants/empty";
 
-const EmptyState = ({ text }: any) => {
+interface EmptyStateProps {
+  type: string;
+}
+
+const EmptyState = ({ type }: EmptyStateProps) => {
+  const messages = EMPTY_STATE[type || EMPTY_TYPE.DEFAULT];
   return (
     <Paper
       my={15}
@@ -20,13 +25,13 @@ const EmptyState = ({ text }: any) => {
           h="150"
           radius="md"
           component={NextImage}
-          src={Empty.src}
+          src={messages.image}
           width={200}
           height={200}
           alt="Empty State"
         />
         <Text c="red.8" fz="md" ta="center" fw="bold" mb={5}>
-          {text}
+          {messages?.text}
         </Text>
       </Flex>
     </Paper>

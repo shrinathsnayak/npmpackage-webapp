@@ -20,7 +20,7 @@ import classes from "./Installation.module.css";
 const Suggestions = ({ searchData, packageName = "" }: any) => {
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Container className="responsiveContainer" mb={20}>
+    <Container size="lg" className="responsiveContainer" mb={20}>
       <OverviewCard title={`Other packages similar to ${packageName}`}>
         <SimpleGrid
           mt={10}

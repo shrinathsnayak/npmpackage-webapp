@@ -26,7 +26,7 @@ const PopularPackages = ({ popularPackages }: any) => {
             underline="hover"
             key={item?.package_id}
             onClick={() => updatePopularPackageCount(item?.package_id)}
-            href={`${process.env.NEXT_PUBLIC_SITE_URL}/package/${item?.package_id}`}
+            href={`/package/${item?.package_id}`}
           >
             <Text fw={500}>{item?.package_id}</Text>
           </Anchor>

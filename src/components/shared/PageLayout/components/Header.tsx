@@ -34,7 +34,13 @@ const Header = ({ hideSearch }: any) => {
           py="xs"
           gap={1}
         >
-          <Anchor prefetch component={Link} href="/" underline="never" w="min-content">
+          <Anchor
+            prefetch
+            component={Link}
+            href="/"
+            underline="never"
+            w="min-content"
+          >
             <Flex gap={5} justify="space-between" align="center">
               <Image
                 w={35}
@@ -55,7 +61,7 @@ const Header = ({ hideSearch }: any) => {
                 <UnstyledButton
                   onClick={() => searchHandlers.open()}
                   className={classes.searchRoot}
-                // data-desktop
+                  // data-desktop
                 >
                   <Group gap="xs">
                     <IconSearch
