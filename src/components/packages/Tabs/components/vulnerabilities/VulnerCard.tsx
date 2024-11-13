@@ -40,7 +40,7 @@ const VulnerCard = ({
           <Text fz="xs" c="dimmed">
             Affected Versions
           </Text>
-          <Text fz="sm" fw="bold">
+          <Text fz="sm" fw="bold" c="white">
             {affectedVerions}
           </Text>
         </Box>
@@ -48,7 +48,7 @@ const VulnerCard = ({
           <Text fz="xs" c="dimmed">
             Patched Versions
           </Text>
-          <Text fz="sm" fw="bold">
+          <Text fz="sm" fw="bold" c="white" ta="right">
             {patchedVersion}
           </Text>
         </Box>

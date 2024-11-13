@@ -6,7 +6,6 @@ import {
   Flex,
   Drawer,
   Paper,
-  ScrollArea,
   SimpleGrid,
   Text,
   Title,
@@ -14,11 +13,11 @@ import {
   Anchor,
 } from "@mantine/core";
 import EmptyState from "@/components/shared/Empty";
+import { IconExternalLink } from "@tabler/icons-react";
 import { EMPTY_TYPE } from "@/constants/empty";
+import Conditional from "@/components/shared/Conditional";
 import VulnerCard from "./VulnerCard";
 import ModalContent from "./ModalContent";
-import { IconExternalLink } from "@tabler/icons-react";
-import Conditional from "@/components/shared/Conditional";
 
 interface ComponentProps {
   vulnerabilities: any;
@@ -64,6 +63,7 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
         </SimpleGrid>
         <Conditional if={!!selectedVulnerability}>
           <Drawer
+            size="lg"
             offset={6}
             radius="md"
             position="right"

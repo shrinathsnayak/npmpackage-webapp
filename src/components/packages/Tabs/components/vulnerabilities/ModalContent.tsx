@@ -1,7 +1,7 @@
-import { Anchor, Badge, Box, Flex, Group, Text } from "@mantine/core";
-import { VULNERABILITY_COLORS } from "@/constants";
+import { Anchor, Badge, Flex, Group, Text } from "@mantine/core";
 import MDX from "@/components/shared/mdx";
 import { formatDate } from "@/utils";
+import { VULNERABILITY_COLORS } from "@/constants";
 
 const ModalContent = ({ data }: any) => {
   const {
@@ -53,10 +53,10 @@ const ModalContent = ({ data }: any) => {
           </Text>
         </div>
         <div>
-          <Text fz="sm" c="dimmed" mb={3}>
+          <Text fz="sm" c="dimmed" mb={3} ta="right">
             Patched versions
           </Text>
-          <Text fz="md" c="white">
+          <Text fz="md" c="white" ta="right">
             {firstPatchedVersion}
           </Text>
         </div>
@@ -72,10 +72,10 @@ const ModalContent = ({ data }: any) => {
           </Text>
         </div>
         <div>
-          <Text fz="sm" c="dimmed" mb={3}>
+          <Text fz="sm" c="dimmed" mb={3} ta="right">
             Updated on
           </Text>
-          <Text fz="md" c="white">
+          <Text fz="md" c="white" ta="right">
             {updatedAt && formatDate(new Date(updatedAt))}
           </Text>
         </div>
@@ -95,7 +95,7 @@ const ModalContent = ({ data }: any) => {
         </Text>
         {references?.map((ref: any, index: number) => (
           <div key={index} style={{ wordWrap: "break-word" }}>
-            <Anchor fz="sm" href={ref} target="_blank">
+            <Anchor fz="sm" href={ref} target="_blank" mb={5} display="block">
               {ref}
             </Anchor>
           </div>
