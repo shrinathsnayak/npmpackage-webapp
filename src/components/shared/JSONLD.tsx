@@ -13,15 +13,6 @@ const JSONLD = ({ data, packageName }: any) => {
     programmingLanguage: githubData?.primaryLanguage,
     license: githubData?.license,
     version: npmData?.version,
-    dependencies:
-      npmData?.dependencies?.dependencies?.data &&
-      Object.keys(npmData?.dependencies?.dependencies?.data)?.map((dep) => ({
-        "@type": "SoftwareSourceCode",
-        name: dep,
-        version: npmData?.dependencies?.dependencies?.data[dep],
-      })),
-    readme: `https://npmpackage.info/package/${packageName}?t=readme`,
-    issueTracker: npmData.bugsUrl || "",
   };
 
   return (
