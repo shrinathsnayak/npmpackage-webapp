@@ -1,4 +1,4 @@
-import { Anchor, Badge, Flex, Group, Text } from "@mantine/core";
+import { Anchor, Badge, Flex, Group, Paper, Text } from "@mantine/core";
 import MDX from "@/components/shared/mdx";
 import { formatDate } from "@/utils";
 import { VULNERABILITY_COLORS } from "@/constants";
@@ -86,7 +86,9 @@ const ModalContent = ({ data }: any) => {
         <Text fz="sm" c="dimmed" mb={3}>
           Description
         </Text>
-        <MDX content={description} />
+        <Paper p="md" radius="md" bg="dark.9" shadow="sm" c="white">
+          <MDX content={description} />
+        </Paper>
       </div>
 
       <div>

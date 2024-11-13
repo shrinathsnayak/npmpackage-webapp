@@ -8,7 +8,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
     <AppShell.Footer
       fz="sm"
       bg="dark.7"
-      withBorder={false}
+      withBorder
       p={{ base: "sm", sm: "lg" }}
       pos={fixedFooter ? "fixed" : "static"}
     >
