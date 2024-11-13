@@ -21,7 +21,6 @@ export const LinksContainer = ({
     <Group gap={15} mb={{ base: 5, sm: 0 }}>
       <Conditional if={homePage}>
         <ActionIcon
-          prefetch
           size="lg"
           variant="light"
           color="gray"
@@ -41,7 +40,6 @@ export const LinksContainer = ({
           component={Link}
           href={github}
           target="_blank"
-          prefetch
         >
           <IconBrandGithub size={18} />
         </ActionIcon>
@@ -55,7 +53,6 @@ export const LinksContainer = ({
           component={Link}
           href={npm}
           target="_blank"
-          prefetch
         >
           <IconBrandNpm size={18} />
         </ActionIcon>
@@ -69,7 +66,6 @@ export const LinksContainer = ({
           component={Link}
           href={runKit}
           target="_blank"
-          prefetch
         >
           <IconPlayerPlayFilled size={18} />
         </ActionIcon>
@@ -83,7 +79,6 @@ export const LinksContainer = ({
           component={Link}
           href={typesLink}
           target="_blank"
-          prefetch
         >
           <IconBrandTypescript size={18} />
         </ActionIcon>
