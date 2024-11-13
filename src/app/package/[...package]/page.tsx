@@ -8,6 +8,7 @@ import {
 } from "@/services/package";
 import Conditional from "@/components/shared/Conditional";
 import { genereatePackageName } from "@/constants/services.constants";
+import JSONLD from "@/components/shared/JSONLD";
 import { removeSimilarByName } from "@/utils";
 import OGImage from "@/assets/og.png";
 
@@ -62,6 +63,7 @@ export default async function Package({ params }: { params: { package: [] } }) {
 
   return (
     <div>
+      <JSONLD data={data} packageName={packageName} />
       <Suspense fallback={<p>Loading package information...</p>}>
         <PackageContainer
           packageInfo={data || {}}
