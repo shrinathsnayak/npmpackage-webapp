@@ -37,7 +37,6 @@ const Footer = ({ fixedFooter }: boolean | any) => {
               href="https://snayak.dev"
               target="blank"
               underline="never"
-              prefetch
               fw={400}
               c="blue.4"
             >

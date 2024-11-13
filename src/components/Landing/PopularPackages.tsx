@@ -22,7 +22,6 @@ const PopularPackages = ({ popularPackages }: any) => {
         {popularPackages.map((item: any) => (
           <Anchor
             p={5}
-            prefetch
             component={Link}
             underline="hover"
             key={item?.package_id}

@@ -28,7 +28,6 @@ const ActionsCard = ({ data, link }: any) => {
           </Title>
         </Box>
         <ActionIcon
-          prefetch
           variant="light"
           color="gray"
           component={Link}
@@ -41,7 +40,7 @@ const ActionsCard = ({ data, link }: any) => {
           />
         </ActionIcon>
       </Flex>
-      <Divider c="dark.7"/>
+      <Divider c="dark.7" />
       <Flex align="center" justify="space-around">
         <Box p="xs" ta="center">
           <Text fz="sm" c="white">

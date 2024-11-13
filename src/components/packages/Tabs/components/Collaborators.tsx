@@ -35,7 +35,6 @@ const Collaborators = ({
                       item?.profile_url || `https://github.com/${item?.name}`
                     }
                     target="_blank"
-                    prefetch
                   >
                     <Avatar
                       size="md"
@@ -56,7 +55,6 @@ const Collaborators = ({
             <Anchor
               display="inline-block"
               component={Link}
-              prefetch
               href={`${repositoryUrl}/contributors`}
               target="_blank"
             >
