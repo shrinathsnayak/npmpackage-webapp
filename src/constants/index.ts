@@ -52,3 +52,10 @@ export const CHART_DATE_TYPES: any = {
   monthly: "Monthly",
   yearly: "Yearly",
 };
+
+export const VULNERABILITY_COLORS: any = {
+  HIGH: "red.9",
+  MODERATE: "orange.9",
+  CRITICAL: "yellow.9",
+  LOW: "gray.0",
+};

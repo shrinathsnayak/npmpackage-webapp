@@ -1,0 +1,5 @@
+.cardComponent {
+  @mixin hover {
+    cursor: pointer;
+  }
+}
