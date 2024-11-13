@@ -24,10 +24,10 @@ interface ComponentProps {
 }
 
 const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
-  const { status, data } = vulnerabilities;
+  const { status, data } = vulnerabilities || {};
   const [selectedVulnerability, setSelectedVulnerability] = useState<any>(null);
 
-  if (Object.keys(data).length === 0 || status !== 200) {
+  if ((data && Object.keys(data).length === 0) || status !== 200) {
     return <EmptyState type={EMPTY_TYPE.VULNERABILITIES} />;
   }
 
