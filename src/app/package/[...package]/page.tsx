@@ -48,7 +48,7 @@ export async function generateMetadata({
 
 export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
-  const packageName = await genereatePackageName(packages);
+  const packageName = genereatePackageName(packages);
 
   const [data, downloads, searchData] = await Promise.all([
     getPackageData(packageName),
