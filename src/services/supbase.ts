@@ -71,3 +71,24 @@ export async function getPopularPackages() {
   }
   return data;
 }
+
+/**
+ * The function `getAllPopularPackages` retrieves popular package IDs from a Supabase table in
+ * descending order of count.
+ * @returns The `getAllPopularPackages` function is returning the data fetched from the "popular" table
+ * in the Supabase database. The data consists of the package IDs of popular packages, ordered by count
+ * in descending order. If there is an error during the fetching process, the function will log an
+ * error message and return `false`.
+ */
+export async function getAllPopularPackages() {
+  const { data, error } = await supabase
+    .from("popular")
+    .select("package_id, updated_at")
+    .order("count", { ascending: false });
+
+  if (error) {
+    console.error("Error fetching popular packages:", error.message);
+    return false;
+  }
+  return data;
+}
