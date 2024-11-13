@@ -52,6 +52,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/public/sitemap.xml",
+        permanent: true,
+      },
+    ];
+  },
   webpack(config, { isServer }) {
     if (!isServer) {
       config.optimization.splitChunks = {
