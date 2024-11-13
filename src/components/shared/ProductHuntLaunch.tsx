@@ -9,7 +9,6 @@ const PRODUCT_HUNT_URL = "https://www.producthunt.com/posts/npmpackage-info";
 const ProductHuntLaunch = () => {
   return (
     <Anchor
-      prefetch
       target="_blank"
       component={Link}
       underline="never"

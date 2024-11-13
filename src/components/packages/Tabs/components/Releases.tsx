@@ -20,7 +20,6 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
       component={Link}
       target="_blank"
       underline="never"
-      prefetch
     >
       <Paper p="sm" radius="md" h="100%">
         <Text fz="sm" fw="500">
@@ -65,7 +64,6 @@ const Releases = ({ releases, repositoryUrl }: any) => {
             component={Link}
             href={`${repositoryUrl}/releases`}
             target="_blank"
-            prefetch
           >
             <Text fz="sm">
               View all <NumberFormatter thousandSeparator value={total} />{" "}

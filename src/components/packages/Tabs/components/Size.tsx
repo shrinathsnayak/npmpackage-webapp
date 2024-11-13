@@ -32,7 +32,6 @@ const Size = ({ bundleSize, packageName }: any) => {
           <Anchor
             display="inline-block"
             component={Link}
-            prefetch
             href={`https://bundlephobia.com/package/${packageName}`}
             target="_blank"
           >

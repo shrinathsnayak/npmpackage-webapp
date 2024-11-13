@@ -28,7 +28,6 @@ const ActionsCard = ({ data, link }: any) => {
           </Title>
         </Box>
         <ActionIcon
-          prefetch
           variant="light"
           color="gray"
           component={Link}
