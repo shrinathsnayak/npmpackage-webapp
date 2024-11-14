@@ -92,3 +92,24 @@ export async function getAllPopularPackages() {
   }
   return data;
 }
+
+/**
+ * The function `saveErrors` saves feedback form data to a Supabase table named "error" and returns
+ * true if successful, false otherwise.
+ * @param {FeedbackFormData} formData - The `formData` parameter in the `saveErrors` function is of
+ * type `FeedbackFormData`. It is used to store feedback data related to errors in a database table
+ * named "error".
+ * @returns The `saveErrors` function is returning a boolean value. It returns `true` if the error data
+ * was successfully inserted into the "error" table in the Supabase database, and it returns `false` if
+ * there was an error during the insertion process.
+ */
+export async function saveErrors(formData: FeedbackFormData) {
+  const { error } = await supabase.from("error").insert(formData);
+
+  if (error) {
+    console.error("Error inserting errors:", error.message);
+    return false;
+  }
+
+  return true;
+}

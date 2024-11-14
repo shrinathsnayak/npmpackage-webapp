@@ -1,9 +1,11 @@
+import { SoftwareSourceCode, WithContext } from "schema-dts";
+
 const JSONLD = ({ data, packageName }: any) => {
   const { npm, gitHub } = data || {};
   const npmData = npm?.data || {};
   const githubData = gitHub?.data || {};
 
-  const jsonData = {
+  const jsonData: WithContext<SoftwareSourceCode> = {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     name: npmData?.name,
@@ -13,6 +15,7 @@ const JSONLD = ({ data, packageName }: any) => {
     programmingLanguage: githubData?.primaryLanguage,
     license: githubData?.license,
     version: npmData?.version,
+    datePublished: githubData?.updatedAt,
   };
 
   return (

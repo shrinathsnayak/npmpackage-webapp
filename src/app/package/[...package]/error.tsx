@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { useParams } from "next/navigation";
 import { Button, Center, Container, Image, Paper, Title } from "@mantine/core";
+import { genereatePackageName } from "@/constants/services.constants";
 import ErrorImage from "@/assets/error.webp";
+import { saveErrors } from "@/services/supbase";
 
 export default function Error({
   error,
@@ -10,10 +13,23 @@ export default function Error({
 }: {
   error: Error & { digest?: string };
   reset: () => void;
+  params?: any;
 }) {
+  const params: any = useParams();
+  const packageName = genereatePackageName(params.package);
+
   useEffect(() => {
-    console.log(error);
-  }, [error]);
+    if (error && packageName) {
+      (async function () {
+        const errorObj: any = {
+          url: window.location.href,
+          error_message: error?.message,
+          package_id: packageName,
+        };
+        await saveErrors(errorObj);
+      })();
+    }
+  }, [error, packageName]);
 
   return (
     <Center mih="calc(100vh - 65px)">
