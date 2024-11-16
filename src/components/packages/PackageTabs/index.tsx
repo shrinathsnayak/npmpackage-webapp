@@ -121,15 +121,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
             />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="vulnerabilities">
-            <HotKeys
-              value="5"
-              label="Vulnerabilities"
-              rest={
-                <Badge color="red.8" radius="sm" size="xs">
-                  New
-                </Badge>
-              }
-            />
+            <HotKeys value="5" label="Vulnerabilities" />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="scorecard">
             <HotKeys value="6" label="OpenSSF Scorecard" />

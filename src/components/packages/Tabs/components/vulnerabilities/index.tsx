@@ -64,7 +64,7 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
         <Conditional if={!!selectedVulnerability}>
           <Drawer
             size="lg"
-            offset={6}
+            offset={8}
             radius="md"
             position="right"
             opened={!!selectedVulnerability}
