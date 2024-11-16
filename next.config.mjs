@@ -1,6 +1,7 @@
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import NextBundleAnalyzer from "@next/bundle-analyzer";
+
 const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
@@ -21,10 +22,9 @@ const nextConfig = {
     optimizePackageImports: [
       "remark-gfm",
       "rehype-raw",
+      "node-emoji",
       "rehype-rewrite",
       "react-markdown",
-      "react-syntax-highlighter",
-      "node-emoji",
       "@mantine/form",
       "@mantine/core",
       "@mantine/hooks",
@@ -35,6 +35,7 @@ const nextConfig = {
       "@mantine/nprogress",
       "@mantine/spotlight",
       "@mantine/code-highlight",
+      "react-syntax-highlighter",
     ],
   },
   poweredByHeader: false,

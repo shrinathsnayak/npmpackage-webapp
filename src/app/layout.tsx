@@ -14,6 +14,7 @@ import Metrics from "@/observability";
 import Favicon from "@/assets/logos/icon.png";
 import OGImage from "@/assets/og.png";
 import ShikiLoader from "@/components/shared/CodeWrapper";
+import Feedback from "@/components/shared/Feedback";
 import { NavigationProgressBar } from "@/components/shared/NavigationProgressBar";
 import theme from "./theme";
 
@@ -56,7 +57,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <Metrics />
         <ColorSchemeScript defaultColorScheme="dark" forceColorScheme="dark" />
-        {/* <script
+        <script
           data-name="BMC-Widget"
           data-cfasync="false"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -67,7 +68,7 @@ export default function RootLayout({
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-        ></script> */}
+        ></script>
       </head>
       <body suppressHydrationWarning={true} className="root">
         <MantineProvider
@@ -79,6 +80,7 @@ export default function RootLayout({
           <ShikiLoader>
             <main>{children}</main>
           </ShikiLoader>
+          <Feedback />
         </MantineProvider>
       </body>
     </html>

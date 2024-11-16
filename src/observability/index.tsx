@@ -1,5 +1,4 @@
-import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "./GoogleAnalytics";
+import { GoogleAnalyticsPackage } from "./GoogleAnalytics";
 import MicrosoftClarity from "./MicrosoftClarity";
 
 const Metrics = () => {
@@ -9,9 +8,8 @@ const Metrics = () => {
 
   return (
     <>
-      <Analytics />
       <MicrosoftClarity />
-      <GoogleAnalytics />
+      <GoogleAnalyticsPackage />
     </>
   );
 };

@@ -30,7 +30,7 @@
     "@tabler/icons-react": "^3.5.0",
     "@vercel/analytics": "^1.3.1",
     "dayjs": "^1.11.11",
-    "html2canvas-pro": "^1.5.8",
+    "html-to-image": "^1.11.11",
     "next": "^14.2.18",
     "node-emoji": "^2.1.3",
     "react": "^18",

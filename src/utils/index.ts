@@ -2,6 +2,7 @@ import { RefObject } from "react";
 import { DEVELOPMENT } from "@/constants";
 import { npmFacts } from "@/constants/npmfacts";
 import { DataItem } from "@/types/npm";
+import { toPng } from "html-to-image";
 
 export const isDevelopment: boolean = !!process.env[DEVELOPMENT];
 
@@ -217,28 +218,21 @@ export const downloadDivAsImage = async (
 ): Promise<void> => {
   const cardElement = cardRef.current as HTMLDivElement;
   const options = {
-    allowTaint: true,
-    useCORS: false,
-    backgroundColor: "#242424",
-    removeContainer: true,
+    cacheBust: true,
+    includeQueryParams: true,
   };
 
   if (!cardElement) return;
 
-  try {
-    const html2canvas = await import(
-      /* webpackPrefetch: true */ "html2canvas-pro"
-    );
-
-    const result = await html2canvas.default(cardElement, options);
-
-    const asURL = result.toDataURL("image/png");
-    const anchor = document.createElement("a");
-    anchor.href = asURL;
-    anchor.download = `${name}.png`;
-    anchor.click();
-    anchor.remove();
-  } catch (error) {
-    console.error("Error downloading image:", error);
-  }
+  toPng(cardElement, options)
+    .then((dataUrl) => {
+      const anchor = document.createElement("a");
+      anchor.href = dataUrl;
+      anchor.download = `${name}.png`;
+      anchor.click();
+      anchor.remove();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

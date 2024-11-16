@@ -10,7 +10,6 @@ import {
   Kbd,
   Text,
   Box,
-  Badge,
 } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
@@ -30,12 +29,17 @@ const MemoizedSecurity = memo(Security);
 const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { gitHub, securityScore, npm } = packageInfo || {};
+  const downloadsData = useMemo(() => downloads, [downloads]);
+  const packageName = useMemo(() => npm?.data?.name, [npm?.data?.name]);
   const search = useMemo(
     () => searchParams.get("t") || DEFAULT_TAB,
     [searchParams]
   );
-  const downloadsData = useMemo(() => downloads, [downloads]);
-  const { gitHub, securityScore, npm } = packageInfo || {};
+  const readMeFileContent = useMemo(
+    () => gitHub?.data?.readMe,
+    [gitHub?.data?.readMe]
+  );
   const redirectToTab = useCallback(
     (value: string) => {
       if (value) {
@@ -45,19 +49,17 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     [router]
   );
 
-  const packageName = useMemo(() => npm?.data?.name, [npm?.data?.name]);
-  const readMeFileContent = useMemo(
-    () => gitHub?.data?.readMe,
-    [gitHub?.data?.readMe]
-  );
+  const redirectToSelectedTab = (tabName: string) => {
+    redirectToTab(tabName);
+  };
 
   useHotkeys([
-    ["1", () => redirectToTab("overview")],
-    ["2", () => redirectToTab("readme")],
-    ["3", () => redirectToTab("downloads")],
-    ["4", () => redirectToTab("dependencies")],
-    ["5", () => redirectToTab("vulnerabilities")],
-    ["6", () => redirectToTab("scorecard")],
+    ["1", () => redirectToSelectedTab("overview")],
+    ["2", () => redirectToSelectedTab("readme")],
+    ["3", () => redirectToSelectedTab("downloads")],
+    ["4", () => redirectToSelectedTab("dependencies")],
+    ["5", () => redirectToSelectedTab("vulnerabilities")],
+    ["6", () => redirectToSelectedTab("scorecard")],
   ]);
 
   const HotKeys = ({
@@ -90,7 +92,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
         variant="outline"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
-        onChange={(value: any) => redirectToTab(value)}
+        onChange={(value: any) => redirectToSelectedTab(value)}
       >
         <Tabs.List>
           <Tabs.Tab py="sm" px="lg" c="white" value="overview">
