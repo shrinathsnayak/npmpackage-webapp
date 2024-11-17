@@ -8,19 +8,17 @@ import {
   SimpleGrid,
   Text,
   NumberFormatter,
+  Center,
+  Title,
 } from "@mantine/core";
-import { IconTag } from "@tabler/icons-react";
+import { IconExchangeOff, IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
+import Conditional from "@/components/shared/Conditional";
 import { formatDate } from "@/utils";
 
 const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
   return (
-    <Anchor
-      href={url}
-      component={Link}
-      target="_blank"
-      underline="never"
-    >
+    <Anchor href={url} component={Link} target="_blank" underline="never">
       <Paper p="sm" radius="md" h="100%">
         <Text fz="sm" fw="500">
           {name || tag?.name}
@@ -47,30 +45,46 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
 
 const Releases = ({ releases, repositoryUrl }: any) => {
   const { total, data } = releases || {};
+
   return (
     <OverviewCard
       title="Releases"
-      badge={<NumberFormatter thousandSeparator value={total} />}
+      badge={total && <NumberFormatter thousandSeparator value={total} />}
     >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
-        <SimpleGrid cols={{ base: 1, xs: 3 }}>
-          {data?.map((item: any) => {
-            return <ReleaseCard key={item.publishedAt} {...item} />;
-          })}
-        </SimpleGrid>
-        <Box mt={15}>
-          <Anchor
-            display="inline-block"
-            component={Link}
-            href={`${repositoryUrl}/releases`}
-            target="_blank"
-          >
-            <Text fz="sm">
-              View all <NumberFormatter thousandSeparator value={total} />{" "}
-              releases
-            </Text>
-          </Anchor>
-        </Box>
+        {!total ? (
+          <Center ta="center" my={20}>
+            <div>
+              <IconExchangeOff color="#fff" size={30} />
+              <Title order={5} c="white" mt={5}>
+                Unable to fetch releases
+              </Title>
+            </div>
+          </Center>
+        ) : (
+          <>
+            <SimpleGrid cols={{ base: 1, xs: 3 }}>
+              {data?.map((item: any) => {
+                return <ReleaseCard key={item.publishedAt} {...item} />;
+              })}
+            </SimpleGrid>
+            <Conditional if={repositoryUrl}>
+              <Box mt={15}>
+                <Anchor
+                  display="inline-block"
+                  component={Link}
+                  href={`${repositoryUrl}/releases`}
+                  target="_blank"
+                >
+                  <Text fz="sm">
+                    View all <NumberFormatter thousandSeparator value={total} />{" "}
+                    releases
+                  </Text>
+                </Anchor>
+              </Box>
+            </Conditional>
+          </>
+        )}
       </Paper>
     </OverviewCard>
   );
