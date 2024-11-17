@@ -104,6 +104,8 @@ export async function getAllPopularPackages() {
  * there was an error during the insertion process.
  */
 export async function saveErrors(formData: FeedbackFormData) {
+  if (isDevelopment) return true;
+
   const { error } = await supabase.from("error").insert(formData);
 
   if (error) {

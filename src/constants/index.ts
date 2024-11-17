@@ -41,6 +41,11 @@ export const VULNERABILITY: any = {
     tooltip:
       "Vulnerabilities are weaknesses in software that attackers can exploit, making ongoing detection and management essential to reducing security risks by addressing critical issues promptly.",
   },
+  license: {
+    name: "License",
+    label: "License",
+    tooltip: "",
+  },
 };
 
 export const DEFAULT_TAB = TABS.overview.value;

@@ -25,7 +25,7 @@ const Collaborators = ({
     >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Tooltip.Group openDelay={300} closeDelay={100}>
-          <Group gap="xs">
+          <Avatar.Group spacing="xs" style={{ flexWrap: "wrap" }}>
             {contributors.length > 0 &&
               contributors?.map((item: any) => (
                 <Tooltip label={item?.name} withArrow key={item?.name}>
@@ -48,7 +48,7 @@ const Collaborators = ({
                   </Anchor>
                 </Tooltip>
               ))}
-          </Group>
+          </Avatar.Group>
         </Tooltip.Group>
         <Conditional if={repositoryUrl}>
           <Box mt={15}>

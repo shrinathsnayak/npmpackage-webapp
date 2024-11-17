@@ -97,7 +97,7 @@ const Overview = ({ packageInfo }: any) => {
             packageName={npm?.name}
           />
         </Conditional>
-        <Conditional if={gitHub}>
+        <Conditional if={gitHub && gitHub?.languages?.length > 0}>
           <Languages languages={gitHub?.languages} />
         </Conditional>
       </Box>

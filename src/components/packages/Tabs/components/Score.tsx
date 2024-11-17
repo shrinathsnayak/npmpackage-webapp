@@ -14,30 +14,22 @@ import { VULNERABILITY } from "@/constants";
 import { breakCamelCase, getScoreTextColor } from "@/utils";
 import { IconInfoCircle } from "@tabler/icons-react";
 
-const RenderScoreBreakup = ({ component, label, score }: any) => {
-  if (component) {
-    return (
-      <Box>
-        {component &&
-          Object.keys(component)?.map((item: any) => (
-            <Conditional if={item} key={item}>
-              <Flex align="center" gap={20} justify="space-between">
-                <Text fw={500} fz="sm">
-                  {breakCamelCase(item)}
-                </Text>
-                <Text
-                  fz="sm"
-                  fw={700}
-                  c={getScoreTextColor(component[item], 10)}
-                >
-                  {component[item]}
-                </Text>
-              </Flex>
-            </Conditional>
-          ))}
-      </Box>
-    );
-  }
+const RenderScoreBreakup = ({ component }: any) => {
+  return (
+    component &&
+    Object.keys(component)?.map((item: any) => (
+      <Conditional if={item} key={item}>
+        <Flex align="center" gap={20} justify="space-between">
+          <Text fw={500} fz="sm">
+            {breakCamelCase(item)}
+          </Text>
+          <Text fz="sm" fw={700} c={getScoreTextColor(component[item], 10)}>
+            {component[item]}
+          </Text>
+        </Flex>
+      </Conditional>
+    ))
+  );
 };
 
 const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
@@ -71,18 +63,20 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
         <Text fz="sm" fw={400} ta="center" c="white">
           {name}
         </Text>
-        <Tooltip
-          multiline
-          withArrow
-          maw={300}
-          color="dark.8"
-          radius="md"
-          p={12}
-          fz="xs"
-          label={tooltip}
-        >
-          <IconInfoCircle size={20} />
-        </Tooltip>
+        <Conditional if={tooltip}>
+          <Tooltip
+            multiline
+            withArrow
+            maw={300}
+            color="dark.8"
+            radius="md"
+            p={12}
+            fz="xs"
+            label={tooltip}
+          >
+            <IconInfoCircle size={20} />
+          </Tooltip>
+        </Conditional>
       </Flex>
     </Flex>
   );
@@ -93,8 +87,8 @@ const Score = ({ scoreData = {} }: any) => {
     <OverviewCard title="Score">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <SimpleGrid
-          cols={{ base: 2, sm: 2, lg: 4 }}
-          spacing={{ base: 10, sm: "xl" }}
+          cols={{ base: 2, sm: 2, lg: 5 }}
+          spacing={{ base: 10, sm: "md" }}
           verticalSpacing={{ base: "md", sm: "xl" }}
         >
           {Object.keys(scoreData)?.map((item: any) => (
