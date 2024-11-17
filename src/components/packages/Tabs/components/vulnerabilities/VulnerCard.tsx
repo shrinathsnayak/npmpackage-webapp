@@ -9,7 +9,6 @@ import {
 } from "@mantine/core";
 import { VULNERABILITY_COLORS } from "@/constants";
 import classes from "./index.module.css";
-import { IconExternalLink } from "@tabler/icons-react";
 
 const VulnerCard = ({
   severity,
@@ -25,7 +24,7 @@ const VulnerCard = ({
       padding="md"
       radius="md"
       bg="dark.9"
-      withBorder
+      // withBorder
       onClick={onClick}
       className={classes.cardComponent}
     >

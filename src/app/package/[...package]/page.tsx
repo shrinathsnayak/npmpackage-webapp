@@ -52,13 +52,16 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
 
-  const [data, downloads, searchData, vulnerabilities] = await Promise.all([
+  const [data, downloads, searchData] = await Promise.all([
     getPackageData(packageName),
     getPackageDownloads(packageName),
     searchPackage(packageName),
-    getPackageVulnerabilities(packageName),
   ]);
 
+  const vulnerabilities = await getPackageVulnerabilities(
+    packageName,
+    data?.npm?.data?.version
+  );
   const filteredData = removeSimilarByName(searchData?.data, packageName);
 
   return (

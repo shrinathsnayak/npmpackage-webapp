@@ -179,22 +179,24 @@ export const packageDownloadStats = cache(
  * @returns The `getPackageVulnerabilities` function returns the JSON data fetched from the API endpoint
  * for the specified package name.
  */
-export const getPackageVulnerabilities = cache(async (packageName: string) => {
-  try {
-    if (packageName) {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
-      const res = await fetch(
-        `${process.env.API_ENDPOINT}/vulnerabilities?name=${packageName}`,
-        options
-      );
+export const getPackageVulnerabilities = cache(
+  async (packageName: string, version: string) => {
+    try {
+      if (packageName) {
+        const options = isDevelopment ? {} : generateAPIOptions(packageName);
+        const res = await fetch(
+          `${process.env.API_ENDPOINT}/vulnerabilities?name=${packageName}&version=${version}`,
+          options
+        );
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        return res.json();
       }
-
-      return res.json();
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error(err);
   }
-});
+);
