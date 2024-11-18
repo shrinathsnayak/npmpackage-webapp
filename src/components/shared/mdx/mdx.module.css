@@ -5,5 +5,5 @@
 }
 
 .markdownBody {
-  overflow-x: scroll;
+  overflow: auto;
 }
