@@ -1,4 +1,8 @@
-export const ONE_HOUR_API_CACHE: number = 60 * 60 * 1;
+/* The line `export const API_CACHE_IN_HOURS: number = 60 * 60 * 4;` is defining a constant variable
+named `API_CACHE_IN_HOURS` with a value of `60 * 60 * 4`, which calculates to 14400. This value
+represents the number of seconds in 4 hours, which is used as the caching duration for API requests
+in hours. */
+export const API_CACHE_IN_HOURS: number = 60 * 60 * 4;
 
 /**
  * The function `genereatePackageName` takes an array of strings, decodes each string using
@@ -21,7 +25,7 @@ export const genereatePackageName = (packageName: []): string =>
 export const generateAPIOptions = (tagName: string): object => {
   return {
     next: {
-      revalidate: ONE_HOUR_API_CACHE,
+      revalidate: API_CACHE_IN_HOURS,
       tags: [tagName],
     },
   };
