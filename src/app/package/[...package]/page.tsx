@@ -4,12 +4,9 @@ import {
   getPackageData,
   getPackageDownloads,
   getPackageVulnerabilities,
-  searchPackage,
 } from "@/services/package";
-import Conditional from "@/components/shared/Conditional";
 import { genereatePackageName } from "@/constants/services.constants";
 import JSONLD from "@/components/shared/JSONLD";
-import { removeSimilarByName } from "@/utils";
 import OGImage from "@/assets/og.png";
 
 const PackageContainer = dynamic(
@@ -19,13 +16,6 @@ const PackageContainer = dynamic(
 const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"), {
   ssr: true,
 });
-
-const Suggestions = dynamic(
-  () => import("@/components/packages/Tabs/components/Suggestions"),
-  {
-    ssr: true,
-  }
-);
 
 export async function generateMetadata({
   params,
@@ -52,17 +42,15 @@ export default async function Package({ params }: { params: { package: [] } }) {
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
 
-  const [data, downloads, searchData] = await Promise.all([
+  const [data, downloads] = await Promise.all([
     getPackageData(packageName),
     getPackageDownloads(packageName),
-    searchPackage(packageName),
   ]);
 
   const vulnerabilities = await getPackageVulnerabilities(
     packageName,
     data?.npm?.data?.version
   );
-  const filteredData = removeSimilarByName(searchData?.data, packageName);
 
   return (
     <div>
@@ -80,11 +68,6 @@ export default async function Package({ params }: { params: { package: [] } }) {
           vulnerabilities={vulnerabilities || {}}
         />
       </Suspense>
-      <Conditional if={filteredData?.length > 0}>
-        <Suspense fallback={<p>Loading suggestions...</p>}>
-          <Suggestions searchData={filteredData} packageName={packageName} />
-        </Suspense>
-      </Conditional>
     </div>
   );
 }
