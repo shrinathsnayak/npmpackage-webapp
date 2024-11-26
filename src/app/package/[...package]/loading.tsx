@@ -2,17 +2,8 @@
 
 import { useEffect } from "react";
 import { useParams } from "next/navigation";
-import {
-  Center,
-  Container,
-  Loader,
-  Text,
-  Flex,
-  Blockquote,
-} from "@mantine/core";
+import { Center, Container, Loader, Text, Flex } from "@mantine/core";
 import { useWindowScroll } from "@mantine/hooks";
-import { IconInfoSquareRounded } from "@tabler/icons-react";
-import { generateRandomNPMFact } from "@/utils";
 import { genereatePackageName } from "@/constants/services.constants";
 
 export default function Loading() {
@@ -33,9 +24,6 @@ export default function Loading() {
           <Text c="red.8" fz="md" fw="bold" display="block">
             Gathering detailed insights and metrics for {packageName}
           </Text>
-          <Blockquote color="red" icon={<IconInfoSquareRounded />} mt="xl">
-            {generateRandomNPMFact()}
-          </Blockquote>
         </Flex>
       </Container>
     </Center>

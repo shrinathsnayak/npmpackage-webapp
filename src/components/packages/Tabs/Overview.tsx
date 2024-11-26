@@ -10,7 +10,7 @@ import Actions from "@/components/packages/Tabs/components/Actions";
 import Statistics from "@/components/packages/Tabs/components/Statistics";
 import Developer from "@/components/packages/Tabs/components/Developer";
 import Score from "@/components/packages/Tabs/components/Score";
-import ModuleSystem from "@/components/packages/Tabs/components/ModuleSystem";
+import DeveloperGuide from "@/components/packages/Tabs/components/DeveloperGuide";
 
 const Overview = ({ packageInfo }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -73,7 +73,9 @@ const Overview = ({ packageInfo }: any) => {
             developerUrl={gitHub?.homepageUrl}
           />
         </Conditional>
-        <ModuleSystem moduleFormats={npm?.moduleFormats} />
+        <Conditional if={npm}>
+          <DeveloperGuide npm={npm} />
+        </Conditional>
         <Conditional if={gitHub}>
           <Statistics
             data={{
