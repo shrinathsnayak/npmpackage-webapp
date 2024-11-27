@@ -1,4 +1,4 @@
-import { formatSize, getScoreTextColor } from "@/utils";
+import Link from "next/link";
 import { Badge, Flex, NumberFormatter, Tooltip } from "@mantine/core";
 import {
   IconCode,
@@ -9,9 +9,9 @@ import {
   IconTag,
   IconZip,
 } from "@tabler/icons-react";
-import React from "react";
+import { formatSize, getScoreTextColor } from "@/utils";
 
-const CustomTags = ({ icon, value, color = "gray", tooltip }: any) => {
+const CustomTags = ({ icon, value, color = "gray", tooltip, href }: any) => {
   return (
     <Tooltip label={tooltip} position="bottom">
       <Badge
@@ -20,6 +20,7 @@ const CustomTags = ({ icon, value, color = "gray", tooltip }: any) => {
         opacity={0.9}
         radius={5}
         size="lg"
+        {...(href && { component: Link, href, style: { cursor: "pointer" } })}
       >
         {value}
       </Badge>
@@ -75,6 +76,7 @@ const Tags = ({ data }: any) => {
       )}
       {downloads && (
         <CustomTags
+          href="?t=downloads"
           tooltip="Total Downloads"
           icon={<IconDownload size={14} />}
           value={<NumberFormatter thousandSeparator value={downloads} />}
@@ -86,6 +88,7 @@ const Tags = ({ data }: any) => {
           tooltip="OpenSSF Score"
           icon={<IconShieldLock size={14} />}
           value={security}
+          href="?t=scorecard"
         />
       )}
     </Flex>

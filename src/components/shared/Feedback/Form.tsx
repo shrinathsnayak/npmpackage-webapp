@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ActionIcon, Button, Flex, Textarea, TextInput } from "@mantine/core";
+import {
+  ActionIcon,
+  Button,
+  Flex,
+  Text,
+  Textarea,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { SCORE_VALUES } from "./constants";
 
@@ -47,26 +54,32 @@ const Form = ({ formSubmit }: any) => {
   return (
     <form onSubmit={form.onSubmit((values) => handleFormSubmit(values))}>
       <Flex direction="column" gap={20} p={3}>
-        <Flex align="center" gap={15}>
-          {SCORE_VALUES.map((item: any) => (
-            <ActionIcon
-              key={item.value}
-              color="red.8"
-              size="xl"
-              onClick={() => form.setFieldValue("score", item.value)}
-              variant={form.values.score === item.value ? "filled" : "outline"}
-            >
-              {item.label}
-            </ActionIcon>
-          ))}
-        </Flex>
+        <div>
+          <Text fz="md" fw="500" mb={10}>
+            How would you rate this tool?
+          </Text>
+          <Flex align="center" gap={15}>
+            {SCORE_VALUES.map((item: any) => (
+              <ActionIcon
+                key={item.value}
+                color="red.8"
+                size="xl"
+                onClick={() => form.setFieldValue("score", item.value)}
+                variant={
+                  form.values.score === item.value ? "filled" : "outline"
+                }
+              >
+                {item.label}
+              </ActionIcon>
+            ))}
+          </Flex>
+        </div>
         <Textarea
           autosize
           size="md"
           minRows={5}
           maxRows={10}
           label="Message"
-          description=" "
           placeholder="Enter feedback message"
           {...form.getInputProps("message")}
         />
