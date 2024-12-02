@@ -42,10 +42,11 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
   return (
     <Box>
       <Paper
-        p="lg"
+        px="lg"
+        py="md"
         radius="md"
+        shadow="lg"
         bg="dark.9"
-        shadow="sm"
         mb={15}
         withBorder
         className={classes.stableCardComponent}
@@ -59,9 +60,6 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
             <Title order={4} c="white">
               Stable Version
             </Title>
-            {/* <Text fz="sm" c="dimmed" mt={5}>
-              The latest stable version of the package.
-            </Text> */}
           </Box>
           <Box display={{ base: "block", sm: "none" }}>
             <Text fz="md" c="dimmed" mb={5}>
