@@ -57,7 +57,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <Metrics />
         <ColorSchemeScript defaultColorScheme="dark" forceColorScheme="dark" />
-        <script
+        {/* <script
           data-name="BMC-Widget"
           data-cfasync="false"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -68,7 +68,7 @@ export default function RootLayout({
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-        ></script>
+        ></script> */}
       </head>
       <body suppressHydrationWarning={true} className="root">
         <MantineProvider

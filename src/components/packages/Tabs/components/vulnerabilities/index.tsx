@@ -59,16 +59,16 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
             <Title order={4} c="white">
               Stable Version
             </Title>
-            <Text fz="sm" c="dimmed" mt={5}>
+            {/* <Text fz="sm" c="dimmed" mt={5}>
               The latest stable version of the package.
-            </Text>
+            </Text> */}
           </Box>
           <Box display={{ base: "block", sm: "none" }}>
             <Text fz="md" c="dimmed" mb={5}>
               Stable Version
             </Text>
           </Box>
-          <Title order={1} c="white">
+          <Title order={3} c="white">
             {stableVersion}
           </Title>
         </Flex>

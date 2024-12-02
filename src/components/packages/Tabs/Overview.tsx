@@ -30,6 +30,9 @@ const Overview = ({ packageInfo }: any) => {
         <Conditional if={npm}>
           <Installations packageName={npm?.name} />
         </Conditional>
+        <Conditional if={npm}>
+          <DeveloperGuide npm={npm} />
+        </Conditional>
         <Conditional
           if={vulnerabilityScore && Object.keys(vulnerabilityScore).length > 0}
         >
@@ -72,9 +75,6 @@ const Overview = ({ packageInfo }: any) => {
             owner={gitHub?.owner}
             developerUrl={gitHub?.homepageUrl}
           />
-        </Conditional>
-        <Conditional if={npm}>
-          <DeveloperGuide npm={npm} />
         </Conditional>
         <Conditional if={gitHub}>
           <Statistics

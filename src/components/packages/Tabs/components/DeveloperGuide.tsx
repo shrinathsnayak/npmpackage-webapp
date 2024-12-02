@@ -3,39 +3,36 @@ import { IconInfoCircle } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
 
-const ShowDeveloperGuide = ({ title, value, tooltip, fallback }: any) => {
+const ShowDeveloperGuide = ({ title, value, tooltip }: any) => {
   return (
-    <Box>
-      <Group gap={5} mb={1}>
-        <Text fz="xs" c="gray.6">
-          {title}
-        </Text>
-        <Conditional if={tooltip}>
-          <Tooltip
-            label={tooltip}
-            position="top"
-            color="dark.8"
-            maw={300}
-            multiline
-            radius="md"
-            p={12}
-            fz="xs"
-          >
-            <IconInfoCircle size={18} />
-          </Tooltip>
+    <Conditional if={value}>
+      <Box>
+        <Group gap={5} mb={1}>
+          <Text fz="xs" c="gray.6">
+            {title}
+          </Text>
+          <Conditional if={tooltip}>
+            <Tooltip
+              label={tooltip}
+              position="top"
+              color="dark.8"
+              maw={300}
+              multiline
+              radius="md"
+              p={12}
+              fz="xs"
+            >
+              <IconInfoCircle size={18} />
+            </Tooltip>
+          </Conditional>
+        </Group>
+        <Conditional if={value}>
+          <Title order={5} fw={600} c="white" textWrap="balance">
+            {value}
+          </Title>
         </Conditional>
-      </Group>
-      <Conditional if={value}>
-        <Title order={5} fw={600} c="white">
-          {value}
-        </Title>
-      </Conditional>
-      <Conditional if={fallback}>
-        <Text c="white" fz="sm">
-          {fallback}
-        </Text>
-      </Conditional>
-    </Box>
+      </Box>
+    </Conditional>
   );
 };
 
@@ -45,11 +42,20 @@ const DeveloperGuide = ({ npm }: any) => {
   return (
     <OverviewCard title="Developer Guide" badge="BETA">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
-        <Flex gap={10} direction="column">
+        <Flex
+          gap={15}
+          direction={{ base: "column", sm: "row" }}
+          justify="space-between"
+          align="center"
+        >
+          <ShowDeveloperGuide
+            title="Typescript"
+            value={types ? "✅ Yes" : "❌ No"}
+          />
           <ShowDeveloperGuide
             title="Module System"
-            value={moduleFormats !== "N/A" && moduleFormats}
-            fallback={
+            value={moduleFormats}
+            tooltip={
               moduleFormats === "N/A" &&
               "Unable to determine the module system for this package."
             }
@@ -57,10 +63,6 @@ const DeveloperGuide = ({ npm }: any) => {
           <ShowDeveloperGuide
             title="Min. Node Version"
             value={minNodeVersion}
-          />
-          <ShowDeveloperGuide
-            title="Typescript Support"
-            value={types ? "Yes" : "No"}
           />
           <ShowDeveloperGuide
             title="Node Version"
