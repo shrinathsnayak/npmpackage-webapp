@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Anchor, AppShell, Container, Flex, Image, Text } from "@mantine/core";
+import { DEFAULT_CACHE_HOUR } from "@/constants";
 import IndiaFlag from "@/assets/india-flag.svg";
 
 const Footer = ({ fixedFooter }: boolean | any) => {
@@ -38,15 +39,18 @@ const Footer = ({ fixedFooter }: boolean | any) => {
               Shrinath Nayak
             </Anchor>
           </Flex>
-
           <Text
-            fw={400}
             fz="xs"
+            fw={400}
+            maw={500}
             c="dark.0"
-            ta="center"
+            pl={{ base: 5, sm: 0 }}
             mt={{ base: 10, sm: 0 }}
+            ta={{ base: "center", sm: "left" }}
           >
-            We do not own or store any data displayed on the website.
+            <b>Disclaimer:</b> We do not own or store the data displayed on this
+            website. Data is cached for up to {DEFAULT_CACHE_HOUR} hours to
+            improve performance.
           </Text>
         </Flex>
       </Container>

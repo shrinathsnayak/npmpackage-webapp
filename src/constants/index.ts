@@ -1,3 +1,4 @@
+export const DEFAULT_CACHE_HOUR: number = 3;
 export const NPMPACKAGE_TITLE: string = "npmpackage.info";
 export const DEVELOPMENT = "development";
 export const NPMPACKAGE_DESCRIPTION: string =

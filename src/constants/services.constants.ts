@@ -1,8 +1,10 @@
-/* The line `export const API_CACHE_IN_HOURS: number = 60 * 60 * 4;` is defining a constant variable
-named `API_CACHE_IN_HOURS` with a value of `60 * 60 * 4`, which calculates to 14400. This value
-represents the number of seconds in 4 hours, which is used as the caching duration for API requests
-in hours. */
-export const API_CACHE_IN_HOURS: number = 60 * 60 * 4;
+import { DEFAULT_CACHE_HOUR } from "./index";
+
+/* The line `export const API_CACHE_IN_HOURS: number = 60 * 60 * 3;` is defining a constant variable
+`API_CACHE_IN_HOURS` with a value of `60 * 60 * 3`, which calculates to 10800. This constant is used
+to set the caching duration in hours for API requests. In this case, the caching duration is set to
+3 hours (10800 seconds). */
+export const API_CACHE_IN_HOURS: number = 60 * 60 * DEFAULT_CACHE_HOUR;
 
 /**
  * The function `genereatePackageName` takes an array of strings, decodes each string using
