@@ -13,6 +13,8 @@ const supabase = createClient();
  * the `formData` into the "feedback" table in the Supabase database.
  */
 export async function saveFeedback(formData: FeedbackFormData) {
+  if (isDevelopment) return true;
+
   const { error } = await supabase.from("feedback").insert(formData);
 
   if (error) {

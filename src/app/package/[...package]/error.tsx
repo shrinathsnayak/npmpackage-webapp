@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { Button, Center, Container, Image, Paper, Title } from "@mantine/core";
 import { genereatePackageName } from "@/constants/services.constants";
-import ErrorImage from "@/assets/error.webp";
 import { saveErrors } from "@/services/supbase";
+import { isDevelopment } from "@/utils";
+import ErrorImage from "@/assets/error.webp";
 
 export default function Error({
   error,
@@ -19,7 +20,7 @@ export default function Error({
   const packageName = genereatePackageName(params.package);
 
   useEffect(() => {
-    if (error && packageName) {
+    if (error && packageName && !isDevelopment) {
       (async function () {
         const errorObj: any = {
           url: window.location.href,
