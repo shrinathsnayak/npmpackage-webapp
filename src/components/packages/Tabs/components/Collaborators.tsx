@@ -1,17 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import {
-  Anchor,
-  Avatar,
-  Box,
-  Group,
-  Paper,
-  Text,
-  Tooltip,
-  NumberFormatter,
-} from "@mantine/core";
+import { Anchor, Avatar, Box, Paper, Text, Tooltip } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
+import AnimatedNumber from "@/components/shared/AnimatedNumber";
 
 const Collaborators = ({
   contributorsCount,
@@ -21,7 +13,7 @@ const Collaborators = ({
   return (
     <OverviewCard
       title="Contributors"
-      badge={<NumberFormatter thousandSeparator value={contributorsCount} />}
+      badge={<AnimatedNumber value={contributorsCount} />}
     >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Tooltip.Group openDelay={300} closeDelay={100}>
@@ -59,8 +51,7 @@ const Collaborators = ({
               target="_blank"
             >
               <Text fz="sm">
-                View all{" "}
-                <NumberFormatter thousandSeparator value={contributorsCount} />{" "}
+                View all <AnimatedNumber value={contributorsCount} />{" "}
                 contributors
               </Text>
             </Anchor>

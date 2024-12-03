@@ -7,13 +7,13 @@ import {
   Paper,
   SimpleGrid,
   Text,
-  NumberFormatter,
   Center,
   Title,
 } from "@mantine/core";
 import { IconExchangeOff, IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
+import AnimatedNumber from "@/components/shared/AnimatedNumber";
 import { formatDate } from "@/utils";
 
 const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
@@ -49,7 +49,7 @@ const Releases = ({ releases, repositoryUrl }: any) => {
   return (
     <OverviewCard
       title="Releases"
-      badge={total && <NumberFormatter thousandSeparator value={total} />}
+      badge={total && <AnimatedNumber value={total} />}
     >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {!total ? (
@@ -77,8 +77,7 @@ const Releases = ({ releases, repositoryUrl }: any) => {
                   target="_blank"
                 >
                   <Text fz="sm">
-                    View all <NumberFormatter thousandSeparator value={total} />{" "}
-                    releases
+                    View all <AnimatedNumber value={total} /> releases
                   </Text>
                 </Anchor>
               </Box>

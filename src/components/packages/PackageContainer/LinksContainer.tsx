@@ -1,3 +1,5 @@
+import React from "react";
+import Link from "next/link";
 import { ActionIcon, Group } from "@mantine/core";
 import {
   IconBrandGithub,
@@ -6,8 +8,6 @@ import {
   IconBrandTypescript,
   IconPlayerPlayFilled,
 } from "@tabler/icons-react";
-import Link from "next/link";
-import React from "react";
 import Conditional from "@/components/shared/Conditional";
 
 export const LinksContainer = ({

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Badge, Flex, NumberFormatter, Tooltip } from "@mantine/core";
+import { Badge, Flex, Tooltip } from "@mantine/core";
 import {
   IconCode,
   IconDownload,
@@ -9,6 +9,7 @@ import {
   IconTag,
   IconZip,
 } from "@tabler/icons-react";
+import AnimatedNumber from "@/components/shared/AnimatedNumber";
 import { formatSize, getScoreTextColor } from "@/utils";
 
 const CustomTags = ({ icon, value, color = "gray", tooltip, href }: any) => {
@@ -50,7 +51,7 @@ const Tags = ({ data }: any) => {
         <CustomTags
           tooltip="Stars"
           icon={<IconStar size={14} />}
-          value={<NumberFormatter thousandSeparator value={stars} />}
+          value={<AnimatedNumber value={stars} />}
         />
       )}
       {license && (
@@ -79,7 +80,7 @@ const Tags = ({ data }: any) => {
           href="?t=downloads"
           tooltip="Total Downloads"
           icon={<IconDownload size={14} />}
-          value={<NumberFormatter thousandSeparator value={downloads} />}
+          value={<AnimatedNumber value={downloads} />}
         />
       )}
       {security && (

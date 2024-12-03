@@ -1,5 +1,5 @@
 import React from "react";
-import { Group, Paper, Tooltip, Text, NumberFormatter } from "@mantine/core";
+import { Group, Paper, Text } from "@mantine/core";
 import {
   IconEye,
   IconGitBranch,
@@ -11,6 +11,7 @@ import {
   IconUsers,
 } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
+import AnimatedNumber from "@/components/shared/AnimatedNumber";
 import { formatDate } from "@/utils";
 
 const Stat = ({ icon, value, tooltip }: any) => {
@@ -49,42 +50,42 @@ const Statistics = ({ data }: any) => {
           <Stat
             tooltip="Stars"
             icon={<IconStar size={16} color="#fff" stroke={2} />}
-            value={<NumberFormatter thousandSeparator value={stars} />}
+            value={<AnimatedNumber value={stars} />}
           />
         )}
         {commits > 0 && (
           <Stat
             tooltip="Commits"
             icon={<IconHistory size={16} color="#fff" stroke={2} />}
-            value={<NumberFormatter thousandSeparator value={commits} />}
+            value={<AnimatedNumber value={commits} />}
           />
         )}
         {forks > 0 && (
           <Stat
             tooltip="Forks"
             icon={<IconGitFork size={16} color="#fff" stroke={2} />}
-            value={<NumberFormatter thousandSeparator value={forks} />}
+            value={<AnimatedNumber value={forks} />}
           />
         )}
         {watchers > 0 && (
           <Stat
             tooltip="Watching"
             icon={<IconEye size={16} color="#fff" stroke={2} />}
-            value={<NumberFormatter thousandSeparator value={watchers} />}
+            value={<AnimatedNumber value={watchers} />}
           />
         )}
         {branches > 0 && (
           <Stat
             tooltip="Branches"
             icon={<IconGitBranch size={16} color="#fff" stroke={2} />}
-            value={<NumberFormatter thousandSeparator value={branches} />}
+            value={<AnimatedNumber value={branches} />}
           />
         )}
         {contributors > 0 && (
           <Stat
             tooltip="Contributors"
             icon={<IconUsers size={16} color="#fff" stroke={2} />}
-            value={<NumberFormatter thousandSeparator value={contributors} />}
+            value={<AnimatedNumber value={contributors} />}
           />
         )}
         {updatedAt && (

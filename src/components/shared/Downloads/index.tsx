@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Flex,
-  NumberFormatter,
   Paper,
   SimpleGrid,
   Text,
@@ -12,6 +11,7 @@ import {
 } from "@mantine/core";
 import { useClipboard } from "@mantine/hooks";
 import { IconDownload, IconShare2 } from "@tabler/icons-react";
+import AnimatedNumber from "../AnimatedNumber";
 import { downloadDivAsImage } from "@/utils";
 import { CHART_DATE_TYPES } from "@/constants";
 
@@ -68,7 +68,7 @@ const Downloads = ({ downloads, packageName }: any) => {
               </Text>
             </Box>
             <Title order={1} c="white">
-              <NumberFormatter thousandSeparator value={data?.total} />
+              <AnimatedNumber value={data?.total} />
             </Title>
           </Flex>
         </Paper>

@@ -4,7 +4,8 @@ import {
   BarChart,
   getFilteredChartTooltipPayload,
 } from "@mantine/charts";
-import { Group, NumberFormatter, Paper, Text, Title } from "@mantine/core";
+import { Group, Paper, Text, Title } from "@mantine/core";
+import AnimatedNumber from "../AnimatedNumber";
 import { formatDate } from "@/utils";
 import { CHART_DATE_TYPES } from "@/constants";
 
@@ -42,7 +43,7 @@ function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
             {item.name}:
           </Text>
           <Text fz="sm" c={item.color} fw="bold">
-            <NumberFormatter thousandSeparator value={item?.value} />
+            <AnimatedNumber value={item?.value} />
           </Text>
         </Group>
       ))}

@@ -5,14 +5,14 @@ import {
   Box,
   Divider,
   Flex,
-  NumberFormatter,
   Paper,
   SimpleGrid,
   Text,
   Title,
 } from "@mantine/core";
-import OverviewCard from "@/components/shared/OverviewCard";
 import { IconExternalLink } from "@tabler/icons-react";
+import OverviewCard from "@/components/shared/OverviewCard";
+import AnimatedNumber from "@/components/shared/AnimatedNumber";
 
 const ActionsCard = ({ data, link }: any) => {
   const { total, open, closed, merged } = data || {};
@@ -24,7 +24,7 @@ const ActionsCard = ({ data, link }: any) => {
             Open
           </Text>
           <Title order={2} c="green.6">
-            <NumberFormatter thousandSeparator value={Number(open)} />
+            <AnimatedNumber value={open} />
           </Title>
         </Box>
         <ActionIcon
@@ -47,7 +47,7 @@ const ActionsCard = ({ data, link }: any) => {
             Total
           </Text>
           <Title order={4}>
-            <NumberFormatter thousandSeparator value={Number(total)} />
+            <AnimatedNumber value={Number(total)} />
           </Title>
         </Box>
         <Divider orientation="vertical" c="dark.7" />
@@ -56,7 +56,7 @@ const ActionsCard = ({ data, link }: any) => {
             Closed
           </Text>
           <Title order={4} c="red.6">
-            <NumberFormatter thousandSeparator value={Number(closed)} />
+            <AnimatedNumber value={Number(closed)} />
           </Title>
         </Box>
         {merged > 0 && (
@@ -67,7 +67,7 @@ const ActionsCard = ({ data, link }: any) => {
                 Merged
               </Text>
               <Title order={4} c="grape.6">
-                <NumberFormatter thousandSeparator value={Number(merged)} />
+                <AnimatedNumber value={Number(merged)} />
               </Title>
             </Box>
           </>

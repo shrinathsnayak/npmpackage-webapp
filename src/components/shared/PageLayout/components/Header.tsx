@@ -61,7 +61,6 @@ const Header = ({ hideSearch }: any) => {
                 <UnstyledButton
                   onClick={() => searchHandlers.open()}
                   className={classes.searchRoot}
-                  // data-desktop
                 >
                   <Group gap="xs">
                     <IconSearch

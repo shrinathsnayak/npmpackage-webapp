@@ -2,18 +2,11 @@
 
 import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import {
-  Tabs,
-  Container,
-  NumberFormatter,
-  Flex,
-  Kbd,
-  Text,
-  Box,
-} from "@mantine/core";
+import { Tabs, Container, Flex, Kbd, Text, Box } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
+import AnimatedNumber from "@/components/shared/AnimatedNumber";
 import Overview from "@/components/packages/Tabs/Overview";
 import ReadMe from "@/components/packages/Tabs/ReadMe";
 import Security from "@/components/packages/Tabs/Security";
@@ -113,8 +106,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
                   if={npm?.data?.dependencies?.dependencies?.totalCount > 0}
                 >
                   (
-                  <NumberFormatter
-                    thousandSeparator
+                  <AnimatedNumber
                     value={npm?.data?.dependencies?.dependencies?.totalCount}
                   />
                   )

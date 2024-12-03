@@ -1,6 +1,7 @@
 import React from "react";
-import { Group, NumberFormatter, Paper, Text } from "@mantine/core";
+import { Group, Paper, Text } from "@mantine/core";
 import { IconArrowDownRight, IconArrowUpRight } from "@tabler/icons-react";
+import AnimatedNumber from "../AnimatedNumber";
 import classes from "./Downloads.module.css";
 
 const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
@@ -46,7 +47,7 @@ const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
 
       <Group align="flex-end" gap="xs" mt={25}>
         <Text className={classes.analyticsCardValue} c="white">
-          <NumberFormatter thousandSeparator value={value} />
+          <AnimatedNumber value={value} />
         </Text>
       </Group>
 
