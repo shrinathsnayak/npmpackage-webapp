@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   Anchor,
   AppShell,
+  Container,
   Flex,
   Group,
   Image,
@@ -12,7 +13,7 @@ import {
   Title,
   UnstyledButton,
 } from "@mantine/core";
-import { IconSearch, IconDownload } from "@tabler/icons-react";
+import { IconSearch, IconCoinFilled } from "@tabler/icons-react";
 import { NPMPACKAGE_TITLE } from "@/constants";
 import { searchHandlers } from "@/components/shared/Search";
 import Icon from "@/assets/logos/icon.png";
@@ -21,73 +22,70 @@ import classes from "../Layout.module.css";
 const Header = ({ hideSearch }: any) => {
   return (
     <AppShell.Header>
-      <Group
-        h="100%"
-        px={{ base: "xs", sm: 100 }}
-        justify="space-between"
-        align="center"
-      >
-        <Group
-          justify="space-between"
-          align="center"
-          style={{ flex: 1 }}
-          py="xs"
-          gap={1}
-        >
-          <Anchor
-            prefetch
-            component={Link}
-            href="/"
-            underline="never"
-            w="min-content"
+      <Container size="lg">
+        <Group h="100%" justify="space-between" align="center">
+          <Group
+            justify="space-between"
+            align="center"
+            style={{ flex: 1 }}
+            py="sm"
+            gap={1}
           >
-            <Flex gap={5} justify="space-between" align="center">
-              <Image
-                w={35}
-                h={35}
-                src={Icon.src}
-                // priority={true}
-                // component={NextImage}
-                alt="npmpackage.info logo"
-              />
-              <Title order={3} c="white" visibleFrom="md">
-                {NPMPACKAGE_TITLE}
-              </Title>
-            </Flex>
-          </Anchor>
-          <Group gap={6} align="center">
-            {!hideSearch && (
-              <>
-                <UnstyledButton
-                  onClick={() => searchHandlers.open()}
-                  className={classes.searchRoot}
-                >
-                  <Group gap="xs">
-                    <IconSearch
-                      style={{ width: rem(15), height: rem(15) }}
-                      stroke={1.5}
+            <Anchor
+              prefetch
+              component={Link}
+              href="/"
+              underline="never"
+              w="min-content"
+            >
+              <Flex gap={5} justify="space-between" align="center">
+                <Image
+                  w={35}
+                  h={35}
+                  src={Icon.src}
+                  // priority={true}
+                  // component={NextImage}
+                  alt="npmpackage.info logo"
+                />
+                <Title order={3} c="white" visibleFrom="md">
+                  {NPMPACKAGE_TITLE}
+                </Title>
+              </Flex>
+            </Anchor>
+            <Group gap={6} align="center">
+              {!hideSearch && (
+                <>
+                  <UnstyledButton
+                    onClick={() => searchHandlers.open()}
+                    className={classes.searchRoot}
+                  >
+                    <Group gap="xs">
+                      <IconSearch
+                        style={{ width: rem(15), height: rem(15) }}
+                        stroke={2}
+                      />
+                      <Text fz="sm" c="dimmed" pr={80}>
+                        Search
+                      </Text>
+                      <Text fw={700} className={classes.shortcut}>
+                        Ctrl + K
+                      </Text>
+                    </Group>
+                  </UnstyledButton>
+                  <UnstyledButton
+                    href="/sponsor"
+                    component={Link}
+                    className={classes.mobilecontrol}
+                  >
+                    <IconCoinFilled
+                      stroke={2}
+                      style={{ width: rem(21), height: rem(21) }}
+                      fill="var(--mantine-color-red-8)"
                     />
-                    <Text fz="sm" c="dimmed" pr={80}>
-                      Search
-                    </Text>
-                    <Text fw={700} className={classes.shortcut}>
-                      Ctrl + K
-                    </Text>
-                  </Group>
-                </UnstyledButton>
-                {/* <UnstyledButton
-                  onClick={() => searchHandlers.open()}
-                  className={classes.mobilecontrol}
-                  data-mobile
-                >
-                  <IconSearch
-                    style={{ width: rem(22), height: rem(22) }}
-                    stroke={2}
-                  />
-                </UnstyledButton> */}
-              </>
-            )}
-            {/* <UnstyledButton
+                  </UnstyledButton>
+                </>
+              )}
+              {/* <UnstyledButton
               component={Link}
               href="/downloads"
               className={classes.mobilecontrol}
@@ -97,9 +95,10 @@ const Header = ({ hideSearch }: any) => {
                 stroke={2}
               />
             </UnstyledButton> */}
+            </Group>
           </Group>
         </Group>
-      </Group>
+      </Container>
     </AppShell.Header>
   );
 };

@@ -1,10 +1,10 @@
 import { Center, Title, Text, rem, Flex } from "@mantine/core";
-import { NPMPACKAGE_TITLE } from "@/constants";
 import PageLayout from "@/components/shared/PageLayout";
 import SearchBar from "@/components/Landing/LandingSearch";
 import PopularPackages from "@/components/Landing/PopularPackages";
 import ProductHuntLaunch from "@/components/shared/ProductHuntLaunch";
 import Conditional from "@/components/shared/Conditional";
+import { NPMPACKAGE_TITLE } from "@/constants";
 import { getPopularPackages } from "@/services/supbase";
 
 export const revalidate = 60;

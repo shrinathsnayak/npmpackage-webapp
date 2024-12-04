@@ -10,7 +10,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
       fz="sm"
       bg="dark.7"
       withBorder
-      p={{ base: "sm", sm: "lg" }}
+      p={{ base: "sm", sm: "sm" }}
       pos={fixedFooter ? "fixed" : "static"}
     >
       <Container size="lg" className="responsiveContainer">

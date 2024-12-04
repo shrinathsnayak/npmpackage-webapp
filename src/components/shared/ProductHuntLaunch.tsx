@@ -8,12 +8,7 @@ const PRODUCT_HUNT_URL = "https://www.producthunt.com/posts/npmpackage-info";
 
 const ProductHuntLaunch = () => {
   return (
-    <Anchor
-      target="_blank"
-      component={Link}
-      underline="never"
-      href={PRODUCT_HUNT_URL}
-    >
+    <Anchor component={Link} underline="never" href="/sponsor">
       <Flex
         p={6}
         mb={20}
@@ -29,8 +24,8 @@ const ProductHuntLaunch = () => {
         }}
       >
         <ProductHuntIcon />
-        <Text c="white" fz="sm" mt={-1}>
-          Review us on product hunt
+        <Text c="white" fz="sm">
+          Become a sponsor
         </Text>
         <IconArrowNarrowRight color="white" />
       </Flex>

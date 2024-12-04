@@ -65,7 +65,7 @@ export async function getPopularPackages() {
     .from("popular")
     .select("package_id")
     .order("count", { ascending: false })
-    .limit(5);
+    .limit(8);
 
   if (error) {
     console.error("Error fetching popular packages:", error.message);

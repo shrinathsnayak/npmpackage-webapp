@@ -25,9 +25,9 @@
 }
 
 .searchRoot {
-  height: 35px;
+  height: 40px;
   padding-left: var(--mantine-spacing-sm);
-  padding-right: 5px;
+  padding-right: var(--mantine-spacing-sm);
   border-radius: var(--mantine-radius-md);
   color: var(--mantine-color-placeholder);
   border: 1px solid;
@@ -66,8 +66,8 @@
 }
 
 .mobilecontrol {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--mantine-radius-md);
   border: 1px solid;
   display: flex;

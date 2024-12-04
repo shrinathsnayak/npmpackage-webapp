@@ -38,7 +38,7 @@ const PageLayout = memo(
     return (
       <AppShell
         layout="alt"
-        header={{ height: 65 }}
+        header={{ height: 63 }}
         navbar={{
           width: 300,
           breakpoint: "sm",
