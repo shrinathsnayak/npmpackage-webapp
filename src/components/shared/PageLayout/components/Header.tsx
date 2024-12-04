@@ -79,7 +79,7 @@ const Header = ({ hideSearch }: any) => {
                   >
                     <IconCoinFilled
                       stroke={2}
-                      style={{ width: rem(21), height: rem(21) }}
+                      style={{ width: rem(25), height: rem(25) }}
                       fill="var(--mantine-color-red-8)"
                     />
                   </UnstyledButton>

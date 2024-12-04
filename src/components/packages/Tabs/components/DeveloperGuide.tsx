@@ -44,9 +44,10 @@ const DeveloperGuide = ({ npm }: any) => {
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex
           gap={15}
-          direction={{ base: "column", sm: "row" }}
-          justify="space-between"
           align="center"
+          direction={{ base: "row", sm: "row" }}
+          justify={{ base: "flex-start", sm: "space-between" }}
+          wrap={{ base: "wrap", sm: "nowrap" }}
         >
           <ShowDeveloperGuide
             title="Typescript"
