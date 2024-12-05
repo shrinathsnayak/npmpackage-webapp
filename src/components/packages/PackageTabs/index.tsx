@@ -30,8 +30,8 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     [searchParams]
   );
   const readMeFileContent = useMemo(
-    () => gitHub?.data?.readMe,
-    [gitHub?.data?.readMe]
+    () => npm?.data?.readMe,
+    [npm?.data?.readMe]
   );
   const redirectToTab = useCallback(
     (value: string) => {
