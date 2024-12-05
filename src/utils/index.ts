@@ -167,6 +167,8 @@ export const removeSimilarByName = (
   nameToRemove: string,
   resultCount = 4
 ): DataItem[] => {
+  if (!data || data.length === 0) return [];
+
   if (!Array.isArray(data)) {
     console.error("First argument must be an array.");
   }
