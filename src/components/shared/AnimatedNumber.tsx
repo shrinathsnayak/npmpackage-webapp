@@ -1,11 +1,17 @@
 "use client";
 
 import { useMemo } from "react";
-import NumberFlow from "@number-flow/react";
+import NumberFlow, { useCanAnimate } from "@number-flow/react";
+import { NumberFormatter } from "@mantine/core";
 
 const AnimatedNumber = ({ value }: { value: string | number }) => {
+  const canAnimate = useCanAnimate();
   const parsedValue = useMemo(() => (value ? Number(value) : 0), [value]);
-  return <NumberFlow value={parsedValue} isolate={true} />;
+  return canAnimate ? (
+    <NumberFlow value={parsedValue} isolate={true} />
+  ) : (
+    <NumberFormatter value={parsedValue} thousandSeparator />
+  );
 };
 
 export default AnimatedNumber;

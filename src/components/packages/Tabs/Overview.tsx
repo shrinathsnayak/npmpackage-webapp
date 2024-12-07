@@ -11,8 +11,9 @@ import Statistics from "@/components/packages/Tabs/components/Statistics";
 import Developer from "@/components/packages/Tabs/components/Developer";
 import Score from "@/components/packages/Tabs/components/Score";
 import DeveloperGuide from "@/components/packages/Tabs/components/DeveloperGuide";
+import DownloadStatistics from "@/components/packages/Tabs/components/DownloadStatistics";
 
-const Overview = ({ packageInfo }: any) => {
+const Overview = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
   const { data: gitHub } = packageInfo?.gitHub || {};
   const { data: bundle } = packageInfo?.bundle || {};
@@ -75,6 +76,9 @@ const Overview = ({ packageInfo }: any) => {
             owner={gitHub?.owner}
             developerUrl={gitHub?.homepageUrl}
           />
+        </Conditional>
+        <Conditional if={downloads}>
+          <DownloadStatistics downloads={downloads} />
         </Conditional>
         <Conditional if={gitHub}>
           <Statistics

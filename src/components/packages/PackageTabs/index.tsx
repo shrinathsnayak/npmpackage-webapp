@@ -123,7 +123,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
-          <Overview packageInfo={packageInfo} />
+          <Overview packageInfo={packageInfo} downloads={downloadsData} />
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
