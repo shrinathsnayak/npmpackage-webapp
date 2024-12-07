@@ -49,10 +49,7 @@ const DeveloperGuide = ({ npm }: any) => {
           justify={{ base: "flex-start", sm: "space-between" }}
           wrap={{ base: "wrap", sm: "nowrap" }}
         >
-          <ShowDeveloperGuide
-            title="Typescript"
-            value={types ? "✅ Yes" : "❌ No"}
-          />
+          <ShowDeveloperGuide title="Typescript" value={types ? "Yes" : "No"} />
           <ShowDeveloperGuide
             title="Module System"
             value={moduleFormats}
