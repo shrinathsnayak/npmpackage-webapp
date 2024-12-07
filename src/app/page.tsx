@@ -24,9 +24,6 @@ export default async function Home() {
           <Title size={rem(35)} c="white">
             {NPMPACKAGE_TITLE}
           </Title>
-          <Text mt={10} c="gray.4" fz="sm" ta="center">
-            Discover detailed information about npm packages.
-          </Text>
           <SearchBar />
           <Conditional if={popularPackages?.length > 0}>
             <PopularPackages popularPackages={popularPackages} />
