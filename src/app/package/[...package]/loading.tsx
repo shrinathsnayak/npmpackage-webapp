@@ -31,7 +31,7 @@ export default function Loading() {
           </Text>
           <Conditional if={showRefresh}>
             <Text c="gray" fz="sm" display="block">
-              {`Sorry, if the content hasn't loaded, please refresh the page.`}
+              {`If the content hasn't loaded, please refresh the page.`}
             </Text>
           </Conditional>
         </Flex>
