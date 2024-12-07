@@ -52,22 +52,22 @@ const Overview = ({ packageInfo, downloads }: any) => {
           repositoryUrl={gitHub?.repositoryUrl}
         />
         {/* </Conditional> */}
-        <Conditional
+        {/* <Conditional
           if={
             gitHub?.contributors?.length > 0 &&
             gitHub?.contributorsCount > 0 &&
             Array.isArray(gitHub?.contributors)
             //|| npm?.collaborators?.length > 0
           }
-        >
-          <Collaborators
-            contributorsCount={
-              gitHub?.contributorsCount //|| npm?.collaborators?.length
-            }
-            contributors={gitHub?.contributors} //|| npm?.collaborators
-            repositoryUrl={gitHub?.repositoryUrl || ""}
-          />
-        </Conditional>
+        > */}
+        <Collaborators
+          contributorsCount={
+            gitHub?.contributorsCount || npm?.collaborators?.length
+          }
+          contributors={gitHub?.contributors || npm?.collaborators}
+          repositoryUrl={gitHub?.repositoryUrl || ""}
+        />
+        {/* </Conditional> */}
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
         <Conditional if={gitHub?.avatar && gitHub?.owner}>
@@ -84,7 +84,7 @@ const Overview = ({ packageInfo, downloads }: any) => {
           <Statistics
             data={{
               commits: gitHub?.commits,
-              // license: gitHub?.license,
+              license: gitHub?.license,
               stars: gitHub?.stars,
               forks: gitHub?.forks,
               branches: gitHub?.branches,
