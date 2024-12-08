@@ -1,4 +1,5 @@
 import React from "react";
+import { Adsense } from "@ctrl/react-adsense";
 import { Box, Flex } from "@mantine/core";
 import Conditional from "@/components/shared/Conditional";
 import Installations from "@/components/packages/Tabs/components/Installations";
@@ -75,6 +76,15 @@ const Overview = ({ packageInfo, downloads }: any) => {
         </Conditional>
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
+        <Box>
+          <Adsense
+            client="ca-pub-8328087114055733"
+            slot="7774613503"
+            style={{ display: "block" }}
+            layout="in-article"
+            format="fluid"
+          />
+        </Box>
         <Conditional if={gitHub?.avatar && gitHub?.owner}>
           <Developer
             avatar={gitHub?.avatar}
