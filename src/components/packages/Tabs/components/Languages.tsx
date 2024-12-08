@@ -1,9 +1,9 @@
 import React, { memo, useMemo } from "react";
-import { PieChart } from "@mantine/charts";
-import { Box, Flex, Group, Paper, Text } from "@mantine/core";
+import { Flex, Group, Paper, Progress, Text, Tooltip } from "@mantine/core";
+import { IconPointFilled } from "@tabler/icons-react";
 import { formatLanguagesData } from "@/utils";
 import OverviewCard from "@/components/shared/OverviewCard";
-import { IconPointFilled } from "@tabler/icons-react";
+import Conditional from "@/components/shared/Conditional";
 
 export const LanguageLegend = memo(({ name, color, value }: any) => {
   if (value) {
@@ -26,8 +26,24 @@ const Languages = ({ languages }: any) => {
     return formatLanguagesData(languages);
   }, [languages]);
 
-  const MemoizedPieChart = useMemo(
-    () => <PieChart data={languagesData} mx="auto" size={180} h={200} />,
+  const MemoizedProgress = useMemo(
+    () => (
+      <Progress.Root size={14} mb={10}>
+        {languagesData?.map((item: any) => (
+          <Conditional if={item} key={item.name}>
+            <Tooltip
+              withArrow
+              color="dark.8"
+              label={`${item.name} - ${item.value}%`}
+            >
+              <Progress.Section value={item.value} color={item.color}>
+                <Progress.Label></Progress.Label>
+              </Progress.Section>
+            </Tooltip>
+          </Conditional>
+        ))}
+      </Progress.Root>
+    ),
     [languagesData]
   );
 
@@ -40,8 +56,8 @@ const Languages = ({ languages }: any) => {
   return (
     <OverviewCard title="Languages">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
-        {MemoizedPieChart}
-        <Group gap={2} mt={10}>
+        {MemoizedProgress}
+        <Group gap={2} mt={20}>
           {legendItems}
         </Group>
       </Paper>

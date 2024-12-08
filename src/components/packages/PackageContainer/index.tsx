@@ -51,13 +51,15 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
         </Text>
         <Tags
           data={{
-            size: bundle?.gzip,
-            stars: github?.stars,
             downloads: downloads,
+            stars: github?.stars,
+            version: npm?.version,
             license: github?.license,
             security: security?.score,
             language: github?.primaryLanguage,
-            version: npm?.version,
+            size: bundle?.gzip,
+            unpackedSize: npm?.package?.unpackedSize,
+            fileCount: npm?.package?.fileCount,
           }}
         />
       </Container>

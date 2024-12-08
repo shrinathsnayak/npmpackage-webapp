@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ActionIcon, Group } from "@mantine/core";
+import { ActionIcon, Button, Group } from "@mantine/core";
 import {
   IconBrandGithub,
   IconBrandNpm,

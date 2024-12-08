@@ -42,24 +42,21 @@ const Collaborators = ({
                 {contributors.length > 0 &&
                   contributors?.map((item: any) => (
                     <Tooltip label={item?.name} withArrow key={item?.name}>
-                      <Anchor
+                      <Avatar
+                        size="md"
+                        src={item?.url}
+                        radius="xl"
+                        alt={item?.name}
                         component={Link}
                         href={
                           item?.profile_url ||
                           `https://github.com/${item?.name}`
                         }
                         target="_blank"
-                      >
-                        <Avatar
-                          size="md"
-                          src={item?.url}
-                          radius="xl"
-                          alt={item?.name}
-                          imageProps={{
-                            loading: "lazy",
-                          }}
-                        />
-                      </Anchor>
+                        imageProps={{
+                          loading: "lazy",
+                        }}
+                      />
                     </Tooltip>
                   ))}
               </Avatar.Group>

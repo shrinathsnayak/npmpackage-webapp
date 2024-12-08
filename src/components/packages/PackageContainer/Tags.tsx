@@ -3,6 +3,8 @@ import { Badge, Flex, Tooltip } from "@mantine/core";
 import {
   IconCode,
   IconDownload,
+  IconFileDigit,
+  IconFileInfo,
   IconLicense,
   IconShieldLock,
   IconStar,
@@ -30,8 +32,17 @@ const CustomTags = ({ icon, value, color = "gray", tooltip, href }: any) => {
 };
 
 const Tags = ({ data }: any) => {
-  const { stars, license, security, language, size, downloads, version } =
-    data || {};
+  const {
+    stars,
+    license,
+    security,
+    language,
+    size,
+    downloads,
+    version,
+    unpackedSize,
+    fileCount,
+  } = data || {};
 
   return (
     <Flex
@@ -73,6 +84,20 @@ const Tags = ({ data }: any) => {
           tooltip="gzip size"
           icon={<IconZip size={14} />}
           value={formatSize(size)}
+        />
+      )}
+      {unpackedSize && !size && (
+        <CustomTags
+          tooltip="Unpacked Size"
+          icon={<IconFileInfo size={14} />}
+          value={formatSize(unpackedSize)}
+        />
+      )}
+      {fileCount > 0 && (
+        <CustomTags
+          tooltip="File Count"
+          icon={<IconFileDigit size={16} />}
+          value={<AnimatedNumber value={fileCount} />}
         />
       )}
       {downloads && (

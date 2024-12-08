@@ -27,7 +27,7 @@ const DownloadStatistics = ({ downloads }: any) => {
           spacing={{ base: 10, sm: "sm" }}
           verticalSpacing={{ base: "md", sm: "sm" }}
         >
-          <DownloadCard label="Yesterday" value={lastDay} />
+          <DownloadCard label="Last Day" value={lastDay} />
           <DownloadCard label="Last Week" value={lastWeek} />
           <DownloadCard label="Last Month" value={lastMonth} />
           <DownloadCard label="Last Year" value={lastYear} />

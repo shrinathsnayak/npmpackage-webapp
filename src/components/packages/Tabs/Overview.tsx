@@ -12,6 +12,8 @@ import Developer from "@/components/packages/Tabs/components/Developer";
 import Score from "@/components/packages/Tabs/components/Score";
 import DeveloperGuide from "@/components/packages/Tabs/components/DeveloperGuide";
 import DownloadStatistics from "@/components/packages/Tabs/components/DownloadStatistics";
+import Maintainers from "@/components/packages/Tabs/components/Maintainers";
+import Sponsor from "@/components/packages/Tabs/components/Sponsor";
 
 const Overview = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -84,7 +86,7 @@ const Overview = ({ packageInfo, downloads }: any) => {
           <Statistics
             data={{
               commits: gitHub?.commits,
-              license: gitHub?.license,
+              // license: gitHub?.license,
               stars: gitHub?.stars,
               forks: gitHub?.forks,
               branches: gitHub?.branches,
@@ -102,6 +104,12 @@ const Overview = ({ packageInfo, downloads }: any) => {
             }}
             packageName={npm?.name}
           />
+        </Conditional>
+        <Conditional if={npm?.funding}>
+          <Sponsor funding={npm?.funding} />
+        </Conditional>
+        <Conditional if={npm?.collaborators}>
+          <Maintainers maintainers={npm?.collaborators} />
         </Conditional>
         <Conditional if={gitHub && gitHub?.languages?.length > 0}>
           <Languages languages={gitHub?.languages} />

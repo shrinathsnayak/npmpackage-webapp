@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import { VULNERABILITY_COLORS } from "@/constants";
 import classes from "./index.module.css";
+import Conditional from "@/components/shared/Conditional";
 
 const VulnerCard = ({
   severity,
@@ -58,14 +59,16 @@ const VulnerCard = ({
             {affectedVerions}
           </Text>
         </Box>
-        <Box>
-          <Text fz="xs" c="dimmed">
-            Patched Versions
-          </Text>
-          <Text fz="sm" fw="bold" c="white" ta="right">
-            {patchedVersion}
-          </Text>
-        </Box>
+        <Conditional if={patchedVersion}>
+          <Box>
+            <Text fz="xs" c="dimmed">
+              Patched Versions
+            </Text>
+            <Text fz="sm" fw="bold" c="white" ta="right">
+              {patchedVersion}
+            </Text>
+          </Box>
+        </Conditional>
       </Group>
     </Card>
   );

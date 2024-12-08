@@ -2,6 +2,7 @@ import { Anchor, Badge, Flex, Group, Paper, Text } from "@mantine/core";
 import MDX from "@/components/shared/mdx";
 import { formatDate } from "@/utils";
 import { VULNERABILITY_COLORS } from "@/constants";
+import Conditional from "@/components/shared/Conditional";
 
 const ModalContent = ({ data }: any) => {
   const {
@@ -52,14 +53,14 @@ const ModalContent = ({ data }: any) => {
             {vulnerableVersionRange}
           </Text>
         </div>
-        <div>
+        <Conditional if={firstPatchedVersion}>
           <Text fz="sm" c="dimmed" mb={3} ta="right">
             Patched versions
           </Text>
           <Text fz="md" c="white" ta="right">
             {firstPatchedVersion}
           </Text>
-        </div>
+        </Conditional>
       </Group>
 
       <Group justify="space-between" align="center">
