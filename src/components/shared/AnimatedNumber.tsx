@@ -8,7 +8,7 @@ const AnimatedNumber = ({ value }: { value: string | number }) => {
   const canAnimate = useCanAnimate();
   const parsedValue = useMemo(() => (value ? Number(value) : 0), [value]);
   return canAnimate ? (
-    <NumberFlow value={parsedValue} isolate={true} />
+    <NumberFlow value={parsedValue} isolate={true} locales="en-US" />
   ) : (
     <NumberFormatter value={parsedValue} thousandSeparator />
   );
