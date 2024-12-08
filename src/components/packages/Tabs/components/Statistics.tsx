@@ -88,12 +88,12 @@ const Statistics = ({ data }: any) => {
             value={<AnimatedNumber value={contributors} />}
           />
         )}
-        {updatedAt && (
+        {/* {updatedAt && (
           <Stat
             icon={<IconReload size={16} color="#fff" stroke={2} />}
             value={`Updated on ${formatDate(new Date(updatedAt))}`}
           />
-        )}
+        )} */}
       </Paper>
     </OverviewCard>
   );

@@ -15,6 +15,7 @@ import DeveloperGuide from "@/components/packages/Tabs/components/DeveloperGuide
 import DownloadStatistics from "@/components/packages/Tabs/components/DownloadStatistics";
 import Maintainers from "@/components/packages/Tabs/components/Maintainers";
 import Sponsor from "@/components/packages/Tabs/components/Sponsor";
+import PublishedPackageInfo from "@/components/packages/Tabs/components/PublishedPackageInfo";
 
 const Overview = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -26,7 +27,7 @@ const Overview = ({ packageInfo, downloads }: any) => {
     <Flex
       gap={{ base: 5, sm: 20 }}
       direction={{
-        base: "column-reverse",
+        base: "column",
         sm: "row",
       }}
     >
@@ -129,6 +130,9 @@ const Overview = ({ packageInfo, downloads }: any) => {
             }
             repositoryUrl={gitHub?.repositoryUrl || ""}
           />
+        </Conditional>
+        <Conditional if={npm}>
+          <PublishedPackageInfo npm={npm} />
         </Conditional>
       </Box>
     </Flex>

@@ -59,7 +59,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             language: github?.primaryLanguage,
             size: bundle?.gzip,
             unpackedSize: npm?.package?.unpackedSize,
-            fileCount: npm?.package?.fileCount,
+            // fileCount: npm?.package?.fileCount,
           }}
         />
       </Container>
