@@ -12,6 +12,7 @@ import {
   IconZip,
 } from "@tabler/icons-react";
 import AnimatedNumber from "@/components/shared/AnimatedNumber";
+import Conditional from "@/components/shared/Conditional";
 import { formatSize, getScoreTextColor } from "@/utils";
 
 const CustomTags = ({ icon, value, color = "gray", tooltip, href }: any) => {
@@ -51,64 +52,64 @@ const Tags = ({ data }: any) => {
       justify={{ base: "center", sm: "flex-start" }}
       wrap="wrap"
     >
-      {version && (
+      <Conditional if={version}>
         <CustomTags
           tooltip="Latest Version"
           icon={<IconTag size={14} />}
           value={version}
         />
-      )}
-      {stars > 0 && (
+      </Conditional>
+      <Conditional if={stars > 0}>
         <CustomTags
           tooltip="Stars"
           icon={<IconStar size={14} />}
           value={<AnimatedNumber value={stars} />}
         />
-      )}
-      {license && (
+      </Conditional>
+      <Conditional if={license}>
         <CustomTags
           tooltip="License"
           icon={<IconLicense size={14} />}
           value={license}
         />
-      )}
-      {language && (
+      </Conditional>
+      <Conditional if={language}>
         <CustomTags
           tooltip="Primary Language"
           icon={<IconCode size={14} />}
           value={language}
         />
-      )}
-      {size && (
+      </Conditional>
+      <Conditional if={size}>
         <CustomTags
           tooltip="gzip size"
           icon={<IconZip size={14} />}
           value={formatSize(size)}
         />
-      )}
-      {unpackedSize && !size && (
+      </Conditional>
+      <Conditional if={unpackedSize && !size}>
         <CustomTags
           tooltip="Unpacked Size"
           icon={<IconFileInfo size={14} />}
           value={formatSize(unpackedSize)}
         />
-      )}
-      {fileCount > 0 && (
+      </Conditional>
+      <Conditional if={fileCount > 0}>
         <CustomTags
           tooltip="File Count"
           icon={<IconFileDigit size={16} />}
           value={<AnimatedNumber value={fileCount} />}
         />
-      )}
-      {downloads && (
+      </Conditional>
+      <Conditional if={!!downloads}>
         <CustomTags
           href="?t=downloads"
           tooltip="Total Downloads"
           icon={<IconDownload size={14} />}
           value={<AnimatedNumber value={downloads} />}
         />
-      )}
-      {security && (
+      </Conditional>
+      <Conditional if={security}>
         <CustomTags
           color={getScoreTextColor(security)}
           tooltip="OpenSSF Score"
@@ -116,7 +117,7 @@ const Tags = ({ data }: any) => {
           value={security}
           href="?t=scorecard"
         />
-      )}
+      </Conditional>
     </Flex>
   );
 };
