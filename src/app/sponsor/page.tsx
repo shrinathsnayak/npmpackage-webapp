@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Box, Container, Title, Text } from "@mantine/core";
 import Why from "./components/Why";
 import SponsorTypes from "./components/SponsorTypes";

@@ -8,7 +8,7 @@ const DownloadCard = ({ label, value }: any) => {
       <Text fz="xs" c="dimmed" fw={500}>
         {label}
       </Text>
-      <Text fw={600} c="white">
+      <Text fz="lg" fw={600} c="white">
         <AnimatedNumber value={value} />
       </Text>
     </Box>
@@ -21,12 +21,7 @@ const DownloadStatistics = ({ downloads }: any) => {
     <OverviewCard title="Download Statistics">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <DownloadCard label="Total" value={total} />
-        <SimpleGrid
-          mt="sm"
-          cols={{ base: 1, sm: 2, lg: 2 }}
-          spacing={{ base: 10, sm: "sm" }}
-          verticalSpacing={{ base: "md", sm: "sm" }}
-        >
+        <SimpleGrid mt="sm" cols={2} spacing="sm" verticalSpacing="sm">
           <DownloadCard label="Last Day" value={lastDay} />
           <DownloadCard label="Last Week" value={lastWeek} />
           <DownloadCard label="Last Month" value={lastMonth} />
