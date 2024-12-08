@@ -1,5 +1,13 @@
 import React, { memo, useMemo } from "react";
-import { Flex, Group, Paper, Progress, Text, Tooltip } from "@mantine/core";
+import {
+  Flex,
+  Group,
+  isLightColor,
+  Paper,
+  Progress,
+  Text,
+  Tooltip,
+} from "@mantine/core";
 import { IconPointFilled } from "@tabler/icons-react";
 import { formatLanguagesData } from "@/utils";
 import OverviewCard from "@/components/shared/OverviewCard";
@@ -28,20 +36,28 @@ const Languages = ({ languages }: any) => {
 
   const MemoizedProgress = useMemo(
     () => (
-      <Progress.Root size={14} mb={10}>
-        {languagesData?.map((item: any) => (
-          <Conditional if={item} key={item.name}>
-            <Tooltip
-              withArrow
-              color="dark.8"
-              label={`${item.name} - ${item.value}%`}
-            >
-              <Progress.Section value={item.value} color={item.color}>
-                <Progress.Label></Progress.Label>
-              </Progress.Section>
-            </Tooltip>
-          </Conditional>
-        ))}
+      <Progress.Root size={20} mb={10}>
+        {languagesData
+          ?.sort((a: any, b: any) => b.value - a.value)
+          ?.map((item: any) => (
+            <Conditional if={item} key={item.name}>
+              <Tooltip
+                withArrow
+                color="dark.8"
+                label={`${item.name} - ${item.value}%`}
+              >
+                <Progress.Section value={item.value} color={item.color}>
+                  <Progress.Label
+                    fz="xs"
+                    fw={500}
+                    c={isLightColor(item?.color || "white") ? "black" : "white"}
+                  >
+                    {item.name}
+                  </Progress.Label>
+                </Progress.Section>
+              </Tooltip>
+            </Conditional>
+          ))}
       </Progress.Root>
     ),
     [languagesData]

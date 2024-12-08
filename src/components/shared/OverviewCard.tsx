@@ -1,5 +1,5 @@
-import { Badge, Box, Group, Title } from "@mantine/core";
 import React, { Suspense } from "react";
+import { Badge, Box, Group, Title } from "@mantine/core";
 
 const OverviewCard = ({ children, title, badge }: any) => {
   return (

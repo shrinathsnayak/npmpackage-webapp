@@ -18,7 +18,7 @@ const ModalContent = ({ data }: any) => {
   } = data || {};
 
   return (
-    <Flex py={10} direction="column" gap={20}>
+    <Flex py={10} direction="column" gap={14}>
       {/* Badge */}
       <Group justify="space-between" align="center">
         <Badge
@@ -35,7 +35,7 @@ const ModalContent = ({ data }: any) => {
       </Group>
       {/* Summary */}
       <div>
-        <Text fz="sm" c="dimmed" mb={3}>
+        <Text fz="sm" c="dimmed" mb={0}>
           Summary
         </Text>
         <Text fz="md" c="white">
@@ -46,7 +46,7 @@ const ModalContent = ({ data }: any) => {
       {/* Affected versions */}
       <Group justify="space-between" align="center">
         <div>
-          <Text fz="sm" c="dimmed" mb={3}>
+          <Text fz="sm" c="dimmed" mb={0}>
             Affected versions
           </Text>
           <Text fz="md" c="white">
@@ -54,18 +54,20 @@ const ModalContent = ({ data }: any) => {
           </Text>
         </div>
         <Conditional if={firstPatchedVersion}>
-          <Text fz="sm" c="dimmed" mb={3} ta="right">
-            Patched versions
-          </Text>
-          <Text fz="md" c="white" ta="right">
-            {firstPatchedVersion}
-          </Text>
+          <div>
+            <Text fz="sm" c="dimmed" mb={0} ta="right">
+              Patched versions
+            </Text>
+            <Text fz="md" c="white" ta="right">
+              {firstPatchedVersion}
+            </Text>
+          </div>
         </Conditional>
       </Group>
 
       <Group justify="space-between" align="center">
         <div>
-          <Text fz="sm" c="dimmed" mb={3}>
+          <Text fz="sm" c="dimmed" mb={0}>
             Published on
           </Text>
           <Text fz="md" c="white">
@@ -73,7 +75,7 @@ const ModalContent = ({ data }: any) => {
           </Text>
         </div>
         <div>
-          <Text fz="sm" c="dimmed" mb={3} ta="right">
+          <Text fz="sm" c="dimmed" mb={0} ta="right">
             Updated on
           </Text>
           <Text fz="md" c="white" ta="right">
@@ -93,7 +95,7 @@ const ModalContent = ({ data }: any) => {
       </div>
 
       <div>
-        <Text fz="sm" c="dimmed" mb={3}>
+        <Text fz="sm" c="dimmed" mb={0}>
           Additional Links
         </Text>
         {references?.map((ref: any, index: number) => (
