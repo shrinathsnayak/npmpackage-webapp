@@ -55,6 +55,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark" />
         <link rel="preconnecFt" href="https://avatars.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
+        <link rel="manifest" href="manifest.json" />
         <Metrics />
         <ColorSchemeScript defaultColorScheme="dark" forceColorScheme="dark" />
         {/* <script
