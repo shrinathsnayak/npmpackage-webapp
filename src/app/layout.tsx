@@ -53,6 +53,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="color-scheme" content="dark" />
+        <meta name="google-adsense-account" content="ca-pub-8328087114055733" />
         <link rel="preconnecFt" href="https://avatars.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <link rel="manifest" href="manifest.json" />
