@@ -1,3 +1,4 @@
+import withPWA from 'next-pwa';
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import NextBundleAnalyzer from "@next/bundle-analyzer";
@@ -92,6 +93,7 @@ const nextConfig = {
     return config;
   },
 };
+
 const withMDX = createMDX({
   options: {
     remarkPlugins: [remarkGfm],
@@ -99,4 +101,11 @@ const withMDX = createMDX({
   },
 });
 
-export default withMDX(withBundleAnalyzer(nextConfig));
+const withPWAConfig = withPWA({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  skipWaiting: true,
+});
+
+export default withPWAConfig(withMDX(withBundleAnalyzer(nextConfig)));
