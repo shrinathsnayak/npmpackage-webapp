@@ -2,7 +2,6 @@ import { Anchor, Paper } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 
 const Sponsor = ({ funding }: any) => {
-  console.log(funding);
   return (
     <OverviewCard title="Sponsor this package">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
