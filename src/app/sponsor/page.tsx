@@ -1,8 +1,14 @@
-import { Box, Container, Title, Text, List } from "@mantine/core";
+import { Metadata } from "next";
+import { Box, Container, Title, Text } from "@mantine/core";
 import Why from "./components/Why";
 import SponsorTypes from "./components/SponsorTypes";
 import BenefitsOfSponsorship from "./components/BenefitsOfSponsorship";
 import HowSponsorshipHelps from "./components/HowSponsorshipHelps";
+
+export const metadata: Metadata = {
+  title: "Sponsor",
+  description: "Sponsorship opportunity is now available for npmpackage.info.",
+};
 
 export default async function Sponsor() {
   return (
