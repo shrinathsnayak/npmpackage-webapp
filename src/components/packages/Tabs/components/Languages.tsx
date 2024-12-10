@@ -36,7 +36,7 @@ const Languages = ({ languages }: any) => {
 
   const MemoizedProgress = useMemo(
     () => (
-      <Progress.Root size={20} mb={10}>
+      <Progress.Root size={18} mb={10}>
         {languagesData
           ?.sort((a: any, b: any) => b.value - a.value)
           ?.map((item: any) => (
@@ -48,7 +48,7 @@ const Languages = ({ languages }: any) => {
               >
                 <Progress.Section value={item.value} color={item.color}>
                   <Progress.Label
-                    fz="xs"
+                    fz={10}
                     fw={500}
                     c={isLightColor(item?.color || "white") ? "black" : "white"}
                   >

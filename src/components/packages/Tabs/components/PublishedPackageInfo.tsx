@@ -5,7 +5,7 @@ import Conditional from "@/components/shared/Conditional";
 import OverviewCard from "@/components/shared/OverviewCard";
 
 const PackageInfo = ({ label, value }: any) => (
-  <Conditional if={value}>
+  <Conditional if={!!value}>
     <Group gap={2} justify="space-between">
       <Text fz="sm" c="dimmed">
         {label}
@@ -27,18 +27,29 @@ const PublishedPackageInfo = ({ npm }: any) => {
           <PackageInfo label="Package Id" value={info?.id} />
           <PackageInfo
             label="Unpacked Size"
-            value={formatSize(info?.unpackedSize)}
+            value={info?.unpackedSize ? formatSize(info?.unpackedSize) : null}
           />
-          <PackageInfo label="Size" value={formatSize(info?.size)} />
+          <PackageInfo
+            label="Size"
+            value={info?.size ? formatSize(info?.size) : null}
+          />
           <PackageInfo
             label="File Count"
-            value={<AnimatedNumber value={info?.fileCount} />}
+            value={
+              info?.fileCount ? (
+                <AnimatedNumber value={info?.fileCount} />
+              ) : null
+            }
           />
           <PackageInfo label="NPM Version" value={info?.npmVersion} />
           <PackageInfo label="Node Version" value={info?.nodeVersion} />
           <PackageInfo
             label="Publised On"
-            value={formatDate(new Date(npm?.publishedOn || new Date()))}
+            value={
+              npm?.publishedOn
+                ? formatDate(new Date(npm?.publishedOn || new Date()))
+                : null
+            }
           />
         </Flex>
       </Paper>

@@ -38,7 +38,7 @@ const Collaborators = ({
         ) : (
           <Box>
             <Tooltip.Group openDelay={300} closeDelay={100}>
-              <Avatar.Group spacing="xs" style={{ flexWrap: "wrap" }}>
+              <Avatar.Group spacing={3} style={{ flexWrap: "wrap" }}>
                 {contributors.length > 0 &&
                   contributors?.map((item: any) => (
                     <Tooltip label={item?.name} withArrow key={item?.name}>
@@ -48,10 +48,7 @@ const Collaborators = ({
                         radius="xl"
                         alt={item?.name}
                         component={Link}
-                        href={
-                          item?.profile_url ||
-                          `https://github.com/${item?.name}`
-                        }
+                        href={`https://github.com/${item?.name}`}
                         target="_blank"
                         imageProps={{
                           loading: "lazy",

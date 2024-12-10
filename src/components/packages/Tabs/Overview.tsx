@@ -3,7 +3,7 @@ import { Adsense } from "@ctrl/react-adsense";
 import { Box, Flex } from "@mantine/core";
 import Conditional from "@/components/shared/Conditional";
 import Installations from "@/components/packages/Tabs/components/Installations";
-// import Collaborators from "@/components/packages/Tabs/components/Collaborators";
+import Collaborators from "@/components/packages/Tabs/components/Collaborators";
 import Languages from "@/components/packages/Tabs/components/Languages";
 import Releases from "@/components/packages/Tabs/components/Releases";
 import Size from "@/components/packages/Tabs/components/Size";
@@ -64,17 +64,14 @@ const Overview = ({ packageInfo, downloads }: any) => {
             //|| npm?.collaborators?.length > 0
           }
         > */}
-        {/* <Collaborators
+        <Collaborators
           contributorsCount={
             gitHub?.contributorsCount || npm?.collaborators?.length
           }
           contributors={gitHub?.contributors || npm?.collaborators}
           repositoryUrl={gitHub?.repositoryUrl || ""}
-        /> */}
+        />
         {/* </Conditional> */}
-        <Conditional if={gitHub && gitHub?.languages?.length > 0}>
-          <Languages languages={gitHub?.languages} />
-        </Conditional>
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
         <Box>
@@ -130,6 +127,9 @@ const Overview = ({ packageInfo, downloads }: any) => {
             }
             repositoryUrl={gitHub?.repositoryUrl || ""}
           />
+        </Conditional>
+        <Conditional if={gitHub && gitHub?.languages?.length > 0}>
+          <Languages languages={gitHub?.languages} />
         </Conditional>
         <Conditional if={npm}>
           <PublishedPackageInfo npm={npm} />
