@@ -26,7 +26,7 @@ const Collaborators = ({
       badge={<AnimatedNumber value={contributorsCount} />}
     >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
-        {contributorsCount === 0 ? (
+        {contributorsCount === 0 || contributors.length <= 0 ? (
           <Center ta="center" my={20}>
             <div>
               <IconUsersGroup color="#fff" size={30} />
@@ -58,23 +58,23 @@ const Collaborators = ({
                   ))}
               </Avatar.Group>
             </Tooltip.Group>
-            <Conditional if={repositoryUrl}>
-              <Box mt={15}>
-                <Anchor
-                  display="inline-block"
-                  component={Link}
-                  href={`${repositoryUrl}/contributors`}
-                  target="_blank"
-                >
-                  <Text fz="sm">
-                    View all <AnimatedNumber value={contributorsCount} />{" "}
-                    contributors
-                  </Text>
-                </Anchor>
-              </Box>
-            </Conditional>
           </Box>
         )}
+        <Conditional if={repositoryUrl && contributorsCount > 0}>
+          <Box mt={15}>
+            <Anchor
+              display="inline-block"
+              component={Link}
+              href={`${repositoryUrl}/contributors`}
+              target="_blank"
+            >
+              <Text fz="sm">
+                View all <AnimatedNumber value={contributorsCount} />{" "}
+                contributors
+              </Text>
+            </Anchor>
+          </Box>
+        </Conditional>
       </Paper>
     </OverviewCard>
   );

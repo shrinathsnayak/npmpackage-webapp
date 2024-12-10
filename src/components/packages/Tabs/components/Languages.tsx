@@ -70,7 +70,7 @@ const Languages = ({ languages }: any) => {
   }, [languagesData]);
 
   return (
-    <OverviewCard title="Languages">
+    <OverviewCard title="Languages" badge={languagesData?.length}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {MemoizedProgress}
         <Group gap={2} mt={20}>

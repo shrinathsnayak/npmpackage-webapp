@@ -72,6 +72,9 @@ const Overview = ({ packageInfo, downloads }: any) => {
           repositoryUrl={gitHub?.repositoryUrl || ""}
         />
         {/* </Conditional> */}
+        <Conditional if={gitHub && gitHub?.languages?.length > 0}>
+          <Languages languages={gitHub?.languages} />
+        </Conditional>
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
         <Box>
@@ -127,9 +130,6 @@ const Overview = ({ packageInfo, downloads }: any) => {
             }
             repositoryUrl={gitHub?.repositoryUrl || ""}
           />
-        </Conditional>
-        <Conditional if={gitHub && gitHub?.languages?.length > 0}>
-          <Languages languages={gitHub?.languages} />
         </Conditional>
         <Conditional if={npm}>
           <PublishedPackageInfo npm={npm} />

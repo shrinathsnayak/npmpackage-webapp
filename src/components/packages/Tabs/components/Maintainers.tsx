@@ -4,7 +4,7 @@ import OverviewCard from "@/components/shared/OverviewCard";
 
 const Maintainers = ({ maintainers }: any) => {
   return (
-    <OverviewCard title="Maintainers">
+    <OverviewCard title="Maintainers" badge={maintainers?.length}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Tooltip.Group openDelay={300} closeDelay={100}>
           <Flex align="center" wrap="wrap" gap={10}>
