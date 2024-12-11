@@ -68,7 +68,7 @@ const Overview = ({ packageInfo, downloads }: any) => {
           contributorsCount={
             gitHub?.contributorsCount || npm?.collaborators?.length
           }
-          contributors={gitHub?.contributors || npm?.collaborators}
+          contributors={gitHub?.contributors || npm?.collaborators || []}
           repositoryUrl={gitHub?.repositoryUrl || ""}
         />
         {/* </Conditional> */}

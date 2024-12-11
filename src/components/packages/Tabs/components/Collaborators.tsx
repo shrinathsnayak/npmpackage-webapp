@@ -26,7 +26,9 @@ const Collaborators = ({
       badge={<AnimatedNumber value={contributorsCount} />}
     >
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
-        {contributorsCount === 0 || contributors.length <= 0 ? (
+        {contributorsCount === 0 ||
+        contributors?.length <= 0 ||
+        contributors?.status ? (
           <Center ta="center" my={20}>
             <div>
               <IconUsersGroup color="#fff" size={30} />

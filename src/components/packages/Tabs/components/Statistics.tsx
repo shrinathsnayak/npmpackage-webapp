@@ -37,7 +37,7 @@ const Statistics = ({ data }: any) => {
     updatedAt,
   } = data || {};
   return (
-    <OverviewCard title="Github Statistics">
+    <OverviewCard title="GitHub Statistics">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {license && (
           <Stat

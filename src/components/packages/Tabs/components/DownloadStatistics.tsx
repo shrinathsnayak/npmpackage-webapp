@@ -20,7 +20,7 @@ const DownloadStatistics = ({ downloads }: any) => {
   return (
     <OverviewCard title="Download Statistics">
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
-        <DownloadCard label="Total" value={total} />
+        <DownloadCard label="Total Downloads" value={total} />
         <SimpleGrid mt="sm" cols={2} spacing="sm" verticalSpacing="sm">
           <DownloadCard label="Last Day" value={lastDay} />
           <DownloadCard label="Last Week" value={lastWeek} />
