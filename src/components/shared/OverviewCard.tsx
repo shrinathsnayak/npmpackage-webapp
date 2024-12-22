@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Badge, Box, Group, Title } from "@mantine/core";
+import ErrorBoundary from "./ErrorBoundary";
 
 const OverviewCard = ({ children, title, badge }: any) => {
   return (
@@ -14,7 +15,9 @@ const OverviewCard = ({ children, title, badge }: any) => {
           </Badge>
         )}
       </Group>
-      <Suspense>{children}</Suspense>
+      <Suspense>
+        <ErrorBoundary>{children}</ErrorBoundary>
+      </Suspense>
     </Box>
   );
 };
