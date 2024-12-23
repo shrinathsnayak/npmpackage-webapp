@@ -54,6 +54,7 @@ export default function RootLayout({
       <head>
         <meta name="color-scheme" content="dark" />
         <meta name="google-adsense-account" content="ca-pub-8328087114055733" />
+        <meta name="msvalidate.01" content="BC02EE25C1D81BC24F16C4074F627326" />
         <link rel="preconnecFt" href="https://avatars.githubusercontent.com" />
         <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
         <link rel="manifest" href="manifest.json" />
