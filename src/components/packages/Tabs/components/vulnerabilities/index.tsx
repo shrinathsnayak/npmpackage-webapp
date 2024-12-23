@@ -25,10 +25,8 @@ interface ComponentProps {
 }
 
 const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
-  const {
-    status,
-    data: { sortedVulnerabilities, stableVersion },
-  } = vulnerabilities || {};
+  const { status, data: { sortedVulnerabilities = {}, stableVersion } = {} } =
+    vulnerabilities || {};
   const [selectedVulnerability, setSelectedVulnerability] = useState<any>(null);
 
   if (

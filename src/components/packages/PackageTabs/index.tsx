@@ -11,9 +11,10 @@ import Overview from "@/components/packages/Tabs/Overview";
 import ReadMe from "@/components/packages/Tabs/ReadMe";
 import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
+import Vulnerabilities from "@/components/packages/Tabs/components/vulnerabilities";
 import Downloads from "@/components/shared/Downloads";
+import ErrorBoundary from "@/components/shared/ErrorBoundary";
 import classes from "./Tabs.module.css";
-import Vulnerabilities from "../Tabs/components/vulnerabilities";
 
 const MemoizedDownloads = memo(Downloads);
 
@@ -123,18 +124,24 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20}>
-          <Overview packageInfo={packageInfo} downloads={downloadsData} />
+          <ErrorBoundary>
+            <Overview packageInfo={packageInfo} downloads={downloadsData} />
+          </ErrorBoundary>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.downloads.value} py={20}>
-          <MemoizedDownloads
-            downloads={downloadsData}
-            packageName={packageName}
-          />
+          <ErrorBoundary>
+            <MemoizedDownloads
+              downloads={downloadsData}
+              packageName={packageName}
+            />
+          </ErrorBoundary>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.dependencies.value} py={20}>
-          <Dependencies data={npm?.data?.dependencies} />
+          <ErrorBoundary>
+            <Dependencies data={npm?.data?.dependencies} />
+          </ErrorBoundary>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.versions.value} py={20}>
@@ -142,15 +149,21 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>
-          <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
+          <ErrorBoundary>
+            <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
+          </ErrorBoundary>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.vulnerabilities.value} py={20}>
-          <Vulnerabilities vulnerabilities={vulnerabilities} />
+          <ErrorBoundary>
+            <Vulnerabilities vulnerabilities={vulnerabilities} />
+          </ErrorBoundary>
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.scorecard.value} py={20}>
-          <MemoizedSecurity packageInfo={securityScore?.data} />
+          <ErrorBoundary>
+            <MemoizedSecurity packageInfo={securityScore?.data} />
+          </ErrorBoundary>
         </Tabs.Panel>
       </Tabs>
     </Container>
