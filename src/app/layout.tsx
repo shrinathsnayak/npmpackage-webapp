@@ -12,7 +12,7 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
 import Metrics from "@/observability";
 import Favicon from "@/assets/logos/icon.png";
-import OGImage from "@/assets/og.png";
+import OGImage from "../../public/og.png";
 import ShikiLoader from "@/components/shared/CodeWrapper";
 import Feedback from "@/components/shared/Feedback";
 import { NavigationProgressBar } from "@/components/shared/NavigationProgressBar";

@@ -7,7 +7,7 @@ import {
 } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
 import JSONLD from "@/components/shared/JSONLD";
-import OGImage from "@/assets/og.png";
+import OGImage from "../../../../public/og.png";
 
 const PackageContainer = dynamic(
   () => import("@/components/packages/PackageContainer"),
