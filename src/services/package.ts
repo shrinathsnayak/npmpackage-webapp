@@ -200,3 +200,34 @@ export const getPackageVulnerabilities = cache(
     }
   }
 );
+
+/**
+ * The function `getOGPackageInfo` fetches package information from an API based on the provided
+ * package name.
+ * @param {string} packageName - The `packageName` parameter is a string that represents the name of
+ * the package for which you want to retrieve information.
+ * @returns The function `getOGPackageInfo` is returning the JSON data fetched from the API endpoint
+ * for the specified npm package name. If the fetch operation is successful (status code 200), the JSON
+ * data is returned. If there is an error during the fetch operation, an error message is logged to the
+ * console and the error is rethrown.
+ */
+export const getOGPackageInfo = cache(async (packageName: string) => {
+  try {
+    if (packageName) {
+      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const res = await fetch(
+        `${process.env.API_ENDPOINT}/npm?project=${packageName}`,
+        options
+      );
+
+      if (!res.ok) {
+        throw new Error(`Failed to fetch data: ${res.statusText}`);
+      }
+
+      return await res.json();
+    }
+  } catch (err) {
+    console.error("Error fetching package data:", err);
+    throw err;
+  }
+});

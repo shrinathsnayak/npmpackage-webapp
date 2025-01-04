@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import {
+  getOGPackageInfo,
   getPackageData,
   getPackageDownloads,
   getPackageVulnerabilities,
@@ -24,10 +25,13 @@ export async function generateMetadata({
 }) {
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
+  const packageData = await getOGPackageInfo(packageName);
+
   return {
-    title: packageName,
+    title: `${packageName} - ${packageData?.data?.version}`,
+    description: packageData?.data?.description,
     openGraph: {
-      images: [OGImage.src],
+      images: [`${process.env.NEXT_PUBLIC_SITE_URL}${OGImage.src}`],
     },
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`,
