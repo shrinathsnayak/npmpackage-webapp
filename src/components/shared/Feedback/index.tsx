@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ActionIcon, Affix, Button, Flex, Kbd, Modal } from "@mantine/core";
+import { ActionIcon, Affix, Button, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMessageDots } from "@tabler/icons-react";
 import { saveFeedback } from "@/services/supbase";
@@ -21,11 +21,11 @@ const Feedback = () => {
 
   return (
     <div>
-      <Affix position={{ bottom: 20, left: 20 }} withinPortal={true}>
+      <Affix position={{ bottom: 20, right: 20 }} withinPortal={true}>
         <Button
           radius="xl"
+          color="red.8"
           visibleFrom="md"
-          variant="default"
           onClick={() => handlers.open()}
           leftSection={<IconMessageDots size={16} />}
         >
@@ -34,8 +34,8 @@ const Feedback = () => {
         <ActionIcon
           size={55}
           radius="xl"
+          color="red"
           hiddenFrom="md"
-          variant="default"
           autoContrast={true}
           onClick={() => handlers.open()}
         >
