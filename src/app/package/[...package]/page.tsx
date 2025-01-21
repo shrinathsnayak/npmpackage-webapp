@@ -34,7 +34,10 @@ export async function generateMetadata({
       images: [`${process.env.NEXT_PUBLIC_SITE_URL}${OGImage.src}`],
     },
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`,
+      canonical: new URL(
+        `/package/${packageName}`,
+        process.env.NEXT_PUBLIC_SITE_URL
+      ).toString(),
     },
     metadataBase: new URL(
       `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`
