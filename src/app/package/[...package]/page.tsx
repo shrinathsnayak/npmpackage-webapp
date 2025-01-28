@@ -20,12 +20,15 @@ const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"), {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: { package: [] };
+  searchParams: any;
 }) {
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
   const packageData = await getOGPackageInfo(packageName);
+  const hasSearchParams = !!searchParams?.t;
 
   return {
     title: `${packageName} - ${packageData?.data?.version}`,
@@ -42,6 +45,7 @@ export async function generateMetadata({
     metadataBase: new URL(
       `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`
     ),
+    robots: hasSearchParams ? "noindex, follow" : "index, follow",
   };
 }
 
