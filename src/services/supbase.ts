@@ -86,7 +86,8 @@ export async function getAllPopularPackages() {
   const { data, error } = await supabase
     .from("popular")
     .select("package_id, updated_at")
-    .order("count", { ascending: false });
+    .order("count", { ascending: false })
+    .limit(5000);
 
   if (error) {
     console.error("Error fetching popular packages:", error.message);
