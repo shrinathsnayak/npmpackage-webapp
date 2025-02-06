@@ -55,10 +55,10 @@ const Form = ({ formSubmit }: any) => {
     <form onSubmit={form.onSubmit((values) => handleFormSubmit(values))}>
       <Flex direction="column" gap={20} p={3}>
         <div>
-          <Text fz="md" fw="500" mb={10}>
+          <Text fz="sm" fw="400" mb={10}>
             How would you rate this tool?
           </Text>
-          <Flex align="center" gap={15}>
+          <Flex align="center" gap={10}>
             {SCORE_VALUES.map((item: any) => (
               <ActionIcon
                 key={item.value}
@@ -79,19 +79,19 @@ const Form = ({ formSubmit }: any) => {
           size="md"
           minRows={5}
           maxRows={10}
-          label="Message"
+          // label="Message"
           placeholder="Enter feedback message"
           {...form.getInputProps("message")}
         />
-        <TextInput
+        {/* <TextInput
           size="md"
           type="email"
           label="Email Address (Optional)"
           description="Your email may be used to contact you for clarification if needed."
-          placeholder="Enter your contact email address"
+          placeholder="Enter your email address (Optional)"
           inputWrapperOrder={["label", "input", "description", "error"]}
           {...form.getInputProps("email")}
-        />
+        /> */}
         <Button type="submit" fullWidth color="red.8" size="md">
           {loading ? "Submitting" : "Submit"} Feedback
         </Button>

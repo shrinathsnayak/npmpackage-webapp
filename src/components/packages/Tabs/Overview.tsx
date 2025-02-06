@@ -1,5 +1,4 @@
 import React from "react";
-import { Adsense } from "@ctrl/react-adsense";
 import { Box, Flex } from "@mantine/core";
 import Conditional from "@/components/shared/Conditional";
 import Installations from "@/components/packages/Tabs/components/Installations";
@@ -16,6 +15,7 @@ import DownloadStatistics from "@/components/packages/Tabs/components/DownloadSt
 import Maintainers from "@/components/packages/Tabs/components/Maintainers";
 import Sponsor from "@/components/packages/Tabs/components/Sponsor";
 import PublishedPackageInfo from "@/components/packages/Tabs/components/PublishedPackageInfo";
+import SponsorProjectCard from "@/components/shared/SponsorProjectCard";
 
 const Overview = ({ packageInfo, downloads }: any) => {
   const { data: npm } = packageInfo?.npm || {};
@@ -50,20 +50,10 @@ const Overview = ({ packageInfo, downloads }: any) => {
             repositoryUrl={gitHub?.repositoryUrl}
           />
         </Conditional>
-        {/* <Conditional if={gitHub?.releases?.total > 0 && gitHub?.repositoryUrl}> */}
         <Releases
           releases={gitHub?.releases}
           repositoryUrl={gitHub?.repositoryUrl}
         />
-        {/* </Conditional> */}
-        {/* <Conditional
-          if={
-            gitHub?.contributors?.length > 0 &&
-            gitHub?.contributorsCount > 0 &&
-            Array.isArray(gitHub?.contributors)
-            //|| npm?.collaborators?.length > 0
-          }
-        > */}
         <Collaborators
           contributorsCount={
             gitHub?.contributorsCount || npm?.collaborators?.length
@@ -71,21 +61,12 @@ const Overview = ({ packageInfo, downloads }: any) => {
           contributors={gitHub?.contributors || npm?.collaborators || []}
           repositoryUrl={gitHub?.repositoryUrl || ""}
         />
-        {/* </Conditional> */}
         <Conditional if={gitHub && gitHub?.languages?.length > 0}>
           <Languages languages={gitHub?.languages} />
         </Conditional>
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
-        <Box>
-          <Adsense
-            client="ca-pub-8328087114055733"
-            slot="7774613503"
-            style={{ display: "block" }}
-            layout="in-article"
-            format="fluid"
-          />
-        </Box>
+        <SponsorProjectCard />
         <Conditional if={gitHub?.avatar && gitHub?.owner}>
           <Developer
             avatar={gitHub?.avatar}
@@ -100,7 +81,6 @@ const Overview = ({ packageInfo, downloads }: any) => {
           <Statistics
             data={{
               commits: gitHub?.commits,
-              // license: gitHub?.license,
               stars: gitHub?.stars,
               forks: gitHub?.forks,
               branches: gitHub?.branches,
