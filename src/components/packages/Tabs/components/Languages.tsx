@@ -1,4 +1,5 @@
 import React, { memo, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import {
   Flex,
   Group,
@@ -30,6 +31,7 @@ export const LanguageLegend = memo(({ name, color, value }: any) => {
 LanguageLegend.displayName = "LanguageLegend";
 
 const Languages = ({ languages }: any) => {
+  const t = useTranslations("overview");
   const languagesData = useMemo(() => {
     return formatLanguagesData(languages);
   }, [languages]);
@@ -70,7 +72,7 @@ const Languages = ({ languages }: any) => {
   }, [languagesData]);
 
   return (
-    <OverviewCard title="Languages" badge={languagesData?.length}>
+    <OverviewCard title={t("languages")} badge={languagesData?.length}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {MemoizedProgress}
         <Group gap={2} mt={20}>

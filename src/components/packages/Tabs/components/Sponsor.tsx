@@ -1,9 +1,11 @@
+import { useTranslations } from "next-intl";
 import { Anchor, Paper } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 
 const Sponsor = ({ funding }: any) => {
+  const t = useTranslations("overview");
   return (
-    <OverviewCard title="Sponsor this package">
+    <OverviewCard title={t("sponsor_this_package")}>
       <Paper
         p="lg"
         radius="md"

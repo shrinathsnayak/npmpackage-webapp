@@ -1,0 +1,103 @@
+{
+  "npmpackagedescription": "NPM 패키지에 대한 자세한 정보를 찾으십시오. ",
+  "popular_packages": "인기있는 패키지",
+  "search": "찾다",
+  "search_package": "검색 패키지",
+  "search_package_name": "검색 패키지 이름",
+  "nothing_found": "아무것도 찾지 못했습니다",
+  "disclaimer": "부인 성명",
+  "published_on": "게시",
+  "updated_on": "업데이트되었습니다",
+  "disclaimer_text": "우리는 이 웹사이트에 표시된 데이터를 소유하거나 저장하지 않습니다. 성능 향상을 위해 데이터는 최대 {hour}시간 동안 캐시됩니다.",
+  "become_sponsor": "스폰서가 되십시오",
+  "sponsor_card": "이 프로젝트가 마음에 드시나요? 계속해서 운영되도록 도와주세요. 오늘 후원해 주세요! 🚀",
+  "yes": "예",
+  "no": "아니요",
+  "feedback": {
+    "title": "피드백",
+    "nps": "이 도구를 어떻게 평가 하시겠습니까?",
+    "placeholder": "피드백 메시지를 입력하십시오",
+    "submit": "제출하다",
+    "submitting": "제출",
+    "success": "의견에 감사드립니다! ",
+    "error": {
+      "invalid_email": "잘못된 이메일",
+      "message": {
+        "required": "피드백 메시지를 입력하십시오.",
+        "short": "메시지가 너무 짧습니다. "
+      }
+    }
+  },
+  "loading": {
+    "title": "{packageName} 에 대한 자세한 정보 및 측정항목 수집",
+    "description": "내용이로드되지 않은 경우 페이지를 새로 고치십시오."
+  },
+  "tabs": {
+    "overview": "개요",
+    "readme": "readme",
+    "downloads": "다운로드",
+    "dependencies": "의존성",
+    "scorecard": "OpenSSF 스코어 카드",
+    "vulnerabilities": "취약성"
+  },
+  "overview": {
+    "installations": "설치",
+    "developer_guide": "개발자 가이드",
+    "beta": "베타",
+    "developer": "개발자",
+    "score": "점수",
+    "download_statistics": "통계 다운로드",
+    "gitHub_statistics": "Github 통계",
+    "pull_requests": "요청을 당기십시오",
+    "open": "열려 있는",
+    "issues": "문제",
+    "total": "총",
+    "closed": "닫은",
+    "merged": "병합",
+    "releases": "릴리스",
+    "view_all_releases": "모두보기 {value} 릴리스",
+    "error_fetching_releases": "릴리스를 가져올 수 없습니다.",
+    "contributors": "기고자",
+    "view_all_contributors": "모두보기 {value} 기고자",
+    "error_fetching_contributors": "기여자를 가져올 수 없습니다.",
+    "languages": "언어",
+    "bundle_size": "번들 크기",
+    "minified": "Minified",
+    "minified_gzipped": "Minified + Gzipped",
+    "maintainers": "관리자",
+    "package_meta_information": "패키지 메타 정보",
+    "similar_packages": "다른 패키지와 비슷합니다 {packageName}",
+    "sponsor_this_package": "이 패키지를 후원하세요",
+    "unable_to_determine_module": "이 패키지의 모듈 시스템을 확인할 수 없습니다."
+  },
+  "downloads": {
+    "total_downloads": "총 다운로드",
+    "last_day": "마지막 날",
+    "last_week": "지난주",
+    "last_month": "전달",
+    "last_year": "작년"
+  },
+  "github": {
+    "stars": "별",
+    "forks": "포크",
+    "watchers": "감시자",
+    "pull_requests": "요청을 당기십시오",
+    "branches": "가지",
+    "commits": "커밋",
+    "license": "특허"
+  },
+  "package": {
+    "latest_version": "최신 버전",
+    "package_id": "패키지 ID",
+    "unpacked_size": "포장되지 않은 크기",
+    "size": "크기",
+    "file_count": "파일 카운트",
+    "npm_version": "NPM 버전",
+    "node_version": "Node 버전",
+    "typescript": "TypeScript",
+    "module_system": "모듈 시스템",
+    "min_node_version": "최소. Node 버전",
+    "node_version_tooltip": "관리자 가이 패키지를 게시하기 위해 사용하는 Node.js의 버전.",
+    "npm_version_tooltip": "관리자 가이 패키지를 게시하는 데 사용한 NPM 클라이언트의 버전."
+  }
+}

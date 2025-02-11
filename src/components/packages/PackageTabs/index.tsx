@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Tabs, Container, Flex, Kbd, Text, Box } from "@mantine/core";
@@ -22,6 +23,7 @@ const MemoizedSecurity = memo(Security);
 
 const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   const router = useRouter();
+  const t = useTranslations("tabs");
   const searchParams = useSearchParams();
   const { gitHub, securityScore, npm } = packageInfo || {};
   const downloadsData = useMemo(() => downloads, [downloads]);
@@ -90,18 +92,18 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
       >
         <Tabs.List>
           <Tabs.Tab py="sm" px="lg" c="white" value="overview">
-            <HotKeys value="1" label="Overview" />
+            <HotKeys value="1" label={t("overview")} />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="readme">
-            <HotKeys value="2" label="Readme" />
+            <HotKeys value="2" label={t("readme")} />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="downloads">
-            <HotKeys value="3" label="Downloads" />
+            <HotKeys value="3" label={t("downloads")} />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="dependencies">
             <HotKeys
               value="4"
-              label="Dependencies"
+              label={t("dependencies")}
               rest={
                 <Conditional
                   if={npm?.data?.dependencies?.dependencies?.totalCount > 0}
@@ -116,10 +118,10 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
             />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="vulnerabilities">
-            <HotKeys value="5" label="Vulnerabilities" />
+            <HotKeys value="5" label={t("vulnerabilities")} />
           </Tabs.Tab>
           <Tabs.Tab py="sm" px="lg" c="white" value="scorecard">
-            <HotKeys value="6" label="OpenSSF Scorecard" />
+            <HotKeys value="6" label={t("scorecard")} />
           </Tabs.Tab>
         </Tabs.List>
 
@@ -142,10 +144,6 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           <ErrorBoundary>
             <Dependencies data={npm?.data?.dependencies} />
           </ErrorBoundary>
-        </Tabs.Panel>
-
-        <Tabs.Panel value={TABS.versions.value} py={20}>
-          {TABS.versions.name}
         </Tabs.Panel>
 
         <Tabs.Panel value={TABS.readme.value} py={20}>

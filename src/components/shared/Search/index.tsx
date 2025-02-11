@@ -1,21 +1,28 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslations, useFormatter } from "next-intl";
 import { useCallback, useState, useMemo, memo, useEffect } from "react";
 import { IconSearch } from "@tabler/icons-react";
 import { Badge, Group, Text } from "@mantine/core";
 import { useDebouncedValue } from "@mantine/hooks";
 import { createSpotlight, Spotlight } from "@mantine/spotlight";
-import { formatDate } from "@/utils";
 import { searchPackage } from "@/services/package";
 import { updatePopularPackageCount } from "@/services/supbase";
 
 export const [searchStore, searchHandlers] = createSpotlight();
 
 const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
+  const t = useTranslations();
+  const format = useFormatter();
   const router = useRouter();
   const formattedDate = useMemo(
-    () => formatDate(new Date(item.date)),
+    () =>
+      format.dateTime(new Date(item.date), {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+      }),
     [item.date]
   );
 
@@ -49,7 +56,7 @@ const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
           )}
 
           <Text opacity={0.9} size="xs" mt={5} c="dark.0">
-            Published on {formattedDate}
+            {t("updated_on")} {formattedDate}
           </Text>
         </div>
       </Group>
@@ -60,6 +67,7 @@ const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
 MemoizedSpotlightAction.displayName = "MemoizedSpotlightAction";
 
 const SearchComponent = () => {
+  const t = useTranslations();
   const [query, setQuery] = useState<string>("");
   const [data, setData] = useState<any[]>([]);
   const [debouncedQuery] = useDebouncedValue(query, 500);
@@ -111,14 +119,16 @@ const SearchComponent = () => {
       <Spotlight.Search
         pointer
         required
-        placeholder="Search Package Name"
+        placeholder={t("search_package_name")}
         leftSection={memoizedIconSearch}
       />
       <Spotlight.ActionsList>
         {items.length > 0 ? (
           items
         ) : (
-          <Spotlight.Empty>Nothing found...</Spotlight.Empty>
+          <Spotlight.Empty>
+            {query ? t("nothing_found") : t("search_package")}
+          </Spotlight.Empty>
         )}
       </Spotlight.ActionsList>
     </Spotlight.Root>

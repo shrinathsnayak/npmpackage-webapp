@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { IconExternalLink } from "@tabler/icons-react";
+import { useTranslations } from "next-intl";
 import { Anchor, Box, Flex, Paper, Text, Title } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { formatSize } from "@/utils";
 
 const Size = ({ bundleSize, packageName }: any) => {
+  const t = useTranslations("overview");
   const { gzip, size } = bundleSize || {};
   return (
-    <OverviewCard title="Bundle Size">
+    <OverviewCard title={t("bundle_size")}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex gap="xs" align="center" justify="space-between">
           <Box>
@@ -16,7 +17,7 @@ const Size = ({ bundleSize, packageName }: any) => {
               {formatSize(size)}
             </Title>
             <Text fz="xs" c="dimmed">
-              Minified
+              {t("minified")}
             </Text>
           </Box>
           <Box>
@@ -24,7 +25,7 @@ const Size = ({ bundleSize, packageName }: any) => {
               {formatSize(gzip)}
             </Title>
             <Text fz="xs" c="dimmed">
-              Minified + Gzipped
+              {t("minified_gzipped")}
             </Text>
           </Box>
         </Flex>
@@ -39,10 +40,6 @@ const Size = ({ bundleSize, packageName }: any) => {
               <Text fz="xs" fw={400}>
                 Bundlephobia
               </Text>
-              {/* <IconExternalLink
-                style={{ width: 18, height: 18 }}
-                stroke={1.5}
-              /> */}
             </Flex>
           </Anchor>
         </Box>

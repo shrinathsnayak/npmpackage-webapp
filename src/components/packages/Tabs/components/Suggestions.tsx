@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import {
   Anchor,
   Badge,
@@ -18,10 +19,11 @@ import { DataItem } from "@/types/npm";
 import classes from "./Installation.module.css";
 
 const Suggestions = ({ searchData, packageName = "" }: any) => {
+  const t = useTranslations("overview");
   const data = removeSimilarByName(searchData, packageName);
   return (
     <Container size="lg" className="responsiveContainer" mb={20}>
-      <OverviewCard title={`Other packages similar to ${packageName}`}>
+      <OverviewCard title={t("similar_packages", { packageName })}>
         <SimpleGrid
           mt={10}
           spacing={{ base: 10, sm: "xs" }}

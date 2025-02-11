@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Avatar, Flex, Paper, Tooltip } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 
 const Maintainers = ({ maintainers }: any) => {
+  const t = useTranslations("overview");
   return (
-    <OverviewCard title="Maintainers" badge={maintainers?.length}>
+    <OverviewCard title={t("maintainers")} badge={maintainers?.length}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Tooltip.Group openDelay={300} closeDelay={100}>
           <Flex align="center" wrap="wrap" gap={10}>

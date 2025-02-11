@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslations, useFormatter } from "next-intl";
 import {
   Anchor,
   Badge,
@@ -13,10 +14,16 @@ import {
 import { IconExchangeOff, IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
-import AnimatedNumber from "@/components/shared/AnimatedNumber";
-import { formatDate } from "@/utils";
 
 const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
+  const t = useTranslations();
+  const format = useFormatter();
+  const date = format.dateTime(new Date(publishedAt || new Date()), {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+
   return (
     <Anchor href={url} component={Link} target="_blank" underline="never">
       <Paper p="sm" radius="md" h="100%">
@@ -36,7 +43,7 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
           {tag.name}
         </Badge>
         <Text fz="xs" mt={5} color="dimmed">
-          Published on {formatDate(new Date(publishedAt))}
+          {t("updated_on")} {date}
         </Text>
       </Paper>
     </Anchor>
@@ -44,20 +51,20 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
 };
 
 const Releases = ({ releases, repositoryUrl }: any) => {
+  const format = useFormatter();
+  const t = useTranslations("overview");
   const { total, data } = releases || {};
+  const releasesCountValue = format.number(total);
 
   return (
-    <OverviewCard
-      title="Releases"
-      badge={total && <AnimatedNumber value={total} />}
-    >
+    <OverviewCard title={t("releases")} badge={total && releasesCountValue}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {!total ? (
           <Center ta="center" my={20}>
             <div>
               <IconExchangeOff color="#fff" size={30} />
               <Title order={5} c="white" mt={5}>
-                Unable to fetch releases
+                {t("error_fetching_releases")}
               </Title>
             </div>
           </Center>
@@ -77,7 +84,7 @@ const Releases = ({ releases, repositoryUrl }: any) => {
                   target="_blank"
                 >
                   <Text fz="sm">
-                    View all <AnimatedNumber value={total} /> releases
+                    {t("view_all_releases", { value: releasesCountValue })}
                   </Text>
                 </Anchor>
               </Box>

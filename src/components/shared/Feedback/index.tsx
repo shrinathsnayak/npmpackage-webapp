@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ActionIcon, Affix, Button, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconMessageDots } from "@tabler/icons-react";
@@ -9,6 +10,7 @@ import Form from "./Form";
 import Success from "./Success";
 
 const Feedback = () => {
+  const t = useTranslations("feedback");
   const [opened, handlers] = useDisclosure(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -29,7 +31,7 @@ const Feedback = () => {
           onClick={() => handlers.open()}
           leftSection={<IconMessageDots size={16} />}
         >
-          Feedback
+          {t("title")}
         </Button>
         <ActionIcon
           size={55}
@@ -48,7 +50,7 @@ const Feedback = () => {
         shadow="xl"
         radius="md"
         opened={opened}
-        title="Feedback"
+        title={t("title")}
         withinPortal={true}
         overlayProps={{
           backgroundOpacity: 0.55,

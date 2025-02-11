@@ -1,4 +1,4 @@
-import React from "react";
+import { useTranslations, useFormatter } from "next-intl";
 import { Group, Paper, Text } from "@mantine/core";
 import {
   IconEye,
@@ -12,7 +12,6 @@ import {
 } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import AnimatedNumber from "@/components/shared/AnimatedNumber";
-import { formatDate } from "@/utils";
 
 const Stat = ({ icon, value, tooltip }: any) => {
   return (
@@ -26,6 +25,10 @@ const Stat = ({ icon, value, tooltip }: any) => {
 };
 
 const Statistics = ({ data }: any) => {
+  const t = useTranslations();
+  const format = useFormatter();
+  const to = useTranslations("overview");
+  const tg = useTranslations("github");
   const {
     commits,
     license,
@@ -36,64 +39,72 @@ const Statistics = ({ data }: any) => {
     contributors,
     updatedAt,
   } = data || {};
+
+  const formatNumber = (value: number) => format.number(value);
+  const formatDate = (value: Date) =>
+    format.dateTime(new Date(value || new Date()), {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+    });
   return (
-    <OverviewCard title="GitHub Statistics">
+    <OverviewCard title={to("gitHub_statistics")}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {license && (
           <Stat
-            tooltip="License"
+            tooltip={tg("license")}
             icon={<IconLicense size={16} color="#fff" stroke={2} />}
             value={license}
           />
         )}
         {stars > 0 && (
           <Stat
-            tooltip="Stars"
+            tooltip={tg("stars")}
             icon={<IconStar size={16} color="#fff" stroke={2} />}
-            value={<AnimatedNumber value={stars} />}
+            value={formatNumber(stars)}
           />
         )}
         {commits > 0 && (
           <Stat
-            tooltip="Commits"
+            tooltip={tg("commits")}
             icon={<IconHistory size={16} color="#fff" stroke={2} />}
-            value={<AnimatedNumber value={commits} />}
+            value={formatNumber(commits)}
           />
         )}
         {forks > 0 && (
           <Stat
-            tooltip="Forks"
+            tooltip={tg("forks")}
             icon={<IconGitFork size={16} color="#fff" stroke={2} />}
-            value={<AnimatedNumber value={forks} />}
+            value={formatNumber(forks)}
           />
         )}
         {watchers > 0 && (
           <Stat
-            tooltip="Watching"
+            tooltip={tg("watchers")}
             icon={<IconEye size={16} color="#fff" stroke={2} />}
-            value={<AnimatedNumber value={watchers} />}
+            value={formatNumber(watchers)}
           />
         )}
         {branches > 0 && (
           <Stat
-            tooltip="Branches"
+            tooltip={tg("branches")}
             icon={<IconGitBranch size={16} color="#fff" stroke={2} />}
-            value={<AnimatedNumber value={branches} />}
+            value={formatNumber(branches)}
           />
         )}
         {contributors > 0 && (
           <Stat
-            tooltip="Contributors"
+            tooltip={to("contributors")}
             icon={<IconUsers size={16} color="#fff" stroke={2} />}
-            value={<AnimatedNumber value={contributors} />}
+            value={formatNumber(contributors)}
           />
         )}
-        {/* {updatedAt && (
+        {updatedAt && (
           <Stat
             icon={<IconReload size={16} color="#fff" stroke={2} />}
-            value={`Updated on ${formatDate(new Date(updatedAt))}`}
+            value={`${t("updated_on")} ${formatDate(new Date(updatedAt))}`}
           />
-        )} */}
+        )}
       </Paper>
     </OverviewCard>
   );

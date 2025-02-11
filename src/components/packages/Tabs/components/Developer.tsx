@@ -1,13 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import NextImage from "next/image";
+import { useTranslations } from "next-intl";
 import { Anchor, Flex, Image, Paper, Title } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
 
 const Developer = ({ avatar, owner, developerUrl }: any) => {
+  const t = useTranslations("overview");
   return (
-    <OverviewCard title="Developer">
+    <OverviewCard title={t("developer")}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex gap={10} align="center">
           <Image

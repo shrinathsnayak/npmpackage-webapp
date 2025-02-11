@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex } from "@mantine/core";
+import { Box, Flex, lighten } from "@mantine/core";
 import Conditional from "@/components/shared/Conditional";
 import Installations from "@/components/packages/Tabs/components/Installations";
 import Collaborators from "@/components/packages/Tabs/components/Collaborators";
@@ -87,6 +87,7 @@ const Overview = ({ packageInfo, downloads }: any) => {
               watchers: gitHub?.watchers,
               contributors: gitHub?.contributorsCount,
               updatedAt: gitHub?.updatedAt,
+              license: gitHub?.license,
             }}
           />
         </Conditional>

@@ -8,14 +8,16 @@ import "@mantine/nprogress/styles.css";
 import "@/global.module.css";
 
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { NPMPACKAGE_DESCRIPTION, NPMPACKAGE_TITLE } from "@/constants";
 import Metrics from "@/observability";
 import Favicon from "@/assets/logos/icon.png";
-import OGImage from "../../public/og.png";
 import ShikiLoader from "@/components/shared/CodeWrapper";
 import Feedback from "@/components/shared/Feedback";
 import { NavigationProgressBar } from "@/components/shared/NavigationProgressBar";
+import OGImage from "../../public/og.png";
 import theme from "./theme";
 
 export const metadata: Metadata = {
@@ -44,13 +46,15 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <meta name="color-scheme" content="dark" />
         <meta name="google-adsense-account" content="ca-pub-8328087114055733" />
@@ -60,31 +64,21 @@ export default function RootLayout({
         <link rel="manifest" href="manifest.json" />
         <Metrics />
         <ColorSchemeScript defaultColorScheme="dark" forceColorScheme="dark" />
-        {/* <script
-          data-name="BMC-Widget"
-          data-cfasync="false"
-          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-          data-id="snayak"
-          data-description="Support me on Buy me a coffee!"
-          data-message=""
-          data-color="#e03131"
-          data-position="Right"
-          data-x_margin="18"
-          data-y_margin="18"
-        ></script> */}
       </head>
       <body suppressHydrationWarning={true} className="root">
-        <MantineProvider
-          theme={theme}
-          forceColorScheme="dark"
-          defaultColorScheme="dark"
-        >
-          <NavigationProgressBar />
-          <ShikiLoader>
-            <main>{children}</main>
-          </ShikiLoader>
-          <Feedback />
-        </MantineProvider>
+        <NextIntlClientProvider messages={messages}>
+          <MantineProvider
+            theme={theme}
+            forceColorScheme="dark"
+            defaultColorScheme="dark"
+          >
+            <NavigationProgressBar />
+            <ShikiLoader>
+              <main>{children}</main>
+            </ShikiLoader>
+            <Feedback />
+          </MantineProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
