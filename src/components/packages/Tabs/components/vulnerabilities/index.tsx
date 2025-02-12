@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Box,
   Flex,
@@ -15,6 +16,7 @@ import {
 import EmptyState from "@/components/shared/Empty";
 import { IconExternalLink } from "@tabler/icons-react";
 import { EMPTY_TYPE } from "@/constants/empty";
+import { VULNERABILITY_LOCALES } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
 import VulnerCard from "./VulnerCard";
 import ModalContent from "./ModalContent";
@@ -25,6 +27,7 @@ interface ComponentProps {
 }
 
 const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
+  const t = useTranslations("vulnerability");
   const { status, data: { sortedVulnerabilities = {}, stableVersion } = {} } =
     vulnerabilities || {};
   const [selectedVulnerability, setSelectedVulnerability] = useState<any>(null);
@@ -56,12 +59,12 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
         >
           <Box display={{ base: "none", sm: "block" }}>
             <Title order={4} c="white">
-              Stable Version
+              {t("stable_version")}
             </Title>
           </Box>
           <Box display={{ base: "block", sm: "none" }}>
             <Text fz="md" c="dimmed" mb={5}>
-              Stable Version
+              {t("stable_version")}
             </Text>
           </Box>
           <Title order={3} c="white">
@@ -77,7 +80,7 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
               <Paper bg="dark.9" p={8} px={20} mb="sm">
                 <Flex align="center" justify="space-between">
                   <Title order={6} c="white" fz="sm">
-                    {vulnerability}
+                    {t(VULNERABILITY_LOCALES[vulnerability])}
                   </Title>
                   <Text fz="md" fw="bolder" c="white">
                     {sortedVulnerabilities[vulnerability].length}
@@ -113,7 +116,7 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
                   title={
                     <Group gap={5} align="center" justify="center">
                       <Text fz="md" c="white">
-                        Vulnerability Details
+                        {t("vulnerability_details")}
                       </Text>
                       <Anchor
                         target="_blank"

@@ -1,15 +1,20 @@
 import React from "react";
+import { useTranslations, useFormatter } from "next-intl";
 import { Group, Paper, Text } from "@mantine/core";
 import { IconArrowDownRight, IconArrowUpRight } from "@tabler/icons-react";
 import AnimatedNumber from "../AnimatedNumber";
 import classes from "./Downloads.module.css";
 
-const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
+const AnalyticsCard = ({ value, previousValue, title, description }: any) => {
+  const format = useFormatter();
   const difference =
     value !== 0 && previousValue !== 0
       ? ((value - previousValue) / previousValue) * 100
       : 0;
   const DiffIcon = difference > 0 ? IconArrowUpRight : IconArrowDownRight;
+
+  const formatValue = (value: string | number) => format.number(Number(value));
+
   return (
     <Paper
       p="md"
@@ -47,12 +52,12 @@ const AnalyticsCard = ({ value, previousValue, title, type }: any) => {
 
       <Group align="flex-end" gap="xs" mt={25}>
         <Text className={classes.analyticsCardValue} c="white">
-          <AnimatedNumber value={value} />
+          {formatValue(value)}
         </Text>
       </Group>
 
       <Text fz="xs" c="dimmed" mt={7}>
-        Compared to previous {type}
+        {description}
       </Text>
     </Paper>
   );

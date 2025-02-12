@@ -71,11 +71,23 @@
     "unable_to_determine_module": "Das Modulsystem für dieses Paket kann nicht ermittelt werden."
   },
   "downloads": {
-    "total_downloads": "Gesamtdownloads",
+    "total_downloads": "Gesamt Downloads",
     "last_day": "Letzter Tag",
     "last_week": "Letzte Woche",
     "last_month": "Letzten Monat",
-    "last_year": "Letztes Jahr"
+    "last_year": "Letztes Jahr",
+    "cumulative_downloads": "Kumulative Downloads",
+    "compared_to_previous_day": "Im Vergleich zum Vortag",
+    "compared_to_previous_week": "Im Vergleich zur Vorwoche",
+    "compared_to_previous_month": "Im Vergleich zum Vormonat",
+    "compared_to_previous_year": "Im Vergleich zum Vorjahr",
+    "daily_downloads": "Tägliche Downloads",
+    "weekly_downloads": "Wöchentliche Downloads",
+    "monthly_downloads": "Monatliche Downloads",
+    "yearly_downloads": "Jährliche Downloads",
+    "export_as_png": "Als PNG exportieren",
+    "copied": "Kopiert",
+    "share": "Aktie"
   },
   "github": {
     "stars": "Sterne",
@@ -99,5 +111,24 @@
     "min_node_version": "Min. Node Version",
     "node_version_tooltip": "Die Version von node.js, die vom Betreuer verwendet wird, um dieses Paket zu veröffentlichen.",
     "npm_version_tooltip": "Die Version des vom Betreuer verwendeten NPM Clients zur Veröffentlichung dieses Pakets."
+  },
+  "dependencies": {
+    "dependencies": "Abhängigkeiten",
+    "peer_dependencies": "Peer Abhängigkeiten",
+    "dev_dependencies": "Dev Abhängigkeiten",
+    "optional_dependencies": "Optionale Abhängigkeiten"
+  },
+  "vulnerability": {
+    "low": "Niedrig",
+    "high": "Hoch",
+    "moderate": "Mäßig",
+    "critical": "Kritisch",
+    "stable_version": "Stabile Version",
+    "summary": "Zusammenfassung",
+    "affected_versions": "Betroffene Versionen",
+    "patched_versions": "Patchierte Versionen",
+    "description": "Beschreibung",
+    "additional_links": "Zusätzliche Links",
+    "vulnerability_details": "Sicherheits Details"
   }
 }

@@ -75,7 +75,19 @@
     "last_day": "Последний день",
     "last_week": "На прошлой неделе",
     "last_month": "В прошлом месяце",
-    "last_year": "В прошлом году"
+    "last_year": "В прошлом году",
+    "cumulative_downloads": "Кумулятивные загрузки",
+    "compared_to_previous_day": "По сравнению с предыдущим днем",
+    "compared_to_previous_week": "По сравнению с предыдущей неделей",
+    "compared_to_previous_month": "По сравнению с предыдущим месяцем",
+    "compared_to_previous_year": "По сравнению с предыдущим годом",
+    "daily_downloads": "Ежедневные загрузки",
+    "weekly_downloads": "Еженедельные загрузки",
+    "monthly_downloads": "Ежемесячные загрузки",
+    "yearly_downloads": "Ежегодные загрузки",
+    "export_as_png": "Экспортировать в формате PNG",
+    "copied": "Скопировано",
+    "share": "Делиться"
   },
   "github": {
     "stars": "Звезда",
@@ -99,5 +111,24 @@
     "min_node_version": "Мин. Node версия",
     "node_version_tooltip": "Версия node.js, используемая сопровождающим для публикации этого пакета.",
     "npm_version_tooltip": "Версия клиента NPM, используемая поддерживателем для публикации этого пакета."
+  },
+  "dependencies": {
+    "dependencies": "Зависимости",
+    "peer_dependencies": "Зависимости от сверстников",
+    "dev_dependencies": "DEV зависимости",
+    "optional_dependencies": "Необязательные зависимости"
+  },
+  "vulnerability": {
+    "low": "Низкий",
+    "high": "Высокий",
+    "moderate": "Умеренный",
+    "critical": "Критический",
+    "stable_version": "Стабильная версия",
+    "summary": "Краткое содержание",
+    "affected_versions": "Затронутые версии",
+    "patched_versions": "Исправленные версии",
+    "description": "Описание",
+    "additional_links": "Дополнительные ссылки",
+    "vulnerability_details": "Детали уязвимости"
   }
 }

@@ -65,6 +65,13 @@ export const VULNERABILITY_COLORS: any = {
   LOW: "gray.0",
 };
 
+export const VULNERABILITY_LOCALES: any = {
+  HIGH: "high",
+  MODERATE: "moderate",
+  CRITICAL: "critical",
+  LOW: "low",
+};
+
 export const LOCALE_FLAGS: any = {
   en: "🇺🇸",
   ko: "🇰🇷",

@@ -1,11 +1,11 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 import {
   Flex,
   Paper,
   RingProgress,
   SimpleGrid,
   Text,
-  Box,
   Tooltip,
 } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
@@ -83,8 +83,9 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
 };
 
 const Score = ({ scoreData = {} }: any) => {
+  const t = useTranslations("overview");
   return (
-    <OverviewCard title="Score">
+    <OverviewCard title={t("score")}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <SimpleGrid
           cols={{ base: 2, sm: 2, lg: 5 }}

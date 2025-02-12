@@ -75,7 +75,19 @@
     "last_day": "마지막 날",
     "last_week": "지난주",
     "last_month": "전달",
-    "last_year": "작년"
+    "last_year": "작년",
+    "cumulative_downloads": "누적 다운로드",
+    "compared_to_previous_day": "전날에 비해",
+    "compared_to_previous_week": "이전 주와 비교했습니다",
+    "compared_to_previous_month": "전 달에 비해",
+    "compared_to_previous_year": "전년도에 비해",
+    "daily_downloads": "매일 다운로드",
+    "weekly_downloads": "주간 다운로드",
+    "monthly_downloads": "월별 다운로드",
+    "yearly_downloads": "매년 다운로드",
+    "export_as_png": "PNG로 내보내기",
+    "copied": "복사됨",
+    "share": "공유하다"
   },
   "github": {
     "stars": "별",
@@ -99,5 +111,24 @@
     "min_node_version": "최소. Node 버전",
     "node_version_tooltip": "관리자 가이 패키지를 게시하기 위해 사용하는 Node.js의 버전.",
     "npm_version_tooltip": "관리자 가이 패키지를 게시하는 데 사용한 NPM 클라이언트의 버전."
+  },
+  "dependencies": {
+    "dependencies": "의존성",
+    "peer_dependencies": "피어 의존성",
+    "dev_dependencies": "DEV 종속성",
+    "optional_dependencies": "선택적 종속성"
+  },
+  "vulnerability": {
+    "low": "낮은",
+    "high": "높은",
+    "moderate": "보통의",
+    "critical": "비판적인",
+    "stable_version": "안정적인 버전",
+    "summary": "요약",
+    "affected_versions": "영향을받는 버전",
+    "patched_versions": "패치 된 버전",
+    "description": "설명",
+    "additional_links": "추가 링크",
+    "vulnerability_details": "취약성 세부 사항"
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-// import NextImage from "next/image";
+import { useTranslations } from "next-intl";
 import {
   Anchor,
   AppShell,
@@ -20,6 +20,7 @@ import Icon from "@/assets/logos/icon.png";
 import classes from "../Layout.module.css";
 
 const Header = ({ hideSearch }: any) => {
+  const t = useTranslations();
   return (
     <AppShell.Header>
       <Container size="lg">
@@ -65,7 +66,7 @@ const Header = ({ hideSearch }: any) => {
                         stroke={2}
                       />
                       <Text fz="sm" c="dimmed" pr={80}>
-                        Search
+                        {t("search")}
                       </Text>
                       <Text fw={700} className={classes.shortcut}>
                         Ctrl + K

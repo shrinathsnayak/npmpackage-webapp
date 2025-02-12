@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Anchor, Box, Flex, Group, Paper, Text, Title } from "@mantine/core";
 import EmptyState from "@/components/shared/Empty";
 import { updatePopularPackageCount } from "@/services/supbase";
@@ -44,6 +45,7 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
 };
 
 const Dependencies = ({ data }: any) => {
+  const t = useTranslations("dependencies");
   const {
     dependencies,
     peerDependencies,
@@ -56,24 +58,27 @@ const Dependencies = ({ data }: any) => {
   return (
     <Box>
       {dependencies && (
-        <DependenciesRenderer dependency={dependencies} name="Dependencies" />
+        <DependenciesRenderer
+          dependency={dependencies}
+          name={t("dependencies")}
+        />
       )}
       {peerDependencies && (
         <DependenciesRenderer
           dependency={peerDependencies}
-          name="Peer Dependencies"
+          name={t("peer_dependencies")}
         />
       )}
       {devDependencies && (
         <DependenciesRenderer
           dependency={devDependencies}
-          name="Dev Dependencies"
+          name={t("dev_dependencies")}
         />
       )}
       {optionalDependencies && (
         <DependenciesRenderer
           dependency={optionalDependencies}
-          name="Optional Dependencies"
+          name={t("optional_dependencies")}
         />
       )}
     </Box>

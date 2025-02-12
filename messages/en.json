@@ -75,7 +75,19 @@
     "last_day": "Last Day",
     "last_week": "Last Week",
     "last_month": "Last Month",
-    "last_year": "Last Year"
+    "last_year": "Last Year",
+    "cumulative_downloads": "Cumulative downloads",
+    "compared_to_previous_day": "Compared to previous day",
+    "compared_to_previous_week": "Compared to previous week",
+    "compared_to_previous_month": "Compared to previous month",
+    "compared_to_previous_year": "Compared to previous year",
+    "daily_downloads": "Daily Downloads",
+    "weekly_downloads": "Weekly Downloads",
+    "monthly_downloads": "Monthly Downloads",
+    "yearly_downloads": "Yearly Downloads",
+    "export_as_png": "Export as PNG",
+    "copied": "Copied",
+    "share": "Share"
   },
   "github": {
     "stars": "Stars",
@@ -99,5 +111,24 @@
     "min_node_version": "Min. Node Version",
     "node_version_tooltip": "The version of Node.js used by the maintainer to publish this package.",
     "npm_version_tooltip": "The version of the npm client used by the maintainer to publish this package."
+  },
+  "dependencies": {
+    "dependencies": "Dependencies",
+    "peer_dependencies": "Peer Dependencies",
+    "dev_dependencies": "Dev Dependencies",
+    "optional_dependencies": "Optional Dependencies"
+  },
+  "vulnerability": {
+    "low": "Low",
+    "high": "High",
+    "moderate": "Moderate",
+    "critical": "Critical",
+    "stable_version": "Stable Version",
+    "summary": "Summary",
+    "affected_versions": "Affected Versions",
+    "patched_versions": "Patched Versions",
+    "description": "Description",
+    "additional_links": "Additional Links",
+    "vulnerability_details": "Vulnerability Details"
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslations, useFormatter } from "next-intl";
 import {
   AreaChart,
   BarChart,
@@ -20,30 +21,38 @@ const ChartsMapping: any = {
   bar: BarChart,
 };
 function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
+  const t = useTranslations();
+  const format = useFormatter();
   if (!payload) return null;
 
   const date = new Date(label || new Date());
 
   const labelMapping = {
     [CHART_DATE_TYPES.yearly]: date.getFullYear(),
-    [CHART_DATE_TYPES.monthly]: new Intl.DateTimeFormat("en-IN", {
+    [CHART_DATE_TYPES.monthly]: format.dateTime(new Date(date), {
       year: "numeric",
       month: "short",
-    }).format(date),
+      day: "2-digit",
+    }),
   };
 
   return (
     <Paper px="md" py="sm" shadow="md" radius="md">
       <Text fw={500} mb={5} fz="lg" c="white">
-        {labelMapping[type] || label}
+        {labelMapping[type] ||
+          format.dateTime(new Date(label), {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          })}
       </Text>
       {getFilteredChartTooltipPayload(payload)?.map((item: any) => (
         <Group key={item.name} gap={4}>
           <Text fz="sm" c="dimmed">
-            {item.name}:
+            {t("tabs.downloads")}:
           </Text>
           <Text fz="sm" c={item.color} fw="bold">
-            <AnimatedNumber value={item?.value} />
+            {format.number(item?.value || 0)}
           </Text>
         </Group>
       ))}
@@ -57,12 +66,14 @@ const DownloadGraph = ({
   chartType = "area",
   xAxisProps,
   yAxisProps,
+  title,
 }: any) => {
+  const format = useFormatter();
   const Chart = ChartsMapping[chartType];
   return (
     <Paper p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
       <Title order={5} mb={50}>
-        {type} Downloads
+        {title}
       </Title>
       <Chart
         h={300}
@@ -79,17 +90,22 @@ const DownloadGraph = ({
         yAxisProps={
           yAxisProps || {
             tickFormatter: (value: number) =>
-              new Intl.NumberFormat("en-US", {
+              format.number(value || 0, {
                 notation: "compact",
                 compactDisplay: "short",
-              }).format(value || 0),
+              }),
           }
         }
         xAxisProps={
           xAxisProps || {
             minTickGap: 8,
             interval: "preserveStartEnd",
-            tickFormatter: (value: any) => formatDate(new Date(value)),
+            tickFormatter: (value: any) =>
+              format.dateTime(new Date(value), {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+              }),
           }
         }
         tooltipProps={{
@@ -98,7 +114,10 @@ const DownloadGraph = ({
           ),
         }}
         valueFormatter={(value: any) =>
-          new Intl.NumberFormat("en-US").format(value || 0)
+          format.number(value || 0, {
+            notation: "compact",
+            compactDisplay: "short",
+          })
         }
       />
     </Paper>
