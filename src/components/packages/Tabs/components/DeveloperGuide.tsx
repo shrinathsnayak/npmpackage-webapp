@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Paper, Text, Title, Box, Tooltip, Group, Flex } from "@mantine/core";
 import { IconInfoCircle } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
@@ -37,10 +38,13 @@ const ShowDeveloperGuide = ({ title, value, tooltip }: any) => {
 };
 
 const DeveloperGuide = ({ npm }: any) => {
+  const t = useTranslations();
+  const to = useTranslations("overview");
+  const tp = useTranslations("package");
   const { moduleFormats, minNodeVersion, _nodeVersion, _npmVersion, types } =
     npm || {};
   return (
-    <OverviewCard title="Developer Guide" badge="BETA">
+    <OverviewCard title={to("developer_guide")} badge={to("beta")}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex
           gap={15}
@@ -49,28 +53,30 @@ const DeveloperGuide = ({ npm }: any) => {
           justify={{ base: "flex-start", sm: "space-between" }}
           wrap={{ base: "wrap", sm: "nowrap" }}
         >
-          <ShowDeveloperGuide title="Typescript" value={types ? "Yes" : "No"} />
           <ShowDeveloperGuide
-            title="Module System"
+            title={tp("typescript")}
+            value={types ? t("yes") : t("no")}
+          />
+          <ShowDeveloperGuide
+            title={tp("module_system")}
             value={moduleFormats}
             tooltip={
-              moduleFormats === "N/A" &&
-              "Unable to determine the module system for this package."
+              moduleFormats === "N/A" && to("unable_to_determine_module")
             }
           />
           <ShowDeveloperGuide
-            title="Min. Node Version"
+            title={tp("min_node_version")}
             value={minNodeVersion}
           />
           <ShowDeveloperGuide
-            title="Node Version"
+            title={tp("node_version")}
             value={_nodeVersion}
-            tooltip="The version of Node.js used by the maintainer to publish this package."
+            tooltip={tp("node_version_tooltip")}
           />
           <ShowDeveloperGuide
-            title="NPM Version"
+            title={tp("npm_version")}
             value={_npmVersion}
-            tooltip="The version of the npm client used by the maintainer to publish this package."
+            tooltip={tp("npm_version_tooltip")}
           />
         </Flex>
       </Paper>

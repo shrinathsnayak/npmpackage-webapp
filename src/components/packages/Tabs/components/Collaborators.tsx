@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslations, useFormatter } from "next-intl";
 import {
   Anchor,
   Avatar,
@@ -13,18 +14,18 @@ import {
 import { IconUsersGroup } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
-import AnimatedNumber from "@/components/shared/AnimatedNumber";
 
 const Collaborators = ({
   contributorsCount,
   contributors = [],
   repositoryUrl,
 }: any) => {
+  const format = useFormatter();
+  const t = useTranslations("overview");
+  const contributorCountValue = format.number(contributorsCount);
+
   return (
-    <OverviewCard
-      title="Contributors"
-      badge={<AnimatedNumber value={contributorsCount} />}
-    >
+    <OverviewCard title={t("contributors")} badge={contributorCountValue}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         {contributorsCount === 0 ||
         contributors?.length <= 0 ||
@@ -33,7 +34,7 @@ const Collaborators = ({
             <div>
               <IconUsersGroup color="#fff" size={30} />
               <Title order={5} c="white" mt={5}>
-                Unable to fetch Contributors
+                {t("error_fetching_contributors")}
               </Title>
             </div>
           </Center>
@@ -71,8 +72,7 @@ const Collaborators = ({
               target="_blank"
             >
               <Text fz="sm">
-                View all <AnimatedNumber value={contributorsCount} />{" "}
-                contributors
+                {t("view_all_contributors", { value: contributorCountValue })}
               </Text>
             </Anchor>
           </Box>

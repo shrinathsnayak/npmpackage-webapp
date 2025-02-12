@@ -10,7 +10,6 @@ export const TABS: any = {
   downloads: { name: "Downloads", value: "downloads", visible: true },
   dependencies: { name: "Dependencies", value: "dependencies", visible: true },
   scorecard: { name: "OpenSSF Scorecard", value: "scorecard", visible: true },
-  versions: { name: "Versions", value: "versions", visible: false },
   vulnerabilities: {
     name: "Vulnerabilities",
     value: "vulnerabilities",
@@ -64,4 +63,18 @@ export const VULNERABILITY_COLORS: any = {
   MODERATE: "orange.9",
   CRITICAL: "yellow.9",
   LOW: "gray.0",
+};
+
+export const VULNERABILITY_LOCALES: any = {
+  HIGH: "high",
+  MODERATE: "moderate",
+  CRITICAL: "critical",
+  LOW: "low",
+};
+
+export const LOCALE_FLAGS: any = {
+  en: "🇺🇸",
+  ko: "🇰🇷",
+  de: "🇩🇪",
+  ru: "🇷🇺",
 };

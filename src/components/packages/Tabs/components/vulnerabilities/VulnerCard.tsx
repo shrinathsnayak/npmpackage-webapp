@@ -1,13 +1,6 @@
-import {
-  ActionIcon,
-  Badge,
-  Box,
-  Button,
-  Card,
-  Group,
-  Text,
-} from "@mantine/core";
-import { VULNERABILITY_COLORS } from "@/constants";
+import { useTranslations } from "next-intl";
+import { Badge, Box, Card, Group, Text } from "@mantine/core";
+import { VULNERABILITY_COLORS, VULNERABILITY_LOCALES } from "@/constants";
 import classes from "./index.module.css";
 import Conditional from "@/components/shared/Conditional";
 
@@ -19,13 +12,13 @@ const VulnerCard = ({
   score,
   onClick,
 }: any) => {
+  const t = useTranslations("vulnerability");
   return (
     <Card
       shadow="md"
       padding="md"
       radius="md"
       bg="dark.9"
-      // withBorder
       onClick={onClick}
       className={classes.cardComponent}
     >
@@ -36,7 +29,7 @@ const VulnerCard = ({
           size="md"
           color={VULNERABILITY_COLORS[severity]}
         >
-          {severity}
+          {t(VULNERABILITY_LOCALES[severity])}
         </Badge>
         <Text fz="sm" c="white">
           <b>{score}</b>/10
@@ -44,7 +37,7 @@ const VulnerCard = ({
       </Group>
       <Box my="sm">
         <Text fz="xs" c="dimmed">
-          Summary
+          {t("summary")}
         </Text>
         <Text fz="sm" c="white">
           {summary}
@@ -53,7 +46,7 @@ const VulnerCard = ({
       <Group justify="space-between" align="center" mb="xs">
         <Box>
           <Text fz="xs" c="dimmed">
-            Affected Versions
+            {t("affected_versions")}
           </Text>
           <Text fz="sm" fw="bold" c="white">
             {affectedVerions}
@@ -62,7 +55,7 @@ const VulnerCard = ({
         <Conditional if={patchedVersion}>
           <Box>
             <Text fz="xs" c="dimmed">
-              Patched Versions
+              {t("patched_versions")}
             </Text>
             <Text fz="sm" fw="bold" c="white" ta="right">
               {patchedVersion}

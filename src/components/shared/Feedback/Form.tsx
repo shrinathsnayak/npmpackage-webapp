@@ -1,18 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ActionIcon,
-  Button,
-  Flex,
-  Text,
-  Textarea,
-  TextInput,
-} from "@mantine/core";
+import { useTranslations } from "next-intl";
+import { ActionIcon, Button, Flex, Text, Textarea } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { SCORE_VALUES } from "./constants";
 
 const Form = ({ formSubmit }: any) => {
+  const t = useTranslations("feedback");
   const [loading, setLoading] = useState(false);
   const form = useForm({
     initialValues: {
@@ -27,12 +22,12 @@ const Form = ({ formSubmit }: any) => {
           ? null
           : /^\S+@\S+$/.test(value?.trim())
           ? null
-          : "Invalid email",
+          : t("error.invalid_email"),
       message: (value: string) =>
         value.trim().length === 0
-          ? "Please enter a feedback message."
+          ? t("error.message.required")
           : value.length < 5
-          ? "Message is too short. Please enter at least 5 characters."
+          ? t("error.message.short")
           : null,
     },
     transformValues(values: any) {
@@ -56,7 +51,7 @@ const Form = ({ formSubmit }: any) => {
       <Flex direction="column" gap={20} p={3}>
         <div>
           <Text fz="sm" fw="400" mb={10}>
-            How would you rate this tool?
+            {t("nps")}
           </Text>
           <Flex align="center" gap={10}>
             {SCORE_VALUES.map((item: any) => (
@@ -79,21 +74,11 @@ const Form = ({ formSubmit }: any) => {
           size="md"
           minRows={5}
           maxRows={10}
-          // label="Message"
-          placeholder="Enter feedback message"
+          placeholder={t("placeholder")}
           {...form.getInputProps("message")}
         />
-        {/* <TextInput
-          size="md"
-          type="email"
-          label="Email Address (Optional)"
-          description="Your email may be used to contact you for clarification if needed."
-          placeholder="Enter your email address (Optional)"
-          inputWrapperOrder={["label", "input", "description", "error"]}
-          {...form.getInputProps("email")}
-        /> */}
         <Button type="submit" fullWidth color="red.8" size="md">
-          {loading ? "Submitting" : "Submit"} Feedback
+          {loading ? t("submitting") : t("submit")} {t("title")}
         </Button>
       </Flex>
     </form>

@@ -1,6 +1,7 @@
-import withPWA from 'next-pwa';
+import withPWA from "next-pwa";
 import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
+import withNextIntl from "next-intl/plugin";
 import NextBundleAnalyzer from "@next/bundle-analyzer";
 
 const withBundleAnalyzer = NextBundleAnalyzer({
@@ -108,4 +109,6 @@ const withPWAConfig = withPWA({
   skipWaiting: true,
 });
 
-export default withPWAConfig(withMDX(withBundleAnalyzer(nextConfig)));
+export default withNextIntl()(
+  withPWAConfig(withMDX(withBundleAnalyzer(nextConfig)))
+);

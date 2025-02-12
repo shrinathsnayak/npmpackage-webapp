@@ -2,11 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Anchor, Center, Group, rem, Text } from "@mantine/core";
 import { IconTrendingUp } from "@tabler/icons-react";
 import { updatePopularPackageCount } from "@/services/supbase";
 
 const PopularPackages = ({ popularPackages }: any) => {
+  const t = useTranslations();
   return (
     <Center>
       <Group gap={2} align="center">
@@ -16,7 +18,7 @@ const PopularPackages = ({ popularPackages }: any) => {
             color="var(--mantine-color-red-8)"
           />
           <Text c="gray.4" fz="sm">
-            Popular Packages
+            {t("popular_packages")}
           </Text>
         </Group>
         {popularPackages.map((item: any) => (

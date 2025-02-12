@@ -1,5 +1,6 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 import {
   ActionIcon,
   Box,
@@ -15,13 +16,14 @@ import OverviewCard from "@/components/shared/OverviewCard";
 import AnimatedNumber from "@/components/shared/AnimatedNumber";
 
 const ActionsCard = ({ data, link }: any) => {
+  const t = useTranslations("overview");
   const { total, open, closed, merged } = data || {};
   return (
     <Box>
       <Flex p="md" px="lg" justify="space-between">
         <Box>
           <Text fz="xs" c="white" mb={1}>
-            Open
+            {t("open")}
           </Text>
           <Title order={2} c="green.6">
             <AnimatedNumber value={open} />
@@ -44,7 +46,7 @@ const ActionsCard = ({ data, link }: any) => {
       <Flex align="center" justify="space-around">
         <Box p="xs" ta="center">
           <Text fz="sm" c="white">
-            Total
+            {t("total")}
           </Text>
           <Title order={4}>
             <AnimatedNumber value={Number(total)} />
@@ -53,7 +55,7 @@ const ActionsCard = ({ data, link }: any) => {
         <Divider orientation="vertical" c="dark.7" />
         <Box p="xs" ta="center">
           <Text fz="sm" c="white">
-            Closed
+            {t("closed")}
           </Text>
           <Title order={4} c="red.6">
             <AnimatedNumber value={Number(closed)} />
@@ -64,7 +66,7 @@ const ActionsCard = ({ data, link }: any) => {
             <Divider orientation="vertical" c="dark.7" />
             <Box p="xs" ta="center">
               <Text fz="sm" c="white">
-                Merged
+                {t("merged")}
               </Text>
               <Title order={4} c="grape.6">
                 <AnimatedNumber value={Number(merged)} />
@@ -78,14 +80,15 @@ const ActionsCard = ({ data, link }: any) => {
 };
 
 const Actions = ({ prs, issues, repositoryUrl }: any) => {
+  const t = useTranslations("overview");
   return (
     <SimpleGrid cols={{ base: 1, xs: 2 }} spacing={{ base: 5, sm: 20 }}>
-      <OverviewCard title="Pull Requests">
+      <OverviewCard title={t("pull_requests")}>
         <Paper p={0} radius="md" bg="dark.9" shadow="sm">
           <ActionsCard data={prs} link={`${repositoryUrl}/pulls`} />
         </Paper>
       </OverviewCard>
-      <OverviewCard title="Issues">
+      <OverviewCard title={t("issues")}>
         <Paper p={0} radius="md" bg="dark.9" shadow="sm">
           <ActionsCard data={issues} link={`${repositoryUrl}/issues`} />
         </Paper>

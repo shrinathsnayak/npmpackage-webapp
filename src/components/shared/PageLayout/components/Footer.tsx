@@ -1,10 +1,11 @@
 import React from "react";
-import Link from "next/link";
-import { Anchor, AppShell, Container, Flex, Image, Text } from "@mantine/core";
+import { useTranslations } from "next-intl";
+import { AppShell, Container, Flex, Text } from "@mantine/core";
 import { DEFAULT_CACHE_HOUR } from "@/constants";
-import IndiaFlag from "@/assets/india-flag.svg";
+import LocaleSwitcher from "@/components/shared/LocaleSwitcher";
 
 const Footer = ({ fixedFooter }: boolean | any) => {
+  const t = useTranslations();
   return (
     <AppShell.Footer
       fz="sm"
@@ -19,26 +20,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           justify="space-between"
           direction={{ base: "column", sm: "row" }}
         >
-          <Flex gap={5} align="center">
-            <Text fz="xs" c="white" fw={400}>
-              Made in{" "}
-            </Text>
-            <Image src={IndiaFlag.src} w={20} h={11} alt="India Flag" />{" "}
-            <Text fz="xs" c="white" fw={400}>
-              by{" "}
-            </Text>
-            <Anchor
-              fz="xs"
-              component={Link}
-              href="https://snayak.dev"
-              target="blank"
-              underline="never"
-              fw={400}
-              c="blue.4"
-            >
-              Shrinath Nayak
-            </Anchor>
-          </Flex>
+          <LocaleSwitcher />
           <Text
             fz="xs"
             fw={400}
@@ -48,9 +30,8 @@ const Footer = ({ fixedFooter }: boolean | any) => {
             mt={{ base: 10, sm: 0 }}
             ta={{ base: "center", sm: "left" }}
           >
-            <b>Disclaimer:</b> We do not own or store the data displayed on this
-            website. Data is cached for up to {DEFAULT_CACHE_HOUR} hours to
-            improve performance.
+            <b>{t("disclaimer")}:</b>{" "}
+            {t("disclaimer_text", { hour: DEFAULT_CACHE_HOUR })}
           </Text>
         </Flex>
       </Container>

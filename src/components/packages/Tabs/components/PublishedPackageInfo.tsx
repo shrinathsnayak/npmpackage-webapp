@@ -1,5 +1,6 @@
+import { useTranslations, useFormatter } from "next-intl";
 import { Flex, Group, Paper, Text } from "@mantine/core";
-import { formatDate, formatSize } from "@/utils";
+import { formatSize } from "@/utils";
 import AnimatedNumber from "@/components/shared/AnimatedNumber";
 import Conditional from "@/components/shared/Conditional";
 import OverviewCard from "@/components/shared/OverviewCard";
@@ -18,36 +19,44 @@ const PackageInfo = ({ label, value }: any) => (
 );
 
 const PublishedPackageInfo = ({ npm }: any) => {
+  const t = useTranslations();
+  const format = useFormatter();
+  const to = useTranslations("overview");
+  const tp = useTranslations("package");
   const { package: info } = npm || {};
   return (
-    <OverviewCard title="Package Meta Information">
+    <OverviewCard title={to("package_meta_information")}>
       <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
         <Flex gap={5} direction="column">
-          <PackageInfo label="Latest Version" value={npm?.version} />
-          <PackageInfo label="Package Id" value={info?.id} />
+          <PackageInfo label={tp("latest_version")} value={npm?.version} />
+          <PackageInfo label={tp("package_id")} value={info?.id} />
           <PackageInfo
-            label="Unpacked Size"
+            label={tp("unpacked_size")}
             value={info?.unpackedSize ? formatSize(info?.unpackedSize) : null}
           />
           <PackageInfo
-            label="Size"
+            label={tp("size")}
             value={info?.size ? formatSize(info?.size) : null}
           />
           <PackageInfo
-            label="File Count"
+            label={tp("file_count")}
             value={
               info?.fileCount ? (
                 <AnimatedNumber value={info?.fileCount} />
               ) : null
             }
           />
-          <PackageInfo label="NPM Version" value={info?.npmVersion} />
-          <PackageInfo label="Node Version" value={info?.nodeVersion} />
+          <PackageInfo label={tp("npm_version")} value={info?.npmVersion} />
+          <PackageInfo label={tp("node_version")} value={info?.nodeVersion} />
           <PackageInfo
-            label="Publised On"
+            label={t("published_on")}
             value={
               npm?.publishedOn
-                ? formatDate(new Date(npm?.publishedOn || new Date()))
+                ? format.dateTime(new Date(npm?.publishedOn || new Date()), {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })
                 : null
             }
           />

@@ -58,9 +58,9 @@ const PageLayout = memo(
           </Conditional>
           <MemoizedChildren>{children}</MemoizedChildren>
         </AppShell.Main>
-        {/* <Conditional if={!hideFooter}>
+        <Conditional if={!hideFooter}>
           <MemoizedFooter fixedFooter={fixedFooter} />
-        </Conditional> */}
+        </Conditional>
       </AppShell>
     );
   }

@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
 import { Group, rem, Text, UnstyledButton } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { searchHandlers } from "../shared/Search";
 import classes from "./Landing.module.css";
 
 const SearchBar = () => {
+  const t = useTranslations();
   return (
     <UnstyledButton
       onClick={() => searchHandlers.open()}
@@ -16,7 +18,7 @@ const SearchBar = () => {
         <Group gap="md">
           <IconSearch style={{ width: rem(20), height: rem(20) }} stroke={2} />
           <Text fz="lg" c="dimmed" pr={{ base: 0, sm: 80 }}>
-            Search Package
+            {t("search_package")}
           </Text>
         </Group>
         <Text

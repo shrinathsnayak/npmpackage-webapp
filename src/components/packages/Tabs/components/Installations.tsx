@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
 import { Image } from "@mantine/core";
 import { CodeHighlightTabs } from "@mantinex/shiki";
 import OverviewCard from "@/components/shared/OverviewCard";
@@ -11,8 +12,9 @@ import YarnIcon from "@/assets/yarn.svg";
 import PnpmIcon from "@/assets/pnpm.svg";
 
 const Installations = ({ packageName }: any) => {
+  const t = useTranslations("overview");
   return (
-    <OverviewCard title="Installations">
+    <OverviewCard title={t("installations")}>
       <CodeHighlightTabs
         classNames={{ root: classes.root }}
         code={[

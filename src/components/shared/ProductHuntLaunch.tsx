@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Flex, Text, Anchor } from "@mantine/core";
 import { ProductHuntIcon } from "./Icons";
 import { IconArrowNarrowRight } from "@tabler/icons-react";
 
-const PRODUCT_HUNT_URL = "https://www.producthunt.com/posts/npmpackage-info";
-
 const ProductHuntLaunch = () => {
+  const t = useTranslations();
   return (
     <Anchor component={Link} underline="never" href="/sponsor">
       <Flex
@@ -25,7 +25,7 @@ const ProductHuntLaunch = () => {
       >
         <ProductHuntIcon />
         <Text c="white" fz="sm">
-          Become a sponsor
+          {t("become_sponsor")}
         </Text>
         <IconArrowNarrowRight color="white" />
       </Flex>

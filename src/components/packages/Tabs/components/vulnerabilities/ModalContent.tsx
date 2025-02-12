@@ -1,10 +1,13 @@
+import { useTranslations, useFormatter } from "next-intl";
 import { Anchor, Badge, Flex, Group, Paper, Text } from "@mantine/core";
 import MDX from "@/components/shared/mdx";
-import { formatDate } from "@/utils";
-import { VULNERABILITY_COLORS } from "@/constants";
+import { VULNERABILITY_COLORS, VULNERABILITY_LOCALES } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
 
 const ModalContent = ({ data }: any) => {
+  const to = useTranslations();
+  const format = useFormatter();
+  const t = useTranslations("vulnerability");
   const {
     severity,
     cvssScore,
@@ -17,6 +20,13 @@ const ModalContent = ({ data }: any) => {
     references,
   } = data || {};
 
+  const formatDate = (publishedAt: Date) =>
+    format.dateTime(new Date(publishedAt || new Date()), {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+    });
+
   return (
     <Flex py={10} direction="column" gap={14}>
       {/* Badge */}
@@ -27,7 +37,7 @@ const ModalContent = ({ data }: any) => {
           variant="outline"
           color={VULNERABILITY_COLORS[severity]}
         >
-          {severity} Severity
+          {t(VULNERABILITY_LOCALES[severity])}
         </Badge>
         <Text fz="lg" c="white">
           <b>{cvssScore}</b>/10
@@ -36,7 +46,7 @@ const ModalContent = ({ data }: any) => {
       {/* Summary */}
       <div>
         <Text fz="sm" c="dimmed" mb={0}>
-          Summary
+          {t("summary")}
         </Text>
         <Text fz="md" c="white">
           {summary}
@@ -47,7 +57,7 @@ const ModalContent = ({ data }: any) => {
       <Group justify="space-between" align="center">
         <div>
           <Text fz="sm" c="dimmed" mb={0}>
-            Affected versions
+            {t("affected_versions")}
           </Text>
           <Text fz="md" c="white">
             {vulnerableVersionRange}
@@ -56,7 +66,7 @@ const ModalContent = ({ data }: any) => {
         <Conditional if={firstPatchedVersion}>
           <div>
             <Text fz="sm" c="dimmed" mb={0} ta="right">
-              Patched versions
+              {t("patched_versions")}
             </Text>
             <Text fz="md" c="white" ta="right">
               {firstPatchedVersion}
@@ -68,18 +78,18 @@ const ModalContent = ({ data }: any) => {
       <Group justify="space-between" align="center">
         <div>
           <Text fz="sm" c="dimmed" mb={0}>
-            Published on
+            {to("published_on")}
           </Text>
           <Text fz="md" c="white">
-            {publishedAt && formatDate(new Date(publishedAt))}
+            {publishedAt && formatDate(publishedAt)}
           </Text>
         </div>
         <div>
           <Text fz="sm" c="dimmed" mb={0} ta="right">
-            Updated on
+            {to("updated_on")}
           </Text>
           <Text fz="md" c="white" ta="right">
-            {updatedAt && formatDate(new Date(updatedAt))}
+            {updatedAt && formatDate(updatedAt)}
           </Text>
         </div>
       </Group>
@@ -87,7 +97,7 @@ const ModalContent = ({ data }: any) => {
       {/* Description */}
       <div>
         <Text fz="sm" c="dimmed" mb={3}>
-          Description
+          {t("description")}
         </Text>
         <Paper p="md" radius="md" bg="dark.9" shadow="sm" c="white">
           <MDX content={description} />
@@ -96,7 +106,7 @@ const ModalContent = ({ data }: any) => {
 
       <div>
         <Text fz="sm" c="dimmed" mb={0}>
-          Additional Links
+          {t("additional_links")}
         </Text>
         {references?.map((ref: any, index: number) => (
           <div key={index} style={{ wordWrap: "break-word" }}>
