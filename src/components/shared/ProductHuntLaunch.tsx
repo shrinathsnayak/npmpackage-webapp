@@ -8,7 +8,12 @@ import { IconArrowNarrowRight } from "@tabler/icons-react";
 const ProductHuntLaunch = () => {
   const t = useTranslations();
   return (
-    <Anchor component={Link} underline="never" href="/sponsor">
+    <Anchor
+      component={Link}
+      underline="never"
+      href={`${process.env.NEXT_PUBLIC_VALIDATE_EMAIL_URL}`}
+      target="_blank"
+    >
       <Flex
         p={6}
         mb={20}
@@ -23,9 +28,15 @@ const ProductHuntLaunch = () => {
           boxShadow: "var(--mantine-shadow-xl)",
         }}
       >
-        <ProductHuntIcon />
-        <Text c="white" fz="sm">
+        {/* <ProductHuntIcon /> */}
+        {/* <Text c="white" fz="sm">
           {t("become_sponsor")}
+        </Text> */}
+        <Text c="white" fz="sm">
+          🚀
+        </Text>
+        <Text c="white" fz="sm">
+          Introducing validate.email
         </Text>
         <IconArrowNarrowRight color="white" />
       </Flex>
