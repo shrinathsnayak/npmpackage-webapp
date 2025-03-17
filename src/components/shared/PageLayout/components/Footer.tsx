@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { AppShell, Container, Flex, Text } from "@mantine/core";
 import { DEFAULT_CACHE_HOUR } from "@/constants";
 import LocaleSwitcher from "@/components/shared/LocaleSwitcher";
+import Signature from "@/components/shared/Signature";
 
 const Footer = ({ fixedFooter }: boolean | any) => {
   const t = useTranslations();
@@ -20,6 +21,7 @@ const Footer = ({ fixedFooter }: boolean | any) => {
           justify="space-between"
           direction={{ base: "column", sm: "row" }}
         >
+          <Signature />
           <LocaleSwitcher />
           <Text
             fz="xs"

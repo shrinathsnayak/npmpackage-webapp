@@ -32,7 +32,6 @@ const LanguageSwitcher = () => {
   return (
     <Select
       w={180}
-      bg="dark.9"
       defaultValue={locale}
       checkIconPosition="right"
       renderOption={renderSelectOption}

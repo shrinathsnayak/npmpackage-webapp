@@ -23,7 +23,7 @@ const Feedback = () => {
 
   return (
     <div>
-      <Affix position={{ bottom: 20, right: 20 }} withinPortal={true}>
+      <Affix position={{ bottom: 20, left: 20 }} withinPortal={true}>
         <Button
           radius="xl"
           color="red.8"
