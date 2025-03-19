@@ -37,7 +37,7 @@ function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
   };
 
   return (
-    <Paper px="md" py="sm" shadow="md" radius="md">
+    <Paper px="md" py="sm" shadow="md" radius="md" bg="dark.7" withBorder>
       <Text fw={500} mb={5} fz="lg" c="white">
         {labelMapping[type] ||
           format.dateTime(new Date(label), {
@@ -71,7 +71,7 @@ const DownloadGraph = ({
   const format = useFormatter();
   const Chart = ChartsMapping[chartType];
   return (
-    <Paper p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
+    <Paper p="lg" radius="md" bg="dark.7" shadow="sm" mb={15} withBorder>
       <Title order={5} mb={50}>
         {title}
       </Title>

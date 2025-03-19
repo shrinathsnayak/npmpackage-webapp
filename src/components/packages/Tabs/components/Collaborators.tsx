@@ -26,7 +26,7 @@ const Collaborators = ({
 
   return (
     <OverviewCard title={t("contributors")} badge={contributorCountValue}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         {contributorsCount === 0 ||
         contributors?.length <= 0 ||
         contributors?.status ? (

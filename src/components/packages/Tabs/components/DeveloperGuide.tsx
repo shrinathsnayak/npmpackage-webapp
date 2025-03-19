@@ -45,7 +45,7 @@ const DeveloperGuide = ({ npm }: any) => {
     npm || {};
   return (
     <OverviewCard title={to("developer_guide")} badge={to("beta")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <Flex
           gap={15}
           align="center"

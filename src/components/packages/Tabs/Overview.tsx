@@ -66,7 +66,7 @@ const Overview = ({ packageInfo, downloads }: any) => {
         </Conditional>
       </Box>
       <Box w={{ base: "100%", sm: "30%" }}>
-        <SponsorProjectCard />
+        {/* <SponsorProjectCard /> */}
         <Conditional if={gitHub?.avatar && gitHub?.owner}>
           <Developer
             avatar={gitHub?.avatar}

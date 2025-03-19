@@ -22,8 +22,8 @@ import classes from "../Layout.module.css";
 const Header = ({ hideSearch }: any) => {
   const t = useTranslations();
   return (
-    <AppShell.Header>
-      <Container size="lg">
+    <AppShell.Header bg="dark.9" className={classes.headerBorder}>
+      <Container size="lg" className={classes.borderX}>
         <Group h="100%" justify="space-between" align="center">
           <Group
             justify="space-between"
@@ -44,8 +44,6 @@ const Header = ({ hideSearch }: any) => {
                   w={35}
                   h={35}
                   src={Icon.src}
-                  // priority={true}
-                  // component={NextImage}
                   alt="npmpackage.info logo"
                 />
                 <Title order={3} c="white" visibleFrom="md">
@@ -73,19 +71,19 @@ const Header = ({ hideSearch }: any) => {
                       </Text>
                     </Group>
                   </UnstyledButton>
-                  <UnstyledButton
-                    href="/sponsor"
-                    component={Link}
-                    className={classes.mobilecontrol}
-                  >
-                    <IconCoinFilled
-                      stroke={2}
-                      style={{ width: rem(25), height: rem(25) }}
-                      fill="var(--mantine-color-red-8)"
-                    />
-                  </UnstyledButton>
                 </>
               )}
+              <UnstyledButton
+                href="/sponsor"
+                component={Link}
+                className={classes.mobilecontrol}
+              >
+                <IconCoinFilled
+                  stroke={2}
+                  style={{ width: rem(25), height: rem(25) }}
+                  fill="var(--mantine-color-red-8)"
+                />
+              </UnstyledButton>
               {/* <UnstyledButton
               component={Link}
               href="/downloads"

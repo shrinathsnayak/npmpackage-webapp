@@ -17,7 +17,7 @@ const DependenciesRenderer = ({ dependency, name }: any) => {
 
   return (
     <Box mb={10}>
-      <Paper bg="dark.9" p={8} px={20}>
+      <Paper bg="dark.7" p={6} px={18} withBorder>
         <Flex align="center" justify="space-between">
           <Title order={5} c="white">
             {name}

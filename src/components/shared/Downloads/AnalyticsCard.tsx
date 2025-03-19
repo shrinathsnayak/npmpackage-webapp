@@ -20,12 +20,13 @@ const AnalyticsCard = ({ value, previousValue, title, description }: any) => {
       p="md"
       radius="md"
       key={title}
-      bg="dark.9"
+      bg="dark.7"
       shadow="sm"
+      withBorder
       className={classes.analyticsCard}
     >
       <Group justify="space-between">
-        <Text size="xs" c="dimmed" className={classes.analyticsCardTitle}>
+        <Text size="xs" c="white" className={classes.analyticsCardTitle}>
           {title}
         </Text>
         <Group>

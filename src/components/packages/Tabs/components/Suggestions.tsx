@@ -22,7 +22,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
   const t = useTranslations("overview");
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Container size="lg" className="responsiveContainer" mb={20}>
+    <Container size="lg" py={16} className={classes.similarPackagesBorder}>
       <OverviewCard title={t("similar_packages", { packageName })}>
         <SimpleGrid
           mt={10}
@@ -44,7 +44,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
                 w="100%"
                 h="100%"
                 radius="md"
-                bg="dark.9"
+                bg="dark.7"
                 shadow="xs"
                 p={{ base: 15, sm: 10 }}
                 className={classes.suggestedItem}

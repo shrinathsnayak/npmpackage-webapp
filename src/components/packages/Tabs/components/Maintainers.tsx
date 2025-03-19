@@ -7,7 +7,7 @@ const Maintainers = ({ maintainers }: any) => {
   const t = useTranslations("overview");
   return (
     <OverviewCard title={t("maintainers")} badge={maintainers?.length}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <Tooltip.Group openDelay={300} closeDelay={100}>
           <Flex align="center" wrap="wrap" gap={10}>
             {maintainers.length > 0 &&
