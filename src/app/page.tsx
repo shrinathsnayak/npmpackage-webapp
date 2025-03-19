@@ -21,12 +21,7 @@ export default async function Home() {
     >
       <Container size="lg" className={classes.borderX}>
         <Center mah="calc(80vh)" mih="calc(80vh)" w="100%">
-          <Flex
-            align="center"
-            direction="column"
-            // w={{ base: "90%", sm: "50%" }}
-            mt={{ base: "-25%", sm: 0 }}
-          >
+          <Flex align="center" direction="column">
             <ProductHuntLaunch />
             <Title size={rem(35)} c="white">
               {NPMPACKAGE_TITLE}
