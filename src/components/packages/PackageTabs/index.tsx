@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Tabs, Container, Flex, Kbd, Text, Box } from "@mantine/core";
+import { Tabs, Flex, Kbd, Text, Box } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
@@ -67,8 +67,8 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     label: string;
     rest?: any;
   }) => (
-    <Flex align="center" p={0} gap={8} m={0}>
-      <Box visibleFrom="sm">
+    <Flex align="center" p={0} m={0}>
+      <Box visibleFrom="sm" mr={8}>
         <Kbd size="xs" c="white">
           {value}
         </Kbd>
@@ -79,7 +79,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   );
 
   return (
-    <Container size="lg" py={16} className={classes.borderX}>
+    <Box p={16}>
       <Tabs
         autoContrast
         value={search}
@@ -124,13 +124,13 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value={TABS.overview.value} py={20}>
+        <Tabs.Panel value={TABS.overview.value} py={20} pb={0}>
           <ErrorBoundary>
             <Overview packageInfo={packageInfo} downloads={downloadsData} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.downloads.value} py={20}>
+        <Tabs.Panel value={TABS.downloads.value} py={20} pb={0}>
           <ErrorBoundary>
             <MemoizedDownloads
               downloads={downloadsData}
@@ -139,31 +139,31 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.dependencies.value} py={20}>
+        <Tabs.Panel value={TABS.dependencies.value} py={20} pb={0}>
           <ErrorBoundary>
             <Dependencies data={npm?.data?.dependencies} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.readme.value} py={20}>
+        <Tabs.Panel value={TABS.readme.value} py={20} pb={0}>
           <ErrorBoundary>
             <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.vulnerabilities.value} py={20}>
+        <Tabs.Panel value={TABS.vulnerabilities.value} py={20} pb={0}>
           <ErrorBoundary>
             <Vulnerabilities vulnerabilities={vulnerabilities} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.scorecard.value} py={20}>
+        <Tabs.Panel value={TABS.scorecard.value} py={20} pb={0}>
           <ErrorBoundary>
             <MemoizedSecurity packageInfo={securityScore?.data} />
           </ErrorBoundary>
         </Tabs.Panel>
       </Tabs>
-    </Container>
+    </Box>
   );
 };
 

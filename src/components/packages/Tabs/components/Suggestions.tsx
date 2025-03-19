@@ -3,14 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import {
-  Anchor,
-  Badge,
-  Container,
-  Paper,
-  SimpleGrid,
-  Text,
-} from "@mantine/core";
+import { Anchor, Badge, Box, Paper, SimpleGrid, Text } from "@mantine/core";
 import { IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { updatePopularPackageCount } from "@/services/supbase";
@@ -22,7 +15,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
   const t = useTranslations("overview");
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Container size="lg" py={16} className={classes.similarPackagesBorder}>
+    <Box p={16} style={{ borderTop: "1px dashed var(--mantine-color-dark-5)" }}>
       <OverviewCard title={t("similar_packages", { packageName })}>
         <SimpleGrid
           mt={10}
@@ -72,7 +65,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
           ))}
         </SimpleGrid>
       </OverviewCard>
-    </Container>
+    </Box>
   );
 };
 

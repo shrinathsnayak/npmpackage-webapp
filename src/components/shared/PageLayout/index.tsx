@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Suspense, memo } from "react";
-import { AppShell } from "@mantine/core";
+import { AppShell, Container } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Search } from "@/components/shared/Search";
 import Conditional from "../Conditional";
@@ -57,7 +57,11 @@ const PageLayout = memo(
               <MemoizedSearch />
             </Suspense>
           </Conditional>
-          <MemoizedChildren>{children}</MemoizedChildren>
+          <MemoizedChildren>
+            <Container size="lg" mih="100vh" p={0} className={classes.borderX}>
+              {children}
+            </Container>
+          </MemoizedChildren>
         </AppShell.Main>
         <Conditional if={!hideFooter}>
           <MemoizedFooter fixedFooter={fixedFooter} />
