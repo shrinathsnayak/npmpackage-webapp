@@ -69,7 +69,9 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   }) => (
     <Flex align="center" p={0} gap={8} m={0}>
       <Box visibleFrom="sm">
-        <Kbd size="xs">{value}</Kbd>
+        <Kbd size="xs" c="white">
+          {value}
+        </Kbd>
       </Box>
       <Text fz="sm">{label}</Text>
       <div>{rest}</div>
@@ -77,30 +79,27 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   );
 
   return (
-    <Container
-      size="lg"
-      className="responsiveContainer"
-      mt={{ base: -46, sm: -47 }}
-    >
+    <Container size="lg" py={16} className={classes.borderX}>
       <Tabs
         autoContrast
         value={search}
-        variant="outline"
+        variant="pills"
+        color="red"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
         onChange={(value: any) => redirectToSelectedTab(value)}
       >
         <Tabs.List>
-          <Tabs.Tab py="sm" px="lg" c="white" value="overview">
+          <Tabs.Tab size="xs" c="white" value="overview">
             <HotKeys value="1" label={t("overview")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="readme">
+          <Tabs.Tab size="xs" c="white" value="readme">
             <HotKeys value="2" label={t("readme")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="downloads">
+          <Tabs.Tab size="xs" c="white" value="downloads">
             <HotKeys value="3" label={t("downloads")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="dependencies">
+          <Tabs.Tab size="xs" c="white" value="dependencies">
             <HotKeys
               value="4"
               label={t("dependencies")}
@@ -117,10 +116,10 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
               }
             />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="vulnerabilities">
+          <Tabs.Tab size="xs" c="white" value="vulnerabilities">
             <HotKeys value="5" label={t("vulnerabilities")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="scorecard">
+          <Tabs.Tab size="xs" c="white" value="scorecard">
             <HotKeys value="6" label={t("scorecard")} />
           </Tabs.Tab>
         </Tabs.List>

@@ -86,7 +86,7 @@ const Score = ({ scoreData = {} }: any) => {
   const t = useTranslations("overview");
   return (
     <OverviewCard title={t("score")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <SimpleGrid
           cols={{ base: 2, sm: 2, lg: 5 }}
           spacing={{ base: 10, sm: "md" }}

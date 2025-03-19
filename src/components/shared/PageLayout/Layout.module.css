@@ -102,3 +102,16 @@
     display: none;
   }
 }
+
+.headerBorder {
+  border-bottom: 1px dashed var(--mantine-color-dark-5);
+}
+
+.footerBorder {
+  border-top: 1px dashed var(--mantine-color-dark-5);
+}
+
+.borderX {
+  border-left: 1px dashed var(--mantine-color-dark-5);
+  border-right: 1px dashed var(--mantine-color-dark-5);
+}

@@ -42,7 +42,7 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
 
   return (
     <Box>
-      <Paper
+      {/* <Paper
         px="lg"
         py="md"
         radius="md"
@@ -71,13 +71,13 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
             {stableVersion}
           </Title>
         </Flex>
-      </Paper>
+      </Paper> */}
 
       {sortedVulnerabilities &&
         Object.keys(sortedVulnerabilities)?.map(
           (vulnerability: any, index: number) => (
             <Box key={index} mb="md">
-              <Paper bg="dark.9" p={8} px={20} mb="sm">
+              {/* <Paper bg="dark.9" p={8} px={20} mb="sm">
                 <Flex align="center" justify="space-between">
                   <Title order={6} c="white" fz="sm">
                     {t(VULNERABILITY_LOCALES[vulnerability])}
@@ -86,7 +86,7 @@ const Vulnerabilities = ({ vulnerabilities }: ComponentProps) => {
                     {sortedVulnerabilities[vulnerability].length}
                   </Text>
                 </Flex>
-              </Paper>
+              </Paper> */}
               <SimpleGrid
                 cols={{ base: 1, sm: 2, lg: 3 }}
                 spacing={{ base: 10, sm: "md" }}

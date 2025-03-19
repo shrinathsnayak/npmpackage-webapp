@@ -10,7 +10,7 @@ const Developer = ({ avatar, owner, developerUrl }: any) => {
   const t = useTranslations("overview");
   return (
     <OverviewCard title={t("developer")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <Flex gap={10} align="center">
           <Image
             width={20}

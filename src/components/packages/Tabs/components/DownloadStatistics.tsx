@@ -22,7 +22,7 @@ const DownloadStatistics = ({ downloads }: any) => {
   const { lastDay, lastMonth, lastWeek, lastYear, total } = data || {};
   return (
     <OverviewCard title={to("download_statistics")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <DownloadCard label={td("total_downloads")} value={total} />
         <SimpleGrid mt="sm" cols={2} spacing="sm" verticalSpacing="sm">
           <DownloadCard label={td("last_day")} value={lastDay} />

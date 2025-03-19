@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Badge, Box, Card, Group, Text } from "@mantine/core";
+import { Badge, Box, Card, Group, Paper, Text } from "@mantine/core";
 import { VULNERABILITY_COLORS, VULNERABILITY_LOCALES } from "@/constants";
 import classes from "./index.module.css";
 import Conditional from "@/components/shared/Conditional";
@@ -14,11 +14,12 @@ const VulnerCard = ({
 }: any) => {
   const t = useTranslations("vulnerability");
   return (
-    <Card
+    <Paper
+      withBorder
       shadow="md"
-      padding="md"
+      p="md"
       radius="md"
-      bg="dark.9"
+      bg="dark.7"
       onClick={onClick}
       className={classes.cardComponent}
     >
@@ -63,7 +64,7 @@ const VulnerCard = ({
           </Box>
         </Conditional>
       </Group>
-    </Card>
+    </Paper>
   );
 };
 

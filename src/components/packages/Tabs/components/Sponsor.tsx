@@ -9,8 +9,9 @@ const Sponsor = ({ funding }: any) => {
       <Paper
         p="lg"
         radius="md"
-        bg="dark.9"
+        bg="dark.7"
         shadow="sm"
+        withBorder
         style={{ textOverflow: "ellipsis", overflow: "hidden" }}
       >
         {funding?.length > 0 &&

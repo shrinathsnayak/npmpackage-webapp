@@ -4,21 +4,23 @@ import { AppShell, Container, Flex, Text } from "@mantine/core";
 import { DEFAULT_CACHE_HOUR } from "@/constants";
 import LocaleSwitcher from "@/components/shared/LocaleSwitcher";
 import Signature from "@/components/shared/Signature";
+import classes from "../Layout.module.css";
 
 const Footer = ({ fixedFooter }: boolean | any) => {
   const t = useTranslations();
   return (
     <AppShell.Footer
       fz="sm"
-      bg="dark.7"
+      bg="dark.9"
       withBorder
-      p={{ base: "sm", sm: "sm" }}
       pos={fixedFooter ? "fixed" : "static"}
+      className={classes.footerBorder}
     >
-      <Container size="lg" className="responsiveContainer">
+      <Container size="lg" className={classes.borderX}>
         <Flex
           align="center"
           justify="space-between"
+          p={{ base: "sm", sm: "sm" }}
           direction={{ base: "column", sm: "row" }}
         >
           <Signature />

@@ -26,7 +26,7 @@ const ReleaseCard = ({ name, publishedAt, url, tag }: any) => {
 
   return (
     <Anchor href={url} component={Link} target="_blank" underline="never">
-      <Paper p="sm" radius="md" h="100%">
+      <Paper p="sm" radius="md" h="100%" bg="dark.9" withBorder>
         <Text fz="sm" fw="500">
           {name || tag?.name}
         </Text>
@@ -58,7 +58,7 @@ const Releases = ({ releases, repositoryUrl }: any) => {
 
   return (
     <OverviewCard title={t("releases")} badge={total && releasesCountValue}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         {!total ? (
           <Center ta="center" my={20}>
             <div>

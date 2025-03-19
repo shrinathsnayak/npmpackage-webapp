@@ -49,7 +49,7 @@ const Statistics = ({ data }: any) => {
     });
   return (
     <OverviewCard title={to("gitHub_statistics")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         {license && (
           <Stat
             tooltip={tg("license")}

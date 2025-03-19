@@ -94,7 +94,7 @@ const SecurityAccordin = ({ checks = [] }: any) => {
         variant="contained"
         onChange={handleAccordionChange}
         chevronPosition="right"
-        bg="dark.9"
+        bg="dark.7"
         radius="md"
         classNames={classNames}
       >

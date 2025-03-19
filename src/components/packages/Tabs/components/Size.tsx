@@ -10,7 +10,7 @@ const Size = ({ bundleSize, packageName }: any) => {
   const { gzip, size } = bundleSize || {};
   return (
     <OverviewCard title={t("bundle_size")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <Flex gap="xs" align="center" justify="space-between">
           <Box>
             <Title order={4} c="white">
