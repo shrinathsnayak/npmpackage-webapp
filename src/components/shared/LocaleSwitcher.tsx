@@ -1,5 +1,5 @@
 import { useLocale } from "next-intl";
-import { Select, SelectProps, Group, Text } from "@mantine/core";
+import { Select, SelectProps, Group, Text, Flex } from "@mantine/core";
 import { IconCheck, IconLanguage } from "@tabler/icons-react";
 import { setUserLocale } from "@/services/locale";
 import { LOCALE_FLAGS } from "@/constants";
@@ -30,19 +30,24 @@ const LanguageSwitcher = () => {
   const locale: any = useLocale();
 
   return (
-    <Select
-      w={180}
-      defaultValue={locale}
-      checkIconPosition="right"
-      renderOption={renderSelectOption}
-      onChange={(value: any) => setUserLocale(value)}
-      data={[
-        { label: "English", value: "en" },
-        { label: "한국인", value: "ko" },
-        { label: "Deutsch", value: "de" },
-        { label: "Русский", value: "ru" },
-      ]}
-    />
+    <Flex direction="column" gap={5}>
+      <Text fz="sm" fw="500" c="white" ta={{ base: "center", sm: "left" }}>
+        Choose Language
+      </Text>
+      <Select
+        w={180}
+        defaultValue={locale}
+        checkIconPosition="right"
+        renderOption={renderSelectOption}
+        onChange={(value: any) => setUserLocale(value)}
+        data={[
+          { label: "English", value: "en" },
+          { label: "한국인", value: "ko" },
+          { label: "Deutsch", value: "de" },
+          { label: "Русский", value: "ru" },
+        ]}
+      />
+    </Flex>
   );
 };
 

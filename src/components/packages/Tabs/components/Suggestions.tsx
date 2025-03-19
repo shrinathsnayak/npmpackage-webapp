@@ -23,7 +23,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
   const data = removeSimilarByName(searchData, packageName);
   return (
     <Container size="lg" py={16} className={classes.similarPackagesBorder}>
-      <OverviewCard title={t("similar_packages", { packageName })}>
+      <OverviewCard title={t("similar_packages", { packageName })} mb={0}>
         <SimpleGrid
           mt={10}
           spacing={{ base: 10, sm: "xs" }}

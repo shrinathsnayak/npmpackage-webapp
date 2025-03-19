@@ -124,13 +124,13 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value={TABS.overview.value} py={20}>
+        <Tabs.Panel value={TABS.overview.value} py={20} pb={0}>
           <ErrorBoundary>
             <Overview packageInfo={packageInfo} downloads={downloadsData} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.downloads.value} py={20}>
+        <Tabs.Panel value={TABS.downloads.value} py={20} pb={0}>
           <ErrorBoundary>
             <MemoizedDownloads
               downloads={downloadsData}
@@ -139,25 +139,25 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.dependencies.value} py={20}>
+        <Tabs.Panel value={TABS.dependencies.value} py={20} pb={0}>
           <ErrorBoundary>
             <Dependencies data={npm?.data?.dependencies} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.readme.value} py={20}>
+        <Tabs.Panel value={TABS.readme.value} py={20} pb={5}>
           <ErrorBoundary>
             <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.vulnerabilities.value} py={20}>
+        <Tabs.Panel value={TABS.vulnerabilities.value} py={20} pb={0}>
           <ErrorBoundary>
             <Vulnerabilities vulnerabilities={vulnerabilities} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.scorecard.value} py={20}>
+        <Tabs.Panel value={TABS.scorecard.value} py={20} pb={5}>
           <ErrorBoundary>
             <MemoizedSecurity packageInfo={securityScore?.data} />
           </ErrorBoundary>
