@@ -6,8 +6,6 @@ import {
   getFilteredChartTooltipPayload,
 } from "@mantine/charts";
 import { Group, Paper, Text, Title } from "@mantine/core";
-import AnimatedNumber from "../AnimatedNumber";
-import { formatDate } from "@/utils";
 import { CHART_DATE_TYPES } from "@/constants";
 
 interface ChartTooltipProps {
@@ -40,7 +38,7 @@ function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
     <Paper px="md" py="sm" shadow="md" radius="md" bg="dark.7" withBorder>
       <Text fw={500} mb={5} fz="lg" c="white">
         {labelMapping[type] ||
-          format.dateTime(new Date(label), {
+          format.dateTime(date, {
             year: "numeric",
             month: "short",
             day: "2-digit",
@@ -86,7 +84,7 @@ const DownloadGraph = ({
         fillOpacity={0.51}
         tooltipAnimationDuration={200}
         legendProps={{ verticalAlign: "bottom" }}
-        series={[{ name: "downloads", color: "red.7" }]}
+        series={[{ name: "downloads", color: "red.8" }]}
         yAxisProps={
           yAxisProps || {
             tickFormatter: (value: number) =>
