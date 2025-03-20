@@ -34,7 +34,7 @@ export default function Error({
 
   return (
     <Center mih="calc(100vh - 65px)">
-      <Paper ta="center">
+      <Paper ta="center" bg="dark.9">
         <Center mb={30}>
           <Image
             w="150"

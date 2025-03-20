@@ -11,11 +11,10 @@ const Suggestions = dynamic(
   }
 );
 
-export default async function Suggested({
-  params,
-}: {
-  params: { package: [] };
+export default async function Suggested(props: {
+  params: Promise<{ package: [] }>;
 }) {
+  const params = await props.params;
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
   const searchData = await searchPackage(packageName);

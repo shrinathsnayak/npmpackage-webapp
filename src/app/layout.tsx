@@ -54,7 +54,7 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
   return (
-    <html lang={locale}>
+    <html lang={locale} data-mantine-color-scheme="dark">
       <head>
         <meta name="color-scheme" content="dark" />
         <meta name="google-adsense-account" content="ca-pub-8328087114055733" />
