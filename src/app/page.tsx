@@ -13,13 +13,8 @@ export const revalidate = 60;
 export default async function Home() {
   const popularPackages: any = await getPopularPackages();
   return (
-    <PageLayout
-      hideHeader={false}
-      hideSearch={true}
-      fixedFooter={true}
-      bg="dark.9"
-    >
-      <Container size="lg" className={classes.borderX}>
+    <PageLayout hideHeader={false} hideSearch={true} bg="dark.9">
+      <Container size="lg">
         <Center mah="calc(80vh)" mih="calc(80vh)" w="100%">
           <Flex align="center" direction="column">
             <ProductHuntLaunch />
