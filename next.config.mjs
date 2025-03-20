@@ -1,6 +1,5 @@
 import withPWA from "next-pwa";
-import createMDX from '@next/mdx';
-import remarkGfm from "remark-gfm";
+import createMDX from "@next/mdx";
 import withNextIntl from "next-intl/plugin";
 import NextBundleAnalyzer from "@next/bundle-analyzer";
 
@@ -97,7 +96,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [['remarkGfm', {}]],
+    remarkPlugins: [["remarkGfm", {}]],
     rehypePlugins: [[], { strict: true, throwOnError: true }],
   },
 });
