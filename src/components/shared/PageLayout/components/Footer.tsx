@@ -4,38 +4,39 @@ import { AppShell, Container, Flex, Text } from "@mantine/core";
 import { DEFAULT_CACHE_HOUR } from "@/constants";
 import LocaleSwitcher from "@/components/shared/LocaleSwitcher";
 import Signature from "@/components/shared/Signature";
+import classes from "../Layout.module.css";
 
 const Footer = ({ fixedFooter }: boolean | any) => {
   const t = useTranslations();
   return (
     <AppShell.Footer
       fz="sm"
-      bg="dark.7"
-      withBorder
-      p={{ base: "sm", sm: "sm" }}
+      bg="dark.9"
       pos={fixedFooter ? "fixed" : "static"}
+      className={classes.footerBorder}
     >
-      <Container size="lg" className="responsiveContainer">
+      <Container size="lg" className={classes.borderX}>
         <Flex
-          align="center"
+          px={0}
           justify="space-between"
-          direction={{ base: "column", sm: "row" }}
+          p={{ base: "sm", sm: "sm" }}
+          gap={{ base: "lg", sm: "xl" }}
+          align={{ base: "center", sm: "flex-start" }}
+          direction={{ base: "column-reverse", sm: "row" }}
         >
           <Signature />
           <LocaleSwitcher />
-          <Text
-            fz="xs"
-            fw={400}
-            maw={500}
-            c="dark.0"
-            pl={{ base: 5, sm: 0 }}
-            mt={{ base: 10, sm: 0 }}
-            ta={{ base: "center", sm: "left" }}
-          >
-            <b>{t("disclaimer")}:</b>{" "}
-            {t("disclaimer_text", { hour: DEFAULT_CACHE_HOUR })}
-          </Text>
         </Flex>
+      </Container>
+      <Container
+        size="lg"
+        p="sm"
+        className={`${classes.borderX} ${classes.footerBorder}`}
+      >
+        <Text fz="xs" fw={400} c="white" ta="center" opacity={1}>
+          <b>{t("disclaimer")}:</b>{" "}
+          {t("disclaimer_text", { hour: DEFAULT_CACHE_HOUR })}
+        </Text>
       </Container>
     </AppShell.Footer>
   );

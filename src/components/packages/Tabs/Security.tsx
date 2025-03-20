@@ -25,7 +25,8 @@ const Security = ({ packageInfo }: any) => {
           shadow="sm"
           h="fit-content"
           radius="md"
-          bg="dark.9"
+          bg="dark.7"
+          withBorder
           w={{ base: "100%", sm: "500" }}
           pos={{ base: "static", sm: "sticky" }}
         >

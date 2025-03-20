@@ -26,7 +26,7 @@ const PublishedPackageInfo = ({ npm }: any) => {
   const { package: info } = npm || {};
   return (
     <OverviewCard title={to("package_meta_information")}>
-      <Paper p="lg" radius="md" bg="dark.9" shadow="sm">
+      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
         <Flex gap={5} direction="column">
           <PackageInfo label={tp("latest_version")} value={npm?.version} />
           <PackageInfo label={tp("package_id")} value={info?.id} />

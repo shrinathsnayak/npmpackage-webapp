@@ -18,13 +18,12 @@ const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"), {
   ssr: true,
 });
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: {
-  params: { package: [] };
-  searchParams: any;
+export async function generateMetadata(props: {
+  params: Promise<{ package: [] }>;
+  searchParams: Promise<any>;
 }) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
   const packageData = await getOGPackageInfo(packageName);
@@ -49,7 +48,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function Package({ params }: { params: { package: [] } }) {
+export default async function Package(props: {
+  params: Promise<{ package: [] }>;
+}) {
+  const params = await props.params;
   const { package: packages } = params;
   const packageName = genereatePackageName(packages);
 

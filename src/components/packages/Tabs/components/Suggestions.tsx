@@ -3,14 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import {
-  Anchor,
-  Badge,
-  Container,
-  Paper,
-  SimpleGrid,
-  Text,
-} from "@mantine/core";
+import { Anchor, Badge, Box, Paper, SimpleGrid, Text } from "@mantine/core";
 import { IconTag } from "@tabler/icons-react";
 import OverviewCard from "@/components/shared/OverviewCard";
 import { updatePopularPackageCount } from "@/services/supbase";
@@ -22,8 +15,8 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
   const t = useTranslations("overview");
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Container size="lg" className="responsiveContainer" mb={20}>
-      <OverviewCard title={t("similar_packages", { packageName })}>
+    <Box p={16} className={classes.similarPackagesBorder}>
+      <OverviewCard title={t("similar_packages", { packageName })} mb={0}>
         <SimpleGrid
           mt={10}
           spacing={{ base: 10, sm: "xs" }}
@@ -44,7 +37,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
                 w="100%"
                 h="100%"
                 radius="md"
-                bg="dark.9"
+                bg="dark.7"
                 shadow="xs"
                 p={{ base: 15, sm: 10 }}
                 className={classes.suggestedItem}
@@ -72,7 +65,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
           ))}
         </SimpleGrid>
       </OverviewCard>
-    </Container>
+    </Box>
   );
 };
 

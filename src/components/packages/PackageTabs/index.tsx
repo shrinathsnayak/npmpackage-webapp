@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Tabs, Container, Flex, Kbd, Text, Box } from "@mantine/core";
+import { Tabs, Flex, Kbd, Text, Box } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
@@ -67,9 +67,11 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     label: string;
     rest?: any;
   }) => (
-    <Flex align="center" p={0} gap={8} m={0}>
-      <Box visibleFrom="sm">
-        <Kbd size="xs">{value}</Kbd>
+    <Flex align="center" p={0} m={0}>
+      <Box visibleFrom="sm" mr={8}>
+        <Kbd size="xs" c="white">
+          {value}
+        </Kbd>
       </Box>
       <Text fz="sm">{label}</Text>
       <div>{rest}</div>
@@ -77,30 +79,27 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   );
 
   return (
-    <Container
-      size="lg"
-      className="responsiveContainer"
-      mt={{ base: -46, sm: -47 }}
-    >
+    <Box p={16}>
       <Tabs
         autoContrast
         value={search}
-        variant="outline"
+        variant="pills"
+        color="red"
         classNames={classes}
         defaultValue={DEFAULT_TAB}
         onChange={(value: any) => redirectToSelectedTab(value)}
       >
         <Tabs.List>
-          <Tabs.Tab py="sm" px="lg" c="white" value="overview">
+          <Tabs.Tab size="xs" c="white" value="overview">
             <HotKeys value="1" label={t("overview")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="readme">
+          <Tabs.Tab size="xs" c="white" value="readme">
             <HotKeys value="2" label={t("readme")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="downloads">
+          <Tabs.Tab size="xs" c="white" value="downloads">
             <HotKeys value="3" label={t("downloads")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="dependencies">
+          <Tabs.Tab size="xs" c="white" value="dependencies">
             <HotKeys
               value="4"
               label={t("dependencies")}
@@ -117,21 +116,21 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
               }
             />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="vulnerabilities">
+          <Tabs.Tab size="xs" c="white" value="vulnerabilities">
             <HotKeys value="5" label={t("vulnerabilities")} />
           </Tabs.Tab>
-          <Tabs.Tab py="sm" px="lg" c="white" value="scorecard">
+          <Tabs.Tab size="xs" c="white" value="scorecard">
             <HotKeys value="6" label={t("scorecard")} />
           </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value={TABS.overview.value} py={20}>
+        <Tabs.Panel value={TABS.overview.value} py={20} pb={0}>
           <ErrorBoundary>
             <Overview packageInfo={packageInfo} downloads={downloadsData} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.downloads.value} py={20}>
+        <Tabs.Panel value={TABS.downloads.value} py={20} pb={0}>
           <ErrorBoundary>
             <MemoizedDownloads
               downloads={downloadsData}
@@ -140,31 +139,31 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.dependencies.value} py={20}>
+        <Tabs.Panel value={TABS.dependencies.value} py={20} pb={0}>
           <ErrorBoundary>
             <Dependencies data={npm?.data?.dependencies} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.readme.value} py={20}>
+        <Tabs.Panel value={TABS.readme.value} py={20} pb={5}>
           <ErrorBoundary>
             <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.vulnerabilities.value} py={20}>
+        <Tabs.Panel value={TABS.vulnerabilities.value} py={20} pb={0}>
           <ErrorBoundary>
             <Vulnerabilities vulnerabilities={vulnerabilities} />
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.scorecard.value} py={20}>
+        <Tabs.Panel value={TABS.scorecard.value} py={20} pb={5}>
           <ErrorBoundary>
             <MemoizedSecurity packageInfo={securityScore?.data} />
           </ErrorBoundary>
         </Tabs.Panel>
       </Tabs>
-    </Container>
+    </Box>
   );
 };
 

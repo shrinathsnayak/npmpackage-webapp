@@ -2,10 +2,11 @@
 
 import dynamic from "next/dynamic";
 import { Suspense, memo } from "react";
-import { AppShell } from "@mantine/core";
+import { AppShell, Container } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Search } from "@/components/shared/Search";
 import Conditional from "../Conditional";
+import classes from "./Layout.module.css";
 
 const Footer = dynamic(() => import("./components/Footer"));
 const Header = dynamic(() => import("./components/Header"));
@@ -50,13 +51,17 @@ const PageLayout = memo(
           <MemoizedHeader hideSearch={hideSearch} />
         </Conditional>
 
-        <AppShell.Main bg={bg}>
+        <AppShell.Main bg="dark.9">
           <Conditional if={!disableSpotlight}>
             <Suspense fallback={<p>loading...</p>}>
               <MemoizedSearch />
             </Suspense>
           </Conditional>
-          <MemoizedChildren>{children}</MemoizedChildren>
+          <MemoizedChildren>
+            <Container size="lg" mih="100vh" p={0} className={classes.borderX}>
+              {children}
+            </Container>
+          </MemoizedChildren>
         </AppShell.Main>
         <Conditional if={!hideFooter}>
           <MemoizedFooter fixedFooter={fixedFooter} />

@@ -2,7 +2,7 @@ export const DEFAULT_CACHE_HOUR: number = 3;
 export const NPMPACKAGE_TITLE: string = "npmpackage.info";
 export const DEVELOPMENT = "development";
 export const NPMPACKAGE_DESCRIPTION: string =
-  "Discover detailed information about npm packages. Your go-to source for npm package insights.";
+  "Discover detailed information about npm packages.";
 
 export const TABS: any = {
   overview: { name: "Overview", value: "overview", visible: true },

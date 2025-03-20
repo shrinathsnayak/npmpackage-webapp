@@ -52,7 +52,15 @@ const Downloads = ({ downloads, packageName }: any) => {
         </Button>
       </Flex>
       <div ref={cardRef}>
-        <Paper p="lg" radius="md" bg="dark.9" shadow="sm" mb={15}>
+        <Paper
+          px="lg"
+          py="md"
+          radius="md"
+          bg="dark.7"
+          shadow="sm"
+          mb={15}
+          withBorder
+        >
           <Flex
             align="center"
             justify="space-between"

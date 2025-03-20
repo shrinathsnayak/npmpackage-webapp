@@ -215,7 +215,7 @@ export const removeSimilarByName = (
  * @returns The `downloadDivAsImage` function is returning a Promise, which resolves to `any`.
  */
 export const downloadDivAsImage = async (
-  cardRef: RefObject<HTMLElement>,
+  cardRef: RefObject<HTMLElement | null>,
   name: string
 ): Promise<void> => {
   const cardElement = cardRef.current as HTMLDivElement;
