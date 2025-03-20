@@ -15,8 +15,8 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
   const t = useTranslations("overview");
   const data = removeSimilarByName(searchData, packageName);
   return (
-    <Box p={16} style={{ borderTop: "1px dashed var(--mantine-color-dark-5)" }}>
-      <OverviewCard title={t("similar_packages", { packageName })}>
+    <Box p={16} className={classes.similarPackagesBorder}>
+      <OverviewCard title={t("similar_packages", { packageName })} mb={0}>
         <SimpleGrid
           mt={10}
           spacing={{ base: 10, sm: "xs" }}

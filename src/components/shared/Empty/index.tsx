@@ -19,7 +19,14 @@ const EmptyState = ({ type }: EmptyStateProps) => {
       shadow="xs"
       p={{ base: 15, sm: 10 }}
     >
-      <Flex p={10} align="center" justify="center" direction="column" gap={5}>
+      <Flex
+        mih="60vh"
+        p={10}
+        align="center"
+        justify="center"
+        direction="column"
+        gap={5}
+      >
         <Image
           w="150"
           h="150"

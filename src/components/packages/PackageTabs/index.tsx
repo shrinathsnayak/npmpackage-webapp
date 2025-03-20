@@ -145,7 +145,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.readme.value} py={20} pb={0}>
+        <Tabs.Panel value={TABS.readme.value} py={20} pb={5}>
           <ErrorBoundary>
             <ReadMe data={readMeFileContent} gitHub={gitHub?.data} />
           </ErrorBoundary>
@@ -157,7 +157,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.scorecard.value} py={20} pb={0}>
+        <Tabs.Panel value={TABS.scorecard.value} py={20} pb={5}>
           <ErrorBoundary>
             <MemoizedSecurity packageInfo={securityScore?.data} />
           </ErrorBoundary>

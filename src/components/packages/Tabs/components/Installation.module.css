@@ -54,6 +54,4 @@
 
 .similarPackagesBorder {
   border-top: 1px dashed var(--mantine-color-dark-5);
-  border-left: 1px dashed var(--mantine-color-dark-5);
-  border-right: 1px dashed var(--mantine-color-dark-5);
 }
