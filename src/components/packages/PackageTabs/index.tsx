@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useCallback, useMemo, memo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Tabs, Container, Flex, Kbd, Text, Box } from "@mantine/core";
+import { Tabs, Flex, Kbd, Text, Box } from "@mantine/core";
 import { useHotkeys } from "@mantine/hooks";
 import { DEFAULT_TAB, TABS } from "@/constants";
 import Conditional from "@/components/shared/Conditional";
@@ -67,8 +67,8 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     label: string;
     rest?: any;
   }) => (
-    <Flex align="center" p={0} gap={8} m={0}>
-      <Box visibleFrom="sm">
+    <Flex align="center" p={0} m={0}>
+      <Box visibleFrom="sm" mr={8}>
         <Kbd size="xs" c="white">
           {value}
         </Kbd>
@@ -79,7 +79,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   );
 
   return (
-    <Container size="lg" py={16} className={classes.borderX}>
+    <Box p={16}>
       <Tabs
         autoContrast
         value={search}
@@ -163,7 +163,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
       </Tabs>
-    </Container>
+    </Box>
   );
 };
 

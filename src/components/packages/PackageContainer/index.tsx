@@ -1,6 +1,6 @@
 import React from "react";
 import { emojify } from "node-emoji";
-import { Container, Box, Title, Flex, Text } from "@mantine/core";
+import { Box, Title, Flex, Text } from "@mantine/core";
 import { LinksContainer } from "./LinksContainer";
 import classes from "@/components/shared/PageLayout/Layout.module.css";
 import Tags from "./Tags";
@@ -12,11 +12,10 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
   const { data: security } = packageInfo?.securityScore || {};
 
   return (
-    <Container
-      size="lg"
+    <Box
+      p={16}
+      w="100%"
       bg="dark.9"
-      py={16}
-      className={classes.borderX}
       style={{ borderBottom: "1px dashed var(--mantine-color-dark-5)" }}
     >
       <Flex
@@ -65,10 +64,9 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
           language: github?.primaryLanguage,
           size: bundle?.gzip,
           unpackedSize: npm?.package?.unpackedSize,
-          // fileCount: npm?.package?.fileCount,
         }}
       />
-    </Container>
+    </Box>
   );
 };
 
