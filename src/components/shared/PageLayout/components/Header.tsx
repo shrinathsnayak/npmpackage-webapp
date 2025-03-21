@@ -58,15 +58,18 @@ const Header = ({ hideSearch }: any) => {
                   <UnstyledButton
                     onClick={() => searchHandlers.open()}
                     className={classes.searchRoot}
+                    w={{ base: 200, sm: 250 }}
                   >
-                    <Group gap="xs">
-                      <IconSearch
-                        style={{ width: rem(15), height: rem(15) }}
-                        stroke={2}
-                      />
-                      <Text fz="sm" c="dimmed" pr={80}>
-                        {t("search")}
-                      </Text>
+                    <Group gap="xs" justify="space-between">
+                      <Group gap="xs">
+                        <IconSearch
+                          style={{ width: rem(15), height: rem(15) }}
+                          stroke={2}
+                        />
+                        <Text fz="sm" c="dimmed">
+                          {t("search")}
+                        </Text>
+                      </Group>
                       <Text fw={700} className={classes.shortcut}>
                         Ctrl + K
                       </Text>

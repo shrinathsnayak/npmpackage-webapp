@@ -10,18 +10,6 @@
       var(--mantine-color-dark-6)
     );
   }
-
-  &[data-desktop] {
-    @media (max-width: 47.5em) {
-      display: none;
-    }
-  }
-
-  &[data-mobile] {
-    @media (min-width: 47.5625em) {
-      display: none;
-    }
-  }
 }
 
 .searchRoot {
@@ -35,18 +23,6 @@
   @mixin dark {
     border-color: var(--mantine-color-dark-4);
     background-color: var(--mantine-color-dark-9);
-  }
-
-  &[data-desktop] {
-    @media (max-width: 47.5em) {
-      display: none;
-    }
-  }
-
-  &[data-mobile] {
-    @media (min-width: 47.5625em) {
-      display: none;
-    }
   }
 }
 
@@ -81,18 +57,6 @@
 
     @mixin hover {
       background-color: var(--mantine-color-dark-8);
-    }
-  }
-
-  &[data-desktop] {
-    @media (max-width: 47.5em) {
-      display: none;
-    }
-  }
-
-  &[data-mobile] {
-    @media (min-width: 47.5625em) {
-      display: none;
     }
   }
 }
