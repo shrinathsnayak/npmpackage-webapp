@@ -23,7 +23,7 @@ const MemoizedSpotlightAction = memo(({ item, setQuery, setData }: any) => {
         month: "short",
         day: "2-digit",
       }),
-    [item.date]
+    [item.date, format]
   );
 
   const handleClick = useCallback(
