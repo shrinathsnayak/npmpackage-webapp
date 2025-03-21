@@ -18,6 +18,7 @@ import { NPMPACKAGE_TITLE } from "@/constants";
 import { searchHandlers } from "@/components/shared/Search";
 import Icon from "@/assets/logos/icon.png";
 import classes from "../Layout.module.css";
+import Bookmark from "../../Bookmark";
 
 const Header = ({ hideSearch }: any) => {
   const t = useTranslations();
@@ -84,6 +85,7 @@ const Header = ({ hideSearch }: any) => {
                   fill="var(--mantine-color-red-8)"
                 />
               </UnstyledButton>
+              <Bookmark />
               {/* <UnstyledButton
               component={Link}
               href="/downloads"
