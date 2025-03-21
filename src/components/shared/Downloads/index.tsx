@@ -111,11 +111,13 @@ const Downloads = ({ downloads, packageName }: any) => {
           />
         </SimpleGrid>
         <DownloadGraph
+          chartType="bar"
           data={data?.allDailyDownloads ?? []}
           type={CHART_DATE_TYPES.daily}
           title={t("daily_downloads")}
         />
         <DownloadGraph
+          chartType="bar"
           data={data?.weekly ?? []}
           type={CHART_DATE_TYPES.weekly}
           title={t("weekly_downloads")}
