@@ -40,8 +40,8 @@ export const LinksContainer = ({
     <Group gap={10} mb={{ base: 5, sm: 0 }}>
       <ActionIcon
         size="lg"
-        variant="light"
-        color="gray"
+        variant="outline"
+        color="red.8"
         title="Bookmark"
         onClick={bookmarkHandler}
       >
