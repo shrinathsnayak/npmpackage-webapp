@@ -19,9 +19,8 @@ export default function Loading() {
   useEffect(() => {
     start();
     scrollTo({ y: 0 });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => clear();
-  }, []);
+  }, [clear, scrollTo, start]);
 
   return (
     <Center mih="calc(100vh - 65px)">

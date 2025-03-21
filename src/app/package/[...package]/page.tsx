@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
 import {
   getOGPackageInfo,
   getPackageData,
@@ -7,16 +5,10 @@ import {
   getPackageVulnerabilities,
 } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
+import PageTabs from "@/components/packages/PackageTabs";
+import PackageContainer from "@/components/packages/PackageContainer";
 import JSONLD from "@/components/shared/JSONLD";
 import OGImage from "../../../../public/og.png";
-
-const PackageContainer = dynamic(
-  () => import("@/components/packages/PackageContainer"),
-  { ssr: true }
-);
-const PageTabs = dynamic(() => import("@/components/packages/PackageTabs"), {
-  ssr: true,
-});
 
 export async function generateMetadata(props: {
   params: Promise<{ package: [] }>;
@@ -68,19 +60,15 @@ export default async function Package(props: {
   return (
     <div>
       <JSONLD data={data} packageName={packageName} />
-      <Suspense fallback={<p>Loading package information...</p>}>
-        <PackageContainer
-          packageInfo={data || {}}
-          downloads={downloads?.data?.total || 0}
-        />
-      </Suspense>
-      <Suspense fallback={<p>Loading tabs...</p>}>
-        <PageTabs
-          packageInfo={data || {}}
-          downloads={downloads || {}}
-          vulnerabilities={vulnerabilities || {}}
-        />
-      </Suspense>
+      <PackageContainer
+        packageInfo={data || {}}
+        downloads={downloads?.data?.total || 0}
+      />
+      <PageTabs
+        packageInfo={data || {}}
+        downloads={downloads || {}}
+        vulnerabilities={vulnerabilities || {}}
+      />
     </div>
   );
 }

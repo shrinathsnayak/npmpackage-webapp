@@ -44,8 +44,8 @@ const AccordionContent = React.memo(({ reason, details }: any) => {
             Details
           </Text>
           <List size="sm" spacing="xs">
-            {details?.map((item: any) => (
-              <List.Item my={2} key={item}>
+            {details?.map((item: any, index: any) => (
+              <List.Item my={2} key={index}>
                 {item}
               </List.Item>
             ))}

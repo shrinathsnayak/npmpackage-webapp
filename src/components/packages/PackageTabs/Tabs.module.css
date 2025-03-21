@@ -1,4 +1,5 @@
 .tab {
+  padding: 8px 12px;
   &[data-active] {
     z-index: 1;
     border-color: transparent;

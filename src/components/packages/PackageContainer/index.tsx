@@ -37,7 +37,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
         </Title>
         <Box
           mb={{
-            base: 15,
+            base: 10,
             sm: 0,
           }}
         >
@@ -47,6 +47,15 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
             npm={npm?.name && `https://www.npmjs.com/package/${npm?.name}`}
             typesLink={npm?.types && `https://tsdocs.dev/docs/${npm?.name}/`}
             runKit={npm?.name && `https://npm.runkit.com/${npm?.name}`}
+            bookmarkObject={{
+              key: npm?.name,
+              package: {
+                name: npm?.name,
+                version: npm?.version,
+                description: github?.description,
+                bookmarkedOn: new Date().getTime(),
+              },
+            }}
           />
         </Box>
       </Flex>

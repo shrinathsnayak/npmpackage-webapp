@@ -107,11 +107,13 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
                 <Conditional
                   if={npm?.data?.dependencies?.dependencies?.totalCount > 0}
                 >
-                  (
-                  <AnimatedNumber
-                    value={npm?.data?.dependencies?.dependencies?.totalCount}
-                  />
-                  )
+                  <Box ml={6}>
+                    (
+                    <AnimatedNumber
+                      value={npm?.data?.dependencies?.dependencies?.totalCount}
+                    />
+                    )
+                  </Box>
                 </Conditional>
               }
             />

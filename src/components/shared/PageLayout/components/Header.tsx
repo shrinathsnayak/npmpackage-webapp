@@ -18,6 +18,7 @@ import { NPMPACKAGE_TITLE } from "@/constants";
 import { searchHandlers } from "@/components/shared/Search";
 import Icon from "@/assets/logos/icon.png";
 import classes from "../Layout.module.css";
+import Bookmark from "../../Bookmark";
 
 const Header = ({ hideSearch }: any) => {
   const t = useTranslations();
@@ -57,15 +58,18 @@ const Header = ({ hideSearch }: any) => {
                   <UnstyledButton
                     onClick={() => searchHandlers.open()}
                     className={classes.searchRoot}
+                    w={{ base: 200, sm: 250 }}
                   >
-                    <Group gap="xs">
-                      <IconSearch
-                        style={{ width: rem(15), height: rem(15) }}
-                        stroke={2}
-                      />
-                      <Text fz="sm" c="dimmed" pr={80}>
-                        {t("search")}
-                      </Text>
+                    <Group gap="xs" justify="space-between">
+                      <Group gap="xs">
+                        <IconSearch
+                          style={{ width: rem(15), height: rem(15) }}
+                          stroke={2}
+                        />
+                        <Text fz="sm" c="dimmed">
+                          {t("search")}
+                        </Text>
+                      </Group>
                       <Text fw={700} className={classes.shortcut}>
                         Ctrl + K
                       </Text>
@@ -84,6 +88,7 @@ const Header = ({ hideSearch }: any) => {
                   fill="var(--mantine-color-red-8)"
                 />
               </UnstyledButton>
+              <Bookmark />
               {/* <UnstyledButton
               component={Link}
               href="/downloads"
