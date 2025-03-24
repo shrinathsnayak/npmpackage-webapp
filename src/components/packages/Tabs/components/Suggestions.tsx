@@ -10,6 +10,7 @@ import { updatePopularPackageCount } from "@/services/supbase";
 import { removeSimilarByName } from "@/utils";
 import { DataItem } from "@/types/npm";
 import classes from "./Installation.module.css";
+import { EVENT_NAMES, track } from "@/utils/gaEvents";
 
 const Suggestions = ({ searchData, packageName = "" }: any) => {
   const t = useTranslations("overview");
@@ -31,7 +32,10 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
               href={`/package/${item?.name}`}
               scroll={false}
               shallow={true}
-              onClick={() => updatePopularPackageCount(item?.name)}
+              onClick={() => {
+                track(EVENT_NAMES.SIMILAR_PACKAGE_LINK, { value: item?.name });
+                updatePopularPackageCount(item?.name);
+              }}
             >
               <Paper
                 w="100%"

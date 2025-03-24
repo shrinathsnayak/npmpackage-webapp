@@ -1,5 +1,5 @@
 "use server";
-import { isDevelopment } from "@/utils";
+
 import { unstable_cache as cache } from "next/cache";
 import { generateAPIOptions } from "@/constants/services.constants";
 
@@ -17,7 +17,7 @@ import { generateAPIOptions } from "@/constants/services.constants";
 export const getPackageData = cache(async (packageName: string) => {
   try {
     if (packageName) {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const options = generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/package?q=${packageName}`,
         options
@@ -56,7 +56,7 @@ export const getPackageData = cache(async (packageName: string) => {
  */
 export const getPackageSecurityScore = cache(
   async (packageName: string, owner: string) => {
-    const options = isDevelopment ? {} : generateAPIOptions(packageName);
+    const options = generateAPIOptions(packageName);
     const res = await fetch(
       `${process.env.API_ENDPOINT}/package?owner=${owner}&repo=${packageName}`,
       options
@@ -80,7 +80,7 @@ export const getPackageSecurityScore = cache(
 export const searchPackage = cache(async (packageName: string) => {
   try {
     if (packageName) {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const options = generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/search?q=${packageName}`,
         options
@@ -109,7 +109,7 @@ export const searchPackage = cache(async (packageName: string) => {
 export const getPackageDownloads = cache(async (packageName: string) => {
   try {
     if (packageName) {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const options = generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}&getDailyDownloads=false`,
         options
@@ -148,7 +148,7 @@ export const packageDownloadStats = cache(
     if (!packageName) return;
 
     try {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const options = generateAPIOptions(packageName);
       const requestObj: Record<string, string> = { packageName };
 
       if (startDate) requestObj.startDate = startDate;
@@ -183,7 +183,7 @@ export const getPackageVulnerabilities = cache(
   async (packageName: string, version: string) => {
     try {
       if (packageName) {
-        const options = isDevelopment ? {} : generateAPIOptions(packageName);
+        const options = generateAPIOptions(packageName);
         const res = await fetch(
           `${process.env.API_ENDPOINT}/vulnerabilities?name=${packageName}&version=${version}`,
           options
@@ -214,7 +214,7 @@ export const getPackageVulnerabilities = cache(
 export const getOGPackageInfo = cache(async (packageName: string) => {
   try {
     if (packageName) {
-      const options = isDevelopment ? {} : generateAPIOptions(packageName);
+      const options = generateAPIOptions(packageName);
       const res = await fetch(
         `${process.env.API_ENDPOINT}/npm?project=${packageName}`,
         options

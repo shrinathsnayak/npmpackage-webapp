@@ -1,4 +1,5 @@
 import { DEFAULT_CACHE_HOUR } from "./index";
+import { isDevelopment } from "@/utils";
 
 /* The line `export const API_CACHE_IN_HOURS: number = 60 * 60 * 3;` is defining a constant variable
 `API_CACHE_IN_HOURS` with a value of `60 * 60 * 3`, which calculates to 10800. This constant is used
@@ -25,6 +26,9 @@ export const genereatePackageName = (packageName: []): string =>
  * properties.
  */
 export const generateAPIOptions = (tagName: string): object => {
+  if (!isDevelopment) {
+    return {};
+  }
   return {
     next: {
       revalidate: API_CACHE_IN_HOURS,

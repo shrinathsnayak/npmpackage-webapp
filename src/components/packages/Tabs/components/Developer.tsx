@@ -3,6 +3,7 @@ import Link from "next/link";
 import NextImage from "next/image";
 import { useTranslations } from "next-intl";
 import { Anchor, Flex, Image, Paper, Title } from "@mantine/core";
+import { EVENT_NAMES, track } from "@/utils/gaEvents";
 import OverviewCard from "@/components/shared/OverviewCard";
 import Conditional from "@/components/shared/Conditional";
 
@@ -29,6 +30,7 @@ const Developer = ({ avatar, owner, developerUrl }: any) => {
               target="_blank"
               href={developerUrl}
               underline="hover"
+              onClick={() => track(EVENT_NAMES.DEVELOPER_LINK_CLICK)}
             >
               {owner}
             </Anchor>

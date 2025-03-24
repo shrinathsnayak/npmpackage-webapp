@@ -11,6 +11,7 @@ import {
   Anchor,
 } from "@mantine/core";
 import { useBookmark } from "./useBookmark";
+import { EVENT_NAMES, track } from "@/utils/gaEvents";
 
 const Bookmarks = ({ opened, onClose }: any) => {
   const { value, removeBookmark } = useBookmark();
@@ -45,12 +46,20 @@ const Bookmarks = ({ opened, onClose }: any) => {
                 underline="hover"
                 key={bookmark.key}
                 href={`/package/${bookmark.key}`}
+                onClick={() => track(EVENT_NAMES.CLICK_SAVED_BOOKMARK)}
               >
                 <Title order={4} lineClamp={1}>
                   {bookmark.package.name}
                 </Title>
               </Anchor>
-              <CloseButton onClick={() => removeBookmark(bookmark.key)} />
+              <CloseButton
+                onClick={() => {
+                  track(EVENT_NAMES.UNBOOKMARK, {
+                    value: bookmark.key,
+                  });
+                  removeBookmark(bookmark.key);
+                }}
+              />
             </Group>
             <Text mb={2} fz="xs" c="dimmed">
               {bookmark.package.version}

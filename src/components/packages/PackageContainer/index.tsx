@@ -37,7 +37,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
         </Title>
         <Box
           mb={{
-            base: 10,
+            base: 0,
             sm: 0,
           }}
         >
