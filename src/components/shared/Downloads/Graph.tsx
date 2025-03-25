@@ -78,8 +78,6 @@ const DownloadGraph = ({
         data={data}
         dataKey="day"
         strokeWidth={2}
-        withDots={false}
-        curveType="linear"
         gridColor="gray.1"
         fillOpacity={0.51}
         tooltipAnimationDuration={200}
@@ -117,6 +115,10 @@ const DownloadGraph = ({
             compactDisplay: "short",
           })
         }
+        {...(chartType === "area" && {
+          withDots: false,
+          curveType: "linear",
+        })}
       />
     </Paper>
   );
