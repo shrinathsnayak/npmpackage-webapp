@@ -35,8 +35,8 @@ function ChartTooltip({ label, payload, type }: ChartTooltipProps) {
   };
 
   return (
-    <Paper px="md" py="sm" shadow="md" radius="md" bg="dark.7" withBorder>
-      <Text fw={500} mb={5} fz="lg" c="white">
+    <Paper px="md" py="sm" shadow="md" radius="md" bg="dark.9" withBorder>
+      <Text fw={500} mb={5} fz="sm" c="white">
         {labelMapping[type] ||
           format.dateTime(date, {
             year: "numeric",

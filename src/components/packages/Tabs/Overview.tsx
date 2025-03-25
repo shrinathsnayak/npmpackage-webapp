@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Flex, lighten } from "@mantine/core";
 import Conditional from "@/components/shared/Conditional";
 import Installations from "@/components/packages/Tabs/components/Installations";
-import Collaborators from "@/components/packages/Tabs/components/Collaborators";
 import Languages from "@/components/packages/Tabs/components/Languages";
 import Releases from "@/components/packages/Tabs/components/Releases";
 import Size from "@/components/packages/Tabs/components/Size";
@@ -53,13 +52,6 @@ const Overview = ({ packageInfo, downloads }: any) => {
         <Releases
           releases={gitHub?.releases}
           repositoryUrl={gitHub?.repositoryUrl}
-        />
-        <Collaborators
-          contributorsCount={
-            gitHub?.contributorsCount || npm?.collaborators?.length
-          }
-          contributors={gitHub?.contributors || npm?.collaborators || []}
-          repositoryUrl={gitHub?.repositoryUrl || ""}
         />
         <Conditional if={gitHub && gitHub?.languages?.length > 0}>
           <Languages languages={gitHub?.languages} />

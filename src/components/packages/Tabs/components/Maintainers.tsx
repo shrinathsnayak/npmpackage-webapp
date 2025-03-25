@@ -1,10 +1,18 @@
 import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { Avatar, Flex, Paper, Tooltip } from "@mantine/core";
+import { useTranslations, useFormatter } from "next-intl";
+import { Anchor, Avatar, Box, Flex, Paper, Tooltip, Text } from "@mantine/core";
 import OverviewCard from "@/components/shared/OverviewCard";
+import Conditional from "@/components/shared/Conditional";
 
-const Maintainers = ({ maintainers }: any) => {
+const Maintainers = ({
+  maintainers,
+  contributorsCount,
+  repositoryUrl,
+}: any) => {
   const t = useTranslations("overview");
+  const format = useFormatter();
+  const contributorCountValue = format.number(contributorsCount);
+
   return (
     <OverviewCard title={t("maintainers")} badge={maintainers?.length}>
       <Paper p="lg" radius="md" bg="dark.7" shadow="sm" withBorder>
@@ -31,6 +39,20 @@ const Maintainers = ({ maintainers }: any) => {
               ))}
           </Flex>
         </Tooltip.Group>
+        <Conditional if={repositoryUrl && contributorsCount > 0}>
+          <Box mt={15}>
+            <Anchor
+              display="inline-block"
+              component={Link}
+              href={`${repositoryUrl}/contributors`}
+              target="_blank"
+            >
+              <Text fz="sm">
+                {t("view_all_contributors", { value: contributorCountValue })}
+              </Text>
+            </Anchor>
+          </Box>
+        </Conditional>
       </Paper>
     </OverviewCard>
   );

@@ -14,6 +14,7 @@ import { useClipboard } from "@mantine/hooks";
 import { IconDownload, IconShare2 } from "@tabler/icons-react";
 import { downloadDivAsImage } from "@/utils";
 import { CHART_DATE_TYPES } from "@/constants";
+import { AreaChart } from "@mantine/charts";
 
 const AnalyticsCard = dynamic(() => import("./AnalyticsCard"), { ssr: true });
 const DownloadGraph = dynamic(() => import("./Graph"), { ssr: true });
@@ -111,13 +112,11 @@ const Downloads = ({ downloads, packageName }: any) => {
           />
         </SimpleGrid>
         <DownloadGraph
-          chartType="bar"
           data={data?.allDailyDownloads ?? []}
           type={CHART_DATE_TYPES.daily}
           title={t("daily_downloads")}
         />
         <DownloadGraph
-          chartType="bar"
           data={data?.weekly ?? []}
           type={CHART_DATE_TYPES.weekly}
           title={t("weekly_downloads")}
