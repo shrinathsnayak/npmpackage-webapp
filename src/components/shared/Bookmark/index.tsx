@@ -2,8 +2,9 @@ import { rem, UnstyledButton, Indicator } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconBookmarkFilled } from "@tabler/icons-react";
 import { useBookmark } from "./useBookmark";
-import classes from "../PageLayout/Layout.module.css";
+import { EVENT_NAMES, track } from "@/utils/gaEvents";
 import Bookmarks from "./Bookmarks";
+import classes from "../PageLayout/Layout.module.css";
 
 const Bookmark = () => {
   const { value } = useBookmark();
@@ -19,7 +20,10 @@ const Bookmark = () => {
         disabled={value.length <= 0}
       >
         <UnstyledButton
-          onClick={() => handlers.open()}
+          onClick={() => {
+            track(EVENT_NAMES.VIEW_BOOKMARK);
+            handlers.open();
+          }}
           className={classes.mobilecontrol}
         >
           <IconBookmarkFilled

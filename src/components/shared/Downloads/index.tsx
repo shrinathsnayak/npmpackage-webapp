@@ -110,14 +110,12 @@ const Downloads = ({ downloads, packageName }: any) => {
             description={t("compared_to_previous_year")}
           />
         </SimpleGrid>
-        <DownloadGraph
-          chartType="bar"
+        {/* <DownloadGraph
           data={data?.allDailyDownloads ?? []}
           type={CHART_DATE_TYPES.daily}
           title={t("daily_downloads")}
-        />
+        /> */}
         <DownloadGraph
-          chartType="bar"
           data={data?.weekly ?? []}
           type={CHART_DATE_TYPES.weekly}
           title={t("weekly_downloads")}

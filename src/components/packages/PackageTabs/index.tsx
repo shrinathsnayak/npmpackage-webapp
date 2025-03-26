@@ -16,6 +16,7 @@ import Vulnerabilities from "@/components/packages/Tabs/components/vulnerabiliti
 import Downloads from "@/components/shared/Downloads";
 import ErrorBoundary from "@/components/shared/ErrorBoundary";
 import classes from "./Tabs.module.css";
+import { EVENT_NAMES, track } from "@/utils/gaEvents";
 
 const MemoizedDownloads = memo(Downloads);
 
@@ -46,6 +47,9 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   );
 
   const redirectToSelectedTab = (tabName: string) => {
+    track(EVENT_NAMES.TABS_CHANGE, {
+      value: tabName,
+    });
     redirectToTab(tabName);
   };
 

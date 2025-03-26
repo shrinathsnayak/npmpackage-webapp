@@ -2,7 +2,6 @@ import React from "react";
 import { emojify } from "node-emoji";
 import { Box, Title, Flex, Text } from "@mantine/core";
 import { LinksContainer } from "./LinksContainer";
-import classes from "@/components/shared/PageLayout/Layout.module.css";
 import Tags from "./Tags";
 
 const PackageContainer = ({ packageInfo, downloads }: any) => {
@@ -37,7 +36,7 @@ const PackageContainer = ({ packageInfo, downloads }: any) => {
         </Title>
         <Box
           mb={{
-            base: 10,
+            base: 0,
             sm: 0,
           }}
         >

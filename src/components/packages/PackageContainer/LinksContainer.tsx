@@ -14,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 import Conditional from "@/components/shared/Conditional";
 import { useBookmark } from "@/components/shared/Bookmark/useBookmark";
+import { EVENT_NAMES, track } from "@/utils/gaEvents";
 
 export const LinksContainer = ({
   homePage,
@@ -31,6 +32,9 @@ export const LinksContainer = ({
   );
 
   const bookmarkHandler = useCallback(() => {
+    track(bookmarked ? EVENT_NAMES.UNBOOKMARK : EVENT_NAMES.BOOKMARK, {
+      value: bookmarkObject.key,
+    });
     return bookmarked
       ? removeBookmark(bookmarkObject.key)
       : addBookmark(bookmarkObject);
@@ -60,6 +64,7 @@ export const LinksContainer = ({
           component={Link}
           href={homePage}
           target="_blank"
+          onClick={() => track(EVENT_NAMES.WEBSITE_LINK)}
         >
           <IconWorld size={18} />
         </ActionIcon>
@@ -73,6 +78,7 @@ export const LinksContainer = ({
           component={Link}
           href={github}
           target="_blank"
+          onClick={() => track(EVENT_NAMES.GITHUB_LINK)}
         >
           <IconBrandGithub size={18} />
         </ActionIcon>
@@ -86,6 +92,7 @@ export const LinksContainer = ({
           component={Link}
           href={npm}
           target="_blank"
+          onClick={() => track(EVENT_NAMES.NPM_LINK)}
         >
           <IconBrandNpm size={18} />
         </ActionIcon>
@@ -99,6 +106,7 @@ export const LinksContainer = ({
           component={Link}
           href={runKit}
           target="_blank"
+          onClick={() => track(EVENT_NAMES.RUNKIT_LINK)}
         >
           <IconPlayerPlayFilled size={18} />
         </ActionIcon>
