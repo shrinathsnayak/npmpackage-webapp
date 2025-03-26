@@ -13,8 +13,6 @@ import {
   IconBookmarkFilled,
 } from "@tabler/icons-react";
 import Conditional from "@/components/shared/Conditional";
-import { useBookmark } from "@/components/shared/Bookmark/useBookmark";
-import { EVENT_NAMES, track } from "@/utils/gaEvents";
 
 export const LinksContainer = ({
   homePage,
@@ -24,22 +22,6 @@ export const LinksContainer = ({
   runKit,
   bookmarkObject,
 }: any) => {
-  const { addBookmark, isBookmarked, removeBookmark } = useBookmark();
-
-  const bookmarked = useMemo(
-    () => isBookmarked(bookmarkObject.key),
-    [bookmarkObject, isBookmarked]
-  );
-
-  const bookmarkHandler = useCallback(() => {
-    track(bookmarked ? EVENT_NAMES.UNBOOKMARK : EVENT_NAMES.BOOKMARK, {
-      value: bookmarkObject.key,
-    });
-    return bookmarked
-      ? removeBookmark(bookmarkObject.key)
-      : addBookmark(bookmarkObject);
-  }, [bookmarked, bookmarkObject, addBookmark, removeBookmark]);
-
   return (
     <Group gap={10} mb={{ base: 5, sm: 0 }}>
       <ActionIcon
