@@ -30,8 +30,8 @@ const ActionsCard = ({ data, link }: any) => {
           </Title>
         </Box>
         <ActionIcon
-          variant="light"
-          color="gray"
+          variant="filled"
+          color="dark.9"
           component={Link}
           href={link}
           target="_blank"
