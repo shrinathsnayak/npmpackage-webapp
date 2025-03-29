@@ -12,14 +12,15 @@ import OGImage from "../../../../public/og.png";
 
 export async function generateMetadata(props: {
   params: Promise<{ package: [] }>;
-  searchParams: Promise<any>;
+  isNotFound: boolean;
 }) {
-  const searchParams = await props.searchParams;
   const params = await props.params;
   const { package: packages } = params;
+  const notFound = await props.isNotFound;
   const packageName = genereatePackageName(packages);
   const packageData = await getOGPackageInfo(packageName);
-  const hasSearchParams = !!searchParams?.t;
+
+  if (notFound) return null;
 
   return {
     title: `${packageName} - ${packageData?.data?.version}`,
@@ -35,8 +36,7 @@ export async function generateMetadata(props: {
     },
     metadataBase: new URL(
       `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`
-    ),
-    // robots: hasSearchParams ? "noindex, follow" : "index, follow",
+    )
   };
 }
 
