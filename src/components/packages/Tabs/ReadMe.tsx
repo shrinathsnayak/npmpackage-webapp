@@ -11,7 +11,7 @@ const ReadMe = ({ data, gitHub }: any) => {
 
   return (
     <Suspense fallback={<>loading...</>}>
-      <Paper p="lg" radius="md" bg="dark.7" shadow="sm" c="white" withBorder>
+      <Paper p={0} bg="dark.9" c="white">
         <MDX content={data} owner={owner} name={name} branch={defaultBranch} />
       </Paper>
     </Suspense>
