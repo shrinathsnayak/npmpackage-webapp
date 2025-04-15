@@ -36,7 +36,7 @@ export async function generateMetadata(props: {
     },
     metadataBase: new URL(
       `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`
-    )
+    ),
   };
 }
 

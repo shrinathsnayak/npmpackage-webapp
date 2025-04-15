@@ -26,6 +26,7 @@ const Suggestions = ({ searchData, packageName = "" }: any) => {
         >
           {data?.map((item: DataItem) => (
             <Anchor
+              prefetch={false}
               key={item?.name}
               component={Link}
               underline="never"

@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { ActionIcon, Button, Flex, Text, Textarea, TextInput } from "@mantine/core";
+import {
+  ActionIcon,
+  Button,
+  Flex,
+  Text,
+  Textarea,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { SCORE_VALUES } from "./constants";
 
@@ -21,14 +28,14 @@ const Form = ({ formSubmit }: any) => {
         !value
           ? null
           : /^\S+@\S+$/.test(value?.trim())
-            ? null
-            : t("error.invalid_email"),
+          ? null
+          : t("error.invalid_email"),
       message: (value: string) =>
         value.trim().length === 0
           ? t("error.message.required")
           : value.length < 5
-            ? t("error.message.short")
-            : null,
+          ? t("error.message.short")
+          : null,
     },
     transformValues(values: any) {
       return {
