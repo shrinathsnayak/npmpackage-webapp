@@ -5,7 +5,7 @@
       "phases": {
         "install": {
           "dependsOn": ["setup"],
-          "cmds": ["npm install --force"]
+          "cmds": ["npm install --force --include=optional sharp"]
         }
       }
     }
