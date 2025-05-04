@@ -8,6 +8,7 @@ import { IconTrendingUp } from "@tabler/icons-react";
 import { updatePopularPackageCount } from "@/services/supbase";
 
 const PopularPackages = ({ popularPackages }: any) => {
+  console.log(process.env.API_ENDPOINT)
   const t = useTranslations();
   return (
     <Center>
@@ -29,6 +30,7 @@ const PopularPackages = ({ popularPackages }: any) => {
             key={item?.package_id}
             onClick={() => updatePopularPackageCount(item?.package_id)}
             href={`/package/${item?.package_id}`}
+            prefetch={false}
           >
             <Text fw={500}>{item?.package_id}</Text>
           </Anchor>
