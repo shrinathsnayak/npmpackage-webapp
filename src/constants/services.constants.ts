@@ -26,7 +26,7 @@ export const genereatePackageName = (packageName: []): string =>
  * properties.
  */
 export const generateAPIOptions = (tagName: string): object => {
-  if (!isDevelopment) {
+  if (isDevelopment) {
     return {};
   }
   return {

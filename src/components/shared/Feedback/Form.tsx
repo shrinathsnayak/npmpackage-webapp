@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { ActionIcon, Button, Flex, Text, Textarea } from "@mantine/core";
+import {
+  ActionIcon,
+  Button,
+  Flex,
+  Text,
+  Textarea,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { SCORE_VALUES } from "./constants";
 
@@ -13,7 +20,7 @@ const Form = ({ formSubmit }: any) => {
     initialValues: {
       message: "",
       score: null,
-      email: null,
+      email: "",
       url: window.location.href,
     },
     validate: {
@@ -76,6 +83,15 @@ const Form = ({ formSubmit }: any) => {
           maxRows={10}
           placeholder={t("placeholder")}
           {...form.getInputProps("message")}
+        />
+        <TextInput
+          size="md"
+          type="email"
+          label="Email Address (Optional)"
+          description="Your email may be used to contact you for clarification if needed."
+          placeholder="Enter your email address (Optional)"
+          inputWrapperOrder={["label", "input", "description", "error"]}
+          {...form.getInputProps("email")}
         />
         <Button type="submit" fullWidth color="red.8" size="md">
           {loading ? t("submitting") : t("submit")} {t("title")}

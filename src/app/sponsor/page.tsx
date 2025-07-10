@@ -43,7 +43,7 @@ export default async function Sponsor() {
           <Text c="white" size="md">
             If you are interested in sponsoring npmpackage.info, please reach
             out to us at{" "}
-            <a href="mailto:admin@kickstart.sh">admin@kickstart.sh</a>
+            <a href="mailto:sponsor@npmpackage.info">sponsor@npmpackage.info</a>
           </Text>
           <Text c="white" size="md" mt={10}>
             Let’s collaborate to build the future of npm package insights.
