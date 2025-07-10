@@ -14,34 +14,44 @@ import { generateAPIOptions } from "@/constants/services.constants";
  * response is not valid JSON. If there is an error during the fetch process or if the package name is
  * not provided, it throws an error with the corresponding message.
  */
-export const getPackageData = cache(async (packageName: string) => {
-  try {
-    if (packageName) {
-      const options = generateAPIOptions(packageName);
-      const res = await fetch(
-        `${process.env.API_ENDPOINT}/package?q=${packageName}`,
-        options
-      );
+export const getPackageData = cache(
+  async (packageName: string) => {
+    try {
+      if (packageName) {
+        const res = await fetch(
+          `${
+            process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3005"
+          }/api/package?q=${packageName}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-      if (!res.ok) {
-        throw new Error(`Failed to fetch data: ${res.statusText}`);
-      }
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          throw new Error(
+            errorData.error || `Failed to fetch data: ${res.statusText}`
+          );
+        }
 
-      const contentType = res.headers.get("content-type");
-      if (contentType && contentType.includes("application/json")) {
         return await res.json();
       } else {
-        const text = await res.text();
-        throw new Error(`Response is not valid JSON: ${text}`);
+        throw new Error("Package name is required");
       }
-    } else {
-      throw new Error("Package name is required");
+    } catch (err) {
+      console.error("Error fetching package data:", err);
+      throw err;
     }
-  } catch (err) {
-    console.error("Error fetching package data:", err);
-    throw err;
+  },
+  ["package-data"],
+  {
+    revalidate: 300, // 5 minutes
+    tags: ["package-data"],
   }
-});
+);
 
 /**
  * The function `getPackageSecurityScore` fetches security score data for a specified package owned by
@@ -67,6 +77,11 @@ export const getPackageSecurityScore = cache(
     }
 
     return res.json();
+  },
+  ["security-score"],
+  {
+    revalidate: 600, // 10 minutes
+    tags: ["security-score"],
   }
 );
 
@@ -77,25 +92,32 @@ export const getPackageSecurityScore = cache(
  * @returns The `searchPackage` function returns a Promise that resolves to the JSON data fetched from
  * the API endpoint for the specified package name.
  */
-export const searchPackage = cache(async (packageName: string) => {
-  try {
-    if (packageName) {
-      const options = generateAPIOptions(packageName);
-      const res = await fetch(
-        `${process.env.API_ENDPOINT}/search?q=${packageName}`,
-        options
-      );
+export const searchPackage = cache(
+  async (packageName: string) => {
+    try {
+      if (packageName) {
+        const options = generateAPIOptions(packageName);
+        const res = await fetch(
+          `${process.env.API_ENDPOINT}/search?q=${packageName}`,
+          options
+        );
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        return res.json();
       }
-
-      return res.json();
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error(err);
+  },
+  ["search-package"],
+  {
+    revalidate: 180, // 3 minutes
+    tags: ["search-package"],
   }
-});
+);
 
 /**
  * The function `getPackageDownloads` fetches download data for a specified package name using an API
@@ -106,25 +128,32 @@ export const searchPackage = cache(async (packageName: string) => {
  * of JSON data if the request is successful. If there is an error during the fetch operation or if the
  * package name is not provided, the function will log the error to the console.
  */
-export const getPackageDownloads = cache(async (packageName: string) => {
-  try {
-    if (packageName) {
-      const options = generateAPIOptions(packageName);
-      const res = await fetch(
-        `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}&getDailyDownloads=false`,
-        options
-      );
+export const getPackageDownloads = cache(
+  async (packageName: string) => {
+    try {
+      if (packageName) {
+        const options = generateAPIOptions(packageName);
+        const res = await fetch(
+          `${process.env.API_ENDPOINT}/downloads?packageName=${packageName}&getDailyDownloads=false`,
+          options
+        );
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        return res.json();
       }
-
-      return res.json();
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error(err);
+  },
+  ["package-downloads"],
+  {
+    revalidate: 300, // 5 minutes
+    tags: ["package-downloads"],
   }
-});
+);
 
 /**
  * This TypeScript function fetches download statistics for a specified package within a given date
@@ -148,7 +177,6 @@ export const packageDownloadStats = cache(
     if (!packageName) return;
 
     try {
-      const options = generateAPIOptions(packageName);
       const requestObj: Record<string, string> = { packageName };
 
       if (startDate) requestObj.startDate = startDate;
@@ -156,18 +184,31 @@ export const packageDownloadStats = cache(
       const searchQuery = new URLSearchParams(requestObj);
 
       const response = await fetch(
-        `${process.env.API_ENDPOINT}/downloads?${searchQuery}`,
-        options
+        `${
+          process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3005"
+        }/api/downloads?${searchQuery}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       if (!response.ok) {
-        throw new Error("Failed to fetch data");
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || "Failed to fetch data");
       }
 
       return await response.json();
     } catch (error) {
       console.error("Error fetching package download stats:", error);
     }
+  },
+  ["download-stats"],
+  {
+    revalidate: 300, // 5 minutes
+    tags: ["download-stats"],
   }
 );
 
@@ -198,6 +239,11 @@ export const getPackageVulnerabilities = cache(
     } catch (err) {
       console.error(err);
     }
+  },
+  ["vulnerabilities"],
+  {
+    revalidate: 900, // 15 minutes
+    tags: ["vulnerabilities"],
   }
 );
 
@@ -211,23 +257,30 @@ export const getPackageVulnerabilities = cache(
  * data is returned. If there is an error during the fetch operation, an error message is logged to the
  * console and the error is rethrown.
  */
-export const getOGPackageInfo = cache(async (packageName: string) => {
-  try {
-    if (packageName) {
-      const options = generateAPIOptions(packageName);
-      const res = await fetch(
-        `${process.env.API_ENDPOINT}/npm?project=${packageName}`,
-        options
-      );
+export const getOGPackageInfo = cache(
+  async (packageName: string) => {
+    try {
+      if (packageName) {
+        const options = generateAPIOptions(packageName);
+        const res = await fetch(
+          `${process.env.API_ENDPOINT}/npm?project=${packageName}`,
+          options
+        );
 
-      if (!res.ok) {
-        throw new Error(`Failed to fetch data: ${res.statusText}`);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch data: ${res.statusText}`);
+        }
+
+        return await res.json();
       }
-
-      return await res.json();
+    } catch (err) {
+      console.error("Error fetching package data:", err);
+      throw err;
     }
-  } catch (err) {
-    console.error("Error fetching package data:", err);
-    throw err;
+  },
+  ["og-package-info"],
+  {
+    revalidate: 600, // 10 minutes
+    tags: ["og-package-info"],
   }
-});
+);
