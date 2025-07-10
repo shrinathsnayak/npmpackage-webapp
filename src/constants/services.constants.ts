@@ -27,7 +27,12 @@ export const genereatePackageName = (packageName: []): string =>
  */
 export const generateAPIOptions = (tagName: string): object => {
   if (isDevelopment) {
-    return {};
+    return {
+      next: {
+        revalidate: 60, // 1 minute in development
+        tags: [tagName],
+      },
+    };
   }
   return {
     next: {
