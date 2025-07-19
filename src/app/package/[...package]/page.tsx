@@ -4,7 +4,6 @@ import {
   getGitHubData,
   getVulnerabilityData,
   getVulnerabilityScoreData,
-  getSecurityScanData,
   getPackageDownloads,
 } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
@@ -61,14 +60,12 @@ export default async function Package(props: {
 
   const [owner, repo] = matchGithubRepo(npmData);
   // Fetch additional data in parallel
-  const [githubData, vulnerabilityData, vulnerabilityScoreData, scanData] = await Promise.allSettled([
+  const [githubData, vulnerabilityData, vulnerabilityScoreData] = await Promise.allSettled([
     getGitHubData(packageName, owner || undefined, repo || undefined),
     getVulnerabilityData(packageName, npmData?.data?.version),
     getVulnerabilityScoreData(packageName, npmData?.data?.version),
-    getSecurityScanData(packageName, owner || undefined, repo || undefined),
   ]);
 
-  // Combine vulnerability score data with vulnerability data
   const vulnerabilityScore = vulnerabilityScoreData.status === "fulfilled" ? vulnerabilityScoreData.value : null;
   const vulnerabilities = vulnerabilityData.status === "fulfilled" ? vulnerabilityData.value : null;
 
@@ -91,7 +88,6 @@ export default async function Package(props: {
     gitHub: githubData.status === "fulfilled" ? githubData.value : null,
     vulnerabilities: vulnerabilities,
     vulnerabilityScore: vulnerabilityScore,
-    scan: scanData.status === "fulfilled" ? scanData.value : null,
   };
 
   return (

@@ -50,6 +50,15 @@ export async function GET(
   { params }: { params: Promise<{ path: string[] }> }
 ) {
   try {
+    // Validate API_ENDPOINT environment variable
+    if (!process.env.API_ENDPOINT) {
+      console.error("API_ENDPOINT environment variable is not configured");
+      return NextResponse.json(
+        { error: "Backend API endpoint not configured" },
+        { status: HTTP_STATUS.INTERNAL_SERVER_ERROR }
+      );
+    }
+
     const { searchParams } = new URL(request.url);
     const resolvedParams = await params;
     const path = resolvedParams.path.join("/");

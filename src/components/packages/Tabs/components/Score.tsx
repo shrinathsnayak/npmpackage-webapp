@@ -17,7 +17,7 @@ import { IconInfoCircle } from "@tabler/icons-react";
 
 const RenderScoreBreakup = ({ component, vulnerabilityCount, vulnerabilities }: any) => {
   return (
-    <Flex direction="column" gap={8}>
+    <Flex direction="column" gap={1}>
       {component &&
         Object.keys(component)?.map((item: any) => (
           <Conditional if={item} key={item}>
@@ -31,26 +31,6 @@ const RenderScoreBreakup = ({ component, vulnerabilityCount, vulnerabilities }: 
             </Flex>
           </Conditional>
         ))}
-
-      {/* Show vulnerability summary if available */}
-      <Conditional if={vulnerabilityCount && vulnerabilityCount > 0}>
-        <Box pt={8} style={{ borderTop: '1px solid var(--mantine-color-dark-4)' }}>
-          <Text fw={500} fz="sm" c="red.6" mb={4}>
-            Vulnerabilities Found: {vulnerabilityCount}
-          </Text>
-          {vulnerabilities && (
-            <Flex direction="column" gap={4}>
-              {Object.entries(vulnerabilities).map(([severity, vulns]: [string, any]) => (
-                <Conditional key={severity} if={Array.isArray(vulns) && vulns.length > 0}>
-                  <Text fz="xs" c="dimmed">
-                    {severity}: {vulns.length} {vulns.length === 1 ? 'issue' : 'issues'}
-                  </Text>
-                </Conditional>
-              ))}
-            </Flex>
-          )}
-        </Box>
-      </Conditional>
     </Flex>
   );
 };
@@ -94,20 +74,20 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip, vulnerabili
             {vulnerabilityCount} {vulnerabilityCount === 1 ? 'vulnerability' : 'vulnerabilities'}
           </Text>
         </Conditional> */}
-        {/* <Conditional if={tooltip}> */}
-        <Tooltip
-          multiline
-          withArrow
-          maw={300}
-          color="dark.8"
-          radius="md"
-          p={12}
-          fz="xs"
-          label={tooltip}
-        >
-          <IconInfoCircle size={20} />
-        </Tooltip>
-        {/* </Conditional> */}
+        <Conditional if={tooltip}>
+          <Tooltip
+            multiline
+            withArrow
+            maw={300}
+            color="dark.8"
+            radius="md"
+            p={12}
+            fz="xs"
+            label={tooltip}
+          >
+            <IconInfoCircle size={20} />
+          </Tooltip>
+        </Conditional>
       </Flex>
     </Flex>
   );

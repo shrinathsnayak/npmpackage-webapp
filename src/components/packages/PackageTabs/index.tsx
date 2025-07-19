@@ -10,7 +10,6 @@ import Conditional from "@/components/shared/Conditional";
 import AnimatedNumber from "@/components/shared/AnimatedNumber";
 import Overview from "@/components/packages/Tabs/Overview";
 import ReadMe from "@/components/packages/Tabs/ReadMe";
-import Security from "@/components/packages/Tabs/Security";
 import Dependencies from "@/components/packages/Tabs/Dependencies";
 import Vulnerabilities from "@/components/packages/Tabs/components/vulnerabilities";
 import Downloads from "@/components/shared/Downloads";
@@ -19,8 +18,6 @@ import classes from "./Tabs.module.css";
 import { EVENT_NAMES, track } from "@/utils/gaEvents";
 
 const MemoizedDownloads = memo(Downloads);
-
-const MemoizedSecurity = memo(Security);
 
 const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
   const router = useRouter();
@@ -59,7 +56,6 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     ["3", () => redirectToSelectedTab("downloads")],
     ["4", () => redirectToSelectedTab("dependencies")],
     ["5", () => redirectToSelectedTab("vulnerabilities")],
-    // ["6", () => redirectToSelectedTab("scorecard")],
   ]);
 
   const HotKeys = ({
@@ -125,9 +121,6 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           <Tabs.Tab size="xs" c="white" value="vulnerabilities">
             <HotKeys value="5" label={t("vulnerabilities")} />
           </Tabs.Tab>
-          {/* <Tabs.Tab size="xs" c="white" value="scorecard">
-            <HotKeys value="6" label={t("scorecard")} />
-          </Tabs.Tab> */}
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20} pb={0}>
@@ -162,12 +155,6 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
             <Vulnerabilities vulnerabilities={vulnerabilities} />
           </ErrorBoundary>
         </Tabs.Panel>
-
-        {/* <Tabs.Panel value={TABS.scorecard.value} py={20} pb={5}>
-          <ErrorBoundary>
-            <MemoizedSecurity packageInfo={securityScore?.data} />
-          </ErrorBoundary>
-        </Tabs.Panel> */}
       </Tabs>
     </Box>
   );
