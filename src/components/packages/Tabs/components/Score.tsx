@@ -84,30 +84,30 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip, vulnerabili
           </Text>
         }
       />
-      <Flex gap={4} align="center" justify="center" direction="column">
+      <Flex gap={4} align="center" justify="center" direction="row">
         <Text fz="sm" fw={400} ta="center" c="white">
           {name}
         </Text>
         {/* Show vulnerability count if available */}
-        <Conditional if={vulnerabilityCount && vulnerabilityCount > 0}>
+        {/* <Conditional if={vulnerabilityCount && vulnerabilityCount > 0}>
           <Text fz="xs" c="red.6" fw={500}>
             {vulnerabilityCount} {vulnerabilityCount === 1 ? 'vulnerability' : 'vulnerabilities'}
           </Text>
-        </Conditional>
-        <Conditional if={tooltip}>
-          <Tooltip
-            multiline
-            withArrow
-            maw={300}
-            color="dark.8"
-            radius="md"
-            p={12}
-            fz="xs"
-            label={tooltip}
-          >
-            <IconInfoCircle size={20} />
-          </Tooltip>
-        </Conditional>
+        </Conditional> */}
+        {/* <Conditional if={tooltip}> */}
+        <Tooltip
+          multiline
+          withArrow
+          maw={300}
+          color="dark.8"
+          radius="md"
+          p={12}
+          fz="xs"
+          label={tooltip}
+        >
+          <IconInfoCircle size={20} />
+        </Tooltip>
+        {/* </Conditional> */}
       </Flex>
     </Flex>
   );
