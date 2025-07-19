@@ -204,6 +204,42 @@ export const removeSimilarByName = (
 };
 
 /**
+ * The `matchGithubRepo` function extracts owner and repository name from GitHub URLs found in package information.
+ * @param {any} info - The package information object that may contain repositoryUrl or homepage
+ * @returns A tuple containing [owner, repo] or [null, null] if no valid GitHub URL is found
+ */
+export const matchGithubRepo = (info: any): [string, string] | [null, null] => {
+  const maybeLink = info?.data?.repositoryUrl || info?.data?.homepage;
+  if (!maybeLink) {
+    console.error(`Cannot find repository or homepage for ${info.name}`);
+    return [null, null];
+  }
+  {
+    const regex = /git(?:\+https|\+ssh)?:\/\/(?:git@)?github\.com\/(.*)\.git/;
+    const match = maybeLink.match(regex);
+    if (match) {
+      const path = match[1]?.replace(/\.git$/, "");
+      const parts = path.split("/");
+      if (parts.length >= 2) {
+        return [parts[0], parts[1]];
+      }
+    }
+  }
+  {
+    const regex = /https:\/\/github\.com\/(.*)/;
+    const match = maybeLink.match(regex);
+    if (match) {
+      const path = match[1]?.replace(/\.git$/, "");
+      const parts = path.split("/");
+      if (parts.length >= 2) {
+        return [parts[0], parts[1]];
+      }
+    }
+  }
+  return [null, null];
+};
+
+/**
  * The function `downloadDivAsImage` downloads a specified HTML element as an image with customizable
  * options.
  * @param {any} cardRef - The `cardRef` parameter is a reference to the DOM element that you want to

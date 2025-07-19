@@ -8,7 +8,6 @@ import { IconTrendingUp } from "@tabler/icons-react";
 import { updatePopularPackageCount } from "@/services/supbase";
 
 const PopularPackages = ({ popularPackages }: any) => {
-  console.log(process.env.API_ENDPOINT);
   const t = useTranslations();
   return (
     <Center>

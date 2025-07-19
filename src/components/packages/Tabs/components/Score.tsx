@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import {
+  Box,
   Flex,
   Paper,
   RingProgress,
@@ -14,25 +15,47 @@ import { VULNERABILITY } from "@/constants";
 import { breakCamelCase, getScoreTextColor } from "@/utils";
 import { IconInfoCircle } from "@tabler/icons-react";
 
-const RenderScoreBreakup = ({ component }: any) => {
+const RenderScoreBreakup = ({ component, vulnerabilityCount, vulnerabilities }: any) => {
   return (
-    component &&
-    Object.keys(component)?.map((item: any) => (
-      <Conditional if={item} key={item}>
-        <Flex align="center" gap={20} justify="space-between">
-          <Text fw={500} fz="sm">
-            {breakCamelCase(item)}
+    <Flex direction="column" gap={8}>
+      {component &&
+        Object.keys(component)?.map((item: any) => (
+          <Conditional if={item} key={item}>
+            <Flex align="center" gap={20} justify="space-between">
+              <Text fw={500} fz="sm">
+                {breakCamelCase(item)}
+              </Text>
+              <Text fz="sm" fw={700} c={getScoreTextColor(component[item], 10)}>
+                {component[item]}
+              </Text>
+            </Flex>
+          </Conditional>
+        ))}
+
+      {/* Show vulnerability summary if available */}
+      <Conditional if={vulnerabilityCount && vulnerabilityCount > 0}>
+        <Box pt={8} style={{ borderTop: '1px solid var(--mantine-color-dark-4)' }}>
+          <Text fw={500} fz="sm" c="red.6" mb={4}>
+            Vulnerabilities Found: {vulnerabilityCount}
           </Text>
-          <Text fz="sm" fw={700} c={getScoreTextColor(component[item], 10)}>
-            {component[item]}
-          </Text>
-        </Flex>
+          {vulnerabilities && (
+            <Flex direction="column" gap={4}>
+              {Object.entries(vulnerabilities).map(([severity, vulns]: [string, any]) => (
+                <Conditional key={severity} if={Array.isArray(vulns) && vulns.length > 0}>
+                  <Text fz="xs" c="dimmed">
+                    {severity}: {vulns.length} {vulns.length === 1 ? 'issue' : 'issues'}
+                  </Text>
+                </Conditional>
+              ))}
+            </Flex>
+          )}
+        </Box>
       </Conditional>
-    ))
+    </Flex>
   );
 };
 
-const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
+const ScoreCardProgress = ({ name, score, label, component, tooltip, vulnerabilityCount, vulnerabilities }: any) => {
   const colour = getScoreTextColor(score, 10);
   return (
     <Flex direction="column" gap={2} align="center">
@@ -49,6 +72,8 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
                 score={score}
                 label={label}
                 component={component}
+                vulnerabilityCount={vulnerabilityCount}
+                vulnerabilities={vulnerabilities}
               />
             ),
           },
@@ -59,10 +84,16 @@ const ScoreCardProgress = ({ name, score, label, component, tooltip }: any) => {
           </Text>
         }
       />
-      <Flex gap={4} align="center" justify="center">
+      <Flex gap={4} align="center" justify="center" direction="column">
         <Text fz="sm" fw={400} ta="center" c="white">
           {name}
         </Text>
+        {/* Show vulnerability count if available */}
+        <Conditional if={vulnerabilityCount && vulnerabilityCount > 0}>
+          <Text fz="xs" c="red.6" fw={500}>
+            {vulnerabilityCount} {vulnerabilityCount === 1 ? 'vulnerability' : 'vulnerabilities'}
+          </Text>
+        </Conditional>
         <Conditional if={tooltip}>
           <Tooltip
             multiline
@@ -103,6 +134,8 @@ const Score = ({ scoreData = {} }: any) => {
                 label={VULNERABILITY[item]?.label}
                 tooltip={VULNERABILITY[item]?.tooltip}
                 component={scoreData[item]?.component}
+                vulnerabilityCount={scoreData[item]?.vulnerabilityCount}
+                vulnerabilities={scoreData[item]?.vulnerabilities}
               />
             </Conditional>
           ))}

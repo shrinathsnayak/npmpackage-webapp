@@ -59,7 +59,7 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
     ["3", () => redirectToSelectedTab("downloads")],
     ["4", () => redirectToSelectedTab("dependencies")],
     ["5", () => redirectToSelectedTab("vulnerabilities")],
-    ["6", () => redirectToSelectedTab("scorecard")],
+    // ["6", () => redirectToSelectedTab("scorecard")],
   ]);
 
   const HotKeys = ({
@@ -125,9 +125,9 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           <Tabs.Tab size="xs" c="white" value="vulnerabilities">
             <HotKeys value="5" label={t("vulnerabilities")} />
           </Tabs.Tab>
-          <Tabs.Tab size="xs" c="white" value="scorecard">
+          {/* <Tabs.Tab size="xs" c="white" value="scorecard">
             <HotKeys value="6" label={t("scorecard")} />
-          </Tabs.Tab>
+          </Tabs.Tab> */}
         </Tabs.List>
 
         <Tabs.Panel value={TABS.overview.value} py={20} pb={0}>
@@ -163,11 +163,11 @@ const PageTabs = ({ packageInfo, downloads, vulnerabilities }: any) => {
           </ErrorBoundary>
         </Tabs.Panel>
 
-        <Tabs.Panel value={TABS.scorecard.value} py={20} pb={5}>
+        {/* <Tabs.Panel value={TABS.scorecard.value} py={20} pb={5}>
           <ErrorBoundary>
             <MemoizedSecurity packageInfo={securityScore?.data} />
           </ErrorBoundary>
-        </Tabs.Panel>
+        </Tabs.Panel> */}
       </Tabs>
     </Box>
   );

@@ -25,7 +25,7 @@ const Downloads = ({ downloads, packageName }: any) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const clipboard = useClipboard({ timeout: 1000 });
 
-  const formatValue = (value: string | number) => format.number(Number(value));
+  const formatValue = (value: string | number) => format.number(Number(value || 0));
 
   return (
     <Box>

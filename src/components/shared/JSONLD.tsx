@@ -10,7 +10,7 @@ const JSONLD = ({ data, packageName }: any) => {
     "@type": "SoftwareSourceCode",
     name: npmData?.name,
     description: npmData?.description,
-    url: `https://npmpackage.info/package/${packageName}`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageName}`,
     codeRepository: githubData?.repositoryUrl,
     programmingLanguage: githubData?.primaryLanguage,
     license: githubData?.license,
