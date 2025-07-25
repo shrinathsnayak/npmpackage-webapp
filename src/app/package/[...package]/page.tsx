@@ -1,9 +1,8 @@
 import {
   getOGPackageInfo,
-  getNpmPackageData,
-  getGitHubData,
-  getVulnerabilityData,
-  getVulnerabilityScoreData,
+  getNPMPackageData,
+  getGitHubPackageData,
+  getVulnerabilityScore,
   getPackageDownloads,
 } from "@/services/package";
 import { genereatePackageName } from "@/constants/services.constants";
@@ -52,41 +51,24 @@ export default async function Package(props: {
 
   // Fetch data progressively - start with fastest endpoints
   const [npmData, downloads] = await Promise.all([
-    getNpmPackageData(packageName),
+    getNPMPackageData(packageName),
     getPackageDownloads(packageName),
   ]);
 
   // Extract owner and repo from NPM data for GitHub and security scan APIs
-
   const [owner, repo] = matchGithubRepo(npmData);
+
   // Fetch additional data in parallel
-  const [githubData, vulnerabilityData, vulnerabilityScoreData] = await Promise.allSettled([
-    getGitHubData(packageName, owner || undefined, repo || undefined),
-    getVulnerabilityData(packageName, npmData?.data?.version),
-    getVulnerabilityScoreData(packageName, npmData?.data?.version),
+  const [githubData, vulnerabilityScoreData] = await Promise.allSettled([
+    getGitHubPackageData(packageName, owner || "", repo || ""),
+    getVulnerabilityScore(packageName, npmData?.data?.version || ""),
   ]);
 
   const vulnerabilityScore = vulnerabilityScoreData.status === "fulfilled" ? vulnerabilityScoreData.value : null;
-  const vulnerabilities = vulnerabilityData.status === "fulfilled" ? vulnerabilityData.value : null;
-
-  // Enhance vulnerability score with vulnerability data if available
-  if (vulnerabilityScore?.data && vulnerabilities?.data) {
-    // Add vulnerability count and details to the vulnerability score
-    const vulnerabilityCount = Object.values(vulnerabilities.data).reduce((total: number, vulns: any) => {
-      return total + (Array.isArray(vulns) ? vulns.length : 0);
-    }, 0);
-
-    // Enhance the vulnerability score data with vulnerability information
-    if (vulnerabilityScore.data.vulnerability) {
-      vulnerabilityScore.data.vulnerability.vulnerabilityCount = vulnerabilityCount;
-      vulnerabilityScore.data.vulnerability.vulnerabilities = vulnerabilities.data;
-    }
-  }
 
   const data = {
     npm: npmData,
     gitHub: githubData.status === "fulfilled" ? githubData.value : null,
-    vulnerabilities: vulnerabilities,
     vulnerabilityScore: vulnerabilityScore,
   };
 
@@ -100,7 +82,6 @@ export default async function Package(props: {
       <PageTabs
         packageInfo={data || {}}
         downloads={downloads || {}}
-        vulnerabilities={data?.vulnerabilities || {}}
       />
     </div>
   );

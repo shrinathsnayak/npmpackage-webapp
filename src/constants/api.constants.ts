@@ -6,31 +6,31 @@ export const API_CONFIG = {
     GITHUB_DATA: 300, // 5 minutes
     VULNERABILITIES: 900, // 15 minutes
     SECURITY_SCAN: 600, // 10 minutes
-    DOWNLOADS: 300, // 5 minutes
-    NPM_DATA: 180, // 3 minutes
+    DOWNLOADS: 120, // 2 minutes (reduced for frequently changing data)
+    NPM_DATA: 120, // 2 minutes (reduced for frequently changing data)
     SEARCH: 180, // 3 minutes
     OG_INFO: 600, // 10 minutes
     SECURITY_SCORE: 600, // 10 minutes
   },
 
-  // Timeout durations in milliseconds
+  // Timeout durations in milliseconds (reduced for lower CPU usage)
   TIMEOUTS: {
-    PACKAGE: 55000, // 55 seconds
-    GITHUB: 25000, // 25 seconds
-    VULNERABILITIES: 40000, // 40 seconds
-    SECURITY_SCAN: 35000, // 35 seconds
-    DOWNLOADS: 55000, // 55 seconds
-    PROGRESSIVE: 55000, // 55 seconds
+    PACKAGE: 30000, // 30 seconds (reduced from 55)
+    GITHUB: 20000, // 20 seconds (reduced from 25)
+    VULNERABILITIES: 30000, // 30 seconds (reduced from 40)
+    SECURITY_SCAN: 25000, // 25 seconds (reduced from 35)
+    DOWNLOADS: 30000, // 30 seconds (reduced from 55)
+    PROGRESSIVE: 30000, // 30 seconds (reduced from 55)
   },
 
-  // Max duration for API routes
+  // Max duration for API routes (reduced for lower CPU usage)
   MAX_DURATIONS: {
-    PACKAGE: 60, // 60 seconds
-    GITHUB: 30, // 30 seconds
-    VULNERABILITIES: 45, // 45 seconds
-    SECURITY_SCAN: 40, // 40 seconds
-    DOWNLOADS: 60, // 60 seconds
-    PROGRESSIVE: 60, // 60 seconds
+    PACKAGE: 35, // 35 seconds (reduced from 60)
+    GITHUB: 25, // 25 seconds (reduced from 30)
+    VULNERABILITIES: 35, // 35 seconds (reduced from 45)
+    SECURITY_SCAN: 30, // 30 seconds (reduced from 40)
+    DOWNLOADS: 35, // 35 seconds (reduced from 60)
+    PROGRESSIVE: 35, // 35 seconds (reduced from 60)
   },
 
   // Development cache duration (shorter for faster development)

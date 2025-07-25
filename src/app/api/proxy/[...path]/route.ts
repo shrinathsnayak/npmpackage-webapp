@@ -5,8 +5,11 @@ import {
   HTTP_STATUS,
 } from "@/constants/api.constants";
 
-// Enable edge runtime for better performance
+// Enable edge runtime for better performance and lower CPU usage
 export const runtime = "edge";
+
+// Reduce timeout for faster response and lower CPU usage
+const REDUCED_TIMEOUT = 30000; // 30 seconds instead of 55
 
 const PARAMETER_MAPPING: Record<string, Record<string, string>> = {
   npm: {
@@ -45,6 +48,9 @@ const PARAMETER_MAPPING: Record<string, Record<string, string>> = {
 // Endpoints that should not be cached
 const NO_CACHE_ENDPOINTS = ["search"];
 
+// Endpoints that should have shorter cache duration
+const SHORT_CACHE_ENDPOINTS = ["downloads", "npm"];
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
@@ -80,16 +86,20 @@ export async function GET(
     const queryString = mappedParams.toString();
     const fullUrl = queryString ? `${backendUrl}?${queryString}` : backendUrl;
 
-    console.log(`Proxy request: ${fullUrl}`);
-
-    // Set timeout
+    // Set timeout with reduced duration
     const controller = new AbortController();
     const timeoutId = setTimeout(
       () => controller.abort(),
-      API_CONFIG.TIMEOUTS.PACKAGE
+      REDUCED_TIMEOUT
     );
 
     try {
+      // Determine cache duration based on endpoint
+      let cacheDuration = API_CONFIG.CACHE_DURATIONS.PACKAGE_DATA;
+      if (SHORT_CACHE_ENDPOINTS.includes(endpoint)) {
+        cacheDuration = 120; // 2 minutes for frequently changing data
+      }
+
       const response = await fetch(fullUrl, {
         method: "GET",
         signal: controller.signal,
@@ -99,7 +109,7 @@ export async function GET(
         next: NO_CACHE_ENDPOINTS.includes(endpoint) || process.env.NODE_ENV === "development"
           ? undefined
           : {
-            revalidate: API_CONFIG.CACHE_DURATIONS.PACKAGE_DATA,
+            revalidate: cacheDuration,
             tags: [`proxy-${path}`],
           },
       });

@@ -8,12 +8,16 @@ import { API_CONFIG } from "@/constants/api.constants";
  */
 export const searchPackage = async (packageName: string) => {
   try {
-    if (!packageName) {
+    if (!packageName || packageName.trim().length < 2) {
       return null;
     }
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/search?q=${packageName}`
+      `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/search?q=${encodeURIComponent(packageName.trim())}`,
+      {
+        // Add timeout to prevent hanging requests
+        signal: AbortSignal.timeout(15000),
+      }
     );
 
     if (!res.ok) {
@@ -31,77 +35,6 @@ export const searchPackage = async (packageName: string) => {
 };
 
 /**
- * Get package downloads with optimized caching
- */
-export const getPackageDownloads = cache(
-  async (packageName: string) => {
-    try {
-      if (!packageName) {
-        return null;
-      }
-
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/downloads?packageName=${packageName}`
-      );
-
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        throw new Error(
-          errorData.error ||
-          `Failed to fetch package downloads: ${res.statusText}`
-        );
-      }
-
-      return await res.json();
-    } catch (err) {
-      console.error("Error fetching package downloads:", err);
-      return null;
-    }
-  },
-  ["package-downloads"],
-  {
-    revalidate: API_CONFIG.CACHE_DURATIONS.DOWNLOADS,
-    tags: ["package-downloads"],
-  }
-);
-
-/**
- * Get package download statistics with optimized caching
- */
-export const getPackageDownloadStats = cache(
-  async (packageName: string, startDate?: string, endDate?: string) => {
-    try {
-      if (!packageName) {
-        throw new Error("Package name is required");
-      }
-
-      const params: Record<string, string> = { packageName };
-      if (startDate) params.startDate = startDate;
-      if (endDate) params.endDate = endDate;
-
-      const searchQuery = new URLSearchParams(params);
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/downloads?${searchQuery}`,
-      );
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch download statistics");
-      }
-
-      return await res.json();
-    } catch (err) {
-      console.error("Error fetching download statistics:", err);
-      throw err;
-    }
-  },
-  ["download-stats"],
-  {
-    revalidate: API_CONFIG.CACHE_DURATIONS.DOWNLOADS,
-    tags: ["download-stats"],
-  }
-);
-
-/**
  * Get OG package info with optimized caching
  */
 export const getOGPackageInfo = cache(
@@ -112,7 +45,10 @@ export const getOGPackageInfo = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${packageName}`
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${encodeURIComponent(packageName)}`,
+        {
+          signal: AbortSignal.timeout(20000),
+        }
       );
 
       if (!res.ok) {
@@ -137,9 +73,9 @@ export const getOGPackageInfo = cache(
 );
 
 /**
- * Get NPM package data with optimized caching
+ * Get package downloads with optimized caching
  */
-export const getNpmPackageData = cache(
+export const getPackageDownloads = cache(
   async (packageName: string) => {
     try {
       if (!packageName) {
@@ -147,13 +83,98 @@ export const getNpmPackageData = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${packageName}`
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/downloads?packageName=${encodeURIComponent(packageName)}`,
+        {
+          signal: AbortSignal.timeout(20000),
+        }
       );
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
-          errorData.error || `Failed to fetch NPM data: ${res.statusText}`
+          errorData.error ||
+          `Failed to fetch package downloads: ${res.statusText}`
+        );
+      }
+
+      return await res.json();
+    } catch (err) {
+      console.error("Error fetching package downloads:", err);
+      throw err;
+    }
+  },
+  ["package-downloads"],
+  {
+    revalidate: API_CONFIG.CACHE_DURATIONS.DOWNLOADS,
+    tags: ["package-downloads"],
+  }
+);
+
+/**
+ * Get package downloads with date range with optimized caching
+ */
+export const getPackageDownloadsWithRange = cache(
+  async (packageName: string, startDate: string, endDate: string) => {
+    try {
+      if (!packageName || !startDate || !endDate) {
+        throw new Error("Package name, start date, and end date are required");
+      }
+
+      const searchQuery = new URLSearchParams({
+        packageName: packageName,
+        startDate: startDate,
+        endDate: endDate,
+      }).toString();
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/downloads?${searchQuery}`,
+        {
+          signal: AbortSignal.timeout(25000),
+        }
+      );
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(
+          errorData.error ||
+          `Failed to fetch package downloads with range: ${res.statusText}`
+        );
+      }
+
+      return await res.json();
+    } catch (err) {
+      console.error("Error fetching package downloads with range:", err);
+      throw err;
+    }
+  },
+  ["package-downloads-range"],
+  {
+    revalidate: API_CONFIG.CACHE_DURATIONS.DOWNLOADS,
+    tags: ["package-downloads-range"],
+  }
+);
+
+/**
+ * Get NPM package data with optimized caching
+ */
+export const getNPMPackageData = cache(
+  async (packageName: string) => {
+    try {
+      if (!packageName) {
+        throw new Error("Package name is required");
+      }
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${encodeURIComponent(packageName)}`,
+        {
+          signal: AbortSignal.timeout(20000),
+        }
+      );
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(
+          errorData.error || `Failed to fetch NPM package data: ${res.statusText}`
         );
       }
 
@@ -171,113 +192,121 @@ export const getNpmPackageData = cache(
 );
 
 /**
- * Get GitHub data with optimized caching
+ * Get NPM package data with owner and repo with optimized caching
  */
-export const getGitHubData = cache(
-  async (packageName: string, owner?: string, repo?: string) => {
+export const getNPMPackageDataWithOwner = cache(
+  async (packageName: string, owner: string, repo: string) => {
     try {
       if (!packageName || !owner || !repo) {
         throw new Error("Package name, owner, and repo are required");
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/github?project=${packageName}&owner=${owner}&repo=${repo}`
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${encodeURIComponent(packageName)}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
+        {
+          signal: AbortSignal.timeout(20000),
+        }
       );
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
-          errorData.error || `Failed to fetch GitHub data: ${res.statusText}`
+          errorData.error ||
+          `Failed to fetch NPM package data with owner: ${res.statusText}`
         );
       }
 
       return await res.json();
     } catch (err) {
-      console.error("Error fetching GitHub data:", err);
+      console.error("Error fetching NPM package data with owner:", err);
       throw err;
     }
   },
-  ["github-data"],
+  ["npm-package-data-owner"],
+  {
+    revalidate: API_CONFIG.CACHE_DURATIONS.NPM_DATA,
+    tags: ["npm-package-data-owner"],
+  }
+);
+
+/**
+ * Get GitHub package data with optimized caching
+ */
+export const getGitHubPackageData = cache(
+  async (packageName: string, owner: string, repo: string) => {
+    try {
+      if (!packageName || !owner || !repo) {
+        throw new Error("Package name, owner, and repo are required");
+      }
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/github?project=${encodeURIComponent(packageName)}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
+        {
+          signal: AbortSignal.timeout(20000),
+        }
+      );
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(
+          errorData.error ||
+          `Failed to fetch GitHub package data: ${res.statusText}`
+        );
+      }
+
+      return await res.json();
+    } catch (err) {
+      console.error("Error fetching GitHub package data:", err);
+      throw err;
+    }
+  },
+  ["github-package-data"],
   {
     revalidate: API_CONFIG.CACHE_DURATIONS.GITHUB_DATA,
-    tags: ["github-data"],
+    tags: ["github-package-data"],
   }
 );
 
 /**
- * Get vulnerability data with optimized caching
+ * Get vulnerability score with optimized caching
  */
-export const getVulnerabilityData = cache(
-  async (packageName: string, version?: string) => {
+export const getVulnerabilityScore = cache(
+  async (name: string, version: string) => {
     try {
-      if (!packageName) {
-        throw new Error("Package name is required");
+      if (!name || !version) {
+        throw new Error("Package name and version are required");
       }
 
+      const params = new URLSearchParams({
+        name: name,
+        version: version,
+      }).toString();
+
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL
-        }/api/proxy/vulnerabilities?name=${packageName}${version ? `&version=${version}` : ""
-        }`
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/vulnerability-score?${params}`,
+        {
+          signal: AbortSignal.timeout(25000),
+        }
       );
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch vulnerability data: ${res.statusText}`
+          `Failed to fetch vulnerability score: ${res.statusText}`
         );
       }
 
       return await res.json();
     } catch (err) {
-      console.error("Error fetching vulnerability data:", err);
+      console.error("Error fetching vulnerability score:", err);
       throw err;
     }
   },
-  ["vulnerability-data"],
+  ["vulnerability-score"],
   {
-    revalidate: API_CONFIG.CACHE_DURATIONS.VULNERABILITIES,
-    tags: ["vulnerability-data"],
-  }
-);
-
-/**
- * Get vulnerability score data with optimized caching
- */
-export const getVulnerabilityScoreData = cache(
-  async (packageName: string, version?: string) => {
-    try {
-      if (!packageName) {
-        throw new Error("Package name is required");
-      }
-
-      const params = new URLSearchParams({ name: packageName });
-      if (version) {
-        params.set("version", version);
-      }
-
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/vulnerability-score?${params}`
-      );
-
-      if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        throw new Error(
-          errorData.error ||
-          `Failed to fetch vulnerability score data: ${res.statusText}`
-        );
-      }
-
-      return await res.json();
-    } catch (err) {
-      console.error("Error fetching vulnerability score data:", err);
-      throw err;
-    }
-  },
-  ["vulnerability-score-data"],
-  {
-    revalidate: API_CONFIG.CACHE_DURATIONS.VULNERABILITIES,
-    tags: ["vulnerability-score-data"],
+    revalidate: API_CONFIG.CACHE_DURATIONS.SECURITY_SCORE,
+    tags: ["vulnerability-score"],
   }
 );
 
@@ -292,7 +321,10 @@ export const getSecurityScanData = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/scan?project=${packageName}&owner=${owner}&repo=${repo}`
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/scan?project=${encodeURIComponent(packageName)}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
+        {
+          signal: AbortSignal.timeout(25000),
+        }
       );
 
       if (!res.ok) {

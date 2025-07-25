@@ -2,14 +2,13 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
-import { Image } from "@mantine/core";
 import { CodeHighlightTabs } from "@mantinex/shiki";
 import OverviewCard from "@/components/shared/OverviewCard";
 import classes from "./Installation.module.css";
 
-import NpmIcon from "@/assets/npm.svg";
-import YarnIcon from "@/assets/yarn.svg";
-import PnpmIcon from "@/assets/pnpm.svg";
+import NpmIcon from "@/components/shared/Icons/NpmIcon";
+import YarnIcon from "@/components/shared/Icons/YarnIcon";
+import PnpmIcon from "@/components/shared/Icons/PnpmIcon";
 
 const Installations = ({ packageName }: any) => {
   const t = useTranslations("overview");
@@ -22,19 +21,19 @@ const Installations = ({ packageName }: any) => {
             fileName: "npm",
             code: `npm install ${packageName}`,
             language: "bash",
-            icon: <Image src={NpmIcon.src} w={16} h={16} alt="NPM Icon" />,
+            icon: <NpmIcon width={16} height={16} />,
           },
           {
             fileName: "yarn",
             code: `yarn add ${packageName}`,
             language: "bash",
-            icon: <Image src={YarnIcon.src} w={16} h={16} alt="Yarn Icon" />,
+            icon: <YarnIcon width={16} height={16} />,
           },
           {
             fileName: "pnpm",
             code: `pnpm add ${packageName}`,
             language: "bash",
-            icon: <Image src={PnpmIcon.src} w={16} h={16} alt="PNPM Icon" />,
+            icon: <PnpmIcon width={16} height={16} />,
           },
         ]}
       />

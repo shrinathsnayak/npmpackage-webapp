@@ -1,6 +1,6 @@
 import React from "react";
 import { genereatePackageName } from "@/constants/services.constants";
-import { getPackageDownloadStats } from "@/services/package";
+import { getPackageDownloadsWithRange } from "@/services/package";
 import ClientGraphContainer from "./ClientGraph";
 
 export default async function GraphContainer({
@@ -10,7 +10,7 @@ export default async function GraphContainer({
 }: any) {
   const name = packageName && genereatePackageName([packageName] as any);
   const downloads =
-    (name && (await getPackageDownloadStats(name, startDate, endDate))) || {};
+    (name && startDate && endDate && (await getPackageDownloadsWithRange(name, startDate, endDate))) || {};
   return (
     <ClientGraphContainer packageName={packageName} downloads={downloads} />
   );
