@@ -11,7 +11,7 @@ const ProductHuntLaunch = () => {
     <Anchor
       component={Link}
       underline="never"
-      href={`${process.env.NEXT_PUBLIC_VALIDATE_EMAIL_URL}`}
+      href="mailto:shrinathnayak07@gmail.com"
       target="_blank"
     >
       <Flex
@@ -36,7 +36,7 @@ const ProductHuntLaunch = () => {
           🚀
         </Text>
         <Text c="white" fz="sm">
-          Introducing validate.email
+          npmpackage.info for sale
         </Text>
         <IconArrowNarrowRight color="white" />
       </Flex>

@@ -15,7 +15,11 @@ import { VULNERABILITY } from "@/constants";
 import { breakCamelCase, getScoreTextColor } from "@/utils";
 import { IconInfoCircle } from "@tabler/icons-react";
 
-const RenderScoreBreakup = ({ component, vulnerabilityCount, vulnerabilities }: any) => {
+const RenderScoreBreakup = ({
+  component,
+  vulnerabilityCount,
+  vulnerabilities,
+}: any) => {
   return (
     <Flex direction="column" gap={1}>
       {component &&
@@ -35,7 +39,15 @@ const RenderScoreBreakup = ({ component, vulnerabilityCount, vulnerabilities }: 
   );
 };
 
-const ScoreCardProgress = ({ name, score, label, component, tooltip, vulnerabilityCount, vulnerabilities }: any) => {
+const ScoreCardProgress = ({
+  name,
+  score,
+  label,
+  component,
+  tooltip,
+  vulnerabilityCount,
+  vulnerabilities,
+}: any) => {
   const colour = getScoreTextColor(score, 10);
   return (
     <Flex direction="column" gap={2} align="center">

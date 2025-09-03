@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface NpmIconProps {
   width?: number;
@@ -6,7 +6,11 @@ interface NpmIconProps {
   className?: string;
 }
 
-const NpmIcon: React.FC<NpmIconProps> = ({ width = 16, height = 16, className }) => {
+const NpmIcon: React.FC<NpmIconProps> = ({
+  width = 16,
+  height = 16,
+  className,
+}) => {
   return (
     <svg
       width={width}
@@ -20,10 +24,13 @@ const NpmIcon: React.FC<NpmIconProps> = ({ width = 16, height = 16, className })
     >
       <g>
         <polygon fill="#C12127" points="0 256 0 0 256 0 256 256" />
-        <polygon fill="#FFFFFF" points="48 48 208 48 208 208 176 208 176 80 128 80 128 208 48 208" />
+        <polygon
+          fill="#FFFFFF"
+          points="48 48 208 48 208 208 176 208 176 80 128 80 128 208 48 208"
+        />
       </g>
     </svg>
   );
 };
 
-export default NpmIcon; 
+export default NpmIcon;

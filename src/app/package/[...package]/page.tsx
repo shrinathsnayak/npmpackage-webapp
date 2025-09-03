@@ -64,7 +64,10 @@ export default async function Package(props: {
     getVulnerabilityScore(packageName, npmData?.data?.version || ""),
   ]);
 
-  const vulnerabilityScore = vulnerabilityScoreData.status === "fulfilled" ? vulnerabilityScoreData.value : null;
+  const vulnerabilityScore =
+    vulnerabilityScoreData.status === "fulfilled"
+      ? vulnerabilityScoreData.value
+      : null;
 
   const data = {
     npm: npmData,
@@ -79,10 +82,7 @@ export default async function Package(props: {
         packageInfo={data || {}}
         downloads={downloads?.data?.total || 0}
       />
-      <PageTabs
-        packageInfo={data || {}}
-        downloads={downloads || {}}
-      />
+      <PageTabs packageInfo={data || {}} downloads={downloads || {}} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface YarnIconProps {
   width?: number;
@@ -6,7 +6,11 @@ interface YarnIconProps {
   className?: string;
 }
 
-const YarnIcon: React.FC<YarnIconProps> = ({ width = 16, height = 16, className }) => {
+const YarnIcon: React.FC<YarnIconProps> = ({
+  width = 16,
+  height = 16,
+  className,
+}) => {
   return (
     <svg
       width={width}
@@ -32,4 +36,4 @@ const YarnIcon: React.FC<YarnIconProps> = ({ width = 16, height = 16, className 
   );
 };
 
-export default YarnIcon; 
+export default YarnIcon;

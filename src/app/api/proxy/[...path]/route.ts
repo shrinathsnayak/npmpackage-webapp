@@ -88,10 +88,7 @@ export async function GET(
 
     // Set timeout with reduced duration
     const controller = new AbortController();
-    const timeoutId = setTimeout(
-      () => controller.abort(),
-      REDUCED_TIMEOUT
-    );
+    const timeoutId = setTimeout(() => controller.abort(), REDUCED_TIMEOUT);
 
     try {
       // Determine cache duration based on endpoint
@@ -106,12 +103,14 @@ export async function GET(
         headers: {
           "Content-Type": "application/json",
         },
-        next: NO_CACHE_ENDPOINTS.includes(endpoint) || process.env.NODE_ENV === "development"
-          ? undefined
-          : {
-            revalidate: cacheDuration,
-            tags: [`proxy-${path}`],
-          },
+        next:
+          NO_CACHE_ENDPOINTS.includes(endpoint) ||
+          process.env.NODE_ENV === "development"
+            ? undefined
+            : {
+                revalidate: cacheDuration,
+                tags: [`proxy-${path}`],
+              },
       });
 
       clearTimeout(timeoutId);

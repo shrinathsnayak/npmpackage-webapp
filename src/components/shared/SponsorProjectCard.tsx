@@ -7,7 +7,7 @@ const SponsorProjectCard = () => {
   return (
     <Anchor
       component={Link}
-      href={`${process.env.NEXT_PUBLIC_VALIDATE_EMAIL_URL}`}
+      href="mailto:shrinathnayak07@gmail.com"
       target="blank"
       underline="never"
     >
@@ -16,11 +16,11 @@ const SponsorProjectCard = () => {
           {t("sponsor_card")}
         </Text> */}
         <Title fz="sm" c="white">
-          validate.email 🚀
+          🚀 npmpackage.info for sale
         </Title>
         <Text fz="xs" c="white" mt={10}>
-          Verify real, reachable, and deliverable emails with instant MX
-          records, SMTP checks, and disposable email detection.
+          Built with Next.js • Fully responsive • SEO optimized • Open source
+          ready
         </Text>
       </Paper>
     </Anchor>

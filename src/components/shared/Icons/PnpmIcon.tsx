@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PnpmIconProps {
   width?: number;
@@ -6,7 +6,11 @@ interface PnpmIconProps {
   className?: string;
 }
 
-const PnpmIcon: React.FC<PnpmIconProps> = ({ width = 16, height = 16, className }) => {
+const PnpmIcon: React.FC<PnpmIconProps> = ({
+  width = 16,
+  height = 16,
+  className,
+}) => {
   return (
     <svg
       width={width}
@@ -28,4 +32,4 @@ const PnpmIcon: React.FC<PnpmIconProps> = ({ width = 16, height = 16, className 
   );
 };
 
-export default PnpmIcon; 
+export default PnpmIcon;

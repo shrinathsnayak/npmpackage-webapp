@@ -13,7 +13,9 @@ export const searchPackage = async (packageName: string) => {
     }
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/search?q=${encodeURIComponent(packageName.trim())}`,
+      `${
+        process.env.NEXT_PUBLIC_APP_URL
+      }/api/proxy/search?q=${encodeURIComponent(packageName.trim())}`,
       {
         // Add timeout to prevent hanging requests
         signal: AbortSignal.timeout(15000),
@@ -45,7 +47,9 @@ export const getOGPackageInfo = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${encodeURIComponent(packageName)}`,
+        `${
+          process.env.NEXT_PUBLIC_APP_URL
+        }/api/proxy/npm?project=${encodeURIComponent(packageName)}`,
         {
           signal: AbortSignal.timeout(20000),
         }
@@ -55,7 +59,7 @@ export const getOGPackageInfo = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch OG package info: ${res.statusText}`
+            `Failed to fetch OG package info: ${res.statusText}`
         );
       }
 
@@ -83,7 +87,9 @@ export const getPackageDownloads = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/downloads?packageName=${encodeURIComponent(packageName)}`,
+        `${
+          process.env.NEXT_PUBLIC_APP_URL
+        }/api/proxy/downloads?packageName=${encodeURIComponent(packageName)}`,
         {
           signal: AbortSignal.timeout(20000),
         }
@@ -93,7 +99,7 @@ export const getPackageDownloads = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch package downloads: ${res.statusText}`
+            `Failed to fetch package downloads: ${res.statusText}`
         );
       }
 
@@ -137,7 +143,7 @@ export const getPackageDownloadsWithRange = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch package downloads with range: ${res.statusText}`
+            `Failed to fetch package downloads with range: ${res.statusText}`
         );
       }
 
@@ -165,7 +171,9 @@ export const getNPMPackageData = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${encodeURIComponent(packageName)}`,
+        `${
+          process.env.NEXT_PUBLIC_APP_URL
+        }/api/proxy/npm?project=${encodeURIComponent(packageName)}`,
         {
           signal: AbortSignal.timeout(20000),
         }
@@ -174,7 +182,8 @@ export const getNPMPackageData = cache(
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
-          errorData.error || `Failed to fetch NPM package data: ${res.statusText}`
+          errorData.error ||
+            `Failed to fetch NPM package data: ${res.statusText}`
         );
       }
 
@@ -202,7 +211,11 @@ export const getNPMPackageDataWithOwner = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/npm?project=${encodeURIComponent(packageName)}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
+        `${
+          process.env.NEXT_PUBLIC_APP_URL
+        }/api/proxy/npm?project=${encodeURIComponent(
+          packageName
+        )}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
         {
           signal: AbortSignal.timeout(20000),
         }
@@ -212,7 +225,7 @@ export const getNPMPackageDataWithOwner = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch NPM package data with owner: ${res.statusText}`
+            `Failed to fetch NPM package data with owner: ${res.statusText}`
         );
       }
 
@@ -240,7 +253,11 @@ export const getGitHubPackageData = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/github?project=${encodeURIComponent(packageName)}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
+        `${
+          process.env.NEXT_PUBLIC_APP_URL
+        }/api/proxy/github?project=${encodeURIComponent(
+          packageName
+        )}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
         {
           signal: AbortSignal.timeout(20000),
         }
@@ -250,7 +267,7 @@ export const getGitHubPackageData = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch GitHub package data: ${res.statusText}`
+            `Failed to fetch GitHub package data: ${res.statusText}`
         );
       }
 
@@ -293,7 +310,7 @@ export const getVulnerabilityScore = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch vulnerability score: ${res.statusText}`
+            `Failed to fetch vulnerability score: ${res.statusText}`
         );
       }
 
@@ -321,7 +338,11 @@ export const getSecurityScanData = cache(
       }
 
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/proxy/scan?project=${encodeURIComponent(packageName)}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
+        `${
+          process.env.NEXT_PUBLIC_APP_URL
+        }/api/proxy/scan?project=${encodeURIComponent(
+          packageName
+        )}&owner=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repo)}`,
         {
           signal: AbortSignal.timeout(25000),
         }
@@ -331,7 +352,7 @@ export const getSecurityScanData = cache(
         const errorData = await res.json().catch(() => ({}));
         throw new Error(
           errorData.error ||
-          `Failed to fetch security scan data: ${res.statusText}`
+            `Failed to fetch security scan data: ${res.statusText}`
         );
       }
 

@@ -77,7 +77,7 @@ const Header = ({ hideSearch }: any) => {
                   </UnstyledButton>
                 </>
               )}
-              <UnstyledButton
+              {/* <UnstyledButton
                 href="/sponsor"
                 component={Link}
                 className={classes.mobilecontrol}
@@ -87,7 +87,7 @@ const Header = ({ hideSearch }: any) => {
                   style={{ width: rem(25), height: rem(25) }}
                   fill="var(--mantine-color-red-8)"
                 />
-              </UnstyledButton>
+              </UnstyledButton> */}
               <Bookmark />
               {/* <UnstyledButton
               component={Link}
